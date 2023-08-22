@@ -36,8 +36,8 @@ const HomePage = (props) => {
                 textColor="#fff"
                 borderColor="#998643"
                 padding="12px 0"
-                btnLink="/about/vision-charisms"
-                btnText="Read Our Vision and Charisms"
+                // btnLink="/about/vision-charisms"
+                // btnText="Read Our Vision and Charisms"
                 darkBg={true}
             />
 
@@ -75,7 +75,7 @@ const HomePage = (props) => {
                 <TabbedSection />
             </Grid> */}
 
-            <TextSection
+            {/* <TextSection
                 text="Over 55 percent of Franciscan University students voluntarily go to Mass two or more times a week."
                 bgColor="#051d47"
                 textColor="#fff"
@@ -139,7 +139,7 @@ const HomePage = (props) => {
                 bgColor="#051d47"
                 textColor="#fff"
                 borderColor="#998643"
-            />
+            /> */}
             <div style={{ backgroundColor: 'black' }}>
                 <div className={classes.section}>
                     <div className={classes.innerContainer}>

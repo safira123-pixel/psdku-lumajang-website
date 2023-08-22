@@ -19,22 +19,22 @@ const BottomNavigationTab = ({ classes }) => {
     return (
         <BottomNavigation
             showLabels
-            style={{
-                position: 'fixed',
-                display: `${scrollBottom === true ? 'none' : 'flex'}`,
-                bottom: 0,
-                width: '100%',
-                height: 80,
-                backgroundColor: '#0f2c56',
-                color: '#fff',
-                justifyContent: 'space-between'
-            }}
+            // style={{
+            //     position: 'fixed',
+            //     display: `${scrollBottom === true ? 'none' : 'flex'}`,
+            //     bottom: 0,
+            //     width: '100%',
+            //     height: 80,
+            //     backgroundColor: '#0f2c56',
+            //     color: '#fff',
+            //     justifyContent: 'space-between'
+            // }}
         >
-            <BottomNavigationAction style={{ color: '#fff' }} label="Recents" icon={<RestoreIcon />} />
+            {/* <BottomNavigationAction style={{ color: '#fff' }} label="Recents" icon={<RestoreIcon />} />
             <BottomNavigationAction style={{ color: '#fff' }} label="Favorites" icon={<FavoriteIcon />} />
             <BottomNavigationAction style={{ color: '#fff' }} label="Archive" icon={<ArchiveIcon />} />
             <BottomNavigationAction style={{ color: '#fff' }} label="Archive" icon={<ArchiveIcon />} />
-            <BottomNavigationAction style={{ color: '#fff' }} label="Archive" icon={<ArchiveIcon />} />
+            <BottomNavigationAction style={{ color: '#fff' }} label="Archive" icon={<ArchiveIcon />} /> */}
         </BottomNavigation>
     )
 }
