@@ -112,11 +112,11 @@ class ButtonAppBar extends Component {
                       linkId="home"
                       content={t('beranda.label')}
                     />
-                    <AppBarMenuItem
+                    {/* <AppBarMenuItem
                       toggleDrawer={toggleDrawer}
                       linkId="about"
                       content={t('tentang.label')}
-                    />
+                    /> */}
                     <li style={{ marginRight: 20 }}>
                       <div className={classes.language}>
                         <div onClick={() => changeLanguage('ina')} style={{ height: "20px", width: "20px", marginLeft: 2, cursor: 'pointer' }}>

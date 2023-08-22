@@ -98,7 +98,7 @@ class TemporaryDrawer extends Component {
               </ListItem>
               <DrawerItem
                 toggleDrawer={toggleDrawer}
-                primaryText="About"
+                primaryText="Profil"
                 submenuItems={aboutMenu}
                 isSubOpen={this.props.drawerSubItems}
                 isOpen={this.props.drawerItems.about}
@@ -108,7 +108,7 @@ class TemporaryDrawer extends Component {
               />
               <DrawerItem
                 toggleDrawer={toggleDrawer}
-                primaryText="Academics"
+                primaryText="Akademik"
                 submenuItems={academicsMenu}
                 isSubOpen={this.props.drawerSubItems}
                 isOpen={this.props.drawerItems.academics}
@@ -121,7 +121,7 @@ class TemporaryDrawer extends Component {
                 expandSubItem={this.props.expandSubItem}
                 expandItem={this.props.expandItem}
                 itemId="admissions"
-                primaryText="Admissions"
+                primaryText="Program Studi"
                 submenuItems={admissionsMenu}
                 isSubOpen={this.props.drawerSubItems}
                 isOpen={this.props.drawerItems.admissions}
@@ -131,7 +131,7 @@ class TemporaryDrawer extends Component {
                 expandSubItem={this.props.expandSubItem}
                 expandItem={this.props.expandItem}
                 itemId="evangelization"
-                primaryText="Evangelization"
+                primaryText="Info Penerimaan Mahasiswa Baru"
                 submenuItems={faithMenu}
                 isSubOpen={this.props.drawerSubItems}
                 isOpen={this.props.drawerItems.evangelization}
@@ -141,13 +141,13 @@ class TemporaryDrawer extends Component {
                 expandSubItem={this.props.expandSubItem}
                 expandItem={this.props.expandItem}
                 itemId="student-life"
-                primaryText="Student Life"
+                primaryText="Kegiatan Mahasiswa"
                 submenuItems={studentMenu}
                 isSubOpen={this.props.drawerSubItems}
                 isOpen={this.props.drawerItems['student-life']}
               />
               <Divider />
-              <a
+              {/* <a
                 className={classes.externalLink}
                 href="https://accessfus.franciscan.edu"
                 target="_blank"
@@ -251,7 +251,7 @@ class TemporaryDrawer extends Component {
                   </ListItemIcon>
                   <ListItemText inset primary={'Library'} />
                 </ListItem>
-              </a>
+              </a> */}
             </List>
           </div>
         </div>

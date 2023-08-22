@@ -31,7 +31,7 @@ const HomePage = (props) => {
             tertiaryBtnLink="https://franciscan.secure.force.com/events"
         /> */}
             <TextSection
-                text="Our mission as a Franciscan and Catholic university that embraces the call to dynamic orthodoxy is to educate, to evangelize, and to send forth joyful disciples."
+                text="Menyelenggarakan dan Mengembangkan Pendidikan Vokasi yang Berkualitas, Inovatif, dan Berdaya Saing yang Mendorong Pola Pembelajaran Seumur Hidup dan Tumbuhnya Jiwa Kewirausahaan serta Sesuai Kebutuhan Industri, Lembaga Pemerintah, dan Masyarakat."
                 bgColor="#051d47"
                 textColor="#fff"
                 borderColor="#998643"
