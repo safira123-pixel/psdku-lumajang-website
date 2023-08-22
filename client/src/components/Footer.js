@@ -135,16 +135,13 @@ class Footer extends Component {
           </Grid> */}
         {/* </Grid> */}
         <Grid className={classes.subFooter} item xs={12}>
-          <div className={classes.childFooter}>
-            <div className={classes.rootImage}>
+          <div className={classes.rootImage}>
               <img src='./assets/images/logo-polinema-footer.png' alt='Polinema' style={{ marginBottom: 20 }} />
-            </div>
-            <div>
               <Typography
                 className={classes.white}
                 variant="subheading"
                 component={'span'}
-                style={{ fontSize: 14, marginLeft: 50 }}
+                style={{ fontSize: 14}}
               >
                 © {currentYear} PSDKU Polinema Kampus Lumajang
               </Typography>
@@ -152,12 +149,33 @@ class Footer extends Component {
                 className={classes.white}
                 variant="subheading"
                 component={'span'}
-                style={{ fontSize: 14, marginLeft: 50 }}
+                style={{ fontSize: 14}}
               >
                 Designs and implementations by IT PSDKU Lumajang
               </Typography>
             </div>
-          </div>
+          <div class="menu-footer-program-studi-container">
+            <ul id="secondary-menu" class="menu">
+              <li id="menu-item-682" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-682"><a href="#" style={{ color: 'white'}}>D-IV Teknologi Rekayasa Otomotif</a></li>
+              <li id="menu-item-680" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-680"><a href="#" style={{ color: 'white'}}>D-III Teknologi Sipil</a></li>
+              <li id="menu-item-326" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-326"><a href="#" style={{ color: 'white'}}>D-III Akutansi</a></li>
+              <li id="menu-item-325" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-325"><a href="#" style={{ color: 'white'}}>D-III Teknologi Informasi</a></li>
+              </ul>
+           </div>	
+           <div class="menu-footer-social-media-container">
+            <ul id="secondary-menu" class="menu">
+              <li id="menu-item-681" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-681"><a href="#" style={{ color: 'white'}}>Instagram</a></li>
+              <li id="menu-item-682" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-682"><a href="#"style={{ color:  'white'}}>Facebook</a></li>
+              <li id="menu-item-680" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-680"><a href="#" style={{ color: 'white'}}>Twitter</a></li>
+              <li id="menu-item-326" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-326"><a href="#" style={{ color: 'white'}}>Whatsapp</a></li>
+              <li id="menu-item-325" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-325"><a href="#" style={{ color: 'white'}}>Email</a></li>
+              </ul>
+           </div>	
+           <div>
+           <ul id="secondary-menu" class="menu">
+              <h style={{ color: 'white'}}> V66V+446, Area Sawah/Kebun, Jogoyudan, Kec. Lumajang, Kabupaten Lumajang, Jawa Timur 67316</h>
+              </ul>
+           </div>
         </Grid>
       </div>
     )
@@ -167,7 +185,7 @@ class Footer extends Component {
 const styles = theme => ({
   root: {
     marginTop: 30,
-    backgroundColor: `${theme.palette.primary[500]}`,
+    backgroundColor: `#051d47`,
     borderTop: 'solid 3px #998643',
     paddingTop: '16px',
     overflowX: 'hidden'
@@ -212,7 +230,7 @@ const styles = theme => ({
       textAlign: 'center'
     },
     marginTop: 10,
-    marginBottom: 10
+    marginBottom: 100
   },
   rootImage: {
     textAlign: 'left',
