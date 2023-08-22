@@ -140,7 +140,7 @@ const HomePage = (props) => {
                 textColor="#fff"
                 borderColor="#998643"
             /> */}
-            <div style={{ backgroundColor: 'black' }}>
+            <div style={{ backgroundColor: '#051d47' }}>
                 <div className={classes.section}>
                     <div className={classes.innerContainer}>
                         <Typography variant="display2" style={{ color: '#fbb555' }} gutterBottom>
@@ -185,7 +185,7 @@ const HomePage = (props) => {
                     <Button style={{ backgroundColor: '#fbb555', fontWeight: 'bold' }} >View All News Item</Button>
                 </div>
             </div>
-            <div style={{ backgroundColor: '#e7e7e7' }}>
+            {/* <div style={{ backgroundColor: '#e7e7e7' }}>
                 <div className={classes.section}>
                     <div className={classes.innerContainer}>
                         <Typography variant="display2" style={{ color: '#8d3e1e' }} gutterBottom>
@@ -225,7 +225,7 @@ const HomePage = (props) => {
                 <div style={{ textAlign: 'center', margin: 20, padding: 20 }}>
                     <Button style={{ backgroundColor: '#fbb555', fontWeight: 'bold' }} >View Events Calendar</Button>
                 </div>
-            </div>
+            </div> */}
         </Layout >
     )
 }
