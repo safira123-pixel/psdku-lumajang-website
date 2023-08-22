@@ -12,12 +12,12 @@ class Footer extends Component {
     const currentYear = new Date().getFullYear()
     return (
       <div className={classes.root}>
-        <Grid
+        {/* <Grid
           container
           spacing={0}
-          className={classNames(classes.footerText, classes.footerSections)}
-        >
-          <Grid item xs={12} sm={4}>
+          className={classNames(classes.footerText, classes.footerSections)} */}
+        {/* > */}
+          {/* <Grid item xs={12} sm={4}>
             <div vocab="http://schema.org/" typeof="Organization">
               <span property="name">Franciscan University of Steubenville</span>
               <div property="address" typeof="PostalAddress">
@@ -29,8 +29,8 @@ class Footer extends Component {
               </div>
               <span property="telephone">(740) 283-3771</span>
             </div>
-          </Grid>
-          <Grid item xs={12} sm={4}>
+          </Grid> */}
+          {/* <Grid item xs={12} sm={4}>
             <Grid container>
               <Grid
                 className={classes.flexContainer}
@@ -73,8 +73,8 @@ class Footer extends Component {
                 </InvertedButton>
               </Grid>
             </Grid>
-          </Grid>
-          <Grid item xs={12} sm={4}>
+          </Grid> */}
+          {/* <Grid item xs={12} sm={4}>
             <ul style={{ listStyle: 'none', margin: 0 }}>
               <li>
                 <Link
@@ -132,8 +132,8 @@ class Footer extends Component {
                 </Link>
               </li>
             </ul>
-          </Grid>
-        </Grid>
+          </Grid> */}
+        {/* </Grid> */}
         <Grid className={classes.subFooter} item xs={12}>
           <div className={classes.childFooter}>
             <div className={classes.rootImage}>

@@ -88,7 +88,6 @@ class Layout extends Component {
         )}
 
         <Footer />
-        <BottomNavigationTab />
       </div>
     )
   }
