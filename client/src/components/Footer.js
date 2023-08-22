@@ -138,23 +138,18 @@ class Footer extends Component {
           <div className={classes.rootImage}>
               <img src='./assets/images/logo-polinema-footer.png' alt='Polinema' style={{ marginBottom: 20, width: '300px' }} />
             </div>
-          <div class="menu-footer-program-studi-container">
+            <div class="menu-footer-program-studi-container">
             <ul id="secondary-menu" class="menu">
+              <a style={{ color: 'white'}}>Program Studi</a><br></br>
               <li id="menu-item-682" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-682"><a href="#" style={{ color: 'white'}}>D-IV Teknologi Rekayasa Otomotif</a></li>
               <li id="menu-item-680" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-680"><a href="#" style={{ color: 'white'}}>D-III Teknologi Sipil</a></li>
               <li id="menu-item-326" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-326"><a href="#" style={{ color: 'white'}}>D-III Akutansi</a></li>
               <li id="menu-item-325" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-325"><a href="#" style={{ color: 'white'}}>D-III Teknologi Informasi</a></li>
               </ul>
-           </div>	
-           <div class="menu-footer-social-media-container">
-            <ul id="secondary-menu" class="menu">
-              <li id="menu-item-681" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-681"><a href="#" style={{ color: 'white'}}>Instagram</a></li>
-              <li id="menu-item-682" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-682"><a href="#"style={{ color:  'white'}}>Facebook</a></li>
-              <li id="menu-item-680" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-680"><a href="#" style={{ color: 'white'}}>Twitter</a></li>
-              <li id="menu-item-326" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-326"><a href="#" style={{ color: 'white'}}>Whatsapp</a></li>
-              <li id="menu-item-325" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-325"><a href="#" style={{ color: 'white'}}>Email</a></li>
+              <ul id="secondary-menu" class="menu">
+              <a href="#"><img src="https://www.linkpicture.com/q/pngwing.com_71.png" width="20" alt="Icon"/></a>    <a href="#"><img src="https://www.linkpicture.com/q/pngwing.com-1_32.png" width="20" alt="Icon"/></a>   <a href="#"><img src="https://www.linkpicture.com/q/pngwing.com-2_6.png" width="20" alt="Icon"/></a>
               </ul>
-           </div>	
+           </div>
            <div>
            <ul id="secondary-menu" class="menu">
            <a style={{color:'white'}}>Program Studi Diluar Kampus Utama (PSDKU) Lumajang adalah <br></br>bagian dari Politeknik Negeri Malang yang memiliki keberadaan <br></br>di luar kampus utama untuk memberikan pendidikan vokasi <br></br>berkualitas di daerah Lumajang, Jawa Timur, Indonesia</a>
