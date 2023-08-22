@@ -136,23 +136,7 @@ class Footer extends Component {
         {/* </Grid> */}
         <Grid className={classes.subFooter} item xs={12}>
           <div className={classes.rootImage}>
-              <img src='./assets/images/logo-polinema-footer.png' alt='Polinema' style={{ marginBottom: 20 }} />
-              <Typography
-                className={classes.white}
-                variant="subheading"
-                component={'span'}
-                style={{ fontSize: 14}}
-              >
-                © {currentYear} PSDKU Polinema Kampus Lumajang
-              </Typography>
-              <Typography
-                className={classes.white}
-                variant="subheading"
-                component={'span'}
-                style={{ fontSize: 14}}
-              >
-                Designs and implementations by IT PSDKU Lumajang
-              </Typography>
+              <img src='./assets/images/logo-polinema-footer.png' alt='Polinema' style={{ marginBottom: 20, width: '300px' }} />
             </div>
           <div class="menu-footer-program-studi-container">
             <ul id="secondary-menu" class="menu">
@@ -173,10 +157,26 @@ class Footer extends Component {
            </div>	
            <div>
            <ul id="secondary-menu" class="menu">
-              <h style={{ color: 'white'}}> V66V+446, Area Sawah/Kebun, Jogoyudan, Kec. Lumajang, Kabupaten Lumajang, Jawa Timur 67316</h>
-              </ul>
+           <a style={{color:'white'}}>Program Studi Diluar Kampus Utama (PSDKU) Lumajang adalah <br></br>bagian dari Politeknik Negeri Malang yang memiliki keberadaan <br></br>di luar kampus utama untuk memberikan pendidikan vokasi <br></br>berkualitas di daerah Lumajang, Jawa Timur, Indonesia</a>
+           <br></br>
+           <br></br>
+           <a style={{color:'white'}}>Alamat : V66V+446, Area Sawah/Kebun, Jogoyudan, Kec. Lumajang, <br></br>Kabupaten Lumajang, Jawa Timur 67316</a>
+           </ul>
            </div>
+         
         </Grid>
+        <Grid className={classes.subFooter1} item xs={12}>
+        <div className={classes.rootImage}>
+           <Typography
+                className={classes.white}
+                variant="subheading"
+                component={'span'}
+                style={{ fontSize: 14}}
+              >
+                © {currentYear} PSDKU Polinema Kampus Lumajang
+              </Typography>
+</div>
+</Grid>
       </div>
     )
   }
@@ -199,6 +199,15 @@ const styles = theme => ({
     marginTop: '8px',
     display: 'flex',
     justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  subFooter1: {
+    backgroundColor: '#051d47',
+    padding: '8px 16px 8px 16px',
+    marginTop: '8px',
+    display: 'flex',
+    justifyContent: 'space-between',
+    flexDirection:'column',
     alignItems: 'center',
   },
   footerText: {
