@@ -55,11 +55,11 @@ const Login = (props) => {
     return <Redirect to="/dashboard" />;
   }
   return (
-    <DocumentTitle title={"用户登录"}>
+    <DocumentTitle title={"Login"}>
       <div className="login-container">
         <Form onSubmit={handleSubmit} className="content">
           <div className="title">
-            <h2>用户登录</h2>
+            <h2>Login</h2>
           </div>
           <Spin spinning={loading} tip="登录中...">
             <Form.Item>
