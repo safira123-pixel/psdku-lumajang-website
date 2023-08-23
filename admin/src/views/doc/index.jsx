@@ -1,15 +1,15 @@
 import React from 'react';
 import TypingCard from '@/components/TypingCard'
 const Doc = () => {
-  const cardContent = `
-    作者博客请戳这里 <a href="https://nlrx-wjc.github.io/Blog/" target="_blank">难凉热血的博客</a>。
-    欢迎大家与我交流，如果觉得博客不错，也麻烦给博客赏个 star 哈。
-  `
-  return (
-    <div className="app-container">
-      <TypingCard title='作者博客' source={cardContent}/>
-    </div>
-  );
+   const cardContent = `
+     Please poke here for the author's blog <a href="https://nlrx-wjc.github.io/Blog/" target="_blank">Blog that is difficult to cool and warm blood</a>.
+     Everyone is welcome to communicate with me. If you think the blog is good, please give the blog a star.
+   `
+   return (
+     <div className="app-container">
+       <TypingCard title='Author Blog' source={cardContent}/>
+     </div>
+   );
 }
 
 export default Doc;

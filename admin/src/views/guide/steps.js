@@ -2,8 +2,8 @@ const steps = [
   {
     element: '.ant-btn-primary',
     popover: {
-      title: '打开引导',
-      description: '打开页面引导',
+      title: 'Open Guide',
+      description: 'Open page guide',
       position: 'bottom'
     }
   },
@@ -11,7 +11,7 @@ const steps = [
     element: '.hamburger-container',
     popover: {
       title: 'Hamburger',
-      description: '打开/收起左侧导航栏',
+      description: 'Open/collapse the left navigation bar',
       position: 'bottom'
     }
   },
@@ -19,7 +19,7 @@ const steps = [
     element: '.fullScreen-container',
     popover: {
       title: 'Screenfull',
-      description: '全屏',
+      description: 'full screen',
       position: 'left'
     }
   },
@@ -27,11 +27,11 @@ const steps = [
     element: '.settings-container',
     popover: {
       title: 'Settings',
-      description: '系统设置',
+      description: 'System Settings',
       position: 'left'
     }
   },
-  
+ 
 ]
 
 export default steps

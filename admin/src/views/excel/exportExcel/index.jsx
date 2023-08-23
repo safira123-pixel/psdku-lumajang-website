@@ -83,7 +83,7 @@ class Excel extends Component {
   };
   handleDownload = (type) => {
     if (type === "selected" && this.state.selectedRowKeys.length === 0) {
-      message.error("至少选择一项进行导出");
+      message.error("Select at least one item to export");
       return;
     }
     this.setState({
@@ -102,7 +102,7 @@ class Excel extends Component {
         bookType: this.state.bookType,
       });
       this.setState({
-        selectedRowKeys: [], // 导出完成后将多选框清空
+        selectedRowKeys: [], // Clear the checkbox after the export is complete
         downloadLoading: false,
       });
     });
@@ -134,19 +134,19 @@ class Excel extends Component {
     return (
       <div className="app-container">
         <Collapse defaultActiveKey={["1"]}>
-          <Panel header="导出选项" key="1">
+          <Panel header="export options" key="1">
             <Form layout="inline">
-              <Form.Item label="文件名:">
+              <Form.Item label="File Name:">
                 <Input
                   style={{ width: "250px" }}
                   prefix={
                     <Icon type="file" style={{ color: "rgba(0,0,0,.25)" }} />
                   }
-                  placeholder="请输入文件名(默认excel-file)"
+                  placeholder="Please enter a file name (default excel-file)"
                   onChange={this.filenameChange}
                 />
               </Form.Item>
-              <Form.Item label="单元格宽度是否自适应:">
+              <Form.Item label="Whether the cell width is adaptive:">
                 <Radio.Group
                   onChange={this.autoWidthChange}
                   value={this.state.autoWidth}
@@ -155,7 +155,7 @@ class Excel extends Component {
                   <Radio value={false}>否</Radio>
                 </Radio.Group>
               </Form.Item>
-              <Form.Item label="文件类型:">
+              <Form.Item label="File Type:">
                 <Select
                   defaultValue="xlsx"
                   style={{ width: 120 }}
@@ -172,7 +172,7 @@ class Excel extends Component {
                   icon="file-excel"
                   onClick={this.handleDownload.bind(null, "all")}
                 >
-                  全部导出
+                  export all
                 </Button>
               </Form.Item>
               <Form.Item>
@@ -181,7 +181,7 @@ class Excel extends Component {
                   icon="file-excel"
                   onClick={this.handleDownload.bind(null, "selected")}
                 >
-                  导出已选择项
+                  Export selected items
                 </Button>
               </Form.Item>
             </Form>

@@ -8,34 +8,34 @@ const users = {
   "admin-token": {
     id: "admin",
     role: "admin",
-    name: "难凉热血",
+    name: "Difficult to cool and warm blood",
     avatar: "https://s1.ax1x.com/2020/04/28/J5hUaT.jpg",
-    description: "拥有系统内所有菜单和路由权限",
+    description: "Owns all menu and routing permissions in the system",
   },
   "editor-token": {
     id: "editor",
     role: "editor",
-    name: "编辑员",
+    name: "Editor",
     avatar: "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png",
-    description:"可以看到除户管理页面之外的所有页面",
+    description: "You can see all pages except the user management page",
   },
   "guest-token": {
     id: "guest",
     role: "guest",
-    name: "游客",
+    name: "Visitor",
     avatar: "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png",
-    description:"仅能看到Dashboard、作者博客、权限测试和关于作者四个页面",
+    description: "Only four pages can be seen: Dashboard, Author Blog, Authorization Test and About Author",
   },
 };
 
 export default {
   login: (config) => {
-    const { username } = JSON.parse(config.body);
+    const { username } = JSON. parse(config. body);
     const token = tokens[username];
     if (!token) {
       return {
         status: 1,
-        message: "用户名或密码错误",
+        message: "Incorrect username or password",
       };
     }
     return {
@@ -44,12 +44,12 @@ export default {
     };
   },
   userInfo: (config) => {
-    const token = config.body;
+    const token = config. body;
     const userInfo = users[token];
     if (!userInfo) {
       return {
         status: 1,
-        message: "获取用户信息失败",
+        message: "Failed to obtain user information",
       };
     }
     return {
@@ -60,11 +60,11 @@ export default {
   getUsers: () => {
     return {
       status: 0,
-      users: Object.values(users),
+      users: Object. values(users),
     };
   },
   deleteUser: (config) => {
-    const { id } = JSON.parse(config.body);
+    const { id } = JSON. parse(config. body);
     const token = tokens[id];
     if (token) {
       delete tokens[id];
@@ -75,7 +75,7 @@ export default {
     };
   },
   editUser: (config) => {
-    const data = JSON.parse(config.body);
+    const data = JSON. parse(config. body);
     const { id } = data;
     const token = tokens[id];
     if (token) {
@@ -86,7 +86,7 @@ export default {
     };
   },
   ValidatUserID: (config) => {
-    const userID = config.body;
+    const userID = config. body;
     const token = tokens[userID];
     if (token) {
       return {
@@ -99,12 +99,12 @@ export default {
     }
   },
   addUser: (config) => {
-    const data = JSON.parse(config.body);
+    const data = JSON. parse(config. body);
     const { id } = data;
     tokens[id] = `${id}-token`
     users[`${id}-token`] = {
       ...users["guest-token"],
-      ...data
+      ... data
     }
     return {
       status: 0,

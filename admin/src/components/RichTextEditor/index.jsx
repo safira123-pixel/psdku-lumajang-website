@@ -28,7 +28,7 @@ const RichTextEditor = () => {
       <Row gutter={10}>
         <Col span={12}>
           <Card
-            title="同步转换HTML"
+            title="HTML"
             bordered={false}
             style={{ minHeight: 200 }}
           >
@@ -38,7 +38,7 @@ const RichTextEditor = () => {
         </Col>
         <Col span={12}>
           <Card
-            title="同步转换MarkDown"
+            title="MarkDown"
             bordered={false}
             style={{ minHeight: 200 }}
           >

@@ -16,7 +16,7 @@ import EditForm from "./forms/editForm"
 const { Column } = Table;
 const { Panel } = Collapse;
 class TableComponent extends Component {
-  _isMounted = false; // 这个变量是用来标志当前组件是否挂载
+  _isMounted = false;
   state = {
     list: [],
     loading: false,
@@ -112,7 +112,7 @@ class TableComponent extends Component {
   };
   handleDelete = (row) => {
     deleteItem({id:row.id}).then(res => {
-      message.success("删除成功")
+      message.success("successfully deleted")
       this.fetchData();
     })
   }
@@ -138,10 +138,10 @@ class TableComponent extends Component {
       editItem(values).then((response) => {
         form.resetFields();
         this.setState({ editModalVisible: false, editModalLoading: false });
-        message.success("编辑成功!")
+        message.success("edited successfully!")
         this.fetchData()
       }).catch(e => {
-        message.success("编辑失败,请重试!")
+        message.success("Editing failed, please try again!")
       })
       
     });
@@ -156,12 +156,12 @@ class TableComponent extends Component {
     return (
       <div className="app-container">
         <Collapse defaultActiveKey={["1"]}>
-          <Panel header="筛选" key="1">
+          <Panel header="Filter" key="1">
             <Form layout="inline">
-              <Form.Item label="标题:">
+              <Form.Item label="Title:">
                 <Input onChange={this.filterTitleChange} />
               </Form.Item>
-              <Form.Item label="类型:">
+              <Form.Item label="type:">
                 <Select
                   style={{ width: 120 }}
                   onChange={this.filterStatusChange}>
@@ -169,7 +169,7 @@ class TableComponent extends Component {
                   <Select.Option value="draft">draft</Select.Option>
                 </Select>
               </Form.Item>
-              <Form.Item label="推荐指数:">
+              <Form.Item label="Recommended:">
                 <Select
                   style={{ width: 120 }}
                   onChange={this.filterStarChange}>
@@ -194,12 +194,12 @@ class TableComponent extends Component {
           loading={this.state.loading}
           pagination={false}
         >
-          <Column title="序号" dataIndex="id" key="id" width={200} align="center" sorter={(a, b) => a.id - b.id}/>
-          <Column title="标题" dataIndex="title" key="title" width={200} align="center"/>
-          <Column title="作者" dataIndex="author" key="author" width={100} align="center"/>
-          <Column title="阅读量" dataIndex="readings" key="readings" width={195} align="center"/>
-          <Column title="推荐指数" dataIndex="star" key="star" width={195} align="center"/>
-          <Column title="状态" dataIndex="status" key="status" width={195} align="center" render={(status) => {
+         <Column title="serial number" dataIndex="id" key="id" width={200} align="center" sorter={(a, b) => a.id - b.id}/>
+           <Column title="title" dataIndex="title" key="title" width={200} align="center"/>
+           <Column title="Author" dataIndex="author" key="author" width={100} align="center"/>
+           <Column title="Readings" dataIndex="readings" key="readings" width={195} align="center"/>
+           <Column title="Recommendation Index" dataIndex="star" key="star" width={195} align="center"/>
+           <Column title="status" dataIndex="status" key="status" width={195} align="center" render={(status) => {
             let color =
               status === "published" ? "green" : status === "deleted" ? "red" : "";
             return (

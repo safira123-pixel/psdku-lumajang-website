@@ -15,13 +15,13 @@ function getSelectors(path) {
     }).join(' ');
 }
 export default function (pathsOrTarget) {
-    if (Array.isArray(pathsOrTarget)) {//可能是一个数组
+    if (Array.isArray(pathsOrTarget)) {//may be an array
         return getSelectors(pathsOrTarget);
-    } else {//也有可有是一个对象 
+    } else {//It may also be an object
         let path = [];
         while (pathsOrTarget) {
             path.push(pathsOrTarget);
-            pathsOrTarget = pathsOrTarget.parentNode;
+            pathsOrTarget = pathsOrTarget. parentNode;
         }
         return getSelectors(path);
     }

@@ -4,9 +4,9 @@ class Typing {
     this.source = opts.source;
     this.output = opts.output;
     this.delay = opts.delay || 120;
-    this.chain = {
+    this. chain = {
       parent: null,
-      dom: this.output,
+      dom: this. output,
       val: []
     };
     if (!(typeof this.opts.done === 'function')) this.opts.done = function () {
@@ -14,21 +14,21 @@ class Typing {
   }
 
   init() {
-    //初始化函数
+    //Initialization function
     this.chain.val = this.convert(this.source, this.chain.val);
   }
 
   convert(dom, arr) {
-    //将dom节点的子节点转换成数组，
+    //Convert the child nodes of the dom node into an array,
     let children = Array.from(dom.childNodes)
-    for (let i = 0; i < children.length; i++) {
+    for (let i = 0; i < children. length; i++) {
       let node = children[i]
       if (node.nodeType === 3) {
-        arr = arr.concat(node.nodeValue.split(''))   //将字符串转换成字符串数组，后面打印时才会一个一个的打印
-      } else if (node.nodeType === 1) {
+        arr = arr.concat(node.nodeValue.split('')) //Convert the string into an array of strings, which will be printed one by one when printing later
+      } else if (node. nodeType === 1) {
         let val = []
-        val = this.convert(node, val)
-        arr.push({
+        val = this. convert(node, val)
+        arr. push({
           'dom': node,
           'val': val
         })
@@ -41,23 +41,23 @@ class Typing {
     setTimeout(function () {
       dom.appendChild(document.createTextNode(val));
       callback();
-    }, this.delay);
+    }, this. delay);
   }
 
   play(ele) {
-    //当打印最后一个字符时，动画完毕，执行done
-    if (!ele.val.length) {
-      if (ele.parent) this.play(ele.parent);
+    //When the last character is printed, the animation is finished, execute done
+    if (!ele. val. length) {
+      if (ele. parent) this. play(ele. parent);
       else this.opts.done();
       return;
     }
-    let current = ele.val.shift()  //获取第一个元素，同时删除数组中的第一个元素
+    let current = ele.val.shift() //Get the first element and delete the first element in the array at the same time
     if (typeof current === 'string') {
       this.print(ele.dom, current, () => {
-        this.play(ele); //继续打印下一个字符
+        this.play(ele); //continue to print the next character
       })
     } else {
-      let dom = current.dom.cloneNode() //克隆节点，不克隆节点的子节点，所以不用加参数true
+      let dom = current.dom.cloneNode() //Clone the node, not the child nodes of the node, so there is no need to add the parameter true
       ele.dom.appendChild(dom)
       this.play({
         parent: ele,

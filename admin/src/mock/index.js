@@ -5,7 +5,7 @@ import excelAPI from "./excel";
 import tableAPI from "./table";
 import monitor from "./monitor";
 
-// 登录与用户相关
+// login terkait dengan pengguna
 Mock.mock(/\/login/, "post", loginAPI.login);
 Mock.mock(/\/logout/, "post", loginAPI.logout);
 Mock.mock(/\/userInfo/, "post", loginAPI.userInfo);

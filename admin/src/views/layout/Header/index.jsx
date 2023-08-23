@@ -23,10 +23,10 @@ const LayoutHeader = (props) => {
   token && getUserInfo(token);
   const handleLogout = (token) => {
     Modal.confirm({
-      title: "注销",
-      content: "确定要退出系统吗?",
-      okText: "确定",
-      cancelText: "取消",
+      title: "Logout",
+      content: "Are you sure you want to log out of the system?",
+      okText: "OK",
+      cancelText: "Cancel",
       onOk: () => {
         logout(token);
       },
@@ -80,10 +80,10 @@ const LayoutHeader = (props) => {
   };
   return (
     <>
-      {/* 这里是仿照antd pro的做法,如果固定header，
-      则header的定位变为fixed，此时需要一个定位为relative的header把原来的header位置撑起来 */}
-      {fixedHeader ? <Header /> : null}
-      <Header
+     {/* Here is the practice of antd pro, if the header is fixed,
+       Then the positioning of the header becomes fixed. At this time, a header positioned as relative is needed to support the original header position */}
+       {fixedHeader? <Header /> : null}
+       <Header
         style={computedStyle()}
         className={fixedHeader ? "fix-header" : ""}
       >

@@ -1,12 +1,12 @@
 import React from 'react';
 import TypingCard from '@/components/TypingCard'
 const GuestPage = () => {
-  const cardContent = `这个页面只有admin和guest角色才可以访问，editor角色看不到`
-  return ( 
-    <div className="app-container">
-      <TypingCard title='guest页面' source={cardContent}/>
-    </div>
-  );
+   const cardContent = `This page can only be accessed by admin and guest roles, editor roles cannot see`
+   return (
+     <div className="app-container">
+       <TypingCard title='guest page' source={cardContent}/>
+     </div>
+   );
 }
  
 export default GuestPage;

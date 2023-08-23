@@ -30,7 +30,7 @@ const columns = [
 ];
 
 class TransactionTable extends Component {
-  _isMounted = false;   // 这个变量是用来标志当前组件是否挂载
+  _isMounted = false;
   state = {
     list: [],
   };
