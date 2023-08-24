@@ -4,7 +4,6 @@ import Typography from '@material-ui/core/Typography'
 import classNames from 'classnames'
 import { Link } from 'react-router-dom'
 import React, { Component } from 'react'
-import InvertedButton from './InvertedButton'
 
 class Footer extends Component {
   render() {

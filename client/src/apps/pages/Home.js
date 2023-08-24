@@ -10,7 +10,6 @@ import SlideShow from '../../components/SlideShow'
 import NewsCard from '../../components/NewsCard'
 import { withTranslation } from 'react-i18next'
 import { Button } from '@material-ui/core'
-import EventsCard from '../../components/EventsCard'
 
 const HomePage = (props) => {
     const { classes, t } = props

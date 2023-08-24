@@ -6,8 +6,6 @@ import { withTranslation } from 'react-i18next'
 const ProfilePage = () => {
     return (
         <Layout title="Profile" >
-            {/* <div style={{ backgroundColor: '#051d47' }}>
-            </div> */}
         </Layout >
     )
 }
