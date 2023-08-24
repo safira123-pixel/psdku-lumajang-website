@@ -21,7 +21,7 @@ const RichTextEditor = () => {
           wrapperClassName="wrapper-class"
           editorClassName="editor-class"
           toolbarClassName="toolbar-class"
-          localization={{ locale: "zh" }}
+          localization={{ locale: "en-au" }}
         />
       </Card>
       <br />
