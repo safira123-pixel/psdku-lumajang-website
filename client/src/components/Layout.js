@@ -2,7 +2,6 @@ import withStyles from '@material-ui/core/styles/withStyles'
 import React, { Component } from 'react'
 import { Helmet } from 'react-helmet';
 import AppBar from './AppBar'
-import BottomNavigationTab from './BottomNavigationTab';
 import Drawer from './Drawer'
 import Footer from './Footer'
 

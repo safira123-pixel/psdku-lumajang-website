@@ -24,7 +24,7 @@ import {
 } from '../data/drawerMenu'
 import DrawerItem from './DrawerItem'
 
-class TemporaryDrawer extends Component {
+class TemporaryDrawer_Profile extends Component {
   static defaultProps = {
     open: PropTypes.bool.isRequired,
     toggleDrawer: PropTypes.func.isRequired
@@ -290,4 +290,4 @@ const styles = theme => ({
     }
   }
 })
-export default withStyles(styles)(TemporaryDrawer)
+export default withStyles(styles)(TemporaryDrawer_Profile)

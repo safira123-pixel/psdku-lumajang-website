@@ -1,9 +1,9 @@
 import withStyles from '@material-ui/core/styles/withStyles'
 import React, { Component } from 'react'
 import { Helmet } from 'react-helmet';
-import AppBar from '../AppBar'
-import Drawer from '../Drawer'
-import Footer from '../Footer'
+import AppBar from './AppBar'
+import Drawer from './Drawer'
+import Footer from './Footer'
 
 const styles = theme => ({
   layout: {
@@ -62,8 +62,7 @@ class Layout_Profile extends Component {
     return (
       <div className={classes.layout}>
         <Helmet>
-          <title>{`${title ? `${title} | ` : ''
-            }PSDKU Lumajang`}</title>
+          <title>{`${title ? `${title} | ` : ''}PSDKU Lumajang`}</title>
         </Helmet>
         <Drawer
           open={this.state.drawer}

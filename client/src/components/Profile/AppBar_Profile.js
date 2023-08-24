@@ -18,7 +18,7 @@ import AppBarMenuItem from './AppBarMenuItem'
 import IconId from '../components/Flag/IconId'
 import IconEn from "../components/Flag/IconEn"
 
-class ButtonAppBar extends Component {
+class ButtonAppBar_Profile extends Component {
 
   static defaultProps = {
     classes: PropTypes.object.isRequired
@@ -307,4 +307,4 @@ const styles = theme => ({
   }
 })
 
-export default withStyles(styles)(withTranslation()(ButtonAppBar))
+export default withStyles(styles)(withTranslation()(ButtonAppBar_Profile))

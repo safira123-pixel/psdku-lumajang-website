@@ -5,7 +5,7 @@ import classNames from 'classnames'
 import { Link } from 'react-router-dom'
 import React, { Component } from 'react'
 
-class Footer extends Component {
+class Footer_Profile extends Component {
   render() {
     const { classes } = this.props
     const currentYear = new Date().getFullYear()
@@ -244,4 +244,4 @@ const styles = theme => ({
   }
 })
 
-export default withStyles(styles)(Footer)
+export default withStyles(styles)(Footer_Profile)
