@@ -352,23 +352,23 @@ export const faithMenu = [
 ]
 
 export const studentMenu = [
-  // {
-  //   text: 'Residence Life',
-  //   linkUrl: '/residence-life/',
-  //   asUrl: '/page?type=studentLifePages&id=residence-life',
-  //   subMenu: [
+  {
+    text: 'Kegiatan Mahasiswa',
+    linkUrl: '/kegiatan-mahasiswa/',
+    asUrl: '/page?type=studentLifePages&id=kegiatan-mahasiswa',
+    // subMenu: [
   //     {
   //       text: 'Residence Halls',
   //       linkUrl: '/residence-life/halls',
   //       asUrl: '/page?type=studentLifePages&id=halls'
   //     }
-  //   ]
-  // },
-  // {
-  //   text: 'Households',
-  //   linkUrl: '/households/',
-  //   asUrl: '/page?type=householdsPages&id=households'
-  // },
+    // ]
+  },
+  {
+    text: 'Pengumuman',
+    linkUrl: '/pengumuman/',
+    asUrl: '/page?type=householdsPages&id=pengumuman'
+  },
   // {
   //   text: 'Baron Athletics',
   //   linkUrl: 'http://www.franciscanathletics.com/'
