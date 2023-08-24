@@ -6,15 +6,15 @@ class AddUserForm extends Component {
   validatUserID = async (rule, value, callback) => {
     if (value) {
       if (!/^[a-zA-Z0-9]{1,6}$/.test(value)) {
-        callback("用户ID必须为1-6位数字或字母组合");
+        callback("User ID must be a combination of 1-6 digits or letters");
       }
       let res = await reqValidatUserID(value);
       const { status } = res.data;
       if (status) {
-        callback("该用户ID已存在");
+        callback("This user ID already exists");
       }
     } else {
-      callback("请输入用户ID");
+      callback("Please enter user ID");
     }
     callback();
   };
@@ -31,7 +31,7 @@ class AddUserForm extends Component {
     };
     return (
       <Modal
-        title="编辑"
+        title="edit"
         visible={visible}
         onCancel={onCancel}
         onOk={onOk}
