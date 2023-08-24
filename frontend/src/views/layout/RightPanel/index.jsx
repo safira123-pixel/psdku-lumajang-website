@@ -56,7 +56,7 @@ const RightPanel = (props) => {
       >
         <Row>
           <Col span={12}>
-            <span>侧边栏 Logo</span>
+            <span>Logo</span>
           </Col>
           <Col span={12}>
             <Switch
