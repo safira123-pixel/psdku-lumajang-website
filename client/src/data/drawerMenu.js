@@ -2,7 +2,7 @@ export const aboutMenu = [
   {
     text: 'Profil',
     linkUrl: '/about/profile',
-    asUrl: '/page?type=aboutPages&id=profile',
+    asUrl: '/about/profile',
     // subMenu: [
     //   {
     //     text: 'Vision & Charisms',
@@ -19,7 +19,7 @@ export const aboutMenu = [
   {
     text: 'Selayang Pandang',
     linkUrl: '/about/selayang-pandang',
-    asUrl: '/page?type=aboutPages&id=selayang-pandang',
+    asUrl: '/about/selayang-pandang',
     // subMenu: [
     //   {
     //     text: 'Franciscans TOR',
@@ -31,7 +31,7 @@ export const aboutMenu = [
   {
     text: 'Visi & Misi',
     linkUrl: '/visi-misi',
-    asUrl: '/page?type=humanResources&id=visi-misi',
+    asUrl: '/visi-misi',
     // subMenu: [
     //   {
     //     text: 'Careers',
@@ -47,7 +47,7 @@ export const aboutMenu = [
   {
     text: 'Struktur Organisasi',
     linkUrl: '/struktur-organisasi',
-    asUrl: '/page?type=aboutPages&id=struktur-organisasi',
+    asUrl: '/struktur-organisasi',
     // subMenu: [
     //   {
     //     text: 'Fact Book',
@@ -76,8 +76,8 @@ export const aboutMenu = [
 export const academicsMenu = [
   {
     text: 'Kalender Akademik',
-    linkUrl: '/academics/ug/kalender-akademik',
-    asUrl: '/page?type=academicsPages&id=kalender-akademik',
+    linkUrl: '/kalender-akademik',
+    asUrl: '/kalender-akademik',
     // subMenu: [
     //   {
     //     text: 'Kalender Akademik',
@@ -191,8 +191,8 @@ export const academicsMenu = [
 export const admissionsMenu = [
   {
     text: 'D-IV Teknologi Rekayasa Otomotif',
-    linkUrl: '/admissions/tro',
-    asUrl: '/page?type=admissionsPages&id=tro',
+    linkUrl: '/teknologi-rekayasa-otomotif',
+    asUrl: '/teknologi-rekayasa-otomotif',
     // subMenu: [
     //   {
     //     text: 'General Requirements',
@@ -233,8 +233,8 @@ export const admissionsMenu = [
   },
   {
     text: 'D-III Teknologi Sipil',
-    linkUrl: '/admissions/tsi',
-    asUrl: '/page?type=admissionsPages&id=tsi',
+    linkUrl: '/teknologi-sipil',
+    asUrl: '/teknologi-sipil',
     // These submenu items have the wrong urls
     // subMenu: [
     //   {
@@ -256,13 +256,13 @@ export const admissionsMenu = [
   },
   {
     text: 'D-III Akuntansi',
-    linkUrl: '/admissions/akn',
-    asUrl: '/page?type=admissionsPages&id=akn',
+    linkUrl: '/akuntansi',
+    asUrl: '/akuntansi',
   },
   {
     text: 'D-III Teknologi Informasi',
-    linkUrl: '/admissions/ti',
-    asUrl: '/page?type=admissionsPages&id=ti',
+    linkUrl: '/teknologi-informasi',
+    asUrl: '/teknologi-informasi',
   }
   // ,
   // {
@@ -278,13 +278,13 @@ export const admissionsMenu = [
 export const faithMenu = [
   {
     text: 'Jalur SNBP',
-    linkUrl: '/snbp',
-    asUrl: '/page?type=chapelPages&id=snbp'
+    linkUrl: '/jalur-snbp',
+    asUrl: '/jalur-snbp'
   },
   {
     text: 'Jalur SNBT',
-    linkUrl: '/snbt',
-    asUrl: '/page?type=chapelPages&id=snbt'
+    linkUrl: '/jalur-snbt',
+    asUrl: '/jalur-snbt'
 
     // subMenu: [
     //   {
@@ -295,8 +295,8 @@ export const faithMenu = [
   },
   {
     text: 'Jalur Mandiri',
-    linkUrl: '/mandiri',
-    asUrl: '/page?type=chapelPages&id=mandiri'
+    linkUrl: '/jalur-mandiri',
+    asUrl: '/jalur-mandiri'
 
     // subMenu: [
     //   {
@@ -354,8 +354,8 @@ export const faithMenu = [
 export const studentMenu = [
   {
     text: 'Kegiatan Mahasiswa',
-    linkUrl: '/kegiatan-mahasiswa/',
-    asUrl: '/page?type=studentLifePages&id=kegiatan-mahasiswa',
+    linkUrl: '/kegiatan-mahasiswa',
+    asUrl: '/kegiatan-mahasiswa',
     // subMenu: [
   //     {
   //       text: 'Residence Halls',
@@ -366,8 +366,8 @@ export const studentMenu = [
   },
   {
     text: 'Pengumuman',
-    linkUrl: '/pengumuman/',
-    asUrl: '/page?type=householdsPages&id=pengumuman'
+    linkUrl: '/pengumuman',
+    asUrl: '/pengumuman'
   },
   // {
   //   text: 'Baron Athletics',
