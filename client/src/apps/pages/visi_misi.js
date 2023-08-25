@@ -1,16 +1,87 @@
+import Grid from '@material-ui/core/Grid'
 import withStyles from '@material-ui/core/styles/withStyles'
+import Typography from '@material-ui/core/Typography'
 import React from 'react'
-import TextSection from '../../components/TextSection'
+import Layout from '../../components/Layout'
 import withRoot from '../../components/withRoot'
 import { withTranslation } from 'react-i18next'
-import Layout_Profile from '../../components/Layout'
+import TextSection from '../../components/TextSection'
+import Pictures from '../../components/Pictures'
 
-const visi_misi = () => {
+const visi_misi = (props) => {
+    const { classes, t } = props
+    const gridStyle = {
+        backgroundColor: '#051d47'
+    }
     return (
-        <Layout_Profile title="Profile" >
+        <Layout title="Visi dan Misi" >
+            <Pictures/>
+            <Grid container className={classes.contentContainer} style={gridStyle}>
+                <Grid item className={classes.gridItemFix} xs={12}>
+                <Typography
+                    variant="display2"
+                    gutterBottom
+                    style={{ textAlign: 'center', color: '#fff' }}
+>
+                Visi
+                </Typography>
+                </Grid>
+            </Grid>
             <TextSection
+                text="Menjadi Lembaga Pendidikan Tinggi Vokasi yang Unggul dalam Persaingan Global"
+                bgColor="#fff"
+                textColor=""
+                borderColor="#998643"
+                padding="12px 0"
+                darkBg={true}
             />
-        </Layout_Profile >
+            <Grid container className={classes.contentContainer} style={gridStyle}>
+                <Grid item className={classes.gridItemFix} xs={12}>
+                <Typography
+                    variant="display2"
+                    gutterBottom
+                    style={{ textAlign: 'center', color: '#fff' }}
+>
+                Misi
+                </Typography>
+                </Grid>
+            </Grid>
+            <TextSection
+                text="1. Menyelenggarakan dan Mengembangkan Pendidikan Vokasi yang Berkualitas, Inovatif, dan Berdaya Saing yang Mendorong Pola Pembelajaran Seumur Hidup dan Tumbuhnya Jiwa Kewirausahaan serta Sesuai Kebutuhan Industri, Lembaga Pemerintah, dan Masyarakat."
+                bgColor="#fff"
+                textColor=""
+                padding="12px 0"
+                darkBg={true}
+            />
+            <TextSection
+                text="2. Menyelenggarakan Penelitian Terapan yang Bermanfaat bagi Pengembangan Ilmu Pengetahuan dan Teknologi serta Kesejahteraan Masyarakat."
+                bgColor="#fff"
+                textColor=""
+                padding="12px 0"
+                darkBg={true}
+            />
+            <TextSection
+                text="3. Menyelenggarakan Pengabdian Kepada Masyarakat yang Bermanfaat bagi Kesejahteraan Masyarakat."
+                bgColor="#fff"
+                textColor=""
+                padding="12px 0"
+                darkBg={true}
+            />
+            <TextSection
+                text="4. Menyelenggarakan Sistem Pengelolaan Pendidikan dengan Berdasar pada Prinsip-prinsip Tatapamong yang Baik."
+                bgColor="#fff"
+                textColor=""
+                padding="12px 0"
+                darkBg={true}
+            />
+            <TextSection
+                text="5. Mengembangkan Kerjasama yang Saling Menguntungkan dengan Berbaga Pihak, baik di Dalam maupun di Luar Negeri pada Bidang-bidang yang Relevan."
+                bgColor="#fff"
+                textColor=""
+                padding="12px 0"
+                darkBg={true}
+            />
+        </Layout>
     )
 }
 
