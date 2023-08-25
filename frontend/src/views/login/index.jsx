@@ -13,7 +13,6 @@ const Login = (props) => {
   const [loading, setLoading] = useState(false);
 
   const handleLogin = (usernameOrEmail, password) => {
-    // 登录完成后 发送请求 调用接口获取用户信息
     setLoading(true);
     login(usernameOrEmail, password)
       .then((data) => {
@@ -61,7 +60,7 @@ const Login = (props) => {
           <div className="title">
             <h2>Login Pengguna</h2>
           </div>
-          <Spin spinning={loading} tip="登录中...">
+          <Spin spinning={loading} tip="loading...">
             <Form.Item>
               {getFieldDecorator("usernameOrEmail", {
                 rules: [
@@ -71,7 +70,7 @@ const Login = (props) => {
                     message: "请输入用户名",
                   },
                 ],
-                initialValue: "admin", // 初始值
+                initialValue: "admin",
               })(
                 <Input
                   prefix={
@@ -97,7 +96,7 @@ const Login = (props) => {
                     <Icon type="lock" style={{ color: "rgba(0,0,0,.25)" }} />
                   }
                   type="password"
-                  placeholder="密码"
+                  placeholder="password"
                 />
               )}
             </Form.Item>
@@ -110,13 +109,6 @@ const Login = (props) => {
                 Masuk
               </Button>
             </Form.Item>
-            {/* <Form.Item>
-              <span>Akun : admin, Password : Bebas</span>
-              <br />
-              <span>Akun : lecture, Password : Bebas</span>
-              <br />
-              <span>Akun : student, Password : Bebas</span>
-            </Form.Item> */}
           </Spin>
         </Form>
       </div>
