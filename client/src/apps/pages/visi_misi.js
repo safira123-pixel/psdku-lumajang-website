@@ -5,7 +5,7 @@ import withRoot from '../../components/withRoot'
 import { withTranslation } from 'react-i18next'
 import Layout_Profile from '../../components/Layout'
 
-const Struktur_organisasi = () => {
+const visi_misi = () => {
     return (
         <Layout_Profile title="Profile" >
             <TextSection
@@ -119,4 +119,4 @@ const styles = theme => ({
     }
 })
 
-export default withRoot(withStyles(styles)(withTranslation()(Struktur_organisasi)))
+export default withRoot(withStyles(styles)(withTranslation()(visi_misi)))

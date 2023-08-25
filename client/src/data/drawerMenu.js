@@ -1,8 +1,8 @@
 export const aboutMenu = [
   {
     text: 'Profil',
-    linkUrl: '/about/profile',
-    asUrl: '/about/profile',
+    linkUrl: '/profile',
+    asUrl: '/profile',
     // subMenu: [
     //   {
     //     text: 'Vision & Charisms',
@@ -18,8 +18,8 @@ export const aboutMenu = [
   },
   {
     text: 'Selayang Pandang',
-    linkUrl: '/about/selayang_pandang',
-    asUrl: '/about/selayang_pandang',
+    linkUrl: '/selayang_pandang',
+    asUrl: '/selayang_pandang',
     // subMenu: [
     //   {
     //     text: 'Franciscans TOR',
@@ -30,8 +30,8 @@ export const aboutMenu = [
   },
   {
     text: 'Visi & Misi',
-    linkUrl: '/visi-misi',
-    asUrl: '/visi-misi',
+    linkUrl: '/visi_misi',
+    asUrl: '/visi_misi',
     // subMenu: [
     //   {
     //     text: 'Careers',
@@ -46,8 +46,8 @@ export const aboutMenu = [
   },
   {
     text: 'Struktur Organisasi',
-    linkUrl: '/struktur-organisasi',
-    asUrl: '/struktur-organisasi',
+    linkUrl: '/struktur_organisasi',
+    asUrl: '/struktur_organisasi',
     // subMenu: [
     //   {
     //     text: 'Fact Book',
@@ -76,8 +76,8 @@ export const aboutMenu = [
 export const academicsMenu = [
   {
     text: 'Kalender Akademik',
-    linkUrl: '/kalender-akademik',
-    asUrl: '/kalender-akademik',
+    linkUrl: '/kalender_akademik',
+    asUrl: '/kalender_akademik',
     // subMenu: [
     //   {
     //     text: 'Kalender Akademik',
