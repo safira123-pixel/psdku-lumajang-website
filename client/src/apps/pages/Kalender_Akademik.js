@@ -7,7 +7,7 @@ import Layout_Profile from '../../components/Layout'
 
 const Kalender_akademik = () => {
     return (
-        <Layout_Profile title="Profile" >
+        <Layout_Profile title="Kalender Akademik" >
             <TextSection
             />
         </Layout_Profile >
