@@ -5,9 +5,9 @@ import withRoot from '../../components/withRoot'
 import { withTranslation } from 'react-i18next'
 import Layout_Profile from '../../components/Layout'
 
-const otomotif = () => {
+const kegiatan_mahasiswa = () => {
     return (
-        <Layout_Profile title="D-IV Tekonologi Rekayasa Otomotif" >
+        <Layout_Profile title="Kegiatan Mahasiswa" >
             <TextSection
             />
         </Layout_Profile >
@@ -119,4 +119,4 @@ const styles = theme => ({
     }
 })
 
-export default withRoot(withStyles(styles)(withTranslation()(otomotif)))
+export default withRoot(withStyles(styles)(withTranslation()(kegiatan_mahasiswa)))

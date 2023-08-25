@@ -191,8 +191,8 @@ export const academicsMenu = [
 export const admissionsMenu = [
   {
     text: 'D-IV Teknologi Rekayasa Otomotif',
-    linkUrl: '/teknologi-rekayasa-otomotif',
-    asUrl: '/teknologi-rekayasa-otomotif',
+    linkUrl: '/otomotif',
+    asUrl: '/otomotif',
     // subMenu: [
     //   {
     //     text: 'General Requirements',
@@ -233,8 +233,8 @@ export const admissionsMenu = [
   },
   {
     text: 'D-III Teknologi Sipil',
-    linkUrl: '/teknologi-sipil',
-    asUrl: '/teknologi-sipil',
+    linkUrl: '/teknologi_sipil',
+    asUrl: '/teknologi_sipil',
     // These submenu items have the wrong urls
     // subMenu: [
     //   {
@@ -261,8 +261,8 @@ export const admissionsMenu = [
   },
   {
     text: 'D-III Teknologi Informasi',
-    linkUrl: '/teknologi-informasi',
-    asUrl: '/teknologi-informasi',
+    linkUrl: '/teknologi_informasi',
+    asUrl: '/teknologi_informasi',
   }
   // ,
   // {
@@ -278,13 +278,13 @@ export const admissionsMenu = [
 export const faithMenu = [
   {
     text: 'Jalur SNBP',
-    linkUrl: '/jalur-snbp',
-    asUrl: '/jalur-snbp'
+    linkUrl: '/snbp',
+    asUrl: '/snbp'
   },
   {
     text: 'Jalur SNBT',
-    linkUrl: '/jalur-snbt',
-    asUrl: '/jalur-snbt'
+    linkUrl: '/snbt',
+    asUrl: '/snbt'
 
     // subMenu: [
     //   {
@@ -295,8 +295,8 @@ export const faithMenu = [
   },
   {
     text: 'Jalur Mandiri',
-    linkUrl: '/jalur-mandiri',
-    asUrl: '/jalur-mandiri'
+    linkUrl: '/mandiri',
+    asUrl: '/mandiri'
 
     // subMenu: [
     //   {
@@ -354,8 +354,8 @@ export const faithMenu = [
 export const studentMenu = [
   {
     text: 'Kegiatan Mahasiswa',
-    linkUrl: '/kegiatan-mahasiswa',
-    asUrl: '/kegiatan-mahasiswa',
+    linkUrl: '/kegiatan_mahasiswa',
+    asUrl: '/kegiatan_mahasiswa',
     // subMenu: [
   //     {
   //       text: 'Residence Halls',
