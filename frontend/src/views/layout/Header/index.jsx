@@ -23,10 +23,10 @@ const LayoutHeader = (props) => {
   token && getUserInfo(token);
   const handleLogout = (token) => {
     Modal.confirm({
-      title: "注销",
-      content: "确定要退出系统吗?",
-      okText: "确定",
-      cancelText: "取消",
+      title: "logout",
+      content: "Are you sure you want to log out of the system?",
+      okText: "Sure",
+      cancelText: "Cancel",
       onOk: () => {
         logout(token);
       },
@@ -52,11 +52,11 @@ const LayoutHeader = (props) => {
           href="https://github.com/NLRX-WJC/react-antd-admin-template"
           rel="noopener noreferrer"
         >
-          项目地址
+        project address
         </a>
       </Menu.Item>
       <Menu.Divider />
-      <Menu.Item key="logout">注销</Menu.Item>
+      <Menu.Item key="logout">logout</Menu.Item>
     </Menu>
   );
   const computedStyle = () => {
@@ -80,8 +80,6 @@ const LayoutHeader = (props) => {
   };
   return (
     <>
-      {/* 这里是仿照antd pro的做法,如果固定header，
-      则header的定位变为fixed，此时需要一个定位为relative的header把原来的header位置撑起来 */}
       {fixedHeader ? <Header /> : null}
       <Header
         style={computedStyle()}

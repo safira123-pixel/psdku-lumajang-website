@@ -48,7 +48,7 @@ const RightPanel = (props) => {
   return (
     <div className="rightSettings">
       <Drawer
-        title="系统设置"
+        title="System Setting"
         placement="right"
         width={350}
         onClose={toggleSettingPanel}
@@ -60,8 +60,8 @@ const RightPanel = (props) => {
           </Col>
           <Col span={12}>
             <Switch
-              checkedChildren="开"
-              unCheckedChildren="关"
+              checkedChildren="Open"
+              unCheckedChildren="Close"
               defaultChecked={sidebarLogo}
               onChange={sidebarLogoChange}
             />
@@ -70,12 +70,12 @@ const RightPanel = (props) => {
         <Divider dashed />
         <Row>
           <Col span={12}>
-            <span>固定 Header</span>
+            <span>Header</span>
           </Col>
           <Col span={12}>
             <Switch
-              checkedChildren="开"
-              unCheckedChildren="关"
+              checkedChildren="Open"
+              unCheckedChildren="Close"
               defaultChecked={fixedHeader}
               onChange={fixedHeaderChange}
             />
@@ -84,33 +84,18 @@ const RightPanel = (props) => {
         <Divider dashed />
         <Row>
           <Col span={12}>
-            <span>开启 Tags-View</span>
+            <span>Tags-View</span>
           </Col>
           <Col span={12}>
             <Switch
-              checkedChildren="开"
-              unCheckedChildren="关"
+              checkedChildren="Open"
+              unCheckedChildren="Close"
               defaultChecked={tagsView}
               onChange={tagsViewChange}
             />
           </Col>
         </Row>
         <Divider dashed />
-        <Row>
-          <Col span={24}>
-            <Alert
-              message="开发者请注意:"
-              description="配置栏只在开发环境用于预览，生产环境不会展现，请拷贝后手动修改/src/defaultSettings.js配置文件"
-              type="warning"
-              showIcon
-              icon={<Icon type="notification" />}
-              style={{ marginBottom: "16px" }}
-            />
-            <Button style={{ width: "100%" }} icon="copy" onClick={handleCopy}>
-              拷贝配置
-            </Button>
-          </Col>
-        </Row>
       </Drawer>
     </div>
   );
