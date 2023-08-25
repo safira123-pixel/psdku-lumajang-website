@@ -18,8 +18,8 @@ export const aboutMenu = [
   },
   {
     text: 'Selayang Pandang',
-    linkUrl: '/about/selayang-pandang',
-    asUrl: '/about/selayang-pandang',
+    linkUrl: '/about/selayang_pandang',
+    asUrl: '/about/selayang_pandang',
     // subMenu: [
     //   {
     //     text: 'Franciscans TOR',
