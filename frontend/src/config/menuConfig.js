@@ -164,91 +164,91 @@ const menuList = [
 
 
   // Admin
-  {
-    title: "Manajemen Pengguna",
-    path: "/user",
-    icon: "usergroup-add",
-    roles:["ROLE_ADMINISTRATOR"]
-  },
-  {
-    title: "Manajemen Jurusan",
-    path: "/department",
-    icon: "apartment",
-    roles:["ROLE_ADMINISTRATOR"]
-  },
-  {
-    title: "Manajemen Prodi",
-    path: "/study-program",
-    icon: "border",
-    roles:["ROLE_ADMINISTRATOR"]
-  },
-  {
-    title: "Manajemen Dosen",
-    path: "/lecture",
-    icon: "team",
-    roles:["ROLE_ADMINISTRATOR"]
-  },
+  // {
+  //   title: "Manajemen Pengguna",
+  //   path: "/user",
+  //   icon: "usergroup-add",
+  //   roles:["ROLE_ADMINISTRATOR"]
+  // },
+  // {
+  //   title: "Manajemen Jurusan",
+  //   path: "/department",
+  //   icon: "apartment",
+  //   roles:["ROLE_ADMINISTRATOR"]
+  // },
+  // {
+  //   title: "Manajemen Prodi",
+  //   path: "/study-program",
+  //   icon: "border",
+  //   roles:["ROLE_ADMINISTRATOR"]
+  // },
+  // {
+  //   title: "Manajemen Dosen",
+  //   path: "/lecture",
+  //   icon: "team",
+  //   roles:["ROLE_ADMINISTRATOR"]
+  // },
 
-  // Lecture
-  {
-    title: "RPS",
-    path: "/rps",
-    icon: "user",
-    roles:["ROLE_LECTURE"]
-  },
+  // // Lecture
+  // {
+  //   title: "RPS",
+  //   path: "/rps",
+  //   icon: "user",
+  //   roles:["ROLE_LECTURE"]
+  // },
   {
     title: "Manajemen Soal",
     path: "/question",
     icon: "file-search",
     roles:["ROLE_ADMINISTRATOR","ROLE_LECTURE"]
   },
-  {
-    title: "Setting Ujian",
-    path: "/setting-exam",
-    icon: "user",
-    roles:["ROLE_LECTURE"]
-  },
-  {
-    title: "Setting Kuis",
-    path: "/setting-quiz",
-    icon: "user",
-    roles:["ROLE_LECTURE"]
-  },
-  {
-    title: "Setting Latihan",
-    path: "/setting-exercise",
-    icon: "user",
-    roles:["ROLE_LECTURE"]
-  },
-  {
-    title: "Nilai",
-    path: "/result",
-    icon: "user",
-    roles:["ROLE_LECTURE"],
-    children: [
-      {
-        title: "Nilai Ujian",
-        path: "/result/exam",
-        roles:["ROLE_LECTURE"]
-      },
-      {
-        title: "Nilai Kuis",
-        path: "/result/quiz",
-        roles:["ROLE_LECTURE"]
-      },
-      {
-        title: "Nilai Latihan",
-        path: "/result/exercise",
-        roles:["ROLE_LECTURE"]
-      }
-    ],
-  },
-  {
-    title: "Tentang Penulis",
-    path: "/about",
-    icon: "user",
-    roles:["ROLE_ADMINISTRATOR","ROLE_LECTURE","ROLE_STUDENT"]
-  },
+  // {
+  //   title: "Setting Ujian",
+  //   path: "/setting-exam",
+  //   icon: "user",
+  //   roles:["ROLE_LECTURE"]
+  // },
+  // {
+  //   title: "Setting Kuis",
+  //   path: "/setting-quiz",
+  //   icon: "user",
+  //   roles:["ROLE_LECTURE"]
+  // },
+  // {
+  //   title: "Setting Latihan",
+  //   path: "/setting-exercise",
+  //   icon: "user",
+  //   roles:["ROLE_LECTURE"]
+  // },
+  // {
+  //   title: "Nilai",
+  //   path: "/result",
+  //   icon: "user",
+  //   roles:["ROLE_LECTURE"],
+  //   children: [
+  //     {
+  //       title: "Nilai Ujian",
+  //       path: "/result/exam",
+  //       roles:["ROLE_LECTURE"]
+  //     },
+  //     {
+  //       title: "Nilai Kuis",
+  //       path: "/result/quiz",
+  //       roles:["ROLE_LECTURE"]
+  //     },
+  //     {
+  //       title: "Nilai Latihan",
+  //       path: "/result/exercise",
+  //       roles:["ROLE_LECTURE"]
+  //     }
+  //   ],
+  // },
+  // {
+  //   title: "Tentang Penulis",
+  //   path: "/about",
+  //   icon: "user",
+  //   roles:["ROLE_ADMINISTRATOR","ROLE_LECTURE","ROLE_STUDENT"]
+  // },
   
   // {
   //   title: "Bug收集",

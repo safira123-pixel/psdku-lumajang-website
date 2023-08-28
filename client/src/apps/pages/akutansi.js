@@ -1,3 +1,5 @@
+import Grid from '@material-ui/core/Grid'
+import Typography from '@material-ui/core/Typography'
 import withStyles from '@material-ui/core/styles/withStyles'
 import React from 'react'
 import TextSection from '../../components/TextSection'
@@ -5,11 +7,12 @@ import withRoot from '../../components/withRoot'
 import { withTranslation } from 'react-i18next'
 import Layout_Profile from '../../components/Layout'
 
-const akuntansi = () => {
+const akuntansi = (props) => {
+    const { classes, t } = props
     return (
         <Layout_Profile title="Profile" >
-            <TextSection
-            />
+            
+            
         </Layout_Profile >
     )
 }
