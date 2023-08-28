@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { Form, Input, Select, Modal } from "antd";
+import { Form, Input, Modal } from "antd";
 const { TextArea } = Input;
-class EditUserForm extends Component {
+class EditBeritaForm extends Component {
   render() {
     const {
       visible,
@@ -15,47 +15,39 @@ class EditUserForm extends Component {
     const { id, name, role, description } = currentRowData;
     const formItemLayout = {
       labelCol: {
-        sm: { span: 4 },
+        xs: { span: 24 },
+        sm: { span: 8 },
       },
       wrapperCol: {
+        xs: { span: 24 },
         sm: { span: 16 },
       },
     };
     return (
       <Modal
-        title="编辑"
+        title="Edit Berita"
         visible={visible}
         onCancel={onCancel}
         onOk={onOk}
         confirmLoading={confirmLoading}
       >
         <Form {...formItemLayout}>
-          <Form.Item label="ID Pengguna:">
+          <Form.Item label="Pengerjaan:">
             {getFieldDecorator("id", {
               initialValue: id,
             })(<Input disabled />)}
           </Form.Item>
-          <Form.Item label="Nama:">
+          <Form.Item label="Judul:">
             {getFieldDecorator("name", {
-              rules: [{ required: true, message: "请输入Nama!" }],
+              rules: [{ required: true, message: "Silahkan isikan judul berita" }],
               initialValue: name,
-            })(<Input placeholder="请输入Nama" />)}
+            })(<Input placeholder="Judul Berita" />)}
           </Form.Item>
-          <Form.Item label="Peran:">
-            {getFieldDecorator("role", {
-              initialValue: role,
-            })(
-              <Select style={{ width: 120 }} disabled={id === "admin"}>
-                <Select.Option value="admin">admin</Select.Option>
-                <Select.Option value="lecture">editor</Select.Option>
-                <Select.Option value="student">guest</Select.Option>
-              </Select>
-            )}
-          </Form.Item>
-          <Form.Item label="Deskripsi Pengguna:">
+          <Form.Item label="Deskripsi">
             {getFieldDecorator("description", {
+              rules: [{ required: true, message: "Silahkan isikan deskripsi Berita" }],
               initialValue: description,
-            })(<TextArea rows={4} placeholder="请输入Deskripsi Pengguna" />)}
+            })(<TextArea rows={4} placeholder="Deskripsi Berita" />)}
           </Form.Item>
         </Form>
       </Modal>
@@ -63,4 +55,4 @@ class EditUserForm extends Component {
   }
 }
 
-export default Form.create({ name: "EditUserForm" })(EditUserForm);
+export default Form.create({ name: "EditBeritaForm" })(EditBeritaForm);

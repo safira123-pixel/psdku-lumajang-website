@@ -106,12 +106,16 @@ const User = Loadable({
   loader: () => import(/*webpackChunkName:'User'*/ "@/views/user"),
   loading: Loading,
 });
-const Question = Loadable({
-  loader: () => import(/*webpackChunkName:'Question'*/ "@/views/question"),
-  loading: Loading,
-});
+// const Question = Loadable({
+//   loader: () => import(/*webpackChunkName:'Question'*/ "@/views/question"),
+//   loading: Loading,
+// });
 const Department = Loadable({
   loader: () => import(/*webpackChunkName:'Department'*/ "@/views/department"),
+  loading: Loading,
+});
+const Berita = Loadable({
+  loader: () => import(/*webpackChunkName:'Question'*/ "@/views/question"),
   loading: Loading,
 });
 const StudyProgram = Loadable({
@@ -255,8 +259,9 @@ export default [
     roles: ["ROLE_ADMINISTRATOR", "ROLE_LECTURE"],
   },
   { path: "/user", component: User, roles: ["ROLE_ADMINISTRATOR"] },
-  { path: "/question", component: Question, roles: ["ROLE_ADMINISTRATOR"] },
+  // { path: "/question", component: Question, roles: ["ROLE_ADMINISTRATOR"] },
   { path: "/department", component: Department, roles: ["ROLE_ADMINISTRATOR"] },
+  { path: "/berita", component: Berita, roles: ["ROLE_ADMINISTRATOR"] },
   {
     path: "/study-program",
     component: StudyProgram,

@@ -98,25 +98,25 @@ class Question extends Component {
     const { users } = this.state
     const title = (
       <span>
-        <Button type='primary' onClick={this.handleAddUser}>Tambahkan pengguna</Button>
+        <Button type='primary' onClick={this.handleAddUser}>Tambahkan Berita</Button>
       </span>
     )
-    const cardContent = `Di sini, Anda dapat mengelola pengguna di sistem, seperti menambahkan pengguna baru, atau mengubah pengguna yang sudah ada di sistem.。`
+    const cardContent = `Di sini ya, Anda dapat mengelola pengguna di sistem, seperti menambahkan berita baru, atau mengubah berita yang sudah ada di sistem.。`
     return (
       <div className="app-container">
-        <TypingCard title='Manajemen Pengguna' source={cardContent} />
+        <TypingCard title='Manajemen Berita' source={cardContent} />
         <br/>
         <Card title={title}>
           <Table bordered rowKey="id" dataSource={users} pagination={false}>
-            <Column title="ID Pengguna" dataIndex="id" key="id" align="center"/>
+            {/* <Column title="ID Pengguna" dataIndex="id" key="id" align="center"/> */}
             <Column title="Nama" dataIndex="name" key="name" align="center"/>
-            <Column title="Peran" dataIndex="role" key="role" align="center"/>
+            {/* <Column title="Peran" dataIndex="role" key="role" align="center"/> */}
             <Column title="Deskripsi Pengguna" dataIndex="description" key="description" align="center" />
             <Column title="Operasi" key="action" width={195} align="center"render={(text, row) => (
               <span>
-                <Button type="primary" shape="circle" icon="edit" title="编辑" onClick={this.handleEditUser.bind(null,row)}/>
+                <Button type="primary" shape="circle" icon="edit" title="Edit Berita" onClick={this.handleEditUser.bind(null,row)}/>
                 <Divider type="vertical" />
-                <Button type="primary" shape="circle" icon="delete" title="删除" onClick={this.handleDeleteUser.bind(null,row)}/>
+                <Button type="primary" shape="circle" icon="delete" title="Hapus Berita" onClick={this.handleDeleteUser.bind(null,row)}/>
               </span>
             )}/>
           </Table>

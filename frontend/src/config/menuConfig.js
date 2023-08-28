@@ -164,18 +164,18 @@ const menuList = [
 
 
   // Admin
-  // {
-  //   title: "Manajemen Pengguna",
-  //   path: "/user",
-  //   icon: "usergroup-add",
-  //   roles:["ROLE_ADMINISTRATOR"]
-  // },
-  // {
-  //   title: "Manajemen Jurusan",
-  //   path: "/department",
-  //   icon: "apartment",
-  //   roles:["ROLE_ADMINISTRATOR"]
-  // },
+  {
+    title: "Manajemen Pengguna",
+    path: "/user",
+    icon: "usergroup-add",
+    roles:["ROLE_ADMINISTRATOR"]
+  },
+  {
+    title: "Manajemen Jurusan",
+    path: "/department",
+    icon: "apartment",
+    roles:["ROLE_ADMINISTRATOR"]
+  },
   // {
   //   title: "Manajemen Prodi",
   //   path: "/study-program",
@@ -196,9 +196,15 @@ const menuList = [
   //   icon: "user",
   //   roles:["ROLE_LECTURE"]
   // },
+  // {
+  //   title: "Manajemen Berita",
+  //   path: "/question",
+  //   icon: "file-search",
+  //   roles:["ROLE_ADMINISTRATOR","ROLE_LECTURE"]
+  // },
   {
-    title: "Manajemen Soal",
-    path: "/question",
+    title: "Manajemen Berita",
+    path: "/berita",
     icon: "file-search",
     roles:["ROLE_ADMINISTRATOR","ROLE_LECTURE"]
   },
