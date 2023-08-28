@@ -3,7 +3,6 @@ package com.doyatama.university.service;
 import com.doyatama.university.exception.BadRequestException;
 import com.doyatama.university.exception.ResourceNotFoundException;
 import com.doyatama.university.model.Berita;
-import com.doyatama.university.model.Subject;
 import com.doyatama.university.payload.PagedResponse;
 import com.doyatama.university.payload.berita.BeritaRequest;
 import com.doyatama.university.payload.berita.BeritaResponse;
@@ -34,7 +33,7 @@ public class BeritaService {
 
     private static final Logger logger = LoggerFactory.getLogger(BeritaService.class);
 
-    public PagedResponse<BeritaResponse> getAllBeritas(int page, int size) {
+    public PagedResponse<BeritaResponse> getAllBerita(int page, int size) {
         validatePageNumberAndSize(page, size);
 
         // Retrieve Polls
@@ -51,7 +50,7 @@ public class BeritaService {
             BeritaResponse beritaResponse = new BeritaResponse();
             beritaResponse.setId(asResponse.getId());
             beritaResponse.setName(asResponse.getName());
-            beritaResponse.setDescription(asResponse.getDescription());;
+            beritaResponse.setDescription(asResponse.getDescription());
             beritaResponse.setCreatedAt(asResponse.getCreatedAt());
             beritaResponse.setUpdatedAt(asResponse.getUpdatedAt());
             return beritaResponse;
@@ -95,9 +94,8 @@ public class BeritaService {
 
     public Berita updateBerita(BeritaRequest beritaReq, Long id, UserPrincipal currentUser){
         return beritaRepository.findById(id).map(berita -> {
-            berita.setName(berita.getName());
-            berita.setDescription(berita.getDescription());
-            berita.setCreatedBy(currentUser.getId());
+            berita.setName(beritaReq.getName());
+            berita.setDescription(beritaReq.getDescription());
             berita.setUpdatedBy(currentUser.getId());
             return beritaRepository.save(berita);
         }).orElseThrow(() -> new ResourceNotFoundException("Berita" , "id" , id));

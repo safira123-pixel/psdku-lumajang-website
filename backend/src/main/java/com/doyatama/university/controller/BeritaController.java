@@ -40,8 +40,8 @@ public class BeritaController {
     @GetMapping
     @Secured("ROLE_ADMINISTRATOR")
     public PagedResponse<BeritaResponse> getBerita(@RequestParam(value = "page", defaultValue = AppConstants.DEFAULT_PAGE_NUMBER) int page,
-                                                       @RequestParam(value = "size", defaultValue = AppConstants.DEFAULT_PAGE_SIZE) int size) {
-        return beritaService.getAllBeritas(page, size);
+                                                           @RequestParam(value = "size", defaultValue = AppConstants.DEFAULT_PAGE_SIZE) int size) {
+        return beritaService.getAllBerita(page, size);
     }
 
     @PostMapping

@@ -6,12 +6,8 @@ import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
-/**
- *
- * @author Doyatama
- */
 @Repository
 public interface BeritaRepository extends JpaRepository<Berita, Long> {
-    @Override
+    Optional<Berita> findByName(String username);
     Optional<Berita> findById(Long id);
 }
