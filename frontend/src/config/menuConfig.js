@@ -205,7 +205,6 @@ const menuList = [
   {
     title: "Manajemen Berita",
     path: "/berita",
-    icon: "file-search",
     roles:["ROLE_ADMINISTRATOR","ROLE_LECTURE"]
   },
   // {

@@ -8,7 +8,7 @@ export function addBerita(data) {
   });
 }
 
-export function getBerita() {
+export function getBeritas() {
   return request({
     url: "/berita",
     method: "get",

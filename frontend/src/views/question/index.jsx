@@ -1,144 +1,194 @@
 import React, { Component } from "react";
 import { Card, Button, Table, message, Divider } from "antd";
-import { getUsers, deleteUser, editUser, addUser } from "@/api/user";
-import TypingCard from '@/components/TypingCard'
-import EditUserForm from "./forms/edit-question-form"
-import AddUserForm from "./forms/add-question-form"
+import {
+  getBeritas,
+  deleteBerita,
+  editBerita,
+  addBerita,
+} from "@/api/berita";
+import TypingCard from "@/components/TypingCard";
+import EditBeritaForm from "./forms/edit-question-form";
+import AddBeritaForm from "./forms/add-question-form";
 const { Column } = Table;
-class Question extends Component {
+class Berita extends Component {
   state = {
-    users: [],
-    editUserModalVisible: false,
-    editUserModalLoading: false,
+    beritas: [],
+    editBeritaModalVisible: false,
+    editBeritaModalLoading: false,
     currentRowData: {},
-    addUserModalVisible: false,
-    addUserModalLoading: false,
+    addBeritaModalVisible: false,
+    addBeritaModalLoading: false,
   };
-  getUsers = async () => {
-    const result = await getUsers()
-    const { users, status } = result.data
-    if (status === 0) {
+  getBeritas = async () => {
+    const result = await getBeritas();
+    console.log(result);
+    const { content, statusCode } = result.data;
+
+    if (statusCode === 200) {
       this.setState({
-        users
-      })
+        beritas: content,
+      });
     }
-  }
-  handleEditUser = (row) => {
+  };
+  handleEditBerita = (row) => {
     this.setState({
-      currentRowData:Object.assign({}, row),
-      editUserModalVisible: true,
+      currentRowData: Object.assign({}, row),
+      editBeritaModalVisible: true,
     });
   };
 
-  handleDeleteUser = (row) => {
-    const { id } = row
+  handleDeleteBerita = (row) => {
+    const { id } = row;
     if (id === "admin") {
-      message.error("不能删除管理员用户！")
-      return
+      message.error("不能删除管理员用户！");
+      return;
     }
-    deleteUser({id}).then(res => {
-      message.success("删除成功")
-      this.getUsers();
-    })
-  }
-  
-  handleEditUserOk = _ => {
-    const { form } = this.editUserFormRef.props;
+    console.log(id);
+    deleteBerita({ id }).then((res) => {
+      message.success("删除成功");
+      this.getBeritas();
+    });
+  };
+
+  handleEditBeritaOk = (_) => {
+    const { form } = this.editBeritaFormRef.props;
     form.validateFields((err, values) => {
       if (err) {
         return;
       }
-      this.setState({ editModalLoading: true, });
-      editUser(values).then((response) => {
-        form.resetFields();
-        this.setState({ editUserModalVisible: false, editUserModalLoading: false });
-        message.success("编辑成功!")
-        this.getUsers()
-      }).catch(e => {
-        message.success("编辑失败,请重试!")
-      })
-      
+      this.setState({ editModalLoading: true });
+      editBerita(values, values.id)
+        .then((response) => {
+          form.resetFields();
+          this.setState({
+            editBeritaModalVisible: false,
+            editBeritaModalLoading: false,
+          });
+          message.success("编辑成功!");
+          this.getBeritas();
+        })
+        .catch((e) => {
+          message.success("编辑失败,请重试!");
+        });
     });
   };
 
-  handleCancel = _ => {
+  handleCancel = (_) => {
     this.setState({
-      editUserModalVisible: false,
-      addUserModalVisible: false,
+      editBeritaModalVisible: false,
+      addBeritaModalVisible: false,
     });
   };
 
-  handleAddUser = (row) => {
+  handleAddBerita = (row) => {
     this.setState({
-      addUserModalVisible: true,
+      addBeritaModalVisible: true,
     });
   };
 
-  handleAddUserOk = _ => {
-    const { form } = this.addUserFormRef.props;
+  handleAddBeritaOk = (_) => {
+    const { form } = this.addBeritaFormRef.props;
     form.validateFields((err, values) => {
       if (err) {
         return;
       }
-      this.setState({ addUserModalLoading: true, });
-      addUser(values).then((response) => {
-        form.resetFields();
-        this.setState({ addUserModalVisible: false, addUserModalLoading: false });
-        message.success("添加成功!")
-        this.getUsers()
-      }).catch(e => {
-        message.success("添加失败,请重试!")
-      })
+      this.setState({ addBeritaModalLoading: true });
+      addBerita(values)
+        .then((response) => {
+          form.resetFields();
+          this.setState({
+            addBeritaModalVisible: false,
+            addBeritaModalLoading: false,
+          });
+          message.success("添加成功!");
+          this.getBeritas();
+        })
+        .catch((e) => {
+          message.success("添加失败,请重试!");
+        });
     });
   };
   componentDidMount() {
-    this.getUsers()
+    this.getBeritas();
   }
   render() {
-    const { users } = this.state
+    const { beritas } = this.state;
     const title = (
       <span>
-        <Button type='primary' onClick={this.handleAddUser}>Tambahkan Berita</Button>
+        <Button type="primary" onClick={this.handleAddBerita}>
+          Tambahkan Berita
+        </Button>
       </span>
-    )
-    const cardContent = `Di sini ya, Anda dapat mengelola pengguna di sistem, seperti menambahkan berita baru, atau mengubah berita yang sudah ada di sistem.。`
+    );
+    const cardContent = `Pengelolaan Berita.`;
     return (
       <div className="app-container">
-        <TypingCard title='Manajemen Berita' source={cardContent} />
-        <br/>
+        <TypingCard title="Manajemen Berita" source={cardContent} />
+        <br />
         <Card title={title}>
-          <Table bordered rowKey="id" dataSource={users} pagination={false}>
-            {/* <Column title="ID Pengguna" dataIndex="id" key="id" align="center"/> */}
-            <Column title="Nama" dataIndex="name" key="name" align="center"/>
-            {/* <Column title="Peran" dataIndex="role" key="role" align="center"/> */}
-            <Column title="Deskripsi Pengguna" dataIndex="description" key="description" align="center" />
-            <Column title="Operasi" key="action" width={195} align="center"render={(text, row) => (
-              <span>
-                <Button type="primary" shape="circle" icon="edit" title="Edit Berita" onClick={this.handleEditUser.bind(null,row)}/>
-                <Divider type="vertical" />
-                <Button type="primary" shape="circle" icon="delete" title="Hapus Berita" onClick={this.handleDeleteUser.bind(null,row)}/>
-              </span>
-            )}/>
+          <Table
+            bordered
+            rowKey="id"
+            dataSource={beritas}
+            pagination={false}
+          >
+            <Column title="ID Berita" dataIndex="id" key="id" align="center" />
+            <Column title="Judul" dataIndex="name" key="name" align="center" />
+            <Column
+              title="Deskripsi"
+              dataIndex="description"
+              key="description"
+              align="center"
+            />
+            <Column
+              title="Operasi"
+              key="action"
+              width={195}
+              align="center"
+              render={(text, row) => (
+                <span>
+                  <Button
+                    type="primary"
+                    shape="circle"
+                    icon="edit"
+                    title="编辑"
+                    onClick={this.handleEditBerita.bind(null, row)}
+                  />
+                  <Divider type="vertical" />
+                  <Button
+                    type="primary"
+                    shape="circle"
+                    icon="delete"
+                    title="删除"
+                    onClick={this.handleDeleteBerita.bind(null, row)}
+                  />
+                </span>
+              )}
+            />
           </Table>
         </Card>
-        <EditUserForm
+        <EditBeritaForm
           currentRowData={this.state.currentRowData}
-          wrappedComponentRef={formRef => this.editUserFormRef = formRef}
-          visible={this.state.editUserModalVisible}
-          confirmLoading={this.state.editUserModalLoading}
+          wrappedComponentRef={(formRef) =>
+            (this.editBeritaFormRef = formRef)
+          }
+          visible={this.state.editBeritaModalVisible}
+          confirmLoading={this.state.editBeritaModalLoading}
           onCancel={this.handleCancel}
-          onOk={this.handleEditUserOk}
-        />  
-        <AddUserForm
-          wrappedComponentRef={formRef => this.addUserFormRef = formRef}
-          visible={this.state.addUserModalVisible}
-          confirmLoading={this.state.addUserModalLoading}
+          onOk={this.handleEditBeritatOk}
+        />
+        <AddBeritaForm
+          wrappedComponentRef={(formRef) =>
+            (this.addBeritaFormRef = formRef)
+          }
+          visible={this.state.addBeritaModalVisible}
+          confirmLoading={this.state.addBeritaModalLoading}
           onCancel={this.handleCancel}
-          onOk={this.handleAddUserOk}
-        />  
+          onOk={this.handleAddBeritaOk}
+        />
       </div>
     );
   }
 }
 
-export default Question;
+export default Berita;
