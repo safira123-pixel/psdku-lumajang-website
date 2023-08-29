@@ -214,6 +214,12 @@ const menuList = [
     icon: "user",
     roles:["ROLE_ADMINISTRATOR"]
   },
+  {
+    title: "Pendaftaran Mahasiswa",
+    path: "/pendaftaran",
+    icon: "file",
+    roles:["ROLE_ADMINISTRATOR","ROLE_LECTURE"]
+  },
   // {
   //   title: "Setting Kuis",
   //   path: "/setting-quiz",

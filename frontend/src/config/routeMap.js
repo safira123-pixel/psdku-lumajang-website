@@ -122,6 +122,10 @@ const Kegiatan = Loadable({
   loader: () => import(/*webpackChunkName:'Kegiatan'*/ "@/views/kegiatan"),
   loading: Loading,
 });
+const Pendaftaran = Loadable({
+  loader: () => import(/*webpackChunkName:'Pendaftaran'*/ "@/views/pendaftaran"),
+  loading: Loading,
+});
 const StudyProgram = Loadable({
   loader: () =>
     import(/*webpackChunkName:'StudyProgram'*/ "@/views/study-program"),
@@ -267,6 +271,7 @@ export default [
   { path: "/department", component: Department, roles: ["ROLE_ADMINISTRATOR"] },
   { path: "/berita", component: Berita, roles: ["ROLE_ADMINISTRATOR"] },
   { path: "/kegiatan", component: Kegiatan, roles: ["ROLE_ADMINISTRATOR"] },
+  { path: "/pendaftaran", component: Pendaftaran, roles: ["ROLE_ADMINISTRATOR"] },
   {
     path: "/study-program",
     component: StudyProgram,
