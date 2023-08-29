@@ -164,16 +164,16 @@ const menuList = [
 
 
   // Admin
-  {
-    title: "Manajemen Pengguna",
-    path: "/user",
-    icon: "usergroup-add",
-    roles:["ROLE_ADMINISTRATOR"]
-  },
+  // {
+  //   title: "Manajemen Pengguna",
+  //   path: "/user",
+  //   icon: "usergroup-add",
+  //   roles:["ROLE_ADMINISTRATOR"]
+  // },
   {
     title: "Manajemen Jurusan",
     path: "/department",
-    icon: "apartment",
+    icon: "file",
     roles:["ROLE_ADMINISTRATOR"]
   },
   // {
@@ -205,6 +205,7 @@ const menuList = [
   {
     title: "Manajemen Berita",
     path: "/berita",
+    icon: "file",
     roles:["ROLE_ADMINISTRATOR","ROLE_LECTURE"]
   },
   // {
