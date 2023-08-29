@@ -32,22 +32,22 @@ class EditBeritaForm extends Component {
         confirmLoading={confirmLoading}
       >
         <Form {...formItemLayout}>
-          <Form.Item label="Pengerjaan:">
+          <Form.Item label="ID Berita:">
             {getFieldDecorator("id", {
               initialValue: id,
             })(<Input disabled />)}
           </Form.Item>
           <Form.Item label="Judul:">
             {getFieldDecorator("name", {
-              rules: [{ required: true, message: "Silahkan isikan judul berita" }],
+              rules: [{ required: true, message: "Silahkan isi Judul" }],
               initialValue: name,
-            })(<Input placeholder="Judul Berita" />)}
+            })(<Input placeholder="Nama Judul" />)}
           </Form.Item>
-          <Form.Item label="Deskripsi">
+          <Form.Item label="Deskripsi:">
             {getFieldDecorator("description", {
-              rules: [{ required: true, message: "Silahkan isikan deskripsi Berita" }],
+              rules: [{ required: true, message: "Silahkan isikan deskripsi" }],
               initialValue: description,
-            })(<TextArea rows={4} placeholder="Deskripsi Berita" />)}
+            })(<TextArea rows={4} placeholder="Deskripsi" />)}
           </Form.Item>
         </Form>
       </Modal>
@@ -55,4 +55,4 @@ class EditBeritaForm extends Component {
   }
 }
 
-export default Form.create({ name: "EditBeritaForm" })(EditBeritaForm);
+export default Form.create({ name: "EditBeritatForm" })(EditBeritaForm);

@@ -40,12 +40,12 @@ class Berita extends Component {
   handleDeleteBerita = (row) => {
     const { id } = row;
     if (id === "admin") {
-      message.error("不能删除管理员用户！");
+      message.error("Tidak dapat menghapus pengguna admin！");
       return;
     }
     console.log(id);
     deleteBerita({ id }).then((res) => {
-      message.success("删除成功");
+      message.success("berhasil dihapus");
       this.getBeritas();
     });
   };
@@ -64,11 +64,11 @@ class Berita extends Component {
             editBeritaModalVisible: false,
             editBeritaModalLoading: false,
           });
-          message.success("编辑成功!");
+          message.success("Berhasil diedit!");
           this.getBeritas();
         })
         .catch((e) => {
-          message.success("编辑失败,请重试!");
+          message.success("Pengeditan gagal, coba lagi!");
         });
     });
   };
@@ -100,11 +100,11 @@ class Berita extends Component {
             addBeritaModalVisible: false,
             addBeritaModalLoading: false,
           });
-          message.success("添加成功!");
+          message.success("Berhasil ditambahkan!");
           this.getBeritas();
         })
         .catch((e) => {
-          message.success("添加失败,请重试!");
+          message.success("Gagal menambahkan, silakan coba lagi!");
         });
     });
   };
@@ -151,7 +151,7 @@ class Berita extends Component {
                     type="primary"
                     shape="circle"
                     icon="edit"
-                    title="编辑"
+                    title="edit"
                     onClick={this.handleEditBerita.bind(null, row)}
                   />
                   <Divider type="vertical" />
@@ -159,7 +159,7 @@ class Berita extends Component {
                     type="primary"
                     shape="circle"
                     icon="delete"
-                    title="删除"
+                    title="delete"
                     onClick={this.handleDeleteBerita.bind(null, row)}
                   />
                 </span>
@@ -175,7 +175,7 @@ class Berita extends Component {
           visible={this.state.editBeritaModalVisible}
           confirmLoading={this.state.editBeritaModalLoading}
           onCancel={this.handleCancel}
-          onOk={this.handleEditBeritatOk}
+          onOk={this.handleEditBeritaOk}
         />
         <AddBeritaForm
           wrappedComponentRef={(formRef) =>
