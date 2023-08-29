@@ -118,6 +118,10 @@ const Berita = Loadable({
   loader: () => import(/*webpackChunkName:'Question'*/ "@/views/question"),
   loading: Loading,
 });
+const Kegiatan = Loadable({
+  loader: () => import(/*webpackChunkName:'Kegiatan'*/ "@/views/kegiatan"),
+  loading: Loading,
+});
 const StudyProgram = Loadable({
   loader: () =>
     import(/*webpackChunkName:'StudyProgram'*/ "@/views/study-program"),
@@ -262,6 +266,7 @@ export default [
   // { path: "/question", component: Question, roles: ["ROLE_ADMINISTRATOR"] },
   { path: "/department", component: Department, roles: ["ROLE_ADMINISTRATOR"] },
   { path: "/berita", component: Berita, roles: ["ROLE_ADMINISTRATOR"] },
+  { path: "/kegiatan", component: Kegiatan, roles: ["ROLE_ADMINISTRATOR"] },
   {
     path: "/study-program",
     component: StudyProgram,

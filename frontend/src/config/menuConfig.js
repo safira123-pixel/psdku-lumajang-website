@@ -208,12 +208,12 @@ const menuList = [
     icon: "file",
     roles:["ROLE_ADMINISTRATOR","ROLE_LECTURE"]
   },
-  // {
-  //   title: "Setting Ujian",
-  //   path: "/setting-exam",
-  //   icon: "user",
-  //   roles:["ROLE_LECTURE"]
-  // },
+  {
+    title: "Manajemen Kegiatan",
+    path: "/kegiatan",
+    icon: "user",
+    roles:["ROLE_ADMINISTRATOR"]
+  },
   // {
   //   title: "Setting Kuis",
   //   path: "/setting-quiz",
