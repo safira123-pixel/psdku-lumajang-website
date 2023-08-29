@@ -40,7 +40,7 @@ class Berita extends Component {
   handleDeleteBerita = (row) => {
     const { id } = row;
     if (id === "admin") {
-      message.error("Tidak dapat menghapus pengguna admin！");
+      message.error("Tidak dapat menghapus！");
       return;
     }
     console.log(id);

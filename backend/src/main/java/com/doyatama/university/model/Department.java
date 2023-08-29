@@ -20,6 +20,14 @@ public class Department extends UserDateAudit {
     @Lob
     private String description;
 
+    @NotBlank
+    @Lob
+    private String kompetensi;
+
+    @NotBlank
+    @Lob
+    private String peluang;
+
     public Department() {
     }
 
@@ -55,5 +63,21 @@ public class Department extends UserDateAudit {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getKompetensi() {
+        return kompetensi;
+    }
+
+    public void setKompetensi(String kompetensi) {
+        this.kompetensi = kompetensi;
+    }
+
+    public String getPeluang() {
+        return peluang;
+    }
+
+    public void setPeluang(String peluang) {
+        this.peluang = peluang;
     }
 }

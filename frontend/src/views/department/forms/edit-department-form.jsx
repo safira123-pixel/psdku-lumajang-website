@@ -12,7 +12,7 @@ class EditDepartmentForm extends Component {
       currentRowData,
     } = this.props;
     const { getFieldDecorator } = form;
-    const { id, name, role, description } = currentRowData;
+    const { id, name, description, kompetensi, peluang } = currentRowData;
     const formItemLayout = {
       labelCol: {
         xs: { span: 24 },
@@ -48,6 +48,18 @@ class EditDepartmentForm extends Component {
               rules: [{ required: true, message: "Silahkan isikan deskripsi jurusan" }],
               initialValue: description,
             })(<TextArea rows={4} placeholder="Deskripsi Jurusan" />)}
+          </Form.Item>
+          <Form.Item label="Kompetensi Lulusan:">
+            {getFieldDecorator("kompetensi", {
+              rules: [{ required: true, message: "Silahkan diisi" }],
+              initialValue: kompetensi,
+            })(<Input placeholder="Kompetensi Lulusan" />)}
+          </Form.Item>
+          <Form.Item label="Peluang Kerja:">
+            {getFieldDecorator("peluang", {
+              rules: [{ required: true, message: "Silahkan diisi" }],
+              initialValue: peluang,
+            })(<Input placeholder="Peluang Kerja" />)}
           </Form.Item>
         </Form>
       </Modal>

@@ -41,6 +41,26 @@ class AddDepartmentForm extends Component {
               ],
             })(<TextArea rows={4} placeholder="Deskripsi Pengguna" />)}
           </Form.Item>
+          <Form.Item label="Kompetensi Lulusan:">
+            {getFieldDecorator("kompetensi", {
+              rules: [
+                {
+                  required: true,
+                  message: "Silahkan isi kompetensi lulusan",
+                },
+              ],
+            })(<TextArea rows={4} placeholder="Kompetensi Lulusan" />)}
+          </Form.Item>
+          <Form.Item label="Peluang Kerja:">
+            {getFieldDecorator("peluang", {
+              rules: [
+                {
+                  required: true,
+                  message: "Silahkan isi peluang kerja",
+                },
+              ],
+            })(<TextArea rows={4} placeholder="Peluang Kerja" />)}
+          </Form.Item>
         </Form>
       </Modal>
     );
