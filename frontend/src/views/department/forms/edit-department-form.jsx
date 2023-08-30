@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Form, Input, Modal } from "antd";
+import { Form, Input, Select, Modal } from "antd";
 const { TextArea } = Input;
 class EditDepartmentForm extends Component {
   render() {
@@ -39,9 +39,12 @@ class EditDepartmentForm extends Component {
           </Form.Item>
           <Form.Item label="Nama Jurusan:">
             {getFieldDecorator("name", {
-              rules: [{ required: true, message: "Silahkan isikan nama jurusan" }],
+              rules: [{ required: true, message: "Silahkan pilih jurusan" }],
               initialValue: name,
-            })(<Input placeholder="Nama Jurusan" />)}
+            })(<Select style={{ width: 250 }}>
+              <Select.Option value="admin">Jurusan Teknologi Informasi</Select.Option>
+              <Select.Option value="student">Jurusan Sipil</Select.Option>
+            </Select>)}
           </Form.Item>
           <Form.Item label="Deskripsi Jurusan:">
             {getFieldDecorator("description", {
