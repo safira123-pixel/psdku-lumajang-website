@@ -171,6 +171,12 @@ const menuList = [
   //   roles:["ROLE_ADMINISTRATOR"]
   // },
   {
+    title: "Selayang Pandang",
+    path: "/selayang",
+    icon: "file",
+    roles:["ROLE_ADMINISTRATOR","ROLE_LECTURE"]
+  },
+  {
     title: "Manajemen Jurusan",
     path: "/department",
     icon: "file",
@@ -220,6 +226,7 @@ const menuList = [
     icon: "file",
     roles:["ROLE_ADMINISTRATOR","ROLE_LECTURE"]
   },
+  
   // {
   //   title: "Setting Kuis",
   //   path: "/setting-quiz",
