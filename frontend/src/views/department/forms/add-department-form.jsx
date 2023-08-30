@@ -1,5 +1,8 @@
+import 'antd/dist/antd.less';
 import React, { Component } from "react";
-import { Form, Input, Modal } from "antd";
+import { UploadOutlined } from '@ant-design/icons';
+import { Form, Input, Select, Modal, Button, Upload, message } from "antd";
+
 const { TextArea } = Input;
 class AddDepartmentForm extends Component {
   render() {
@@ -14,6 +17,7 @@ class AddDepartmentForm extends Component {
         xs: { span: 24 },
         sm: { span: 16 },
       },
+      
     };
     return (
       <Modal
@@ -29,7 +33,20 @@ class AddDepartmentForm extends Component {
               rules: [
                 { required: true, message: "Silahkan isikan nama jurusan" },
               ],
-            })(<Input placeholder="Nama Jurusan" />)}
+            })(<Select style={{ width: 120 }}>
+              <Select.Option value="admin">Jurusan Teknologi Informasi</Select.Option>
+              <Select.Option value="student">Jurusan Sipil</Select.Option>
+            </Select>)}
+          </Form.Item>
+          <Form.Item label=":">
+            {getFieldDecorator("name", {
+              rules: [
+                { required: true, message: "Silahkan isikan nama jurusan" },
+              ],
+            })(<Select style={{ width: 120 }}>
+              <Select.Option value="admin">Jurusan Teknologi Informasi</Select.Option>
+              <Select.Option value="student">Jurusan Sipil</Select.Option>
+            </Select>)}
           </Form.Item>
           <Form.Item label="Deskripsi Jurusan:">
             {getFieldDecorator("description", {
