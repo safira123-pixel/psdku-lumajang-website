@@ -3,8 +3,6 @@ package com.doyatama.university.service;
 import com.doyatama.university.exception.BadRequestException;
 import com.doyatama.university.exception.ResourceNotFoundException;
 import com.doyatama.university.model.Department;
-import com.doyatama.university.model.Department;
-import com.doyatama.university.model.Subject;
 import com.doyatama.university.payload.PagedResponse;
 import com.doyatama.university.payload.department.DepartmentRequest;
 import com.doyatama.university.payload.department.DepartmentResponse;
@@ -53,6 +51,8 @@ public class DepartmentService {
             departmentResponse.setId(asResponse.getId());
             departmentResponse.setName(asResponse.getName());
             departmentResponse.setDescription(asResponse.getDescription());
+            departmentResponse.setKompetensi(asResponse.getKompetensi());
+            departmentResponse.setPeluang(asResponse.getPeluang());
             departmentResponse.setCreatedAt(asResponse.getCreatedAt());
             departmentResponse.setUpdatedAt(asResponse.getUpdatedAt());
             return departmentResponse;
@@ -66,6 +66,8 @@ public class DepartmentService {
         Department department = new Department();
         department.setName(departmentRequest.getName());
         department.setDescription(departmentRequest.getDescription());
+        department.setKompetensi(departmentRequest.getKompetensi());
+        department.setPeluang(departmentRequest.getPeluang());
         department.setCreatedBy(currentUser.getId());
         department.setUpdatedBy(currentUser.getId());
         return departmentRepository.save(department);
@@ -79,6 +81,8 @@ public class DepartmentService {
         departmentResponse.setId(department.getId());
         departmentResponse.setName(department.getName());
         departmentResponse.setDescription(department.getDescription());
+        departmentResponse.setKompetensi(department.getKompetensi());
+        departmentResponse.setPeluang(department.getPeluang());
         departmentResponse.setCreatedAt(department.getCreatedAt());
         departmentResponse.setUpdatedAt(department.getUpdatedAt());
         return departmentResponse;
@@ -98,6 +102,8 @@ public class DepartmentService {
         return departmentRepository.findById(id).map(department -> {
             department.setName(departmentReq.getName());
             department.setDescription(departmentReq.getDescription());
+            department.setKompetensi(departmentReq.getKompetensi());
+            department.setPeluang(departmentReq.getPeluang());
             department.setUpdatedBy(currentUser.getId());
             return departmentRepository.save(department);
         }).orElseThrow(() -> new ResourceNotFoundException("Department" , "id" , id));

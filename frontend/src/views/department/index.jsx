@@ -40,12 +40,12 @@ class Department extends Component {
   handleDeleteDepartment = (row) => {
     const { id } = row;
     if (id === "admin") {
-      message.error("不能删除管理员用户！");
+      message.error("Tidak dapat menghapus！");
       return;
     }
     console.log(id);
     deleteDepartment({ id }).then((res) => {
-      message.success("删除成功");
+      message.success("Berhasil menghapus!");
       this.getDepartments();
     });
   };
@@ -64,11 +64,11 @@ class Department extends Component {
             editDepartmentModalVisible: false,
             editDepartmentModalLoading: false,
           });
-          message.success("编辑成功!");
+          message.success("Berhasil diedit!");
           this.getDepartments();
         })
         .catch((e) => {
-          message.success("编辑失败,请重试!");
+          message.success("Pengeditan gagal, coba lagi!");
         });
     });
   };
@@ -100,11 +100,11 @@ class Department extends Component {
             addDepartmentModalVisible: false,
             addDepartmentModalLoading: false,
           });
-          message.success("添加成功!");
+          message.success("Berhasil ditambahkan!");
           this.getDepartments();
         })
         .catch((e) => {
-          message.success("添加失败,请重试!");
+          message.success("Gagal menambahkan, silakan coba lagi!");
         });
     });
   };
@@ -141,6 +141,19 @@ class Department extends Component {
               align="center"
             />
             <Column
+              title="Kompetensi Lulusan"
+              dataIndex="kompetensi"
+              key="kompetensi"
+              align="center"
+            />
+            <Column
+              title="Peluang Kerja"
+              dataIndex="peluang"
+              key="peluang"
+              align="center"
+            />
+            <Column
+            
               title="Operasi"
               key="action"
               width={195}
@@ -151,7 +164,7 @@ class Department extends Component {
                     type="primary"
                     shape="circle"
                     icon="edit"
-                    title="编辑"
+                    title="edit"
                     onClick={this.handleEditDepartment.bind(null, row)}
                   />
                   <Divider type="vertical" />
@@ -159,7 +172,7 @@ class Department extends Component {
                     type="primary"
                     shape="circle"
                     icon="delete"
-                    title="删除"
+                    title="Delete"
                     onClick={this.handleDeleteDepartment.bind(null, row)}
                   />
                 </span>

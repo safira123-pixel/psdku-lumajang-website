@@ -1,71 +1,71 @@
 import React, { Component } from "react";
 import { Card, Button, Table, message, Divider } from "antd";
 import {
-  getBeritas,
-  deleteBerita,
-  editBerita,
-  addBerita,
-} from "@/api/berita";
+  getProfil,
+  deleteProfil,
+  editProfil,
+  addProfil,
+} from "@/api/profil";
 import TypingCard from "@/components/TypingCard";
-import EditBeritaForm from "./forms/edit-question-form";
-import AddBeritaForm from "./forms/add-question-form";
+import EditProfilForm from "./forms/edit-profil-form";
+import AddProfilForm from "./forms/add-profil-form";
 const { Column } = Table;
-class Berita extends Component {
+class Profil extends Component {
   state = {
-    beritas: [],
-    editBeritaModalVisible: false,
-    editBeritaModalLoading: false,
+    profils: [],
+    editProfilModalVisible: false,
+    editProfilnModalLoading: false,
     currentRowData: {},
-    addBeritaModalVisible: false,
-    addBeritaModalLoading: false,
+    addProfilModalVisible: false,
+    addProfilModalLoading: false,
   };
-  getBeritas = async () => {
-    const result = await getBeritas();
+  getProfil = async () => {
+    const result = await getProfil();
     console.log(result);
     const { content, statusCode } = result.data;
 
     if (statusCode === 200) {
       this.setState({
-        beritas: content,
+        profils: content,
       });
     }
   };
-  handleEditBerita = (row) => {
+  handleEditProfil = (row) => {
     this.setState({
       currentRowData: Object.assign({}, row),
-      editBeritaModalVisible: true,
+      editProfilModalVisible: true,
     });
   };
 
-  handleDeleteBerita = (row) => {
+  handleDeleteProfil = (row) => {
     const { id } = row;
     if (id === "admin") {
       message.error("Tidak dapat menghapus！");
       return;
     }
     console.log(id);
-    deleteBerita({ id }).then((res) => {
-      message.success("berhasil dihapus");
-      this.getBeritas();
+    deleteProfil({ id }).then((res) => {
+      message.success("berhasil dihapus!");
+      this.getProfil();
     });
   };
 
-  handleEditBeritaOk = (_) => {
-    const { form } = this.editBeritaFormRef.props;
+  handleEditProfilOk = (_) => {
+    const { form } = this.editProfilFormRef.props;
     form.validateFields((err, values) => {
       if (err) {
         return;
       }
       this.setState({ editModalLoading: true });
-      editBerita(values, values.id)
+      editProfil(values, values.id)
         .then((response) => {
           form.resetFields();
           this.setState({
-            editBeritaModalVisible: false,
-            editBeritaModalLoading: false,
+            editProfilModalVisible: false,
+            editProfilModalLoading: false,
           });
           message.success("Berhasil diedit!");
-          this.getBeritas();
+          this.getProfil();
         })
         .catch((e) => {
           message.success("Pengeditan gagal, coba lagi!");
@@ -75,33 +75,33 @@ class Berita extends Component {
 
   handleCancel = (_) => {
     this.setState({
-      editBeritaModalVisible: false,
-      addBeritaModalVisible: false,
+      editProfilModalVisible: false,
+      addProfilModalVisible: false,
     });
   };
 
-  handleAddBerita = (row) => {
+  handleAddProfil = (row) => {
     this.setState({
-      addBeritaModalVisible: true,
+      addProfilModalVisible: true,
     });
   };
 
-  handleAddBeritaOk = (_) => {
-    const { form } = this.addBeritaFormRef.props;
+  handleAddProfilOk = (_) => {
+    const { form } = this.addProfilFormRef.props;
     form.validateFields((err, values) => {
       if (err) {
         return;
       }
-      this.setState({ addBeritaModalLoading: true });
-      addBerita(values)
+      this.setState({ addProfilModalLoading: true });
+      addProfil(values)
         .then((response) => {
           form.resetFields();
           this.setState({
-            addBeritaModalVisible: false,
-            addBeritaModalLoading: false,
+            addProfilModalVisible: false,
+            addProfilModalLoading: false,
           });
           message.success("Berhasil ditambahkan!");
-          this.getBeritas();
+          this.getProfil();
         })
         .catch((e) => {
           message.success("Gagal menambahkan, silakan coba lagi!");
@@ -109,30 +109,30 @@ class Berita extends Component {
     });
   };
   componentDidMount() {
-    this.getBeritas();
+    this.getProfil();
   }
   render() {
-    const { beritas } = this.state;
+    const { profils } = this.state;
     const title = (
       <span>
-        <Button type="primary" onClick={this.handleAddBerita}>
-          Tambahkan Berita
+        <Button type="primary" onClick={this.handleAddProfil}>
+          Tambahkan Data
         </Button>
       </span>
     );
-    const cardContent = `Pengelolaan Berita.`;
+    const cardContent = `Pengelolaan Profil.`;
     return (
       <div className="app-container">
-        <TypingCard title="Manajemen Berita" source={cardContent} />
+        <TypingCard title="Manajemen  Profil" source={cardContent} />
         <br />
         <Card title={title}>
           <Table
             bordered
             rowKey="id"
-            dataSource={beritas}
+            dataSource={profils}
             pagination={false}
           >
-            <Column title="ID Berita" dataIndex="id" key="id" align="center" />
+            <Column title="ID Profil" dataIndex="id" key="id" align="center" />
             <Column title="Judul" dataIndex="name" key="name" align="center" />
             <Column
               title="Deskripsi"
@@ -152,7 +152,7 @@ class Berita extends Component {
                     shape="circle"
                     icon="edit"
                     title="edit"
-                    onClick={this.handleEditBerita.bind(null, row)}
+                    onClick={this.handleEditProfil.bind(null, row)}
                   />
                   <Divider type="vertical" />
                   <Button
@@ -160,35 +160,35 @@ class Berita extends Component {
                     shape="circle"
                     icon="delete"
                     title="delete"
-                    onClick={this.handleDeleteBerita.bind(null, row)}
+                    onClick={this.handleDeleteProfil.bind(null, row)}
                   />
                 </span>
               )}
             />
           </Table>
         </Card>
-        <EditBeritaForm
+        <EditProfilForm
           currentRowData={this.state.currentRowData}
           wrappedComponentRef={(formRef) =>
-            (this.editBeritaFormRef = formRef)
+            (this.editProfilFormRef = formRef)
           }
-          visible={this.state.editBeritaModalVisible}
-          confirmLoading={this.state.editBeritaModalLoading}
+          visible={this.state.editProfilModalVisible}
+          confirmLoading={this.state.editProfilModalLoading}
           onCancel={this.handleCancel}
-          onOk={this.handleEditBeritaOk}
+          onOk={this.handleEditProfilOk}
         />
-        <AddBeritaForm
+        <AddProfilForm
           wrappedComponentRef={(formRef) =>
-            (this.addBeritaFormRef = formRef)
+            (this.addProfilFormRef = formRef)
           }
-          visible={this.state.addBeritaModalVisible}
-          confirmLoading={this.state.addBeritaModalLoading}
+          visible={this.state.addProfilModalVisible}
+          confirmLoading={this.state.addProfilModalLoading}
           onCancel={this.handleCancel}
-          onOk={this.handleAddBeritaOk}
+          onOk={this.handleAddProfilOk}
         />
       </div>
     );
   }
 }
 
-export default Berita;
+export default Profil;

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Form, Input, Modal } from "antd";
+import { Form, Input, Select, Modal } from "antd";
 const { TextArea } = Input;
 class EditDepartmentForm extends Component {
   render() {
@@ -12,7 +12,7 @@ class EditDepartmentForm extends Component {
       currentRowData,
     } = this.props;
     const { getFieldDecorator } = form;
-    const { id, name, role, description } = currentRowData;
+    const { id, name, description, kompetensi, peluang } = currentRowData;
     const formItemLayout = {
       labelCol: {
         xs: { span: 24 },
@@ -39,15 +39,30 @@ class EditDepartmentForm extends Component {
           </Form.Item>
           <Form.Item label="Nama Jurusan:">
             {getFieldDecorator("name", {
-              rules: [{ required: true, message: "Silahkan isikan nama jurusan" }],
+              rules: [{ required: true, message: "Silahkan pilih jurusan" }],
               initialValue: name,
-            })(<Input placeholder="Nama Jurusan" />)}
+            })(<Select style={{ width: 250 }}>
+              <Select.Option value="admin">Jurusan Teknologi Informasi</Select.Option>
+              <Select.Option value="student">Jurusan Sipil</Select.Option>
+            </Select>)}
           </Form.Item>
           <Form.Item label="Deskripsi Jurusan:">
             {getFieldDecorator("description", {
               rules: [{ required: true, message: "Silahkan isikan deskripsi jurusan" }],
               initialValue: description,
             })(<TextArea rows={4} placeholder="Deskripsi Jurusan" />)}
+          </Form.Item>
+          <Form.Item label="Kompetensi Lulusan:">
+            {getFieldDecorator("kompetensi", {
+              rules: [{ required: true, message: "Silahkan diisi" }],
+              initialValue: kompetensi,
+            })(<Input placeholder="Kompetensi Lulusan" />)}
+          </Form.Item>
+          <Form.Item label="Peluang Kerja:">
+            {getFieldDecorator("peluang", {
+              rules: [{ required: true, message: "Silahkan diisi" }],
+              initialValue: peluang,
+            })(<Input placeholder="Peluang Kerja" />)}
           </Form.Item>
         </Form>
       </Modal>

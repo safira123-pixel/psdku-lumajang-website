@@ -1,8 +1,5 @@
-import 'antd/dist/antd.less';
 import React, { Component } from "react";
-import { UploadOutlined } from '@ant-design/icons';
-import { Form, Input, Select, Modal, Button, Upload, message } from "antd";
-
+import { Form, Input, Select, Modal } from "antd";
 const { TextArea } = Input;
 class AddDepartmentForm extends Component {
   render() {
@@ -17,7 +14,6 @@ class AddDepartmentForm extends Component {
         xs: { span: 24 },
         sm: { span: 16 },
       },
-      
     };
     return (
       <Modal
@@ -31,19 +27,9 @@ class AddDepartmentForm extends Component {
           <Form.Item label="Nama Jurusan:">
             {getFieldDecorator("name", {
               rules: [
-                { required: true, message: "Silahkan isikan nama jurusan" },
+                { required: true, message: "Silahkan pilih jurusan" },
               ],
-            })(<Select style={{ width: 120 }}>
-              <Select.Option value="admin">Jurusan Teknologi Informasi</Select.Option>
-              <Select.Option value="student">Jurusan Sipil</Select.Option>
-            </Select>)}
-          </Form.Item>
-          <Form.Item label=":">
-            {getFieldDecorator("name", {
-              rules: [
-                { required: true, message: "Silahkan isikan nama jurusan" },
-              ],
-            })(<Select style={{ width: 120 }}>
+            })(<Select style={{ width: 250 }}>
               <Select.Option value="admin">Jurusan Teknologi Informasi</Select.Option>
               <Select.Option value="student">Jurusan Sipil</Select.Option>
             </Select>)}
@@ -57,6 +43,26 @@ class AddDepartmentForm extends Component {
                 },
               ],
             })(<TextArea rows={4} placeholder="Deskripsi Pengguna" />)}
+          </Form.Item>
+          <Form.Item label="Kompetensi Lulusan:">
+            {getFieldDecorator("kompetensi", {
+              rules: [
+                {
+                  required: true,
+                  message: "Silahkan isi kompetensi lulusan",
+                },
+              ],
+            })(<TextArea rows={4} placeholder="Kompetensi Lulusan" />)}
+          </Form.Item>
+          <Form.Item label="Peluang Kerja:">
+            {getFieldDecorator("peluang", {
+              rules: [
+                {
+                  required: true,
+                  message: "Silahkan isi peluang kerja",
+                },
+              ],
+            })(<TextArea rows={4} placeholder="Peluang Kerja" />)}
           </Form.Item>
         </Form>
       </Modal>
