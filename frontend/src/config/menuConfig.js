@@ -15,6 +15,12 @@ const menuList = [
   },
  
   {
+    title: "Selayang Pandang",
+    path: "/selayang",
+    icon: "file",
+    roles:["ROLE_ADMINISTRATOR","ROLE_LECTURE"]
+  },
+  {
     title: "Manajemen Jurusan",
     path: "/department",
     icon: "file",
