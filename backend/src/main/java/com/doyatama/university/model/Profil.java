@@ -5,9 +5,10 @@ import com.doyatama.university.model.audit.UserDateAudit;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+
 @Entity
-@Table(name = "departments")
-public class Department extends UserDateAudit {
+@Table(name = "Profils")
+public class Profil extends UserDateAudit {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -20,28 +21,17 @@ public class Department extends UserDateAudit {
     @Lob
     private String description;
 
-    @NotBlank
-    @Lob
-    private String kompetensi;
-
-    @NotBlank
-    @Lob
-    private String peluang;
-
-    public Department() {
+    public Profil() {
     }
 
-    public Department(Long id) {
+    public Profil(Long id) {
         this.id = id;
     }
 
-    public Department(Long id, String name, String description, String kompetensi, String peluang) {
+    public Profil(Long id, String name, String description) {
         this.id = id;
         this.name = name;
         this.description = description;
-        this.kompetensi = kompetensi;
-        this.peluang = peluang;
-
     }
 
     public Long getId() {
@@ -66,21 +56,5 @@ public class Department extends UserDateAudit {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public String getKompetensi() {
-        return kompetensi;
-    }
-
-    public void setKompetensi(String kompetensi) {
-        this.kompetensi = kompetensi;
-    }
-
-    public String getPeluang() {
-        return peluang;
-    }
-
-    public void setPeluang(String peluang) {
-        this.peluang = peluang;
     }
 }

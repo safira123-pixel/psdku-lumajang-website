@@ -51,8 +51,8 @@ public class DepartmentService {
             departmentResponse.setId(asResponse.getId());
             departmentResponse.setName(asResponse.getName());
             departmentResponse.setDescription(asResponse.getDescription());
-            departmentResponse.setDescription(asResponse.getKompetensi());
-            departmentResponse.setDescription(asResponse.getPeluang());
+            departmentResponse.setKompetensi(asResponse.getKompetensi());
+            departmentResponse.setPeluang(asResponse.getPeluang());
             departmentResponse.setCreatedAt(asResponse.getCreatedAt());
             departmentResponse.setUpdatedAt(asResponse.getUpdatedAt());
             return departmentResponse;
@@ -66,8 +66,8 @@ public class DepartmentService {
         Department department = new Department();
         department.setName(departmentRequest.getName());
         department.setDescription(departmentRequest.getDescription());
-        department.setDescription(departmentRequest.getKompetensi());
-        department.setDescription(departmentRequest.getPeluang());
+        department.setKompetensi(departmentRequest.getKompetensi());
+        department.setPeluang(departmentRequest.getPeluang());
         department.setCreatedBy(currentUser.getId());
         department.setUpdatedBy(currentUser.getId());
         return departmentRepository.save(department);

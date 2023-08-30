@@ -106,10 +106,10 @@ const User = Loadable({
   loader: () => import(/*webpackChunkName:'User'*/ "@/views/user"),
   loading: Loading,
 });
-// const Question = Loadable({
-//   loader: () => import(/*webpackChunkName:'Question'*/ "@/views/question"),
-//   loading: Loading,
-// });
+const Profil = Loadable({
+  loader: () => import(/*webpackChunkName:'Profil'*/ "@/views/profil"),
+  loading: Loading,
+});
 const Department = Loadable({
   loader: () => import(/*webpackChunkName:'Department'*/ "@/views/department"),
   loading: Loading,
@@ -268,6 +268,7 @@ export default [
   },
   { path: "/user", component: User, roles: ["ROLE_ADMINISTRATOR"] },
   // { path: "/question", component: Question, roles: ["ROLE_ADMINISTRATOR"] },
+  { path: "/profil", component: Profil, roles: ["ROLE_ADMINISTRATOR"] },
   { path: "/department", component: Department, roles: ["ROLE_ADMINISTRATOR"] },
   { path: "/berita", component: Berita, roles: ["ROLE_ADMINISTRATOR"] },
   { path: "/kegiatan", component: Kegiatan, roles: ["ROLE_ADMINISTRATOR"] },

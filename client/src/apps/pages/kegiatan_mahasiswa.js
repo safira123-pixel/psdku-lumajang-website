@@ -4,12 +4,32 @@ import TextSection from '../../components/TextSection'
 import withRoot from '../../components/withRoot'
 import { withTranslation } from 'react-i18next'
 import Layout_Profile from '../../components/Layout'
+import { useState } from 'react'
+import { useEffect } from 'react'
 
 const kegiatan_mahasiswa = () => {
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+        fetch('/api/kegiatan') // Pastikan URL endpoint sesuai
+        .then(response => response.json())
+        .then(data => {
+            setData(data);
+        })
+        .catch(error => {
+            console.error(error);
+        });
+    }, []);
+    
     return (
         <Layout_Profile title="Kegiatan Mahasiswa" >
-            <TextSection
-            />
+            <TextSection>
+                {data.map( item => (
+                    <div key={item.id}>
+                        <h2>{item.name}</h2>
+                    </div>
+                    ))}
+                </TextSection>
         </Layout_Profile >
     )
 }

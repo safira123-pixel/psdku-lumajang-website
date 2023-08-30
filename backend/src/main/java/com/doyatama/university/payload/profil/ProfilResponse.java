@@ -1,25 +1,21 @@
-package com.doyatama.university.payload.department;
+package com.doyatama.university.payload.profil;
 
 import java.time.Instant;
 
-public class DepartmentResponse {
+public class ProfilResponse {
     private Long id;
     private String name;
     private String description;
-    private String kompetensi;
-    private String peluang;
     private Instant updatedAt;
     private Instant createdAt;
 
-    public DepartmentResponse() {
+    public ProfilResponse() {
     }
 
-    public DepartmentResponse(Long id, String name, String description, String kompetensi, String peluang, Instant updatedAt, Instant createdAt) {
+    public ProfilResponse(Long id, String name, String description, Instant updatedAt, Instant createdAt) {
         this.id = id;
         this.name = name;
         this.description = description;
-        this.kompetensi = kompetensi;
-        this.peluang = peluang;
         this.updatedAt = updatedAt;
         this.createdAt = createdAt;
     }
@@ -46,22 +42,6 @@ public class DepartmentResponse {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public String getKompetensi() {
-        return kompetensi;
-    }
-
-    public void setKompetensi(String kompetensi) {
-        this.kompetensi = kompetensi;
-    }
-
-    public String getPeluang() {
-        return peluang;
-    }
-
-    public void setPeluang(String peluang) {
-        this.peluang = peluang;
     }
 
     public Instant getUpdatedAt() {
