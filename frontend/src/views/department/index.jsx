@@ -154,8 +154,8 @@ class Department extends Component {
             />
             <Column
               title="Images"
-              dataIndex="image"
-              key="image"
+              dataIndex="file"
+              key="file"
               align="center"
             />
             <Column
