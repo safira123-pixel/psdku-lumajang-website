@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Form, Input, Select, Modal } from "antd";
+import { Form, Input, Select, Button, Upload, message, Icon, Modal } from "antd";
 const { TextArea } = Input;
 class EditDepartmentForm extends Component {
   render() {
@@ -63,6 +63,22 @@ class EditDepartmentForm extends Component {
               rules: [{ required: true, message: "Silahkan diisi" }],
               initialValue: peluang,
             })(<Input placeholder="Peluang Kerja" />)}
+          </Form.Item>
+          <Form.Item label="Image">
+            {getFieldDecorator("image", {
+              rules: [
+                {
+                  required: false,
+                  message: "Silahkan upload gambar",
+                },
+              ],
+            })(<Upload.Dragger accept="image/*">
+            {/* <p>
+                <InboxOutlined />
+            </p> */}
+            <p>Click or drag file to this area to upload</p>
+            <p>Support for a single or bulk upload.</p>
+        </Upload.Dragger>)}
           </Form.Item>
         </Form>
       </Modal>
