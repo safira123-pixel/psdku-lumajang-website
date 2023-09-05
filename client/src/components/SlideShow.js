@@ -10,47 +10,38 @@ const SlideShow = () => {
         >
             <div className="each-slide-effect">
                 <Hero
-                    backgroundImg='./assets/images/psdku-foto.jpg'
+                    backgroundImg='./assets/images/depan1.jpeg'
                     titleText="PSDKU LUMAJANG"
                     subtitleText={
                         <span>Politeknik Negeri Malang | PSDKU Lumajang</span>
                     }
-                    primaryBtnText="Request Info"
-                    primaryBtnLink="https://franciscan.secure.force.com/form?formid=217772"
-                    secondaryBtnText="Apply"
-                    secondaryBtnLink="https://franciscanuniversity.force.com/portal"
-                    tertiaryBtnText="Visit"
-                    tertiaryBtnLink="https://franciscan.secure.force.com/events"
                 />
             </div>
             <div className="each-slide-effect">
                 <Hero
-                    backgroundImg="./assets/images/psdku-foto.jpg"
+                    backgroundImg="./assets/images/gedung.jpeg"
                     titleText="PSDKU LUMAJANG"
                     subtitleText={
                         <span>Politeknik Negeri Malang | PSDKU Lumajang</span>
                     }
-                    primaryBtnText="Request Info"
-                    primaryBtnLink="https://franciscan.secure.force.com/form?formid=217772"
-                    secondaryBtnText="Apply"
-                    secondaryBtnLink="https://franciscanuniversity.force.com/portal"
-                    tertiaryBtnText="Visit"
-                    tertiaryBtnLink="https://franciscan.secure.force.com/events"
                 />
             </div>
             <div className="each-slide-effect">
                 <Hero
-                    backgroundImg='./assets/images/psdku-foto.jpg'
+                    backgroundImg='./assets/images/gedung1.jpeg'
                     titleText="PSDKU LUMAJANG"
                     subtitleText={
                         <span>Politeknik Negeri Malang | PSDKU Lumajang</span>
                     }
-                    primaryBtnText="Request Info"
-                    primaryBtnLink="https://franciscan.secure.force.com/form?formid=217772"
-                    secondaryBtnText="Apply"
-                    secondaryBtnLink="https://franciscanuniversity.force.com/portal"
-                    tertiaryBtnText="Visit"
-                    tertiaryBtnLink="https://franciscan.secure.force.com/events"
+                />
+            </div>
+            <div className="each-slide-effect">
+                <Hero
+                    backgroundImg='./assets/images/otomotif2.jpeg'
+                    titleText="PSDKU LUMAJANG"
+                    subtitleText={
+                        <span>Politeknik Negeri Malang | PSDKU Lumajang</span>
+                    }
                 />
             </div>
         </Slide>
