@@ -83,4 +83,6 @@ public class Department extends UserDateAudit {
     public void setPeluang(String peluang) {
         this.peluang = peluang;
     }
+
+
 }
