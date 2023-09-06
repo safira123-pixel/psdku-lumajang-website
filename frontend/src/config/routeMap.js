@@ -130,6 +130,14 @@ const Pendaftaran = Loadable({
   loader: () => import(/*webpackChunkName:'Pendaftaran'*/ "@/views/pendaftaran"),
   loading: Loading,
 });
+const Kalender = Loadable({
+  loader: () => import(/*webpackChunkName:'Kalender'*/ "@/views/kalender"),
+  loading: Loading,
+});
+const Organisasi = Loadable({
+  loader: () => import(/*webpackChunkName:'Organisasi'*/ "@/views/organisasi"),
+  loading: Loading,
+});
 const StudyProgram = Loadable({
   loader: () =>
     import(/*webpackChunkName:'StudyProgram'*/ "@/views/study-program"),
@@ -278,7 +286,8 @@ export default [
   { path: "/kegiatan", component: Kegiatan, roles: ["ROLE_ADMINISTRATOR"] },
   { path: "/pendaftaran", component: Pendaftaran, roles: ["ROLE_ADMINISTRATOR"] },
   { path: "/selayang", component: Selayang, roles: ["ROLE_ADMINISTRATOR"] },
-
+  { path: "/organisasi", component: Organisasi, roles: ["ROLE_ADMINISTRATOR"] },
+  { path: "/kalender", component: Kalender, roles: ["ROLE_ADMINISTRATOR"] },
   {
     path: "/study-program",
     component: StudyProgram,

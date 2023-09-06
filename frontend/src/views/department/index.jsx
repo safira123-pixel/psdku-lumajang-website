@@ -153,6 +153,12 @@ class Department extends Component {
               align="center"
             />
             <Column
+              title="Images"
+              dataIndex="image"
+              key="image"
+              align="center"
+            />
+            <Column
             
               title="Operasi"
               key="action"

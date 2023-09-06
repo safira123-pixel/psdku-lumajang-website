@@ -46,4 +46,5 @@ public class DepartmentRequest {
     public void setPeluang(String peluang) {
         this.peluang = peluang;
     }
+
 }
