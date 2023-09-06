@@ -11,7 +11,7 @@ const kegiatan_mahasiswa = () => {
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        fetch('/api/kegiatan') // Pastikan URL endpoint sesuai
+        fetch('http://localhost:8080/api/kegiatan') // Pastikan URL endpoint sesuai
         .then(response => response.json())
         .then(data => {
             setData(data);
@@ -20,15 +20,18 @@ const kegiatan_mahasiswa = () => {
             console.error(error);
         });
     }, []);
-    
+    console.log(data)
     return (
         <Layout_Profile title="Kegiatan Mahasiswa" >
             <TextSection>
-                {data.map( item => (
+                {/* {data.map( item => (
                     <div key={item.id}>
                         <h2>{item.name}</h2>
                     </div>
-                    ))}
+                    ))} */}
+                    <div>
+                        <h2>{data.name}</h2>
+                    </div>
                 </TextSection>
         </Layout_Profile >
     )

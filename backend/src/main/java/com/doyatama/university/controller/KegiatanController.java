@@ -38,14 +38,14 @@ public class KegiatanController {
     private static final Logger logger = LoggerFactory.getLogger(KegiatanController.class);
 
     @GetMapping
-    @Secured("ROLE_ADMINISTRATOR")
+    // @Secured("ROLE_ADMINISTRATOR")
     public PagedResponse<KegiatanResponse> getKegiatan(@RequestParam(value = "page", defaultValue = AppConstants.DEFAULT_PAGE_NUMBER) int page,
                                                    @RequestParam(value = "size", defaultValue = AppConstants.DEFAULT_PAGE_SIZE) int size) {
         return kegiatanService.getAllKegiatan(page, size);
     }
 
     @PostMapping
-    @Secured("ROLE_ADMINISTRATOR")
+//    @Secured("ROLE_ADMINISTRATOR")
     public ResponseEntity<?> createKegiatan(@CurrentUser UserPrincipal currentUser, @Valid @RequestBody KegiatanRequest kegiatanRequest) {
         Kegiatan kegiatan = kegiatanService.createKegiatan(currentUser, kegiatanRequest);
 
@@ -58,7 +58,7 @@ public class KegiatanController {
     }
 
     @PutMapping("/{kegiatanId}")
-    @Secured("ROLE_ADMINISTRATOR")
+//    @Secured("ROLE_ADMINISTRATOR")
     public ResponseEntity<?> updateKegiatanById(@CurrentUser UserPrincipal currentUser, @PathVariable (value = "kegiatanId") Long kegiatanId, @Valid @RequestBody KegiatanRequest kegiatanRequest) {
         Kegiatan kegiatan = kegiatanService.updateKegiatan(kegiatanRequest, kegiatanId, currentUser);
 
@@ -71,13 +71,13 @@ public class KegiatanController {
     }
 
     @GetMapping("/{kegiatanId}")
-    @Secured("ROLE_ADMINISTRATOR")
+//    @Secured("ROLE_ADMINISTRATOR")
     public KegiatanResponse getKegiatanById(@PathVariable Long kegiatanId) {
         return kegiatanService.getKegiatanById(kegiatanId);
     }
 
     @DeleteMapping("/{kegiatanId}")
-    @Secured("ROLE_ADMINISTRATOR")
+//    @Secured("ROLE_ADMINISTRATOR")
     public HttpStatus deleteKegiatan(@PathVariable (value = "kegiatanId") Long kegiatanId){
         kegiatanService.deleteKegiatanById(kegiatanId);
         return HttpStatus.FORBIDDEN;
