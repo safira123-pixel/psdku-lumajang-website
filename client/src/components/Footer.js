@@ -5,11 +5,17 @@ import classNames from 'classnames'
 import { Link } from 'react-router-dom'
 import React, { Component } from 'react'
 import InvertedButton from './InvertedButton'
+import { useTranslation } from 'react-i18next'
 
-class Footer extends Component {
-  render() {
-    const { classes } = this.props
-    const currentYear = new Date().getFullYear()
+// class Footer extends Component {
+
+//   render() {
+//     const { classes } = this.props
+//     const currentYear = new Date().getFullYear()
+//     const { t } = useTranslation();
+const Footer = ({classes}) => {
+  const currentYear = new Date().getFullYear();
+  const { t } = useTranslation();
     return (
       <div className={classes.root}>
         {/* <Grid
@@ -140,11 +146,11 @@ class Footer extends Component {
             </div>
             <div class="menu-footer-program-studi-container">
             <ul id="secondary-menu" class="menu">
-              <a style={{ color: 'white'}}>Program Studi</a><br></br>
-              <li id="menu-item-682" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-682"><a href="#" style={{ color: 'white'}}>D-IV Teknologi Rekayasa Otomotif</a></li>
-              <li id="menu-item-680" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-680"><a href="#" style={{ color: 'white'}}>D-III Teknologi Sipil</a></li>
-              <li id="menu-item-326" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-326"><a href="#" style={{ color: 'white'}}>D-III Akutansi</a></li>
-              <li id="menu-item-325" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-325"><a href="#" style={{ color: 'white'}}>D-III Teknologi Informasi</a></li>
+              <a style={{ color: 'white'}}>{t('Program.label')}</a><br></br>
+              <li id="menu-item-682" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-682"><a href="#" style={{ color: 'white'}}>{t('Item1.label')}</a></li>
+              <li id="menu-item-680" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-680"><a href="#" style={{ color: 'white'}}>{t('Item2.label')}</a></li>
+              <li id="menu-item-326" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-326"><a href="#" style={{ color: 'white'}}>{t('Item3.label')}</a></li>
+              <li id="menu-item-325" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-325"><a href="#" style={{ color: 'white'}}>{t('Item4.label')}</a></li>
               </ul>
               <ul id="secondary-menu" class="menu">
               <a href="#"><img src="https://www.linkpicture.com/q/pngwing.com_71.png" width="20" alt="Icon"/></a>    <a href="#"><img src="https://www.linkpicture.com/q/pngwing.com-1_32.png" width="20" alt="Icon"/></a>   <a href="#"><img src="https://www.linkpicture.com/q/pngwing.com-2_6.png" width="20" alt="Icon"/></a>
@@ -152,10 +158,10 @@ class Footer extends Component {
            </div>
            <div>
            <ul id="secondary-menu" class="menu">
-           <a style={{color:'white'}}>Program Studi Diluar Kampus Utama (PSDKU) Lumajang adalah <br></br>bagian dari Politeknik Negeri Malang yang memiliki keberadaan <br></br>di luar kampus utama untuk memberikan pendidikan vokasi <br></br>berkualitas di daerah Lumajang, Jawa Timur, Indonesia</a>
+           <a style={{color:'white'}}>{t('Pro1.label')}<br></br>{t('Pro2.label')}<br></br>{t('Pro3.label')}<br></br>{t('Pro4.label')}</a>
            <br></br>
            <br></br>
-           <a style={{color:'white'}}>Alamat : V66V+446, Area Sawah/Kebun, Jogoyudan, Kec. Lumajang, <br></br>Kabupaten Lumajang, Jawa Timur 67316</a>
+           <a style={{color:'white'}}>{t('alamat1.label')}<br></br>{t('alamat2.label')}</a>
            </ul>
            </div>
          
@@ -175,7 +181,6 @@ class Footer extends Component {
       </div>
     )
   }
-}
 
 const styles = theme => ({
   root: {

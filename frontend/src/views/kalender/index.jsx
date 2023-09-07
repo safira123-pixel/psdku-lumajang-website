@@ -1,107 +1,107 @@
 import React, { Component } from "react";
 import { Card, Button, Table, message, Divider } from "antd";
 import {
-  getKegiatans,
-  deleteKegiatan,
-  editKegiatan,
-  addKegiatan,
-} from "@/api/kegiatan";
+  getKalender,
+  deleteKalender,
+  editKalender,
+  addKalender,
+} from "@/api/kalender";
 import TypingCard from "@/components/TypingCard";
-import EditKegiatanForm from "./forms/edit-kegiatan-form";
-import AddKegiatanForm from "./forms/add-kegiatan-form";
+import EditKalenderForm from "./forms/edit-kalender-form";
+import AddKalenderForm from "./forms/add-kalender-form";
 const { Column } = Table;
-class Kegiatan extends Component {
+class Kalender extends Component {
   state = {
-    kegiatans: [],
-    editKegiatanModalVisible: false,
-    editKegiatanModalLoading: false,
+    kalenders: [],
+    editKalenderModalVisible: false,
+    editKalenderModalLoading: false,
     currentRowData: {},
-    addKegiatanModalVisible: false,
-    addKegiatanModalLoading: false,
+    addKalenderModalVisible: false,
+    addKalenderModalLoading: false,
   };
-  getKegiatans = async () => {
-    const result = await getKegiatans();
+  getKalender = async () => {
+    const result = await getKalender();
     console.log(result);
     const { content, statusCode } = result.data;
 
     if (statusCode === 200) {
       this.setState({
-        kegiatans: content,
+        kalenders: content,
       });
     }
   };
-  handleEditKegiatan = (row) => {
+  handleEditKalender = (row) => {
     this.setState({
       currentRowData: Object.assign({}, row),
-      editKegiatanModalVisible: true,
+      editKalenderModalVisible: true,
     });
   };
 
-  handleDeleteKegiatan = (row) => {
+  handleDeleteKalender = (row) => {
     const { id } = row;
     if (id === "admin") {
-      message.error("不能删除管理员用户！");
+      message.error("Tidak Dapat Menghapus!");
       return;
     }
     console.log(id);
-    deleteKegiatan({ id }).then((res) => {
-      message.success("删除成功");
-      this.getKegiatans();
+    deleteKalender({ id }).then((res) => {
+      message.success("Berhasil Menghapus");
+      this.getKalender();
     });
   };
 
-  handleEditKegiatanOk = (_) => {
-    const { form } = this.editKegiatanFormRef.props;
+  handleEditKalenderOk = (_) => {
+    const { form } = this.editKalenderFormRef.props;
     form.validateFields((err, values) => {
       if (err) {
         return;
       }
       this.setState({ editModalLoading: true });
-      editKegiatan(values, values.id)
+      editKalender(values, values.id)
         .then((response) => {
           form.resetFields();
           this.setState({
-            editKegiatanModalVisible: false,
-            editKegiatanModalLoading: false,
+            editKalenderModalVisible: false,
+            editKalenderModalLoading: false,
           });
-          message.success("编辑成功!");
-          this.getKegiatans();
+          message.success("Berhasil Mengedit!");
+          this.getKalender();
         })
         .catch((e) => {
-          message.success("编辑失败,请重试!");
+          message.success("Pengeditan Gagal, coba lagi!");
         });
     });
   };
 
   handleCancel = (_) => {
     this.setState({
-      editKegiatanModalVisible: false,
-      addKegiatanModalVisible: false,
+      editKalenderModalVisible: false,
+      addKalenderModalVisible: false,
     });
   };
 
-  handleAddKegiatan = (row) => {
+  handleAddKalender = (row) => {
     this.setState({
-      addKegiatanModalVisible: true,
+      addKalenderModalVisible: true,
     });
   };
 
-  handleAddKegiatanOk = (_) => {
-    const { form } = this.addKegiatanFormRef.props;
+  handleAddKalenderOk = (_) => {
+    const { form } = this.addKalenderFormRef.props;
     form.validateFields((err, values) => {
       if (err) {
         return;
       }
-      this.setState({ addKegiatanModalLoading: true });
-      addKegiatan(values)
+      this.setState({ addKalenderModalLoading: true });
+      addKalender(values)
         .then((response) => {
           form.resetFields();
           this.setState({
-            addKegiatanModalVisible: false,
-            addKegiatanModalLoading: false,
+            addKalenderModalVisible: false,
+            addKalenderModalLoading: false,
           });
           message.success("添加成功!");
-          this.getKegiatans();
+          this.getKalender();
         })
         .catch((e) => {
           message.success("添加失败,请重试!");
@@ -109,35 +109,41 @@ class Kegiatan extends Component {
     });
   };
   componentDidMount() {
-    this.getKegiatans();
+    this.getKalender();
   }
   render() {
-    const { kegiatans } = this.state;
+    const { kalenders } = this.state;
     const title = (
       <span>
-        <Button type="primary" onClick={this.handleAddKegiatan}>
-          Tambahkan Kegiatan Mahasiswa
+        <Button type="primary" onClick={this.handleAddKalender}>
+          Tambahkan Kalender 
         </Button>
       </span>
     );
-    const cardContent = `Pengelolaan Kegiatan Mahasiswa.`;
+    const cardContent = `Pengelolaan Kalender.`;
     return (
       <div className="app-container">
-        <TypingCard title="Manajemen Kegiatan Mahasiswa" source={cardContent} />
+        <TypingCard title="Manajemen Kalender" source={cardContent} />
         <br />
         <Card title={title}>
           <Table
             bordered
             rowKey="id"
-            dataSource={kegiatans}
+            dataSource={kalenders}
             pagination={false}
           >
-            <Column title="ID Kegiatan" dataIndex="id" key="id" align="center" />
-            <Column title="Judul" dataIndex="name" key="name" align="center" />
+            <Column title="ID Kalender" dataIndex="id" key="id" align="center" />
+            <Column title="Judul" dataIndex="fileName" key="name" align="center" />
             <Column
-              title="Deskripsi Kegiatan"
-              dataIndex="description"
-              key="description"
+              title="Tipe"
+              dataIndex="fileType"
+              key="fileType"
+              align="center"
+            />
+             <Column
+              title="Gambar"
+              dataIndex="data"
+              key="data"
               align="center"
             />
             <Column
@@ -152,7 +158,7 @@ class Kegiatan extends Component {
                     shape="circle"
                     icon="edit"
                     title="edit"
-                    onClick={this.handleEditKegiatan.bind(null, row)}
+                    onClick={this.handleEditKalender.bind(null, row)}
                   />
                   <Divider type="vertical" />
                   <Button
@@ -160,35 +166,35 @@ class Kegiatan extends Component {
                     shape="circle"
                     icon="delete"
                     title="delete"
-                    onClick={this.handleDeleteKegiatan.bind(null, row)}
+                    onClick={this.handleDeleteKalender.bind(null, row)}
                   />
                 </span>
               )}
             />
           </Table>
         </Card>
-        <EditKegiatanForm
+        <EditKalenderForm
           currentRowData={this.state.currentRowData}
           wrappedComponentRef={(formRef) =>
-            (this.editKegiatanFormRef = formRef)
+            (this.editKalenderFormRef = formRef)
           }
-          visible={this.state.editKegiatanModalVisible}
-          confirmLoading={this.state.editKegiatanModalLoading}
+          visible={this.state.editKalenderModalVisible}
+          confirmLoading={this.state.editKalenderModalLoading}
           onCancel={this.handleCancel}
-          onOk={this.handleEditKegiatanOk}
+          onOk={this.handleEditKalenderOk}
         />
-        <AddKegiatanForm
+        <AddKalenderForm
           wrappedComponentRef={(formRef) =>
-            (this.addKegiatanFormRef = formRef)
+            (this.addKalenderFormRef = formRef)
           }
-          visible={this.state.addKegiatanModalVisible}
-          confirmLoading={this.state.addKegiatanModalLoading}
+          visible={this.state.addKalenderModalVisible}
+          confirmLoading={this.state.addKalenderModalLoading}
           onCancel={this.handleCancel}
-          onOk={this.handleAddKegiatanOk}
+          onOk={this.handleAddKalenderOk}
         />
       </div>
     );
   }
 }
 
-export default Kegiatan;
+export default Kalender;

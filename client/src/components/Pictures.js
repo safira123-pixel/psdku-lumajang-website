@@ -1,7 +1,10 @@
 import React from 'react';
 import Hero from './Hero';
+import { useTranslation } from 'react-i18next'
+
 
 const Pictures = () => {
+    const { t } = useTranslation();
     const heroStyle = {
         backgroundImage: `url('./assets/images/visi-misi.jpg')`,
         backgroundSize: 'cover',
@@ -17,7 +20,7 @@ const Pictures = () => {
     return (
         <div className="each-slide-effect" style={heroStyle}>
             <Hero
-                titleText={<h1 style={heroTextStyle}>Visi Dan Misi</h1>}
+                titleText={<h1 style={heroTextStyle}>{t('judul3.label')}  </h1>}
             />
         </div>
     );

@@ -10,9 +10,11 @@ import SlideShow from '../../components/SlideShow'
 import NewsCard from '../../components/NewsCard'
 import { withTranslation } from 'react-i18next'
 import { Button } from '@material-ui/core'
+import { useTranslation } from 'react-i18next'
 
 const HomePage = (props) => {
-    const { classes, t } = props
+    const { classes} = props
+    const { t } = useTranslation();
     return (
         <Layout title="Home" >
             <SlideShow />
@@ -28,9 +30,11 @@ const HomePage = (props) => {
             secondaryBtnLink="https://franciscanuniversity.force.com/portal"
             tertiaryBtnText="Visit"
             tertiaryBtnLink="https://franciscan.secure.force.com/events"
-        /> */}
+        /> */} 
+      
             <TextSection
-                text="Menyelenggarakan dan Mengembangkan Pendidikan Vokasi yang Berkualitas, Inovatif, dan Berdaya Saing yang Mendorong Pola Pembelajaran Seumur Hidup dan Tumbuhnya Jiwa Kewirausahaan serta Sesuai Kebutuhan Industri, Lembaga Pemerintah, dan Masyarakat."
+                // text="Menyelenggarakan dan Mengembangkan Pendidikan Vokasi yang Berkualitas, Inovatif, dan Berdaya Saing yang Mendorong Pola Pembelajaran Seumur Hidup dan Tumbuhnya Jiwa Kewirausahaan serta Sesuai Kebutuhan Industri, Lembaga Pemerintah, dan Masyarakat."
+                text={t('home.label')}
                 bgColor="#051d47"
                 textColor="#fff"
                 borderColor="#998643"
@@ -47,7 +51,7 @@ const HomePage = (props) => {
                         gutterBottom
                         style={{ textAlign: 'center' }}
                     >
-                        Profil Kampus
+                        {t('profil.label')}
                     </Typography>
                     <Card className={`${classes.card} ${classes.videoIframeContainer}`}>
                         <iframe

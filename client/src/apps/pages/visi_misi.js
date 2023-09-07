@@ -7,9 +7,12 @@ import withRoot from '../../components/withRoot'
 import { withTranslation } from 'react-i18next'
 import TextSection from '../../components/TextSection'
 import Pictures from '../../components/Pictures'
+import { useTranslation } from 'react-i18next'
+
 
 const visi_misi = (props) => {
-    const { classes, t } = props
+    const { classes} = props
+    const { t } = useTranslation();
     const gridStyle = {
         backgroundColor: '#051d47'
     }
@@ -21,14 +24,13 @@ const visi_misi = (props) => {
                 <Typography
                     variant="display2"
                     gutterBottom
-                    style={{ textAlign: 'center', color: '#fff' }}
->
-                Visi
+                    style={{ textAlign: 'center', color: '#fff' }}>
+                {t('judul1.label')}                
                 </Typography>
                 </Grid>
             </Grid>
             <TextSection
-                text="Menjadi Lembaga Pendidikan Tinggi Vokasi yang Unggul dalam Persaingan Global"
+                text={t('visi.label')}  
                 bgColor="#fff"
                 textColor=""
                 borderColor="#998643"
@@ -40,42 +42,40 @@ const visi_misi = (props) => {
                 <Typography
                     variant="display2"
                     gutterBottom
-                    style={{ textAlign: 'center', color: '#fff' }}
->
-                Misi
+                    style={{ textAlign: 'center', color: '#fff' }}>
+                {t('judul2.label')}  
                 </Typography>
                 </Grid>
             </Grid>
             <TextSection
-                text="1. Menyelenggarakan dan Mengembangkan Pendidikan Vokasi yang Berkualitas, Inovatif, dan Berdaya Saing yang Mendorong Pola Pembelajaran Seumur Hidup dan Tumbuhnya Jiwa Kewirausahaan serta Sesuai Kebutuhan Industri, Lembaga Pemerintah, dan Masyarakat."
+                text={t('misi1.label')}  
                 bgColor="#fff"
                 textColor=""
                 padding="12px 0"
                 darkBg={true}
             />
             <TextSection
-                text="2. Menyelenggarakan Penelitian Terapan yang Bermanfaat bagi Pengembangan Ilmu Pengetahuan dan Teknologi serta Kesejahteraan Masyarakat."
+                text={t('misi2.label')}
                 bgColor="#fff"
                 textColor=""
                 padding="12px 0"
                 darkBg={true}
             />
             <TextSection
-                text="3. Menyelenggarakan Pengabdian Kepada Masyarakat yang Bermanfaat bagi Kesejahteraan Masyarakat."
+                text={t('misi3.label')}
                 bgColor="#fff"
                 textColor=""
                 padding="12px 0"
                 darkBg={true}
             />
             <TextSection
-                text="4. Menyelenggarakan Sistem Pengelolaan Pendidikan dengan Berdasar pada Prinsip-prinsip Tatapamong yang Baik."
-                bgColor="#fff"
+                text={t('misi4.label')}  
                 textColor=""
                 padding="12px 0"
                 darkBg={true}
             />
             <TextSection
-                text="5. Mengembangkan Kerjasama yang Saling Menguntungkan dengan Berbaga Pihak, baik di Dalam maupun di Luar Negeri pada Bidang-bidang yang Relevan."
+                text={t('misi5.label')}
                 bgColor="#fff"
                 textColor=""
                 padding="12px 0"
