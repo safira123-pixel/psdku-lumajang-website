@@ -56,7 +56,7 @@ const HomePage = (props) => {
                     <Card className={`${classes.card} ${classes.videoIframeContainer}`}>
                         <iframe
                             className={classes.videoIframe}
-                            src="https://www.youtube.com/embed/RpgdnJ_hYEc"
+                            src="https://www.youtube.com/embed/ctipi_DBBdA"
                             title="YouTube video: Be Singular."
                             frameBorder="0"
                             allow="encrypted-media"

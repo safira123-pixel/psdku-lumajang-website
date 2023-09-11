@@ -1,6 +1,10 @@
+import {Trans} from "react-i18next";
+
+
 export const aboutMenu = [
+  
   {
-    text: 'Profil',
+    text: <Trans i18nKey="Profilku">Profil</Trans>,
     linkUrl: '/profile',
     asUrl: '/profile',
     // subMenu: [
@@ -17,7 +21,7 @@ export const aboutMenu = [
     // ]
   },
   {
-    text: 'Selayang Pandang',
+    text: <Trans i18nKey="Selayang">Selayang Pandang</Trans>,
     linkUrl: '/selayang_pandang',
     asUrl: '/selayang_pandang',
     // subMenu: [
@@ -29,7 +33,7 @@ export const aboutMenu = [
     // ]
   },
   {
-    text: 'Visi & Misi',
+    text: <Trans i18nKey="VisiMisi">Visi & Misi</Trans>,
     linkUrl: '/visi_misi',
     asUrl: '/visi_misi',
     // subMenu: [
@@ -45,7 +49,7 @@ export const aboutMenu = [
     // ]
   },
   {
-    text: 'Struktur Organisasi',
+    text: <Trans i18nKey="Organisasi">Struktur Organisasi</Trans>,
     linkUrl: '/struktur_organisasi',
     asUrl: '/struktur_organisasi',
     // subMenu: [
@@ -75,7 +79,7 @@ export const aboutMenu = [
 
 export const academicsMenu = [
   {
-    text: 'Kalender Akademik',
+    text: <Trans i18nKey="Kalender">Kalender Akademik</Trans>,
     linkUrl: '/kalender_akademik',
     asUrl: '/kalender_akademik',
     // subMenu: [
@@ -190,7 +194,7 @@ export const academicsMenu = [
 
 export const admissionsMenu = [
   {
-    text: 'D-IV Teknologi Rekayasa Otomotif',
+    text: <Trans i18nKey="TRO">D-IV Teknologi Rekayasa Otomotif</Trans>,
     linkUrl: '/otomotif',
     asUrl: '/otomotif',
     // subMenu: [
@@ -232,7 +236,7 @@ export const admissionsMenu = [
     // ]
   },
   {
-    text: 'D-III Teknologi Sipil',
+    text: <Trans i18nKey="Sipil">D-III Teknologi Sipil</Trans>,
     linkUrl: '/teknologi_sipil',
     asUrl: '/teknologi_sipil',
     // These submenu items have the wrong urls
@@ -255,12 +259,12 @@ export const admissionsMenu = [
     // ]
   },
   {
-    text: 'D-III Akuntansi',
+    text: <Trans i18nKey="Akuntansi">D-III Akuntansi</Trans>,
     linkUrl: '/akuntansi',
     asUrl: '/akuntansi',
   },
   {
-    text: 'D-III Teknologi Informasi',
+    text: <Trans i18nKey="TI">D-III Teknologi Informasi</Trans>,
     linkUrl: '/teknologi_informasi',
     asUrl: '/teknologi_informasi',
   }
@@ -277,12 +281,12 @@ export const admissionsMenu = [
 
 export const faithMenu = [
   {
-    text: 'Jalur SNBP',
+    text: <Trans i18nKey="SNBP">Seleksi Nasional Berdasarkan Prestasi – SNBP</Trans>,
     linkUrl: '/snbp',
     asUrl: '/snbp'
   },
   {
-    text: 'Jalur SNBT',
+    text: <Trans i18nKey="SNBT">Seleksi Nasional Berdasarkan Tes – SNBT</Trans>,
     linkUrl: '/snbt',
     asUrl: '/snbt'
 
@@ -294,7 +298,7 @@ export const faithMenu = [
     // ]
   },
   {
-    text: 'Jalur Mandiri',
+    text: <Trans i18nKey="Mandiri">Jalur Mandiri</Trans>,
     linkUrl: '/mandiri',
     asUrl: '/mandiri'
 
@@ -353,7 +357,7 @@ export const faithMenu = [
 
 export const studentMenu = [
   {
-    text: 'Kegiatan Mahasiswa',
+    text: <Trans i18nKey="Kegiatan">Kegiatan Mahasiswa</Trans>,
     linkUrl: '/kegiatan_mahasiswa',
     asUrl: '/kegiatan_mahasiswa',
     // subMenu: [
@@ -365,7 +369,7 @@ export const studentMenu = [
     // ]
   },
   {
-    text: 'Pengumuman',
+    text: <Trans i18nKey="Pengumuman">Pengumuman</Trans>,
     linkUrl: '/pengumuman',
     asUrl: '/pengumuman'
   },
