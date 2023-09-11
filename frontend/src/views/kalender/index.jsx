@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Card, Button, Table, message, Divider } from "antd";
+import { Image } from "antd";
 import {
   getKalender,
   deleteKalender,
@@ -134,17 +135,17 @@ class Kalender extends Component {
           >
             <Column title="ID Kalender" dataIndex="id" key="id" align="center" />
             <Column title="Judul" dataIndex="fileName" key="name" align="center" />
-            <Column
-              title="Tipe"
-              dataIndex="fileType"
-              key="fileType"
-              align="center"
-            />
              <Column
               title="Gambar"
-              dataIndex="data"
               key="data"
               align="center"
+              render={(text, row) => (
+                <img
+                src={'data:image/jpeg;base64,${row.data}'}
+                alt="Gambar Kalender"
+                width={100}
+                />
+              )}
             />
             <Column
               title="Operasi"

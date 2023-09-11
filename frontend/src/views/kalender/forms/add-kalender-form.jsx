@@ -1,11 +1,35 @@
-import React, { Component } from "react";
-import { Form, Input, Select, Button, Upload, message, Icon, Modal } from "antd";
-const { TextArea } = Input;
+import React, { Component } from 'react';
+import axios from 'axios';
+import { Modal, Form, Upload, Icon } from 'antd';
+
 class AddKalenderForm extends Component {
+  state = {
+    selectedFile: null,
+  };
+
+  fileSelectedHandler = (event) => {
+    this.setState({
+      selectedFile: event.target.files[0],
+    });
+  };
+
+  fileUploadHandler = () => {
+    const formData = new FormData();
+    formData.append('file', this.state.selectedFile, this.state.selectedFile.name);
+
+    axios.post('http://localhost8080/api/kalender/upload', formData)
+      .then(response => {
+        console.log(response.data);
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  };
+
   render() {
     const { visible, onCancel, onOk, form, confirmLoading } = this.props;
     const { getFieldDecorator } = form;
-    
+
     const formItemLayout = {
       labelCol: {
         xs: { span: 24 },
@@ -16,7 +40,7 @@ class AddKalenderForm extends Component {
         sm: { span: 16 },
       },
     };
-    // const { getFieldDecorator } = this.props.form;
+
     return (
       <Modal
         title="Tambah Gambar Kalender"
@@ -25,21 +49,24 @@ class AddKalenderForm extends Component {
         onOk={onOk}
         confirmLoading={confirmLoading}
       >
-        <Form {...formItemLayout} onSubmit={this.handleSubmit}>
-        <Form.Item label="File">
-            {getFieldDecorator("data")(
-              <Upload.Dragger
-                name="data"
-                beforeUpload={() => false}
-                maxCount={1}
-              >
-                <p className="ant-upload-drag-icon">
-                  <Icon type="inbox" />
-                </p>
-                <p className="ant-upload-text">Klik atau Seret file ke sini</p>
-                <p className="ant-upload-hint">support semua file</p>
-              </Upload.Dragger>
-            )}
+        <Form {...formItemLayout}>
+          <Form.Item label="File">
+            <Upload
+              name="file"
+              beforeUpload={() => false}
+              maxCount={1}
+              customRequest={({ file }) => {
+                this.setState({
+                  selectedFile: file,
+                });
+              }}
+            >
+              <p className="ant-upload-drag-icon">
+                <Icon type="inbox" />
+              </p>
+              <p className="ant-upload-text">Klik atau Seret file ke sini</p>
+              <p className="ant-upload-hint">support semua file</p>
+            </Upload>
           </Form.Item>
         </Form>
       </Modal>

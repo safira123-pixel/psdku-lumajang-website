@@ -14,24 +14,25 @@ const kegiatan_mahasiswa = () => {
         fetch('http://localhost:8080/api/kegiatan') // Pastikan URL endpoint sesuai
         .then(response => response.json())
         .then(data => {
-            setData(data);
+            const dataArray = Array.isArray(data) ? data : [data];
+            setData(dataArray);
         })
         .catch(error => {
             console.error(error);
         });
     }, []);
-    console.log(data)
+    console.log(data);
     return (
         <Layout_Profile title="Kegiatan Mahasiswa" >
             <TextSection>
-                {/* {data.map( item => (
-                    <div key={item.id}>
+                {data.map((item, index) => (
+                    <div key={index}>
                         <h2>{item.name}</h2>
                     </div>
-                    ))} */}
-                    <div>
+                    ))}
+                    {/* <div>
                         <h2>{data.name}</h2>
-                    </div>
+                    </div> */}
                 </TextSection>
         </Layout_Profile >
     )

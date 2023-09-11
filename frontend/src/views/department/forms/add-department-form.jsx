@@ -32,8 +32,10 @@ class AddDepartmentForm extends Component {
                 { required: true, message: "Silahkan pilih jurusan" },
               ],
             })(<Select style={{ width: 250 }}>
-              <Select.Option value="admin">Jurusan Teknologi Informasi</Select.Option>
-              <Select.Option value="student">Jurusan Sipil</Select.Option>
+              <Select.Option value="Jurusan">Jurusan Teknologi Informasi</Select.Option>
+              <Select.Option value="Jurusan">Jurusan Teknik Sipil</Select.Option>
+              <Select.Option value="Jurusan">Jurusan Teknik Otomotif</Select.Option>
+              <Select.Option value="Jurusan">Jurusan Akutansi</Select.Option>
             </Select>)}
           </Form.Item>
           <Form.Item label="Deskripsi Jurusan:">
