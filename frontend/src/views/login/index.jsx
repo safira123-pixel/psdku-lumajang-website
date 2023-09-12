@@ -16,7 +16,7 @@ const Login = (props) => {
     setLoading(true);
     login(usernameOrEmail, password)
       .then((data) => {
-        message.success("登录成功");
+        message.success("Login Berhasil");
         handleUserInfo(data.accessToken);
       })
       .catch((error) => {
@@ -45,7 +45,7 @@ const Login = (props) => {
         const { usernameOrEmail, password } = values;
         handleLogin(usernameOrEmail, password);
       } else {
-        console.log("检验失败!");
+        console.log("Login Gagal!");
       }
     });
   };
@@ -67,7 +67,7 @@ const Login = (props) => {
                   {
                     required: true,
                     whitespace: true,
-                    message: "请输入用户名",
+                    message: "Masukkan Username atau Email",
                   },
                 ],
                 initialValue: "admin",
@@ -76,7 +76,7 @@ const Login = (props) => {
                   prefix={
                     <Icon type="user" style={{ color: "rgba(0,0,0,.25)" }} />
                   }
-                  placeholder="用户名"
+                  placeholder="Username/Email"
                 />
               )}
             </Form.Item>
@@ -86,7 +86,7 @@ const Login = (props) => {
                   {
                     required: true,
                     whitespace: true,
-                    message: "请输入密码",
+                    message: "Masukkan Password",
                   },
                 ],
                 initialValue: "123456", // 初始值
