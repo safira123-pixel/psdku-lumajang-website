@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Form, Input, Modal } from "antd";
+import { Form, Input, Modal, Select, } from "antd";
 const { TextArea } = Input;
 class EditPendaftaranForm extends Component {
   render() {
@@ -41,7 +41,11 @@ class EditPendaftaranForm extends Component {
             {getFieldDecorator("name", {
               rules: [{ required: true, message: "Silahkan isi Jalur Pendaftaran" }],
               initialValue: name,
-            })(<Input placeholder="Nama Jalur" />)}
+            })(<Select style={{ width: 250 }}>
+              <Select.Option value="Seleksi Nasional Berdasarkan Prestasi (SNBP)">Jalur SNBP</Select.Option>
+              <Select.Option value="Seleksi Nasional Berdasarkan Tes (SNBT)">Jalur SNBT</Select.Option>
+              <Select.Option value="Seleksi Mandiri">Jalur Mandiri</Select.Option>
+            </Select>)}
           </Form.Item>
           <Form.Item label="Deskripsi:">
             {getFieldDecorator("description", {

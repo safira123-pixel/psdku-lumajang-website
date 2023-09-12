@@ -132,8 +132,8 @@ class Pendaftaran extends Component {
             dataSource={pendaftarans}
             pagination={false}
           >
-            <Column title="ID Pendaftaran" dataIndex="id" key="id" align="center" />
-            <Column title="Jalur" dataIndex="name" key="name" align="center" />
+            <Column title="ID Jalur Penerimaan" dataIndex="id" key="id" align="center" />
+            <Column title="Jalur Penerimaan Mahasiswa" dataIndex="name" key="name" align="center" />
             <Column
               title="Deskripsi"
               dataIndex="description"

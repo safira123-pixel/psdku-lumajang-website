@@ -42,8 +42,10 @@ class EditDepartmentForm extends Component {
               rules: [{ required: true, message: "Silahkan pilih jurusan" }],
               initialValue: name,
             })(<Select style={{ width: 250 }}>
-              <Select.Option value="admin">Jurusan Teknologi Informasi</Select.Option>
-              <Select.Option value="student">Jurusan Sipil</Select.Option>
+              <Select.Option value="Jurusan Teknologi Informasi">Jurusan Teknologi Informasi</Select.Option>
+              <Select.Option value="Jurusan Sipil">Jurusan Sipil</Select.Option>
+              <Select.Option value="Jurusan Teknologi Rekayasa Otomotif">Jurusan Teknik Otomotif</Select.Option>
+              <Select.Option value="Jurusan Akuntansi">Jurusan Akuntansi</Select.Option>
             </Select>)}
           </Form.Item>
           <Form.Item label="Deskripsi Jurusan:">
@@ -56,13 +58,13 @@ class EditDepartmentForm extends Component {
             {getFieldDecorator("kompetensi", {
               rules: [{ required: true, message: "Silahkan diisi" }],
               initialValue: kompetensi,
-            })(<Input placeholder="Kompetensi Lulusan" />)}
+            })(<TextArea rows={4} placeholder="Kompetensi Lulusan" />)}
           </Form.Item>
           <Form.Item label="Peluang Kerja:">
             {getFieldDecorator("peluang", {
               rules: [{ required: true, message: "Silahkan diisi" }],
               initialValue: peluang,
-            })(<Input placeholder="Peluang Kerja" />)}
+            })(<TextArea rows={4} placeholder="Peluang Kerja" />)}
           </Form.Item>
           <Form.Item label="Image">
             {getFieldDecorator("image", {

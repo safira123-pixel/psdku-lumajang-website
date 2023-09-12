@@ -152,12 +152,12 @@ class Department extends Component {
               key="peluang"
               align="center"
             />
-            <Column
+            {/* <Column
               title="Images"
               dataIndex="image"
               key="image"
               align="center"
-            />
+            /> */}
             <Column
             
               title="Operasi"
