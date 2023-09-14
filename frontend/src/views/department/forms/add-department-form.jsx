@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Form, Input, Select, Modal } from "antd";
+import UploadFiles from "../../../components/upload-files.component";
 const { TextArea } = Input;
 class AddDepartmentForm extends Component {
   render() {
@@ -63,6 +64,17 @@ class AddDepartmentForm extends Component {
                 },
               ],
             })(<TextArea rows={4} placeholder="Peluang Kerja" />)}
+          </Form.Item>
+          <Form.Item label="Files">
+          <UploadFiles />
+            {/* {getFieldDecorator("files", {
+              rules: [
+                {
+                  required: true,
+                  message: "Silahkan tambahkan files",
+                },
+              ],
+            })(<UploadFiles />)} */}
           </Form.Item>
         </Form>
       </Modal>
