@@ -1,5 +1,7 @@
 package com.doyatama.university.payload.department;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import javax.validation.constraints.NotBlank;
 
 public class DepartmentRequest {
@@ -14,6 +16,16 @@ public class DepartmentRequest {
 
     @NotBlank
     private String peluang;
+
+    private MultipartFile file;
+
+    public MultipartFile getFile() {
+        return file;
+    }
+
+    public void setFile(MultipartFile file) {
+        this.file = file;
+    }
 
     public String getName() {
         return name;

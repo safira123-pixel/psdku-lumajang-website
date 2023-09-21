@@ -17,6 +17,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.Valid;
 import java.util.Collections;
@@ -63,7 +64,7 @@ public class DepartmentService {
                 departments.getSize(), departments.getTotalElements(), departments.getTotalPages(), departments.isLast(), 200);
     }
 
-    public Department createDepartment(UserPrincipal currentUser, @Valid DepartmentRequest departmentRequest) {
+    public Department createDepartment(UserPrincipal currentUser, @Valid DepartmentRequest departmentRequest, MultipartFile file) {
         Department department = new Department();
         department.setName(departmentRequest.getName());
         department.setDescription(departmentRequest.getDescription());

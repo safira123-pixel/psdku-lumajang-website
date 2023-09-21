@@ -18,6 +18,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.validation.Valid;
@@ -46,8 +47,9 @@ public class DepartmentController {
 
     @PostMapping
     @Secured("ROLE_ADMINISTRATOR")
-    public ResponseEntity<?> createDepartment(@CurrentUser UserPrincipal currentUser, @Valid @RequestBody DepartmentRequest departmentRequest) {
-        Department department = departmentService.createDepartment(currentUser, departmentRequest);
+    public ResponseEntity<?> createDepartment(@CurrentUser UserPrincipal currentUser, @Valid @ModelAttribute DepartmentRequest departmentRequest) {
+        MultipartFile file = departmentRequest.getFile();
+        Department department = departmentService.createDepartment(currentUser, departmentRequest, file);
 
         URI location = ServletUriComponentsBuilder
                 .fromCurrentRequest().path("/{departmentId}")
