@@ -9,6 +9,7 @@ import {
 import TypingCard from "@/components/TypingCard";
 import EditDepartmentForm from "./forms/edit-department-form";
 import AddDepartmentForm from "./forms/add-department-form";
+import { BlobImageDisplay } from "../../components/BlobImageDisplay";
 const { Column } = Table;
 class Department extends Component {
   state = {
@@ -19,6 +20,7 @@ class Department extends Component {
     addDepartmentModalVisible: false,
     addDepartmentModalLoading: false,
   };
+  
   getDepartments = async () => {
     const result = await getDepartments();
     console.log(result);
@@ -111,6 +113,7 @@ class Department extends Component {
   componentDidMount() {
     this.getDepartments();
   }
+  
   render() {
     const { departments } = this.state;
     const title = (
@@ -121,6 +124,7 @@ class Department extends Component {
       </span>
     );
     const cardContent = `Di sini, Anda dapat mengelola jurusan di sistem, seperti menambahkan jurusan baru, atau mengubah jurusan yang sudah ada di sistem.`;
+    
     return (
       <div className="app-container">
         <TypingCard title="Manajemen Jurusan" source={cardContent} />
@@ -152,12 +156,17 @@ class Department extends Component {
               key="peluang"
               align="center"
             />
-            {/* <Column
+            <Column
               title="Images"
               dataIndex="image"
               key="image"
               align="center"
-            /> */}
+              render={(text, row) => {
+                console.log(row.data)
+                return row.data != null ? 
+                <BlobImageDisplay blob={row.data} /> : <></> 
+            }}
+            />
             <Column
             
               title="Operasi"

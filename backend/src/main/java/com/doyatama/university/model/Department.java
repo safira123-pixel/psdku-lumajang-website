@@ -28,6 +28,13 @@ public class Department extends UserDateAudit {
     @Lob
     private String peluang;
 
+    private String fileName;
+
+    private String fileType;
+
+    @Lob
+    private byte[] data;
+
     public Department() {
     }
 
@@ -35,14 +42,17 @@ public class Department extends UserDateAudit {
         this.id = id;
     }
 
-    public Department(Long id, String name, String description, String kompetensi, String peluang) {
+    public Department(Long id, String name, String description, String kompetensi, String peluang, String fileName, String fileType, byte[] data) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.kompetensi = kompetensi;
         this.peluang = peluang;
-
+        this.fileName = fileName;
+        this.fileType = fileType;
+        this.data = data;
     }
+
 
     public Long getId() {
         return id;
@@ -84,5 +94,27 @@ public class Department extends UserDateAudit {
         this.peluang = peluang;
     }
 
+    public String getFileName() {
+        return fileName;
+    }
 
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
+    }
+
+    public String getFileType() {
+        return fileType;
+    }
+
+    public void setFileType(String fileType) {
+        this.fileType = fileType;
+    }
+
+    public byte[] getData() {
+        return data;
+    }
+
+    public void setData(byte[] data) {
+        this.data = data;
+    }
 }

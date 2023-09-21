@@ -1,6 +1,7 @@
 package com.doyatama.university.service;
 
 import com.doyatama.university.exception.BadRequestException;
+import com.doyatama.university.exception.FileStorageException;
 import com.doyatama.university.exception.ResourceNotFoundException;
 import com.doyatama.university.model.Department;
 import com.doyatama.university.payload.PagedResponse;
@@ -17,9 +18,11 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.Valid;
+import java.io.IOException;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
@@ -57,6 +60,10 @@ public class DepartmentService {
             departmentResponse.setPeluang(asResponse.getPeluang());
             departmentResponse.setCreatedAt(asResponse.getCreatedAt());
             departmentResponse.setUpdatedAt(asResponse.getUpdatedAt());
+            departmentResponse.setFileName(asResponse.getFileName());
+            departmentResponse.setFileType(asResponse.getFileType());
+            departmentResponse.setData(asResponse.getData());
+
             return departmentResponse;
         }).getContent();
 
@@ -64,7 +71,8 @@ public class DepartmentService {
                 departments.getSize(), departments.getTotalElements(), departments.getTotalPages(), departments.isLast(), 200);
     }
 
-    public Department createDepartment(UserPrincipal currentUser, @Valid DepartmentRequest departmentRequest, MultipartFile file) {
+    public Department createDepartment(UserPrincipal currentUser, @Valid DepartmentRequest departmentRequest, MultipartFile file) throws IOException {
+        String fileName = StringUtils.cleanPath(file.getOriginalFilename());
         Department department = new Department();
         department.setName(departmentRequest.getName());
         department.setDescription(departmentRequest.getDescription());
@@ -72,6 +80,10 @@ public class DepartmentService {
         department.setPeluang(departmentRequest.getPeluang());
         department.setCreatedBy(currentUser.getId());
         department.setUpdatedBy(currentUser.getId());
+        department.setFileName(fileName);
+        department.setFileType(file.getContentType());
+        department.setData(file.getBytes());
+
         return departmentRepository.save(department);
     }
 

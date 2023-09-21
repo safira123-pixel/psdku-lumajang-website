@@ -22,6 +22,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.validation.Valid;
+import java.io.IOException;
 import java.net.URI;
 
 @RestController
@@ -47,10 +48,13 @@ public class DepartmentController {
 
     @PostMapping
     @Secured("ROLE_ADMINISTRATOR")
-    public ResponseEntity<?> createDepartment(@CurrentUser UserPrincipal currentUser, @Valid @ModelAttribute DepartmentRequest departmentRequest) {
-        MultipartFile file = departmentRequest.getFile();
+    public ResponseEntity<?> createDepartment(@CurrentUser UserPrincipal currentUser, @Valid @ModelAttribute DepartmentRequest departmentRequest, @RequestParam("file") MultipartFile file) throws IOException {
+//        MultipartFile file = departmentRequest.getFile();
         Department department = departmentService.createDepartment(currentUser, departmentRequest, file);
-
+        String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath()
+                .path("/downloadFile/")
+                .path(department.getId().toString())
+                .toUriString();
         URI location = ServletUriComponentsBuilder
                 .fromCurrentRequest().path("/{departmentId}")
                 .buildAndExpand(department.getId()).toUri();
