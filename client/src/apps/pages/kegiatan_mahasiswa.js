@@ -1,11 +1,15 @@
+import Card from '@material-ui/core/Card'
+import Grid from '@material-ui/core/Grid'
 import withStyles from '@material-ui/core/styles/withStyles'
-import React from 'react'
+import Typography from '@material-ui/core/Typography'
+import React, { useEffect, useState } from 'react'
+import Layout from '../../components/Layout'
 import TextSection from '../../components/TextSection'
 import withRoot from '../../components/withRoot'
-import { withTranslation } from 'react-i18next'
-import Layout_Profile from '../../components/Layout'
-import { useState } from 'react'
-import { useEffect } from 'react'
+import SlideShow from '../../components/SlideShow'
+import NewsCard from '../../components/NewsCard'
+import { useTranslation, withTranslation } from 'react-i18next'
+import { Button } from '@material-ui/core'
 
 const kegiatan_mahasiswa = () => {
     const [data, setData] = useState([]);
@@ -14,27 +18,23 @@ const kegiatan_mahasiswa = () => {
         fetch('http://localhost:8080/api/kegiatan') // Pastikan URL endpoint sesuai
         .then(response => response.json())
         .then(data => {
-            const dataArray = Array.isArray(data) ? data : [data];
-            setData(dataArray);
+            setData([data.content[0]]);
+            console.log(data.content);
         })
         .catch(error => {
             console.error(error);
         });
     }, []);
-    console.log(data);
+
     return (
-        <Layout_Profile title="Kegiatan Mahasiswa" >
-            <TextSection>
-                {data.map((item, index) => (
-                    <div key={index}>
-                        <h2>{item.name}</h2>
-                    </div>
+        <Layout title="Home">
+            {data.map((item, index) => (
+                        <div key={index}>
+                            <h2>{item.name}</h2>
+                            <h2>{item.description}</h2>
+                        </div>
                     ))}
-                    {/* <div>
-                        <h2>{data.name}</h2>
-                    </div> */}
-                </TextSection>
-        </Layout_Profile >
+        </Layout>
     )
 }
 

@@ -1,16 +1,41 @@
+import Card from '@material-ui/core/Card'
+import Grid from '@material-ui/core/Grid'
 import withStyles from '@material-ui/core/styles/withStyles'
+import Typography from '@material-ui/core/Typography'
 import React from 'react'
+import Layout from '../../components/Layout'
 import TextSection from '../../components/TextSection'
 import withRoot from '../../components/withRoot'
+import SlideShow from '../../components/SlideShow'
+import NewsCard from '../../components/NewsCard'
 import { withTranslation } from 'react-i18next'
-import Layout_Profile from '../../components/Layout'
+import { Button } from '@material-ui/core'
+import { useTranslation } from 'react-i18next'
 
 const Struktur_organisasi = () => {
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+        fetch('http://localhost:8080/api/organisasi') // Pastikan URL endpoint sesuai
+        .then(response => response.json())
+        .then(data => {
+            setData([data.content[0]]);
+            console.log(data.content);
+        })
+        .catch(error => {
+            console.error(error);
+        });
+    }, []);
+
     return (
-        <Layout_Profile title="Profile" >
-            <TextSection
-            />
-        </Layout_Profile >
+        <Layout title="Home">
+            {data.map((item, index) => (
+                        <div key={index}>
+                            <h2>{item.name}</h2>
+                            <h2>{item.description}</h2>
+                        </div>
+                    ))}
+        </Layout>
     )
 }
 
