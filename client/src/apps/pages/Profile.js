@@ -2,19 +2,19 @@ import Card from '@material-ui/core/Card'
 import Grid from '@material-ui/core/Grid'
 import withStyles from '@material-ui/core/styles/withStyles'
 import Typography from '@material-ui/core/Typography'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Layout from '../../components/Layout'
 import TextSection from '../../components/TextSection'
 import withRoot from '../../components/withRoot'
 import SlideShow from '../../components/SlideShow'
 import NewsCard from '../../components/NewsCard'
-import { withTranslation } from 'react-i18next'
+import { useTranslation, withTranslation } from 'react-i18next'
 import { Button } from '@material-ui/core'
-import { useTranslation } from 'react-i18next'
 
-const Profile = () => {
+const Profile = (props) => {
     const [data, setData] = useState([]);
-
+    const { classes} = props
+    const { t } = useTranslation();
     useEffect(() => {
         fetch('http://localhost:8080/api/profil') // Pastikan URL endpoint sesuai
         .then(response => response.json())
@@ -145,3 +145,4 @@ const styles = theme => ({
 })
 
 export default withRoot(withStyles(styles)(withTranslation()(Profile)))
+

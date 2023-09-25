@@ -50,14 +50,14 @@ public class DepartmentController {
     private static final Logger logger = LoggerFactory.getLogger(DepartmentController.class);
 
     @GetMapping
-    @Secured("ROLE_ADMINISTRATOR")
+//    @Secured("ROLE_ADMINISTRATOR")
     public PagedResponse<DepartmentResponse> getDepartment(@RequestParam(value = "page", defaultValue = AppConstants.DEFAULT_PAGE_NUMBER) int page,
                                                            @RequestParam(value = "size", defaultValue = AppConstants.DEFAULT_PAGE_SIZE) int size) {
         return departmentService.getAllDepartment(page, size);
     }
 
     @PostMapping
-    @Secured("ROLE_ADMINISTRATOR")
+//    @Secured("ROLE_ADMINISTRATOR")
     public ResponseEntity<?> createDepartment(@CurrentUser UserPrincipal currentUser, @Valid @ModelAttribute DepartmentRequest departmentRequest, @RequestParam("file") MultipartFile file) throws IOException {
 //        MultipartFile file = departmentRequest.getFile();
         Department department = departmentService.createDepartment(currentUser, departmentRequest, file);
@@ -73,7 +73,7 @@ public class DepartmentController {
     }
 
     @PutMapping("/{departmentId}")
-    @Secured("ROLE_ADMINISTRATOR")
+//    @Secured("ROLE_ADMINISTRATOR")
     public ResponseEntity<?> updateDepartmentById(@CurrentUser UserPrincipal currentUser, @PathVariable (value = "departmentId") Long departmentId, @Valid @RequestBody DepartmentRequest departmentRequest) {
         Department department = departmentService.updateDepartment(departmentRequest, departmentId, currentUser);
 
@@ -86,13 +86,13 @@ public class DepartmentController {
     }
 
     @GetMapping("/{departmentId}")
-    @Secured("ROLE_ADMINISTRATOR")
+//    @Secured("ROLE_ADMINISTRATOR")
     public DepartmentResponse getDepartmentById(@PathVariable Long departmentId) {
         return departmentService.getDepartmentById(departmentId);
     }
 
     @DeleteMapping("/{departmentId}")
-    @Secured("ROLE_ADMINISTRATOR")
+//    @Secured("ROLE_ADMINISTRATOR")
     public HttpStatus deleteDepartment(@PathVariable (value = "departmentId") Long departmentId){
         departmentService.deleteDepartmentById(departmentId);
         return HttpStatus.FORBIDDEN;

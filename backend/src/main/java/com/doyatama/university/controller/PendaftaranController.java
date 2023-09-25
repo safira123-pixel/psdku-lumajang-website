@@ -38,14 +38,14 @@ public class PendaftaranController {
     private static final Logger logger = LoggerFactory.getLogger(PendaftaranController.class);
 
     @GetMapping
-    @Secured("ROLE_ADMINISTRATOR")
+//    @Secured("ROLE_ADMINISTRATOR")
     public PagedResponse<PendaftaranResponse> getPendaftaran(@RequestParam(value = "page", defaultValue = AppConstants.DEFAULT_PAGE_NUMBER) int page,
                                                            @RequestParam(value = "size", defaultValue = AppConstants.DEFAULT_PAGE_SIZE) int size) {
         return pendaftaranService.getAllPendaftaran(page, size);
     }
 
     @PostMapping
-    @Secured("ROLE_ADMINISTRATOR")
+//    @Secured("ROLE_ADMINISTRATOR")
     public ResponseEntity<?> createPendaftaran(@CurrentUser UserPrincipal currentUser, @Valid @RequestBody PendaftaranRequest pendaftaranRequest) {
         Pendaftaran pendaftaran = pendaftaranService.createPendaftaran(currentUser, pendaftaranRequest);
 
@@ -58,7 +58,7 @@ public class PendaftaranController {
     }
 
     @PutMapping("/{pendaftaranId}")
-    @Secured("ROLE_ADMINISTRATOR")
+//    @Secured("ROLE_ADMINISTRATOR")
     public ResponseEntity<?> updatePendaftaranById(@CurrentUser UserPrincipal currentUser, @PathVariable (value = "pendaftaranId") Long pendaftaranId, @Valid @RequestBody PendaftaranRequest pendaftaranRequest) {
         Pendaftaran pendaftaran = pendaftaranService.updatePendaftaran(pendaftaranRequest, pendaftaranId, currentUser);
 
@@ -71,13 +71,13 @@ public class PendaftaranController {
     }
 
     @GetMapping("/{pendaftaranId}")
-    @Secured("ROLE_ADMINISTRATOR")
+//    @Secured("ROLE_ADMINISTRATOR")
     public PendaftaranResponse getPendaftaranById(@PathVariable Long pendaftaranId) {
         return pendaftaranService.getPendaftaranById(pendaftaranId);
     }
 
     @DeleteMapping("/{pendaftaranId}")
-    @Secured("ROLE_ADMINISTRATOR")
+//    @Secured("ROLE_ADMINISTRATOR")
     public HttpStatus deletePendaftaran(@PathVariable (value = "pendaftaranId") Long pendaftaranId){
         pendaftaranService.deletePendaftaranById(pendaftaranId);
         return HttpStatus.FORBIDDEN;

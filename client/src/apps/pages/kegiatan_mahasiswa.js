@@ -11,9 +11,10 @@ import NewsCard from '../../components/NewsCard'
 import { useTranslation, withTranslation } from 'react-i18next'
 import { Button } from '@material-ui/core'
 
-const kegiatan_mahasiswa = () => {
+const kegiatan_mahasiswa = (props) => {
     const [data, setData] = useState([]);
-
+    const { classes} = props
+    const { t } = useTranslation();
     useEffect(() => {
         fetch('http://localhost:8080/api/kegiatan') // Pastikan URL endpoint sesuai
         .then(response => response.json())

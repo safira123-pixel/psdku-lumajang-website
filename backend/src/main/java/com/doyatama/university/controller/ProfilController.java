@@ -38,14 +38,14 @@ public class ProfilController {
     private static final Logger logger = LoggerFactory.getLogger(ProfilController.class);
 
     @GetMapping
-    @Secured("ROLE_ADMINISTRATOR")
+//    @Secured("ROLE_ADMINISTRATOR")
     public PagedResponse<ProfilResponse> getProfil(@RequestParam(value = "page", defaultValue = AppConstants.DEFAULT_PAGE_NUMBER) int page,
                                                    @RequestParam(value = "size", defaultValue = AppConstants.DEFAULT_PAGE_SIZE) int size) {
         return profilService.getAllProfil(page, size);
     }
 
     @PostMapping
-    @Secured("ROLE_ADMINISTRATOR")
+//    @Secured("ROLE_ADMINISTRATOR")
     public ResponseEntity<?> createProfil(@CurrentUser UserPrincipal currentUser, @Valid @RequestBody ProfilRequest profilRequest) {
         Profil profil = profilService.createProfil(currentUser, profilRequest);
 
@@ -58,7 +58,7 @@ public class ProfilController {
     }
 
     @PutMapping("/{profilId}")
-    @Secured("ROLE_ADMINISTRATOR")
+//    @Secured("ROLE_ADMINISTRATOR")
     public ResponseEntity<?> updateProfilById(@CurrentUser UserPrincipal currentUser, @PathVariable (value = "profilId") Long profilId, @Valid @RequestBody ProfilRequest profilRequest) {
         Profil profil = profilService.updateProfil(profilRequest, profilId, currentUser);
 
@@ -71,13 +71,13 @@ public class ProfilController {
     }
 
     @GetMapping("/{profilId}")
-    @Secured("ROLE_ADMINISTRATOR")
+//    @Secured("ROLE_ADMINISTRATOR")
     public ProfilResponse getProfilById(@PathVariable Long profilId) {
         return profilService.getProfilById(profilId);
     }
 
     @DeleteMapping("/{profilId}")
-    @Secured("ROLE_ADMINISTRATOR")
+//    @Secured("ROLE_ADMINISTRATOR")
     public HttpStatus deleteProfil(@PathVariable (value = "profilId") Long profilId){
         profilService.deleteProfilById(profilId);
         return HttpStatus.FORBIDDEN;

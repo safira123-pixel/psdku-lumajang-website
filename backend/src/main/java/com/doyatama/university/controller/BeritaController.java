@@ -38,14 +38,14 @@ public class BeritaController {
     private static final Logger logger = LoggerFactory.getLogger(BeritaController.class);
 
     @GetMapping
-    @Secured("ROLE_ADMINISTRATOR")
+//    @Secured("ROLE_ADMINISTRATOR")
     public PagedResponse<BeritaResponse> getBerita(@RequestParam(value = "page", defaultValue = AppConstants.DEFAULT_PAGE_NUMBER) int page,
                                                            @RequestParam(value = "size", defaultValue = AppConstants.DEFAULT_PAGE_SIZE) int size) {
         return beritaService.getAllBerita(page, size);
     }
 
     @PostMapping
-    @Secured("ROLE_ADMINISTRATOR")
+//    @Secured("ROLE_ADMINISTRATOR")
     public ResponseEntity<?> createBerita(@CurrentUser UserPrincipal currentUser, @Valid @RequestBody BeritaRequest beritaRequest) {
         Berita berita = beritaService.createBerita(currentUser, beritaRequest);
 
@@ -58,7 +58,7 @@ public class BeritaController {
     }
 
     @PutMapping("/{beritaId}")
-    @Secured("ROLE_ADMINISTRATOR")
+//    @Secured("ROLE_ADMINISTRATOR")
     public ResponseEntity<?> updateBeritaById(@CurrentUser UserPrincipal currentUser, @PathVariable (value = "beritaId") Long beritaId, @Valid @RequestBody BeritaRequest beritaRequest) {
         Berita berita = beritaService.updateBerita(beritaRequest, beritaId, currentUser);
 
@@ -71,13 +71,13 @@ public class BeritaController {
     }
 
     @GetMapping("/{beritaId}")
-    @Secured("ROLE_ADMINISTRATOR")
+//    @Secured("ROLE_ADMINISTRATOR")
     public BeritaResponse getBeritaById(@PathVariable Long beritaId) {
         return beritaService.getBeritaById(beritaId);
     }
 
     @DeleteMapping("/{beritaId}")
-    @Secured("ROLE_ADMINISTRATOR")
+//    @Secured("ROLE_ADMINISTRATOR")
     public HttpStatus deleteBerita(@PathVariable (value = "beritaId") Long beritaId){
         beritaService.deleteBeritaById(beritaId);
         return HttpStatus.FORBIDDEN;

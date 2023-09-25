@@ -38,14 +38,14 @@ public class SelayangPandangController {
     private static final Logger logger = LoggerFactory.getLogger(SelayangPandangController.class);
 
     @GetMapping
-    @Secured("ROLE_ADMINISTRATOR")
+//    @Secured("ROLE_ADMINISTRATOR")
     public PagedResponse<SelayangResponse> getSelayang(@RequestParam(value = "page", defaultValue = AppConstants.DEFAULT_PAGE_NUMBER) int page,
                                                            @RequestParam(value = "size", defaultValue = AppConstants.DEFAULT_PAGE_SIZE) int size) {
         return selayangService.getAllSelayang(page, size);
     }
 
     @PostMapping
-    @Secured("ROLE_ADMINISTRATOR")
+//    @Secured("ROLE_ADMINISTRATOR")
     public ResponseEntity<?> createSelayang(@CurrentUser UserPrincipal currentUser, @Valid @RequestBody SelayangRequest selayangRequest) {
         Selayang selayang = selayangService.createSelayang(currentUser, selayangRequest);
 
@@ -58,7 +58,7 @@ public class SelayangPandangController {
     }
 
     @PutMapping("/{selayangId}")
-    @Secured("ROLE_ADMINISTRATOR")
+//    @Secured("ROLE_ADMINISTRATOR")
     public ResponseEntity<?> updateSelayangById(@CurrentUser UserPrincipal currentUser, @PathVariable (value = "selayangId") Long selayangId, @Valid @RequestBody SelayangRequest selayangRequest) {
         Selayang selayang = selayangService.updateSelayang(selayangRequest, selayangId, currentUser);
 
@@ -71,13 +71,13 @@ public class SelayangPandangController {
     }
 
     @GetMapping("/{selayangId}")
-    @Secured("ROLE_ADMINISTRATOR")
+//    @Secured("ROLE_ADMINISTRATOR")
     public SelayangResponse getSelayangById(@PathVariable Long selayangId) {
         return selayangService.getSelayangById(selayangId);
     }
 
     @DeleteMapping("/{selayangId}")
-    @Secured("ROLE_ADMINISTRATOR")
+//    @Secured("ROLE_ADMINISTRATOR")
     public HttpStatus deleteSelayang(@PathVariable (value = "selayangId") Long selayangId){
         selayangService.deleteSelayangById(selayangId);
         return HttpStatus.FORBIDDEN;
