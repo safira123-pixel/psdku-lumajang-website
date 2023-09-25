@@ -161,11 +161,10 @@ class Department extends Component {
               dataIndex="image"
               key="image"
               align="center"
-              render={(text, row) => {
-                console.log(row.data)
-                return row.data != null ? 
-                <BlobImageDisplay blob={row.data} /> : <></> 
-            }}
+              render={(text, row) => (
+                <img src={`http://localhost:8080/downloadFile/${row.fileDir}`}/>
+              )
+            }
             />
             <Column
             

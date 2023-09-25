@@ -5,6 +5,7 @@ import com.doyatama.university.payload.ApiResponse;
 import com.doyatama.university.payload.PagedResponse;
 import com.doyatama.university.payload.department.DepartmentRequest;
 import com.doyatama.university.payload.department.DepartmentResponse;
+import com.doyatama.university.payload.storage.UploadFileResponse;
 import com.doyatama.university.repository.DepartmentRepository;
 import com.doyatama.university.repository.UserRepository;
 import com.doyatama.university.security.CurrentUser;
@@ -17,9 +18,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.annotation.Secured;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+import org.springframework.core.io.Resource;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.validation.Valid;
 import java.io.IOException;
@@ -51,16 +61,15 @@ public class DepartmentController {
     public ResponseEntity<?> createDepartment(@CurrentUser UserPrincipal currentUser, @Valid @ModelAttribute DepartmentRequest departmentRequest, @RequestParam("file") MultipartFile file) throws IOException {
 //        MultipartFile file = departmentRequest.getFile();
         Department department = departmentService.createDepartment(currentUser, departmentRequest, file);
-        String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath()
-                .path("/downloadFile/")
-                .path(department.getId().toString())
-                .toUriString();
         URI location = ServletUriComponentsBuilder
                 .fromCurrentRequest().path("/{departmentId}")
                 .buildAndExpand(department.getId()).toUri();
 
         return ResponseEntity.created(location)
                 .body(new ApiResponse(true, "Department Created Successfully"));
+//
+//        return new UploadFileResponse(department, fileDownloadUri,
+//                file.getContentType(), file.getSize());
     }
 
     @PutMapping("/{departmentId}")
