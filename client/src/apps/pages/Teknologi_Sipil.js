@@ -11,7 +11,7 @@ import NewsCard from '../../components/NewsCard'
 import { useTranslation, withTranslation } from 'react-i18next'
 import { Button } from '@material-ui/core'
 
-const Teknologi_Sipil = (props) => {
+const teknologi_sipil = (props) => {
     const [data, setData] = useState([]);
     const { classes} = props
     const { t } = useTranslation();
