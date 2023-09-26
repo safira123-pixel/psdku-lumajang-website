@@ -1,5 +1,5 @@
 import { Route, Switch } from 'react-router-dom'
-import { HomePage, ProfilePage, selayang_pandang, akutansi, visi_misi, Struktur_organisasi, Kalender_akademik, otomotif, teknologi_sipil, teknologi_informasi, snbp, snbt, mandiri, kegiatan_mahasiswa, pengumuman } from './apps/pages'
+import { HomePage, ProfilePage, selayang_pandang, akutansi, visi_misi, struktur_organisasi, Kalender_akademik, otomotif, teknologi_sipil, teknologi_informasi, snbp, snbt, mandiri, kegiatan_mahasiswa, pengumuman } from './apps/pages'
 
 const AppRoute = () => {
     return (
