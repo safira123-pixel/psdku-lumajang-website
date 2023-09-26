@@ -3,7 +3,7 @@ import ProfilePage from './Profile'
 import selayang_pandang from './selayang_pandang'
 import akutansi from './akutansi'
 import visi_misi from './visi_misi'
-import Struktur_organisasi from './struktur_organisasi'
+import struktur_organisasi from './struktur_organisasi'
 import Kalender_akademik from './Kalender_akademik'
 import otomotif from './otomotif'
 import teknologi_sipil from './teknologi_sipil'
@@ -23,7 +23,7 @@ export {
     selayang_pandang,
     akutansi,
     visi_misi,
-    Struktur_organisasi,
+    struktur_organisasi,
     Kalender_akademik,
     otomotif,
     teknologi_sipil,

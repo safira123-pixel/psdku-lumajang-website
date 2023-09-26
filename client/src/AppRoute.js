@@ -9,7 +9,7 @@ const AppRoute = () => {
             <Route exact path='/selayang_pandang' component={selayang_pandang} />
             <Route exact path='/akuntansi' component={akutansi} />
             <Route exact path='/visi_misi' component={visi_misi} />
-            <Route exact path='/struktur_organisasi' component={Struktur_organisasi} />
+            <Route exact path='/struktur_organisasi' component={struktur_organisasi} />
             <Route exact path='/kalender_akademik' component={Kalender_akademik} />
             <Route exact path='/otomotif' component={otomotif} />
             <Route exact path='/teknologi_sipil' component={teknologi_sipil} />
