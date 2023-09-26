@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { Card, Button, Table, message, Divider } from "antd";
+import { Card, Button, Table, message, Divider, Upload } from "antd";
+// const { Dragger } = Upload;
 import {
   getDepartments,
   deleteDepartment,
@@ -88,6 +89,28 @@ class Department extends Component {
     });
   };
 
+  // handleAddDepartmentOk = (_) => {
+  //   const { form } = this.addDepartmentFormRef.props;
+  //   form.validateFields((err, values) => {
+  //     if (err) {
+  //       return;
+  //     }
+  //     this.setState({ addDepartmentModalLoading: true });
+  //     addDepartment(values)
+  //       .then((response) => {
+  //         form.resetFields();
+  //         this.setState({
+  //           addDepartmentModalVisible: false,
+  //           addDepartmentModalLoading: false,
+  //         });
+  //         message.success("Berhasil ditambahkan!");
+  //         this.getDepartments();
+  //       })
+  //       .catch((e) => {
+  //         message.success("Gagal menambahkan, silakan coba lagi!");
+  //       });
+  //   });
+  // };
   handleAddDepartmentOk = (_) => {
     const { form } = this.addDepartmentFormRef.props;
     form.validateFields((err, values) => {
@@ -110,6 +133,7 @@ class Department extends Component {
         });
     });
   };
+  
   componentDidMount() {
     this.getDepartments();
   }
@@ -162,7 +186,9 @@ class Department extends Component {
               key="image"
               align="center"
               render={(text, row) => (
-                <img src={`http://localhost:8080/downloadFile/${row.fileDir}`}/>
+                <img src={`http://localhost:8080/downloadFile/${row.fileDir}`}
+                width={200}
+                height={150}/>
               )
             }
             />

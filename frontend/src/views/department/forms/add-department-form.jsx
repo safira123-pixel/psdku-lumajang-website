@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Form, Input, Select, Button, Upload, message, Icon, Modal } from "antd";
 const { TextArea } = Input;
+
 class AddDepartmentForm extends Component {
   render() {
     const { visible, onCancel, onOk, form, confirmLoading } = this.props;
@@ -68,19 +69,32 @@ class AddDepartmentForm extends Component {
               ],
             })(<TextArea rows={4} placeholder="Peluang Kerja" />)}
           </Form.Item>
-          <Form.Item label="File">
+          <Form.Item label="File" name="file">
             {getFieldDecorator("file")(
               <Upload.Dragger
-                name="file"
-                beforeUpload={() => false}
-                maxCount={1}
-              >
-                <p className="ant-upload-drag-icon">
-                  <Icon type="inbox" />
-                </p>
-                <p className="ant-upload-text">Klik atau Seret file ke sini</p>
-                <p className="ant-upload-hint">support semua file</p>
-              </Upload.Dragger>
+              beforeUpload={() => false}
+              listType="picture"
+            >
+              <p className="ant-upload-drag-icon">
+                {/* <InboxOutlined /> */}
+              </p>
+              <p className="ant-upload-text">
+                Click or drag file to this area to upload
+              </p>
+              <p className="ant-upload-hint">
+                Support for a single or bulk upload.
+              </p>
+            </Upload.Dragger>
+              // <Upload.Dragger
+              //   name="file"
+              //   beforeUpload={() => false}
+              // >
+              //   <p className="ant-upload-drag-icon">
+              //     <Icon type="inbox" />
+              //   </p>
+              //   <p className="ant-upload-text">Klik atau Seret file ke sini</p>
+              //   <p className="ant-upload-hint">support semua file</p>
+              // </Upload.Dragger>
             )}
           </Form.Item>
         

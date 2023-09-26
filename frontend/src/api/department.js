@@ -2,7 +2,7 @@ import request from "@/utils/request";
 
 export function addDepartment(data) {
   return request({
-    url: "/department",
+    url: `/department`,
     method: "post",
     data,
   });
@@ -10,7 +10,7 @@ export function addDepartment(data) {
 
 export function getDepartments() {
   return request({
-    url: "/department",
+    url: `/department`,
     method: "get",
   });
 }
