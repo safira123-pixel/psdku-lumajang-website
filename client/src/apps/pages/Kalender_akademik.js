@@ -29,12 +29,19 @@ const Kalender_akademik = (props) => {
 
     return (
         <Layout title="Home">
-            {data.map((item, index) => (
+            {/* {data.map((item, index) => (
                         <div key={index}>
                             <h2>{item.name}</h2>
                             <h2>{item.description}</h2>
                         </div>
-                    ))}
+                    ))} */}
+    <Grid item xs={12} sm={10} className={classes.section}>
+        <div className={classes.innerContainer} style={{justifyContent: "left", marginLeft: '30px' }}>
+            <Typography variant="display2" style={{ color: '#051d47', textAlign: "left", marginLeft: '0px' }} gutterBottom>
+                {t('Kalender Akademik')}
+            </Typography>
+        </div>
+    </Grid>
         </Layout>
     )
 }

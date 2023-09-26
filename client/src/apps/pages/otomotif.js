@@ -11,8 +11,10 @@ import NewsCard from '../../components/NewsCard'
 import { useTranslation, withTranslation } from 'react-i18next'
 import { Button } from '@material-ui/core'
 
-const otomotif = () => {
+const otomotif = (props) => {
     const [data, setData] = useState([]);
+    const { classes} = props
+    const { t } = useTranslation();
 
     useEffect(() => {
         fetch('http://localhost:8080/api/department') // Pastikan URL endpoint sesuai
@@ -28,12 +30,19 @@ const otomotif = () => {
 
     return (
         <Layout title="Home">
-            {data.map((item, index) => (
+            {/* {data.map((item, index) => (
                         <div key={index}>
                             <h2>{item.name}</h2>
                             <h2>{item.description}</h2>
                         </div>
-                    ))}
+                    ))} */}
+            <div className={classes.section}>
+                <div className={classes.innerContainer}>
+                    <Typography variant="display2" style={{ color: '#051d47' }} gutterBottom>
+                        {t('Otomotif')}
+                    </Typography>
+                </div>
+            </div>
         </Layout>
     )
 }

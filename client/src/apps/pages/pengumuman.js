@@ -11,8 +11,10 @@ import NewsCard from '../../components/NewsCard'
 import { useTranslation, withTranslation } from 'react-i18next'
 import { Button } from '@material-ui/core'
 
-const pengumuman = () => {
+const pengumuman = (props) => {
     const [data, setData] = useState([]);
+    const { classes} = props
+    const { t } = useTranslation();
 
     useEffect(() => {
         fetch('http://localhost:8080/api/berita') // Pastikan URL endpoint sesuai
@@ -28,12 +30,56 @@ const pengumuman = () => {
 
     return (
         <Layout title="Home">
-            {data.map((item, index) => (
+            {/* {data.map((item, index) => (
                         <div key={index}>
                             <h2>{item.name}</h2>
                             <h2>{item.description}</h2>
                         </div>
-                    ))}
+                    ))} */}
+<div style={{ backgroundColor: '#e7e7e7' }}>
+                <div className={classes.section}>
+                    {/* <div className={classes.innerContainer}>
+                        <Typography variant="display2" style={{ color: '#051d47' }} gutterBottom>
+                            {t('Kegiatan Mahasiswa')}
+                        </Typography>
+                    </div> */}
+                </div>
+                <Grid container className={classes.contentContainer} style={{ justifyContent: 'center' }}>
+                    <EventsCard
+                        profileImg="https://franciscan.edu/wp-content/uploads/2023/01/March-for-Life-2022-768x512.jpg"
+                        profileImgTitle="Mantapu Jiwa"
+                        profileType="Alumni Profile"
+                        profileName="Franciscan University President, Students Prepare for First Post-Roe March for Life in Washington, D.C."
+                        content="My choice to say Yes to giving my all even in those trying moments can be attributed to the growth and education I received at Franciscan."
+                        bgContain
+                    />
+
+                    <EventsCard
+                        profileImg="https://franciscan.edu/wp-content/uploads/2023/01/March-for-Life-2022-768x512.jpg"
+                        profileImgTitle="Mantapu Jiwa"
+                        profileType="Alumni Profile"
+                        profileName="Franciscan University President, Students Prepare for First Post-Roe March for Life in Washington, D.C."
+                        content="My choice to say Yes to giving my all even in those trying moments can be attributed to the growth and education I received at Franciscan."
+                        bgContain
+                    />
+
+                    <EventsCard
+                        profileImg="https://franciscan.edu/wp-content/uploads/2023/01/March-for-Life-2022-768x512.jpg"
+                        profileImgTitle="Mantapu Jiwa"
+                        profileType="Alumni Profile"
+                        profileName="Franciscan University President, Students Prepare for First Post-Roe March for Life in Washington, D.C."
+                        content="My choice to say Yes to giving my all even in those trying moments can be attributed to the growth and education I received at Franciscan."
+                        bgContain
+                    />
+                </Grid>
+            <Grid container className={classes.Button} style={{ display: 'block', justifyContent: "center" }}>
+                <div style = {{ backgroundColor: '#e7e7e7', margin: 10, padding: 10 }}>
+                    <Button style={{ backgroundColor: '#051d47', float: 'left',color:'white' }} >Pos-Pos Lama</Button>
+                </div>  
+            </Grid>
+            <Grid container className={classes.Button} style={{justifyContent: "center", margin: 10, padding: 10  }}>
+            </Grid>
+            </div>
         </Layout>
     )
 }
