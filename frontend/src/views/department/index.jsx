@@ -162,7 +162,9 @@ class Department extends Component {
               key="image"
               align="center"
               render={(text, row) => (
-                <img src={`http://localhost:8080/downloadFile/${row.fileDir}`}/>
+                <img src={`http://localhost:8080/downloadFile/${row.fileDir}`}
+                width={200}
+                height={150}/>
               )
             }
             />
