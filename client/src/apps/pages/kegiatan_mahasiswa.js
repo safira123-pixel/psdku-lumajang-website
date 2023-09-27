@@ -30,12 +30,12 @@ const kegiatan_mahasiswa = (props) => {
 
     return (
         <Layout title="Home">
-            {/* {data.map((item, index) => (
+           {data.map((item, index) => (
                         <div key={index}>
                             <h2>{item.name}</h2>
                             <h2>{item.description}</h2>
                         </div>
-                    ))} */}
+                    ))} 
 
                     <div style={{ backgroundColor: '#e7e7e7' }}>
                 <div className={classes.section}>
