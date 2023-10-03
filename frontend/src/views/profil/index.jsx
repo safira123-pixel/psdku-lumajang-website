@@ -141,6 +141,18 @@ class Profil extends Component {
               align="center"
             />
             <Column
+              title="Files"
+              dataIndex="file"
+              key="file"
+              align="center"
+              render={(text, row) => (
+                <img src={`http://localhost:8080/downloadFile/${row.fileDir}`}
+                width={200}
+                height={150}/>
+              )
+            }
+            />
+            <Column
               title="Operasi"
               key="action"
               width={195}

@@ -15,15 +15,16 @@ class AddKalenderForm extends Component {
 
   fileUploadHandler = () => {
     const formData = new FormData();
-    formData.append('file', this.state.selectedFile, this.state.selectedFile.name);
+    const options = {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+      data: formData,
+      method: 'POST',
+    };
+  
+    return axios('api/kalender', options);
 
-    axios.post('http://localhost8080/api/kalender/upload', formData)
-      .then(response => {
-        console.log(response.data);
-      })
-      .catch(error => {
-        console.error(error);
-      });
   };
 
   render() {

@@ -5,6 +5,7 @@ import com.doyatama.university.payload.ApiResponse;
 import com.doyatama.university.payload.PagedResponse;
 import com.doyatama.university.payload.profil.ProfilRequest;
 import com.doyatama.university.payload.profil.ProfilResponse;
+import com.doyatama.university.payload.storage.UploadFileResponse;
 import com.doyatama.university.repository.ProfilRepository;
 import com.doyatama.university.repository.UserRepository;
 import com.doyatama.university.security.CurrentUser;
@@ -17,10 +18,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.annotation.Secured;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+import org.springframework.core.io.Resource;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.validation.Valid;
+import java.io.IOException;
 import java.net.URI;
 
 @RestController
@@ -46,8 +58,8 @@ public class ProfilController {
 
     @PostMapping
 //    @Secured("ROLE_ADMINISTRATOR")
-    public ResponseEntity<?> createProfil(@CurrentUser UserPrincipal currentUser, @Valid @RequestBody ProfilRequest profilRequest) {
-        Profil profil = profilService.createProfil(currentUser, profilRequest);
+    public ResponseEntity<?> createProfil(@CurrentUser UserPrincipal currentUser, @Valid @ModelAttribute ProfilRequest profilRequest, @RequestParam("file") MultipartFile file) throws IOException {
+        Profil profil = profilService.createProfil(currentUser, profilRequest,  file);
 
         URI location = ServletUriComponentsBuilder
                 .fromCurrentRequest().path("/{profilId}")

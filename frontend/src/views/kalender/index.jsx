@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Card, Button, Table, message, Divider } from "antd";
-import { Image } from "antd";
+// import { Image } from "antd";
 import {
   getKalender,
   deleteKalender,
@@ -10,6 +10,8 @@ import {
 import TypingCard from "@/components/TypingCard";
 import EditKalenderForm from "./forms/edit-kalender-form";
 import AddKalenderForm from "./forms/add-kalender-form";
+import { BlobImageDisplay } from "../../components/BlobImageDisplay";
+
 const { Column } = Table;
 class Kalender extends Component {
   state = {
@@ -101,11 +103,11 @@ class Kalender extends Component {
             addKalenderModalVisible: false,
             addKalenderModalLoading: false,
           });
-          message.success("添加成功!");
+          message.success("Berhasil ditambahkan!");
           this.getKalender();
         })
         .catch((e) => {
-          message.success("添加失败,请重试!");
+          message.success("Gagal menambahkan, silakan coba lagi!");
         });
     });
   };
@@ -133,9 +135,9 @@ class Kalender extends Component {
             dataSource={kalenders}
             pagination={false}
           >
-            <Column title="ID Kalender" dataIndex="id" key="id" align="center" />
-            <Column title="Judul" dataIndex="fileName" key="name" align="center" />
-             <Column
+            {/* <Column title="ID Kalender" dataIndex="id" key="id" align="center" />
+            <Column title="Judul" dataIndex="fileName" key="name" align="center" /> */}
+             {/* <Column
               title="Gambar"
               key="data"
               align="center"
@@ -146,6 +148,18 @@ class Kalender extends Component {
                 width={100}
                 />
               )}
+            />
+            <Column */}
+            <Column
+              title="Images"
+              dataIndex="image"
+              key="image"
+              align="center"
+              render={(text, row) => {
+                console.log(row.data)
+                return row.data != null ? 
+                <BlobImageDisplay blob={row.data} /> : <></> 
+            }}
             />
             <Column
               title="Operasi"

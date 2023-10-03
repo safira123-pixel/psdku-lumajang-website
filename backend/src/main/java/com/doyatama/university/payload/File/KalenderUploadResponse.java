@@ -1,19 +1,32 @@
 package com.doyatama.university.payload.File;
 
+import org.springframework.web.multipart.MultipartFile;
+
+import javax.persistence.Lob;
+import java.time.Instant;
 
 public class KalenderUploadResponse {
-//    private String message;
+    //    private String message;
     private Long id;
+    private Instant updatedAt;
+    private Instant createdAt;
     private String fileName;
-    private byte [] data;
+    private String fileType;
+    @Lob
+    private byte[] data;
+
 
     public KalenderUploadResponse() {
     }
 
-    public KalenderUploadResponse(Long id, String fileName, byte [] data) {
+    public KalenderUploadResponse(Long id, Instant updatedAt, Instant createdAt,String fileName, String fileType,byte[] data) {
         this.id = id;
+        this.updatedAt = updatedAt;
+        this.createdAt = createdAt;
         this.fileName = fileName;
+        this.fileType = fileType;
         this.data = data;
+
     }
 
     public Long getId() {
@@ -24,6 +37,21 @@ public class KalenderUploadResponse {
         this.id = id;
     }
 
+    public Instant getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(Instant updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    public Instant getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Instant createdAt) {
+        this.createdAt = createdAt;
+    }
     public String getFileName() {
         return fileName;
     }
@@ -32,23 +60,20 @@ public class KalenderUploadResponse {
         this.fileName = fileName;
     }
 
+    public String getFileType() {
+        return fileType;
+    }
+
+    public void setFileType(String fileType) {
+        this.fileType = fileType;
+    }
+
     public byte[] getData() {
         return data;
     }
-
-    public void setData(byte [] data) {
+    public void setData(byte[] data) {
         this.data = data;
     }
 
-//    public KalenderUploadResponse(String message){
-//        this.message = message;
-//    }
-//
-//    public String getMessage(){
-//        return message;
-//    }
-//
-//    public void setMessage(){
-//        this.message = message;
-//    }
+
 }

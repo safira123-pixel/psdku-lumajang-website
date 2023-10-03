@@ -6,7 +6,7 @@ export function addKalender(data) {
   formData.append('file', data.file); // 'file' sesuai dengan nama field di backend
 
   return request({
-    url: "/kalender/upload",
+    url: "/kalender",
     method: "post",
     data: formData, // Mengirim FormData dengan file
   });

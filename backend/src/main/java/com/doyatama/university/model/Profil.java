@@ -21,6 +21,9 @@ public class Profil extends UserDateAudit {
     @Lob
     private String description;
 
+    @Lob
+    private String fileDir;
+
     public Profil() {
     }
 
@@ -28,10 +31,12 @@ public class Profil extends UserDateAudit {
         this.id = id;
     }
 
-    public Profil(Long id, String name, String description) {
+    public Profil(Long id, String name, String description, String fileDir) {
         this.id = id;
         this.name = name;
         this.description = description;
+        this.fileDir = fileDir;
+
     }
 
     public Long getId() {
@@ -56,5 +61,12 @@ public class Profil extends UserDateAudit {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+    public String getFileDir() {
+        return fileDir;
+    }
+
+    public void setFileDir(String fileDir) {
+        this.fileDir = fileDir;
     }
 }

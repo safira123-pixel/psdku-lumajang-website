@@ -1,11 +1,14 @@
 package com.doyatama.university.service;
 
 import com.doyatama.university.exception.BadRequestException;
+import com.doyatama.university.exception.FileStorageException;
 import com.doyatama.university.exception.ResourceNotFoundException;
+import com.doyatama.university.model.Department;
 import com.doyatama.university.model.Profil;
 import com.doyatama.university.payload.PagedResponse;
 import com.doyatama.university.payload.profil.ProfilRequest;
 import com.doyatama.university.payload.profil.ProfilResponse;
+import com.doyatama.university.property.FileStorageProperties;
 import com.doyatama.university.repository.ProfilRepository;
 import com.doyatama.university.security.UserPrincipal;
 import com.doyatama.university.util.AppConstants;
@@ -17,10 +20,19 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
+import org.springframework.web.multipart.MultipartFile;
 
+import javax.validation.Valid;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
+
 
 /**
  *
@@ -31,7 +43,22 @@ public class ProfilService {
     @Autowired
     private ProfilRepository profilRepository;
 
+    private final Path fileStorageLocation;
+
+
     private static final Logger logger = LoggerFactory.getLogger(ProfilService.class);
+
+    @Autowired
+    public ProfilService(FileStorageProperties fileStorageProperties) {
+        this.fileStorageLocation = Paths.get(fileStorageProperties.getUploadDir())
+                .toAbsolutePath().normalize();
+
+        try {
+            Files.createDirectories(this.fileStorageLocation);
+        } catch (Exception ex) {
+            throw new FileStorageException("Could not create the directory where the uploaded files will be stored.", ex);
+        }
+    }
 
     public PagedResponse<ProfilResponse> getAllProfil(int page, int size) {
         validatePageNumberAndSize(page, size);
@@ -50,6 +77,7 @@ public class ProfilService {
             profilResponse.setId(asResponse.getId());
             profilResponse.setName(asResponse.getName());
             profilResponse.setDescription(asResponse.getDescription());
+            profilResponse.setFileDir(asResponse.getFileDir());
             profilResponse.setCreatedAt(asResponse.getCreatedAt());
             profilResponse.setUpdatedAt(asResponse.getUpdatedAt());
             return profilResponse;
@@ -59,13 +87,28 @@ public class ProfilService {
                 profils.getSize(), profils.getTotalElements(), profils.getTotalPages(), profils.isLast(), 200);
     }
 
-    public Profil createProfil(UserPrincipal currentUser, ProfilRequest profilRequest) {
-        Profil profil = new Profil();
-        profil.setName(profilRequest.getName());
-        profil.setDescription(profilRequest.getDescription());
-        profil.setCreatedBy(currentUser.getId());
-        profil.setUpdatedBy(currentUser.getId());
-        return profilRepository.save(profil);
+    public Profil createProfil(UserPrincipal currentUser, ProfilRequest profilRequest, MultipartFile file) {
+        String fileName = StringUtils.cleanPath(file.getOriginalFilename());
+        try {
+            // Check if the file's name contains invalid characters
+            if(fileName.contains("..")) {
+                throw new FileStorageException("Sorry! Filename contains invalid path sequence " + fileName);
+            }
+
+            // Copy file to the target location (Replacing existing file with the same name)
+            Path targetLocation = this.fileStorageLocation.resolve(fileName);
+            Files.copy(file.getInputStream(), targetLocation, StandardCopyOption.REPLACE_EXISTING);
+            Profil profil = new Profil();
+            profil.setName(profilRequest.getName());
+            profil.setDescription(profilRequest.getDescription());
+            profil.setFileDir(fileName);
+            profil.setCreatedBy(currentUser.getId());
+            profil.setUpdatedBy(currentUser.getId());
+
+            return profilRepository.save(profil);
+        } catch (IOException ex) {
+            throw new FileStorageException("Could not store file " + fileName + ". Please try again!", ex);
+        }
     }
 
     public ProfilResponse getProfilById(Long profilId) {
@@ -108,4 +151,6 @@ public class ProfilService {
             throw new ResourceNotFoundException("Profil", "id", id);
         }
     }
+
+
 }
