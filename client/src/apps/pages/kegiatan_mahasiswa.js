@@ -11,6 +11,7 @@ import NewsCard from '../../components/NewsCard'
 import EventsCard from '../../components/EventsCard'
 import { useTranslation, withTranslation } from 'react-i18next'
 import { Button } from '@material-ui/core'
+import { Link } from 'react-router-dom'
 
 const kegiatan_mahasiswa = (props) => {
     const [data, setData] = useState([]);
@@ -20,7 +21,7 @@ const kegiatan_mahasiswa = (props) => {
         fetch('http://localhost:8080/api/kegiatan') // Pastikan URL endpoint sesuai
         .then(response => response.json())
         .then(data => {
-            setData([data.content[0]]);
+            setData([data.content]);
             console.log(data.content);
         })
         .catch(error => {
@@ -30,12 +31,12 @@ const kegiatan_mahasiswa = (props) => {
 
     return (
         <Layout title="Home">
-           {data.map((item, index) => (
+           {/* {data.map((item, index) => (
                         <div key={index}>
-                            <h2>{item.name}</h2>
-                            <h2>{item.description}</h2>
+                            <h2>{item[0].name}</h2>
+                            <h2>{item[0].description}</h2>
                         </div>
-                    ))} 
+                    ))}  */}
 
                     <div style={{ backgroundColor: '#e7e7e7' }}>
                 <div className={classes.section}>
@@ -46,23 +47,37 @@ const kegiatan_mahasiswa = (props) => {
                     </div> */}
                 </div>
                 <Grid container className={classes.contentContainer} style={{ justifyContent: 'center' }}>
+                {data.map((item, index) => (
                     <EventsCard
+                        // profileImg="https://franciscan.edu/wp-content/uploads/2023/01/March-for-Life-2022-768x512.jpg"
+                        // profileName="Franciscan University President, Students Prepare for First Post-Roe March for Life in Washington, D.C."
+                        // content="My choice to say Yes to giving my all even in those trying moments can be attributed to the growth and education I received at Franciscan."
+                        // bgContain
+                        key={index}
                         profileImg="https://franciscan.edu/wp-content/uploads/2023/01/March-for-Life-2022-768x512.jpg"
                         profileImgTitle="Mantapu Jiwa"
-                        profileType="Alumni Profile"
-                        profileName="Franciscan University President, Students Prepare for First Post-Roe March for Life in Washington, D.C."
-                        content="My choice to say Yes to giving my all even in those trying moments can be attributed to the growth and education I received at Franciscan."
+                        profileName={t(item[0].name)}
+                        content={item[0].description}
                         bgContain
-                    />
+                    >
+                    </EventsCard>
+                    ))} 
 
+                    {data.map((item, index) => (
                     <EventsCard
+                        // profileImg="https://franciscan.edu/wp-content/uploads/2023/01/March-for-Life-2022-768x512.jpg"
+                        // profileName="Franciscan University President, Students Prepare for First Post-Roe March for Life in Washington, D.C."
+                        // content="My choice to say Yes to giving my all even in those trying moments can be attributed to the growth and education I received at Franciscan."
+                        // bgContain
+                        key={index}
                         profileImg="https://franciscan.edu/wp-content/uploads/2023/01/March-for-Life-2022-768x512.jpg"
                         profileImgTitle="Mantapu Jiwa"
-                        profileType="Alumni Profile"
-                        profileName="Franciscan University President, Students Prepare for First Post-Roe March for Life in Washington, D.C."
-                        content="My choice to say Yes to giving my all even in those trying moments can be attributed to the growth and education I received at Franciscan."
+                        profileName={item[1].name}
+                        content={item[1].description}
                         bgContain
+
                     />
+                    ))} 
 
                     <EventsCard
                         profileImg="https://franciscan.edu/wp-content/uploads/2023/01/March-for-Life-2022-768x512.jpg"

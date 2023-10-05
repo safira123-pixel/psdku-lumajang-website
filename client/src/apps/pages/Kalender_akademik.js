@@ -35,13 +35,13 @@ const Kalender_akademik = (props) => {
                             <h2>{item.description}</h2>
                         </div>
                     ))} */}
-    <Grid item xs={12} sm={10} className={classes.section}>
-        <div className={classes.innerContainer} style={{justifyContent: "left", marginLeft: '30px' }}>
-            <Typography variant="display2" style={{ color: '#051d47', textAlign: "left", marginLeft: '0px' }} gutterBottom>
-                {t('Kalender Akademik')}
-            </Typography>
-        </div>
-    </Grid>
+            <Grid item xs={12} sm={10} className={classes.section}>
+                <div className={classes.innerContainer} style={{justifyContent: "left", marginLeft: '30px' }}>
+                    <Typography variant="display2" style={{ color: '#051d47', textAlign: "left", marginLeft: '0px' }} gutterBottom>
+                        {t('Kalender Akademik')}
+                    </Typography>
+                </div>
+            </Grid>
         </Layout>
     )
 }

@@ -14,7 +14,7 @@ class Profil extends Component {
   state = {
     profils: [],
     editProfilModalVisible: false,
-    editProfilnModalLoading: false,
+    editProfilModalLoading: false,
     currentRowData: {},
     addProfilModalVisible: false,
     addProfilModalLoading: false,

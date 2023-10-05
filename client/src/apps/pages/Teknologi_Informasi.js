@@ -35,13 +35,13 @@ const teknologi_informasi = (props) => {
                             <h2>{item.description}</h2>
                         </div>
                     ))} */}
-            <div className={classes.section}>
-                <div className={classes.innerContainer}>
-                    <Typography variant="display2" style={{ color: '#051d47' }} gutterBottom>
-                        {t('Teknologi Informasi')}
+            <Grid item xs={12} sm={10} className={classes.section}>
+                <div className={classes.innerContainer} style={{justifyContent: "left", marginLeft: '30px' }}>
+                    <Typography variant="display2" style={{ color: '#051d47', textAlign: "left", marginLeft: '0px' }} gutterBottom>
+                        {t('TI')}
                     </Typography>
                 </div>
-            </div>
+            </Grid>
         </Layout>
     )
 }

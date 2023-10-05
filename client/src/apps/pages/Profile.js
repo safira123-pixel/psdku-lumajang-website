@@ -19,7 +19,7 @@ const Profile = (props) => {
         fetch('http://localhost:8080/api/profil') // Pastikan URL endpoint sesuai
         .then(response => response.json())
         .then(data => {
-            setData([data.content[0]]);
+            setData([data.content]);
             console.log(data.content);
         })
         .catch(error => {
@@ -31,17 +31,37 @@ const Profile = (props) => {
         <Layout title="Home">
             {/* {data.map((item, index) => (
                         <div key={index}>
-                            <h2>{item.name}</h2>
-                            <h2>{item.description}</h2>
+                            <h2>{item[1].name}</h2>
+                            <h2>{item[1].description}</h2>
                         </div>
                     ))} */}
-            <div className={classes.section}>
-                <div className={classes.innerContainer}>
-                    <Typography variant="display2" style={{ color: '#051d47' }} gutterBottom>
-                        {t('Profil')}
+            <Grid item xs={12} sm={10} className={classes.section}>
+                <div className={classes.innerContainer} style={{justifyContent: "left", marginLeft: '30px' }}>
+                    <Typography variant="display2" style={{ color: '#051d47', textAlign: "left", marginLeft: '0px' }} gutterBottom>
+                        {t('Profilku')}
                     </Typography>
                 </div>
-            </div>
+
+                {data.map((item, index) => (
+                    <div key={index} className={classes.innerContainer} style={{justifyContent: "left", marginLeft: '30px' }}>
+                        <Typography component="p" style={{ color: '#051d47', textAlign: "left", marginLeft: '0px', fontSize: '16px' }} gutterBottom>
+                            <h2>{item[4].description}</h2>
+                        </Typography>
+                    </div>
+                ))}
+
+                {data.map((item, index) => (
+                    <div key={index} className={classes.innerContainer} style={{justifyContent: "left", marginLeft: '30px' }}>
+                        <Typography variant="headline" component="h2" style={{ color: '#051d47', textAlign: "left", marginLeft: '0px', fontSize: '16px' }} gutterBottom>
+                            <h2>{item[3].description}</h2>
+                            <h2>{item[2].description}</h2>
+                            <h2>{item[1].description}</h2>
+                            <h2>{item[0].description}</h2>
+                        </Typography>
+                    </div>
+                ))}
+
+            </Grid>
         </Layout>
     )
 }

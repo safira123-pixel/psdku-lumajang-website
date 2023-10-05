@@ -11,12 +11,14 @@ import NewsCard from '../../components/NewsCard'
 import { withTranslation } from 'react-i18next'
 import { Button } from '@material-ui/core'
 import { useTranslation } from 'react-i18next'
+import MarqueeText from '../../components/MarqueeText'
 
 const HomePage = (props) => {
     const { classes} = props
     const { t } = useTranslation();
     return (
         <Layout title="Home" >
+        <MarqueeText/>
             <SlideShow />
             {/* <Hero
             backgroundImg={heroImages[Math.floor(Math.random() * heroImages.length)]}
