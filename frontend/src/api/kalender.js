@@ -3,7 +3,7 @@ import request from "@/utils/request";
 export function addKalender(data) {
   // Buat objek FormData untuk mengirim file
   const formData = new FormData();
-  formData.append('file', data.file); // 'file' sesuai dengan nama field di backend
+  formData.append('file', data.file.file); // 'file' sesuai dengan nama field di backend
 
   return request({
     url: "/kalender",
@@ -22,11 +22,12 @@ export function getKalender() {
 export function editKalender(data, id) {
   // Buat objek FormData untuk mengirim file
   const formData = new FormData();
-  formData.append('file', data.file); // 'file' sesuai dengan nama field di backend
+  formData.append('file', data.file.file); // 'file' sesuai dengan nama field di backend
 
   return request({
     url: `/kalender/${id}`,
-    method: "put",
+    // method: "put",
+    method: "post",
     data: formData, // Mengirim FormData dengan file
   });
 }

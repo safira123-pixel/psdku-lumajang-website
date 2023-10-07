@@ -156,7 +156,7 @@ class Kalender extends Component {
               key="image"
               align="center"
               render={(text, row) => {
-                console.log(row.data)
+                // console.log(row.data)
                 return row.data != null ? 
                 <BlobImageDisplay blob={row.data} /> : <></> 
             }}

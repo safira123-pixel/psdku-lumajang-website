@@ -68,6 +68,9 @@ class Profil extends Component {
           this.getProfil();
         })
         .catch((e) => {
+          // Untuk pengecekkan message error
+          // console.log(e.message)
+          // console.log(e)
           message.success("Pengeditan gagal, coba lagi!");
         });
     });
@@ -104,6 +107,9 @@ class Profil extends Component {
           this.getProfil();
         })
         .catch((e) => {
+          // Untuk pengecekkan message error
+          // console.log(e.message)
+          // console.log(e)
           message.success("Gagal menambahkan, silakan coba lagi!");
         });
     });

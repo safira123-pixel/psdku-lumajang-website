@@ -32,6 +32,11 @@ class EditProfilForm extends Component {
         confirmLoading={confirmLoading}
       >
         <Form {...formItemLayout}>
+          <Form.Item label="ID Profil:">
+            {getFieldDecorator("id", {
+              initialValue: id,
+            })(<Input disabled />)}
+          </Form.Item>
           <Form.Item label="Judul:">
             {getFieldDecorator("name", {
               rules: [{ required: true, message: "Silahkan isi Judul" }],
