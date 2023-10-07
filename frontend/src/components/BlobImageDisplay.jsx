@@ -4,24 +4,28 @@ export function BlobImageDisplay({ blob }) {
     const [blobUrl, setBlobUrl] = useState(null);
   
     useEffect(() => {
-      if (blob instanceof Blob) {
-        // Create a URL for the blob
-        const imageUrl = URL.createObjectURL(blob);
+      // if (blob instanceof Blob) {
+      //   // Create a URL for the blob
+      //   const imageUrl = URL.createObjectURL(blob);
   
-        // Set the URL as the src for the img element
-        setBlobUrl(imageUrl);
+      //   // Set the URL as the src for the img element
+      //   setBlobUrl(imageUrl);
   
-        // Clean up the URL when the component unmounts
-        return () => {
-          URL.revokeObjectURL(imageUrl);
-        };
+      //   // Clean up the URL when the component unmounts
+      //   return () => {
+      //     URL.revokeObjectURL(imageUrl);
+      //   };
+      // }
+
+      if (blob) {
+        setBlobUrl(blob)
       }
     }, [blob]);
   
     return (
       <div>
         {blobUrl ? (
-          <img src={blobUrl} alt="Blob Image" />
+          <img src={`data:image/png;base64,${blobUrl}`} style={{height: "120px"}} alt="Blob Image" />
         ) : (
           <p>No image to display</p>
         )}

@@ -50,7 +50,7 @@ class EditKalenderForm extends Component {
               initialValue: id,
             })(<Input disabled />)}
           </Form.Item>
-          <Form.Item label="File">
+          {/* <Form.Item label="File">
             {getFieldDecorator("data")(
               <Upload
                 name="data"
@@ -64,6 +64,24 @@ class EditKalenderForm extends Component {
                 <p className="ant-upload-text">Klik atau Seret file ke sini</p>
                 <p className="ant-upload-hint">support semua file</p>
               </Upload>
+            )}
+          </Form.Item> */}
+          <Form.Item label="File" name="file">
+            {getFieldDecorator("file")(
+              <Upload.Dragger
+              beforeUpload={() => false}
+              listType="picture"
+            >
+              <p className="ant-upload-drag-icon">
+                <Icon type="inbox" />
+              </p>
+              <p className="ant-upload-text">
+                Click or drag file to this area to upload
+              </p>
+              <p className="ant-upload-hint">
+                Support for a single or bulk upload.
+              </p>
+            </Upload.Dragger>
             )}
           </Form.Item>
         </Form>

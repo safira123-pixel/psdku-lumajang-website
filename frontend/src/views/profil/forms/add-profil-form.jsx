@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Form, Input, Modal, Upload } from "antd";
+import { Form, Input, Modal, Upload, Icon } from "antd";
 const { TextArea } = Input;
 class AddProfilForm extends Component {
   render() {
@@ -50,7 +50,7 @@ class AddProfilForm extends Component {
               listType="picture"
             >
               <p className="ant-upload-drag-icon">
-                {/* <InboxOutlined /> */}
+                <Icon type="inbox" />
               </p>
               <p className="ant-upload-text">
                 Click or drag file to this area to upload

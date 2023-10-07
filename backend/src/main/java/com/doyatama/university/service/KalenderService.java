@@ -61,7 +61,7 @@ public class KalenderService {
         validatePageNumberAndSize(page, size);
 
         // Retrieve Polls
-        Pageable pageable = PageRequest.of(page, size, Sort.Direction.DESC, "createdAt");
+        Pageable pageable = PageRequest.of(page, size, Sort.Direction.DESC, "id");
         Page<Kalender> kalenders = kalenderRepository.findAll(pageable);
         if(kalenders.getNumberOfElements() == 0) {
             return new PagedResponse<>(Collections.emptyList(), kalenders.getNumber(),
@@ -114,9 +114,21 @@ public class KalenderService {
             throw new BadRequestException("Page size must not be greater than " + AppConstants.MAX_PAGE_SIZE);
         }
     }
-    public Kalender updateKalender(KalenderUploadRequest kalenderUploadRequest, Long id, UserPrincipal currentUser){
+    public Kalender updateKalender(KalenderUploadRequest kalenderUploadRequest, Long id, UserPrincipal currentUser, MultipartFile file) throws IOException {
         return kalenderRepository.findById(id).map(kalender -> {
 //            kalender.setUpdatedBy(currentUser.getId());
+            String fileName = StringUtils.cleanPath(file.getOriginalFilename());
+            // Kalender kalender = new Kalender();
+    //        kalender.setCreatedBy(currentUser.getId());
+    //        kalender.setUpdatedBy(currentUser.getId());
+            kalender.setFileName(fileName);
+            kalender.setFileType(file.getContentType());
+            try {
+                kalender.setData(file.getBytes());
+            } catch (IOException e) {
+                // Handle the IOException here or rethrow it as an unchecked exception if needed.
+                throw new RuntimeException("Error reading file content: " + e.getMessage(), e);
+            }
             return kalenderRepository.save(kalender);
         }).orElseThrow(() -> new ResourceNotFoundException("Kalender" , "id" , id));
     }

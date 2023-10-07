@@ -68,10 +68,10 @@ public class KalenderController {
                 .body(new ApiResponse(true, "Kalender Created Successfully"));
     }
 
-    @PutMapping("/{kalenderId}")
+    @PostMapping("/{kalenderId}")
     @Secured("ROLE_ADMINISTRATOR")
-    public ResponseEntity<?> updateKalenderById(@CurrentUser UserPrincipal currentUser, @PathVariable(value = "kalenderId") Long kalenderId, @Valid @RequestBody KalenderUploadRequest kalenderUploadRequest) {
-        Kalender kalender = kalenderService.updateKalender(kalenderUploadRequest, kalenderId, currentUser);
+    public ResponseEntity<?> updateKalenderById(@CurrentUser UserPrincipal currentUser, @PathVariable(value = "kalenderId") Long kalenderId, @Valid KalenderUploadRequest kalenderUploadRequest, @RequestParam("file") MultipartFile file) throws IOException {
+        Kalender kalender = kalenderService.updateKalender(kalenderUploadRequest, kalenderId, currentUser, file);
         URI location = ServletUriComponentsBuilder
                 .fromCurrentRequest().path("/{kalenderId}")
                 .buildAndExpand(kalender.getId()).toUri();
