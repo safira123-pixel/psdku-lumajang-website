@@ -1,11 +1,9 @@
-package com.doyatama.university.payload.File;
-
-import org.springframework.web.multipart.MultipartFile;
+package com.doyatama.university.payload.organisasi;
 
 import javax.persistence.Lob;
 import java.time.Instant;
 
-public class KalenderUploadResponse {
+public class OrganisasiUploadResponse {
     //    private String message;
     private Long id;
     private Instant updatedAt;
@@ -16,10 +14,10 @@ public class KalenderUploadResponse {
     private byte[] data;
 
 
-    public KalenderUploadResponse() {
+    public OrganisasiUploadResponse() {
     }
 
-    public KalenderUploadResponse(Long id, Instant updatedAt, Instant createdAt,String fileName, String fileType,byte[] data) {
+    public OrganisasiUploadResponse(Long id, Instant updatedAt, Instant createdAt, String fileName, String fileType, byte[] data) {
         this.id = id;
         this.updatedAt = updatedAt;
         this.createdAt = createdAt;
@@ -52,7 +50,6 @@ public class KalenderUploadResponse {
     public void setCreatedAt(Instant createdAt) {
         this.createdAt = createdAt;
     }
-
     public String getFileName() {
         return fileName;
     }

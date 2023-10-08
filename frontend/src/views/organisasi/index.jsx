@@ -1,144 +1,165 @@
 import React, { Component } from "react";
 import { Card, Button, Table, message, Divider } from "antd";
+// import { Image } from "antd";
 import {
-  getKegiatans,
-  deleteKegiatan,
-  editKegiatan,
-  addKegiatan,
-} from "@/api/kegiatan";
+  getOrganisasi,
+  deleteOrganisasi,
+  editOrganisasi,
+  addOrganisasi,
+} from "@/api/organisasi";
 import TypingCard from "@/components/TypingCard";
-import EditKegiatanForm from "./forms/edit-kegiatan-form";
-import AddKegiatanForm from "./forms/add-kegiatan-form";
+import EditOrganisasiForm from "./forms/edit-organisasi-form";
+import AddOrganisasiForm from "./forms/add-organisasi-form";
+import { BlobImageDisplay } from "../../components/BlobImageDisplay";
+
 const { Column } = Table;
-class Kegiatan extends Component {
+class Organisasi extends Component {
   state = {
-    kegiatans: [],
-    editKegiatanModalVisible: false,
-    editKegiatanModalLoading: false,
+    Organisasis: [],
+    editOrganisasiModalVisible: false,
+    editOrganisasiModalLoading: false,
     currentRowData: {},
-    addKegiatanModalVisible: false,
-    addKegiatanModalLoading: false,
+    addOrganisasiModalVisible: false,
+    addOrganisasiModalLoading: false,
   };
-  getKegiatans = async () => {
-    const result = await getKegiatans();
+  getOrganisasi = async () => {
+    const result = await getOrganisasi();
     console.log(result);
     const { content, statusCode } = result.data;
 
     if (statusCode === 200) {
       this.setState({
-        kegiatans: content,
+        Organisasis: content,
       });
     }
   };
-  handleEditKegiatan = (row) => {
+  handleEditOrganisasi = (row) => {
     this.setState({
       currentRowData: Object.assign({}, row),
-      editKegiatanModalVisible: true,
+      editOrganisasiModalVisible: true,
     });
   };
 
-  handleDeleteKegiatan = (row) => {
+  handleDeleteOrganisasi = (row) => {
     const { id } = row;
     if (id === "admin") {
-      message.error("不能删除管理员用户！");
+      message.error("Tidak Dapat Menghapus!");
       return;
     }
     console.log(id);
-    deleteKegiatan({ id }).then((res) => {
-      message.success("删除成功");
-      this.getKegiatans();
+    deleteOrganisasi({ id }).then((res) => {
+      message.success("Berhasil Menghapus");
+      this.getOrganisasi();
     });
   };
 
-  handleEditKegiatanOk = (_) => {
-    const { form } = this.editKegiatanFormRef.props;
+  handleEditOrganisasiOk = (_) => {
+    const { form } = this.editOrganisasiFormRef.props;
     form.validateFields((err, values) => {
       if (err) {
         return;
       }
       this.setState({ editModalLoading: true });
-      editKegiatan(values, values.id)
+      editOrganisasi(values, values.id)
         .then((response) => {
           form.resetFields();
           this.setState({
-            editKegiatanModalVisible: false,
-            editKegiatanModalLoading: false,
+            editOrganisasiModalVisible: false,
+            editOrganisasiModalLoading: false,
           });
-          message.success("编辑成功!");
-          this.getKegiatans();
+          message.success("Berhasil Mengedit!");
+          this.getOrganisasi();
         })
         .catch((e) => {
-          message.success("编辑失败,请重试!");
+          message.success("Pengeditan Gagal, coba lagi!");
         });
     });
   };
 
   handleCancel = (_) => {
     this.setState({
-      editKegiatanModalVisible: false,
-      addKegiatanModalVisible: false,
+      editOrganisasiModalVisible: false,
+      addOrganisasiModalVisible: false,
     });
   };
 
-  handleAddKegiatan = (row) => {
+  handleAddOrganisasi = (row) => {
     this.setState({
-      addKegiatanModalVisible: true,
+      addOrganisasiModalVisible: true,
     });
   };
 
-  handleAddKegiatanOk = (_) => {
-    const { form } = this.addKegiatanFormRef.props;
+  handleAddOrganisasiOk = (_) => {
+    const { form } = this.addOrganisasiFormRef.props;
     form.validateFields((err, values) => {
       if (err) {
         return;
       }
-      this.setState({ addKegiatanModalLoading: true });
-      addKegiatan(values)
+      this.setState({ addOrganisasiModalLoading: true });
+      addOrganisasi(values)
         .then((response) => {
           form.resetFields();
           this.setState({
-            addKegiatanModalVisible: false,
-            addKegiatanModalLoading: false,
+            addOrganisasiModalVisible: false,
+            addOrganisasiModalLoading: false,
           });
-          message.success("添加成功!");
-          this.getKegiatans();
+          message.success("Berhasil ditambahkan!");
+          this.getOrganisasi();
         })
         .catch((e) => {
-          message.success("添加失败,请重试!");
+          message.success("Gagal menambahkan, silakan coba lagi!");
         });
     });
   };
   componentDidMount() {
-    this.getKegiatans();
+    this.getOrganisasi();
   }
   render() {
-    const { kegiatans } = this.state;
+    const { Organisasis } = this.state;
     const title = (
       <span>
-        <Button type="primary" onClick={this.handleAddKegiatan}>
-          Tambahkan Kegiatan Mahasiswa
+        <Button type="primary" onClick={this.handleAddOrganisasi}>
+          Tambahkan Gambar 
         </Button>
       </span>
     );
-    const cardContent = `Pengelolaan Kegiatan Mahasiswa.`;
+    const cardContent = `Pengelolaan Struktur Organisasi.`;
     return (
       <div className="app-container">
-        <TypingCard title="Manajemen Kegiatan Mahasiswa" source={cardContent} />
+        <TypingCard title="Manajemen Struktur Organisasi" source={cardContent} />
         <br />
         <Card title={title}>
           <Table
             bordered
             rowKey="id"
-            dataSource={kegiatans}
+            dataSource={Organisasis}
             pagination={false}
           >
-            <Column title="ID Kegiatan" dataIndex="id" key="id" align="center" />
-            <Column title="Judul" dataIndex="name" key="name" align="center" />
-            <Column
-              title="Deskripsi Kegiatan"
-              dataIndex="description"
-              key="description"
+            {/* <Column title="ID Kalender" dataIndex="id" key="id" align="center" />
+            <Column title="Judul" dataIndex="fileName" key="name" align="center" /> */}
+             {/* <Column
+              title="Gambar"
+              key="data"
               align="center"
+              render={(text, row) => (
+                <img
+                src={'data:image/jpeg;base64,${row.data}'}
+                alt="Gambar Kalender"
+                width={100}
+                />
+              )}
+            />
+            <Column */}
+            <Column
+              title="Images"
+              dataIndex="image"
+              key="image"
+              align="center"
+              render={(text, row) => {
+                // console.log(row.data)
+                return row.data != null ? 
+                <BlobImageDisplay blob={row.data} /> : <></> 
+            }}
             />
             <Column
               title="Operasi"
@@ -152,7 +173,7 @@ class Kegiatan extends Component {
                     shape="circle"
                     icon="edit"
                     title="edit"
-                    onClick={this.handleEditKegiatan.bind(null, row)}
+                    onClick={this.handleEditOrganisasi.bind(null, row)}
                   />
                   <Divider type="vertical" />
                   <Button
@@ -160,35 +181,35 @@ class Kegiatan extends Component {
                     shape="circle"
                     icon="delete"
                     title="delete"
-                    onClick={this.handleDeleteKegiatan.bind(null, row)}
+                    onClick={this.handleDeleteOrganisasi.bind(null, row)}
                   />
                 </span>
               )}
             />
           </Table>
         </Card>
-        <EditKegiatanForm
+        <EditOrganisasiForm
           currentRowData={this.state.currentRowData}
           wrappedComponentRef={(formRef) =>
-            (this.editKegiatanFormRef = formRef)
+            (this.editOrganisasiFormRef = formRef)
           }
-          visible={this.state.editKegiatanModalVisible}
-          confirmLoading={this.state.editKegiatanModalLoading}
+          visible={this.state.editOrganisasiModalVisible}
+          confirmLoading={this.state.editOrganisasiModalLoading}
           onCancel={this.handleCancel}
-          onOk={this.handleEditKegiatanOk}
+          onOk={this.handleEditOrganisasiOk}
         />
-        <AddKegiatanForm
+        <AddOrganisasiForm
           wrappedComponentRef={(formRef) =>
-            (this.addKegiatanFormRef = formRef)
+            (this.addOrganisasiFormRef = formRef)
           }
-          visible={this.state.addKegiatanModalVisible}
-          confirmLoading={this.state.addKegiatanModalLoading}
+          visible={this.state.addOrganisasiModalVisible}
+          confirmLoading={this.state.addOrganisasiModalLoading}
           onCancel={this.handleCancel}
-          onOk={this.handleAddKegiatanOk}
+          onOk={this.handleAddOrganisasiOk}
         />
       </div>
     );
   }
 }
 
-export default Kegiatan;
+export default Organisasi;

@@ -207,13 +207,16 @@ import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { useTranslation } from 'react-i18next'
+import AppBarMenuItem1 from './AppBarMenuItem1'
+
 
 import {
   aboutMenu,
   academicsMenu,
   admissionsMenu,
   faithMenu,
-  studentMenu
+  studentMenu,
+  campusMenu
 } from '../data/drawerMenu'
 import DrawerItem from './DrawerItem'
 const TemporaryDrawer = props => {
@@ -283,6 +286,11 @@ const TemporaryDrawer = props => {
                   />
                 </FormControl>
               </ListItem>
+              <AppBarMenuItem1
+                toggleDrawer={toggleDrawer}
+                linkId="home"
+                content={t('beranda.label')}
+              />
               <DrawerItem
                 toggleDrawer={toggleDrawer}
                 primaryText={t("Profil")}
@@ -333,7 +341,17 @@ const TemporaryDrawer = props => {
                 isSubOpen={props.drawerSubItems}
                 isOpen={props.drawerItems['student-life']}
               />
-              <Divider />
+               <DrawerItem
+                toggleDrawer={toggleDrawer}
+                expandSubItem={props.expandSubItem}
+                expandItem={props.expandItem}
+                itemId="campus-life"
+                primaryText={t("Kehidupan Kampus")}
+                submenuItems={campusMenu}
+                isSubOpen={props.drawerSubItems}
+                isOpen={props.drawerItems['campus-life']}
+              />
+              {/* <Divider /> */}
             </List>
           </div>
         </div>

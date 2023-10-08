@@ -1,5 +1,13 @@
 import {Trans} from "react-i18next";
 
+export const homeMenu = [
+  
+  {
+    text: <Trans i18nKey="Beranda">Beranda</Trans>,
+    linkUrl: '/home',
+    asUrl: '/home',
+  }
+]
 
 export const aboutMenu = [
   
@@ -465,4 +473,31 @@ export const studentMenu = [
   //     }
   //   ]
   // }
+]
+export const campusMenu = [
+  {
+    text: <Trans i18nKey="Profil-Kota">Profil Kota Lumajang</Trans>,
+    linkUrl: '/profil_lumajang',
+    asUrl: '/profil_lumajang',
+  },
+  {
+    text: <Trans i18nKey="Budaya">Budaya Lumajang</Trans>,
+    linkUrl: '/budaya_lumajang',
+    asUrl: '/budaya_lumajang'
+  },
+  {
+    text: <Trans i18nKey="pariwisata">Pariwisata Lumajang</Trans>,
+    linkUrl: '/pariwisata_lumajang',
+    asUrl: '/pariwisata_lumajang'
+  },
+  {
+    text: <Trans i18nKey="kuliner">Kuliner Lumajang</Trans>,
+    linkUrl: '/kuliner_lumajang',
+    asUrl: '/kuliner_lumajang'
+  },
+  {
+    text: <Trans i18nKey="penginapan">Penginapan Lumajang</Trans>,
+    linkUrl: '/penginapan_lumajang',
+    asUrl: '/penginapan_lumajang'
+  },
 ]

@@ -1,13 +1,14 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 import { Breadcrumb } from "antd";
-import menuList from "@/config/menuConfig";
+// import menuList from "@/config/menuConfig";
+import drawerMenu from "@/data/drawerMenu";
 import "./index.less";
 /**
  * 根据当前浏览器地址栏的路由地址，在menuConfig中查找路由跳转的路径
  * 如路由地址为/charts/keyboard,则查找到的路径为[{title: "图表",...},{title: "键盘图表",...}]
  */
-const getPath = (menuList, pathname) => {
+const getPath = (drawerMenu, pathname) => {
   let temppath = [];
   try {
     function getNodePath(node) {
@@ -27,8 +28,8 @@ const getPath = (menuList, pathname) => {
         temppath.pop();
       }
     }
-    for (let i = 0; i < menuList.length; i++) {
-      getNodePath(menuList[i]);
+    for (let i = 0; i < drawerMenu.length; i++) {
+      getNodePath(drawerMenu[i]);
     }
   } catch (e) {
     return temppath;
@@ -38,7 +39,7 @@ const getPath = (menuList, pathname) => {
 const BreadCrumb = (props) => {
   const { location } = props;
   const { pathname } = location;
-  let path = getPath(menuList, pathname);
+  let path = getPath(drawerMenu, pathname);
   const first = path && path[0];
   if (first && first.title.trim() !== "Beranda") {
     path = [{ title: "Beranda", path: "/" }].concat(path);

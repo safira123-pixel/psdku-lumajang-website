@@ -91,10 +91,7 @@ public class KalenderService {
         kalender.setFileName(fileName);
         kalender.setFileType(file.getContentType());
         kalender.setData(file.getBytes());
-
         return kalenderRepository.save(kalender);
-
-
     }
 
     public KalenderUploadResponse getKalenderById(Long kalenderId) {
@@ -106,6 +103,7 @@ public class KalenderService {
 //        kalenderUploadResponse.setUpdatedAt(kalender.getUpdatedAt());
         return kalenderUploadResponse;
     }
+
     private void validatePageNumberAndSize(int page, int size) {
         if(page < 0) {
             throw new BadRequestException("Page number cannot be less than zero.");
@@ -114,6 +112,7 @@ public class KalenderService {
             throw new BadRequestException("Page size must not be greater than " + AppConstants.MAX_PAGE_SIZE);
         }
     }
+
     public Kalender updateKalender(KalenderUploadRequest kalenderUploadRequest, Long id, UserPrincipal currentUser, MultipartFile file) throws IOException {
         return kalenderRepository.findById(id).map(kalender -> {
 //            kalender.setUpdatedBy(currentUser.getId());
@@ -132,6 +131,7 @@ public class KalenderService {
             return kalenderRepository.save(kalender);
         }).orElseThrow(() -> new ResourceNotFoundException("Kalender" , "id" , id));
     }
+
     public void deleteKalenderById(Long id){
         Optional<Kalender> kalender = kalenderRepository.findById(id);
         if(kalender.isPresent()){
