@@ -1,10 +1,16 @@
 import request from "@/utils/request";
 
 export function addKegiatan(data) {
+  // Buat objek FormData untuk mengirim file
+  const formData = new FormData();
+  formData.append('name', data.name); // 'file' sesuai dengan nama field di backend
+  formData.append('description', data.description); // 'file' sesuai dengan nama field di backend
+  formData.append('file', data.file.file); // 'file' sesuai dengan nama field di backend
+
   return request({
     url: "/kegiatan",
     method: "post",
-    data,
+    data: formData, // Mengirim FormData dengan file
   });
 }
 
@@ -16,10 +22,17 @@ export function getKegiatans() {
 }
 
 export function editKegiatan(data, id) {
+  // Buat objek FormData untuk mengirim file
+  const formData = new FormData();
+  formData.append('name', data.name); // 'file' sesuai dengan nama field di backend
+  formData.append('description', data.description); // 'file' sesuai dengan nama field di backend
+  formData.append('file', data.file.file); // 'file' sesuai dengan nama field di backend
+
   return request({
     url: `/kegiatan/${id}`,
-    method: "put",
-    data,
+    // method: "put",
+    method: "post",
+    data: formData, // Mengirim FormData dengan file
   });
 }
 

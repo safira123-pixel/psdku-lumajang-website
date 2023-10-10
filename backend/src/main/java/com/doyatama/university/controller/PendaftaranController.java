@@ -18,9 +18,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.validation.Valid;
+import java.io.IOException;
 import java.net.URI;
 
 @RestController
@@ -46,9 +48,13 @@ public class PendaftaranController {
 
     @PostMapping
 //    @Secured("ROLE_ADMINISTRATOR")
-    public ResponseEntity<?> createPendaftaran(@CurrentUser UserPrincipal currentUser, @Valid @RequestBody PendaftaranRequest pendaftaranRequest) {
-        Pendaftaran pendaftaran = pendaftaranService.createPendaftaran(currentUser, pendaftaranRequest);
-
+    public ResponseEntity<?> createPendaftaran(@CurrentUser UserPrincipal currentUser, @Valid @ModelAttribute PendaftaranRequest pendaftaranRequest, @RequestParam("file") MultipartFile file) throws IOException {
+//        MultipartFile file = departmentRequest.getFile();
+        Pendaftaran pendaftaran = pendaftaranService.createPendaftaran(currentUser, pendaftaranRequest, file);
+        String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath()
+                .path("/downloadFile/")
+                .path(pendaftaran.getId().toString())
+                .toUriString();
         URI location = ServletUriComponentsBuilder
                 .fromCurrentRequest().path("/{pendaftaranId}")
                 .buildAndExpand(pendaftaran.getId()).toUri();
@@ -57,17 +63,16 @@ public class PendaftaranController {
                 .body(new ApiResponse(true, "Pendaftaran Created Successfully"));
     }
 
-    @PutMapping("/{pendaftaranId}")
+
+    @PostMapping("/{pendaftaranId}")
 //    @Secured("ROLE_ADMINISTRATOR")
-    public ResponseEntity<?> updatePendaftaranById(@CurrentUser UserPrincipal currentUser, @PathVariable (value = "pendaftaranId") Long pendaftaranId, @Valid @RequestBody PendaftaranRequest pendaftaranRequest) {
-        Pendaftaran pendaftaran = pendaftaranService.updatePendaftaran(pendaftaranRequest, pendaftaranId, currentUser);
-
+    public ResponseEntity<?> updatePendaftaranById(@CurrentUser UserPrincipal currentUser, @PathVariable(value = "pendaftaranId") Long pendaftaranId, @Valid PendaftaranRequest pendaftaranRequest, @RequestParam("file") MultipartFile file) throws IOException {
+        Pendaftaran pendaftaran = pendaftaranService.updatePendaftaran(pendaftaranRequest, pendaftaranId, currentUser, file);
         URI location = ServletUriComponentsBuilder
-                .fromCurrentRequest().path("/{pendaftaranId}")
+                .fromCurrentRequest().path("/{kegiatanId}")
                 .buildAndExpand(pendaftaran.getId()).toUri();
-
         return ResponseEntity.created(location)
-                .body(new ApiResponse(true, "Pendaftaran Updated Successfully"));
+                .body(new ApiResponse(true, "Kegiatan Updated Successfully"));
     }
 
     @GetMapping("/{pendaftaranId}")

@@ -9,6 +9,8 @@ import {
 import TypingCard from "@/components/TypingCard";
 import EditKegiatanForm from "./forms/edit-kegiatan-form";
 import AddKegiatanForm from "./forms/add-kegiatan-form";
+import { BlobImageDisplay } from "../../components/BlobImageDisplay";
+
 const { Column } = Table;
 class Kegiatan extends Component {
   state = {
@@ -40,12 +42,12 @@ class Kegiatan extends Component {
   handleDeleteKegiatan = (row) => {
     const { id } = row;
     if (id === "admin") {
-      message.error("不能删除管理员用户！");
+      message.error("Tidak Dapat Menghapus!");
       return;
     }
     console.log(id);
     deleteKegiatan({ id }).then((res) => {
-      message.success("删除成功");
+      message.success("Berhasil Menghapus");
       this.getKegiatans();
     });
   };
@@ -64,11 +66,11 @@ class Kegiatan extends Component {
             editKegiatanModalVisible: false,
             editKegiatanModalLoading: false,
           });
-          message.success("编辑成功!");
+          message.success("Berhasil Mengedit!");
           this.getKegiatans();
         })
         .catch((e) => {
-          message.success("编辑失败,请重试!");
+          message.success("Pengeditan Gagal, coba lagi!");
         });
     });
   };
@@ -100,11 +102,11 @@ class Kegiatan extends Component {
             addKegiatanModalVisible: false,
             addKegiatanModalLoading: false,
           });
-          message.success("添加成功!");
+          message.success("Berhasil ditambahkan!");
           this.getKegiatans();
         })
         .catch((e) => {
-          message.success("添加失败,请重试!");
+          message.success("Gagal menambahkan, silakan coba lagi!");
         });
     });
   };
@@ -132,13 +134,24 @@ class Kegiatan extends Component {
             dataSource={kegiatans}
             pagination={false}
           >
-            <Column title="ID Kegiatan" dataIndex="id" key="id" align="center" />
+            {/* <Column title="ID Kegiatan" dataIndex="id" key="id" align="center" /> */}
             <Column title="Judul" dataIndex="name" key="name" align="center" />
             <Column
               title="Deskripsi Kegiatan"
               dataIndex="description"
               key="description"
               align="center"
+            />
+            <Column
+              title="Images"
+              dataIndex="image"
+              key="image"
+              align="center"
+              render={(text, row) => {
+                // console.log(row.data)
+                return row.data != null ? 
+                <BlobImageDisplay blob={row.data} /> : <></> 
+            }}
             />
             <Column
               title="Operasi"

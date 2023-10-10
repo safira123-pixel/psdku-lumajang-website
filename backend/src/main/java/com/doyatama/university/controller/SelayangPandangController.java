@@ -18,9 +18,13 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.validation.Valid;
+import java.io.IOException;
+
 import java.net.URI;
 
 @RestController
@@ -44,30 +48,32 @@ public class SelayangPandangController {
         return selayangService.getAllSelayang(page, size);
     }
 
-    @PostMapping
+   @PostMapping
 //    @Secured("ROLE_ADMINISTRATOR")
-    public ResponseEntity<?> createSelayang(@CurrentUser UserPrincipal currentUser, @Valid @RequestBody SelayangRequest selayangRequest) {
-        Selayang selayang = selayangService.createSelayang(currentUser, selayangRequest);
-
+    public ResponseEntity<?> createSelayang(@CurrentUser UserPrincipal currentUser, @Valid @ModelAttribute SelayangRequest selayangRequest, @RequestParam("file") MultipartFile file) throws IOException {
+//        MultipartFile file = departmentRequest.getFile();
+        Selayang selayang = selayangService.createSelayang(currentUser, selayangRequest, file);
+        String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath()
+                .path("/downloadFile/")
+                .path(selayang.getId().toString())
+                .toUriString();
         URI location = ServletUriComponentsBuilder
                 .fromCurrentRequest().path("/{selayangId}")
                 .buildAndExpand(selayang.getId()).toUri();
 
         return ResponseEntity.created(location)
-                .body(new ApiResponse(true, "Selayang Pandang Created Successfully"));
+                .body(new ApiResponse(true, "Selayang Created Successfully"));
     }
 
-    @PutMapping("/{selayangId}")
+    @PostMapping("/{selayangId}")
 //    @Secured("ROLE_ADMINISTRATOR")
-    public ResponseEntity<?> updateSelayangById(@CurrentUser UserPrincipal currentUser, @PathVariable (value = "selayangId") Long selayangId, @Valid @RequestBody SelayangRequest selayangRequest) {
-        Selayang selayang = selayangService.updateSelayang(selayangRequest, selayangId, currentUser);
-
+    public ResponseEntity<?> updateSelayangById(@CurrentUser UserPrincipal currentUser, @PathVariable(value = "selayangId") Long selayangId, @Valid SelayangRequest selayangRequest, @RequestParam("file") MultipartFile file) throws IOException {
+        Selayang selayang = selayangService.updateSelayang(selayangRequest, selayangId, currentUser, file);
         URI location = ServletUriComponentsBuilder
                 .fromCurrentRequest().path("/{selayangId}")
                 .buildAndExpand(selayang.getId()).toUri();
-
         return ResponseEntity.created(location)
-                .body(new ApiResponse(true, "Selayang Pandang Updated Successfully"));
+                .body(new ApiResponse(true, "Selayang Updated Successfully"));
     }
 
     @GetMapping("/{selayangId}")

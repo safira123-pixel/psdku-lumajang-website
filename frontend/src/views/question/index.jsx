@@ -134,7 +134,7 @@ class Berita extends Component {
             dataSource={beritas}
             pagination={false}
           >
-            <Column title="ID Berita" dataIndex="id" key="id" align="center" />
+            {/* <Column title="ID Berita" dataIndex="id" key="id" align="center" /> */}
             <Column title="Judul" dataIndex="name" key="name" align="center" />
             <Column
               title="Deskripsi"

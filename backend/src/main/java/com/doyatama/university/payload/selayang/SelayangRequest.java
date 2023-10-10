@@ -1,13 +1,11 @@
 package com.doyatama.university.payload.selayang;
-
-import javax.validation.constraints.NotBlank;
+import org.springframework.web.multipart.MultipartFile;
 
 public class SelayangRequest {
-    @NotBlank
     private String name;
-
-    @NotBlank
     private String description;
+    private MultipartFile file;
+
 
     public String getName() {
         return name;
@@ -23,5 +21,11 @@ public class SelayangRequest {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+    public MultipartFile getFile(){
+        return file;
+    }
+    public void setFile(MultipartFile file){
+        this.file = file;
     }
 }

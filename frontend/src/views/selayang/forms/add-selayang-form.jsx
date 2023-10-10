@@ -1,7 +1,32 @@
 import React, { Component } from "react";
-import { Form, Input, Modal } from "antd";
+import axios from 'axios';
+
+import { Form, Input, Modal, Upload, Icon } from "antd";
 const { TextArea } = Input;
 class AddSelayangForm extends Component {
+  state = {
+    selectedFile: null,
+  };
+
+  fileSelectedHandler = (event) => {
+    this.setState({
+      selectedFile: event.target.files[0],
+    });
+  };
+
+  fileUploadHandler = () => {
+    const formData = new FormData();
+    const options = {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+      data: formData,
+      method: 'POST',
+    };
+  
+    return axios('api/selayang', options);
+
+  };
   render() {
     const { visible, onCancel, onOk, form, confirmLoading } = this.props;
     const { getFieldDecorator } = form;
@@ -40,6 +65,24 @@ class AddSelayangForm extends Component {
                 },
               ],
             })(<TextArea rows={4} placeholder="Deskripsi Selayang Pandang" />)}
+          </Form.Item>
+          <Form.Item label="File" name="file">
+            {getFieldDecorator("file")(
+              <Upload.Dragger
+              beforeUpload={() => false}
+              listType="picture"
+            >
+              <p className="ant-upload-drag-icon">
+                <Icon type="inbox" />
+              </p>
+              <p className="ant-upload-text">
+                Click or drag file to this area to upload
+              </p>
+              <p className="ant-upload-hint">
+                Support for a single or bulk upload.
+              </p>
+            </Upload.Dragger>
+            )}
           </Form.Item>
         </Form>
       </Modal>

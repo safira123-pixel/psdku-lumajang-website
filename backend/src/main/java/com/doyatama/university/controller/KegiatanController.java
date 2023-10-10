@@ -18,9 +18,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.validation.Valid;
+import java.io.IOException;
+
 import java.net.URI;
 
 @RestController
@@ -46,26 +49,29 @@ public class KegiatanController {
 
     @PostMapping
 //    @Secured("ROLE_ADMINISTRATOR")
-    public ResponseEntity<?> createKegiatan(@CurrentUser UserPrincipal currentUser, @Valid @RequestBody KegiatanRequest kegiatanRequest) {
-        Kegiatan kegiatan = kegiatanService.createKegiatan(currentUser, kegiatanRequest);
-
+    public ResponseEntity<?> createKegiatan(@CurrentUser UserPrincipal currentUser, @Valid @ModelAttribute KegiatanRequest kegiatanRequest, @RequestParam("file") MultipartFile file) throws IOException {
+//        MultipartFile file = departmentRequest.getFile();
+        Kegiatan kegiatan = kegiatanService.createKegiatan(currentUser, kegiatanRequest, file);
+        String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath()
+                .path("/downloadFile/")
+                .path(kegiatan.getId().toString())
+                .toUriString();
         URI location = ServletUriComponentsBuilder
-                .fromCurrentRequest().path("/{kegiatanId}")
+                .fromCurrentRequest().path("/{profilId}")
                 .buildAndExpand(kegiatan.getId()).toUri();
 
         return ResponseEntity.created(location)
                 .body(new ApiResponse(true, "Kegiatan Created Successfully"));
     }
 
-    @PutMapping("/{kegiatanId}")
-//    @Secured("ROLE_ADMINISTRATOR")
-    public ResponseEntity<?> updateKegiatanById(@CurrentUser UserPrincipal currentUser, @PathVariable (value = "kegiatanId") Long kegiatanId, @Valid @RequestBody KegiatanRequest kegiatanRequest) {
-        Kegiatan kegiatan = kegiatanService.updateKegiatan(kegiatanRequest, kegiatanId, currentUser);
 
+    @PostMapping("/{kegiatanId}")
+//    @Secured("ROLE_ADMINISTRATOR")
+    public ResponseEntity<?> updateKegiatanById(@CurrentUser UserPrincipal currentUser, @PathVariable(value = "kegiatanId") Long kegiatanId, @Valid KegiatanRequest kegiatanRequest, @RequestParam("file") MultipartFile file) throws IOException {
+        Kegiatan kegiatan = kegiatanService.updateKegiatan(kegiatanRequest, kegiatanId, currentUser, file);
         URI location = ServletUriComponentsBuilder
                 .fromCurrentRequest().path("/{kegiatanId}")
                 .buildAndExpand(kegiatan.getId()).toUri();
-
         return ResponseEntity.created(location)
                 .body(new ApiResponse(true, "Kegiatan Updated Successfully"));
     }

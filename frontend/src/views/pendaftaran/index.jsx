@@ -9,6 +9,8 @@ import {
 import TypingCard from "@/components/TypingCard";
 import EditPendaftaranForm from "./forms/edit-pendaftaran-form";
 import AddPendaftaranForm from "./forms/add-pendaftaran-form";
+import { BlobImageDisplay } from "../../components/BlobImageDisplay";
+
 const { Column } = Table;
 class Pendaftaran extends Component {
   state = {
@@ -132,13 +134,24 @@ class Pendaftaran extends Component {
             dataSource={pendaftarans}
             pagination={false}
           >
-            <Column title="ID Jalur Penerimaan" dataIndex="id" key="id" align="center" />
+            {/* <Column title="ID Jalur Penerimaan" dataIndex="id" key="id" align="center" /> */}
             <Column title="Jalur Penerimaan Mahasiswa" dataIndex="name" key="name" align="center" />
             <Column
               title="Deskripsi"
               dataIndex="description"
               key="description"
               align="center"
+            />
+            <Column
+              title="Images"
+              dataIndex="image"
+              key="image"
+              align="center"
+              render={(text, row) => {
+                // console.log(row.data)
+                return row.data != null ? 
+                <BlobImageDisplay blob={row.data} /> : <></> 
+            }}
             />
             <Column
               title="Operasi"

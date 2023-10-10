@@ -9,6 +9,8 @@ import {
 import TypingCard from "@/components/TypingCard";
 import EditSelayangForm from "./forms/edit-selayang-form";
 import AddSelayangForm from "./forms/add-selayang-form";
+import { BlobImageDisplay } from "../../components/BlobImageDisplay";
+
 const { Column } = Table;
 class Selayang extends Component {
   state = {
@@ -139,6 +141,17 @@ class Selayang extends Component {
               dataIndex="description"
               key="description"
               align="center"
+            />
+            <Column
+              title="Images"
+              dataIndex="image"
+              key="image"
+              align="center"
+              render={(text, row) => {
+                // console.log(row.data)
+                return row.data != null ? 
+                <BlobImageDisplay blob={row.data} /> : <></> 
+            }}
             />
             <Column
               title="Operasi"

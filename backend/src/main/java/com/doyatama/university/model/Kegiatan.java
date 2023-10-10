@@ -1,25 +1,24 @@
 package com.doyatama.university.model;
 
-import com.doyatama.university.model.audit.UserDateAudit;
+// import com.doyatama.university.model.audit.UserDateAudit;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
+// import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "kegiatans")
-public class Kegiatan extends UserDateAudit {
+public class Kegiatan {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @NotBlank
     @Size(max = 100)
     private String name;
-
-    @NotBlank
-    @Lob
     private String description;
+    private String fileType;
+    private String fileName;
+    @Lob
+    private byte[] data;
 
     public Kegiatan() {
     }
@@ -28,10 +27,13 @@ public class Kegiatan extends UserDateAudit {
         this.id = id;
     }
 
-    public Kegiatan(Long id, String name, String description) {
+    public Kegiatan(Long id, String name, String description, String fileName, String fileType, byte[] data) {
         this.id = id;
         this.name = name;
         this.description = description;
+        this.fileName = fileName;
+        this.fileType = fileType;
+        this.data = data;
     }
 
     public Long getId() {
@@ -56,5 +58,28 @@ public class Kegiatan extends UserDateAudit {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
+    }
+    public String getFileName() {
+        return fileName;
+    }
+
+    public String getFileType() {
+        return fileType;
+    }
+
+    public void setFileType(String fileType) {
+        this.fileType = fileType;
+    }
+
+
+    public byte[] getData() {
+        return data;
+    }
+
+    public void setData(byte[] data) {
+        this.data = data;
     }
 }

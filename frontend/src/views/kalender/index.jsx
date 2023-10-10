@@ -150,7 +150,7 @@ class Kalender extends Component {
               )}
             />
             <Column */}
-            <Column title="ID Kalender" dataIndex="id" key="id" align="center" />
+            {/* <Column title="ID Kalender" dataIndex="id" key="id" align="center" /> */}
             <Column
               title="Gambar"
               dataIndex="image"

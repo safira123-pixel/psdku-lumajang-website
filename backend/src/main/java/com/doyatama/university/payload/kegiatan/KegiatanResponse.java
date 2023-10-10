@@ -1,4 +1,5 @@
 package com.doyatama.university.payload.kegiatan;
+import javax.persistence.Lob;
 
 import java.time.Instant;
 
@@ -8,16 +9,23 @@ public class KegiatanResponse {
     private String description;
     private Instant updatedAt;
     private Instant createdAt;
+     private String fileName;
+    private String fileType;
+    @Lob
+    private byte[] data;
 
     public KegiatanResponse() {
     }
 
-    public KegiatanResponse(Long id, String name, String description, Instant updatedAt, Instant createdAt) {
+    public KegiatanResponse(Long id, String name, String description, Instant updatedAt, Instant createdAt,  String fileName, String fileType, byte[] data) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.updatedAt = updatedAt;
         this.createdAt = createdAt;
+        this.fileName = fileName;
+        this.fileType = fileType;
+        this.data = data;
     }
 
     public Long getId() {
@@ -58,5 +66,27 @@ public class KegiatanResponse {
 
     public void setCreatedAt(Instant createdAt) {
         this.createdAt = createdAt;
+    }
+    public String getFileName() {
+        return fileName;
+    }
+
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
+    }
+
+    public String getFileType() {
+        return fileType;
+    }
+
+    public void setFileType(String fileType) {
+        this.fileType = fileType;
+    }
+
+    public byte[] getData() {
+        return data;
+    }
+    public void setData(byte[] data) {
+        this.data = data;
     }
 }
