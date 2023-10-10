@@ -1,6 +1,7 @@
 package com.doyatama.university.controller;
 
 import com.doyatama.university.model.Department;
+import com.doyatama.university.model.Kalender;
 import com.doyatama.university.payload.ApiResponse;
 import com.doyatama.university.payload.PagedResponse;
 import com.doyatama.university.payload.department.DepartmentRequest;
@@ -61,21 +62,22 @@ public class DepartmentController {
     public ResponseEntity<?> createDepartment(@CurrentUser UserPrincipal currentUser, @Valid @ModelAttribute DepartmentRequest departmentRequest, @RequestParam("file") MultipartFile file) throws IOException {
 //        MultipartFile file = departmentRequest.getFile();
         Department department = departmentService.createDepartment(currentUser, departmentRequest, file);
+        String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath()
+                .path("/downloadFile/")
+                .path(department.getId().toString())
+                .toUriString();
         URI location = ServletUriComponentsBuilder
                 .fromCurrentRequest().path("/{departmentId}")
                 .buildAndExpand(department.getId()).toUri();
 
         return ResponseEntity.created(location)
                 .body(new ApiResponse(true, "Department Created Successfully"));
-//
-//        return new UploadFileResponse(department, fileDownloadUri,
-//                file.getContentType(), file.getSize());
     }
 
-    @PutMapping("/{departmentId}")
+    @PostMapping("/{departmentId}")
 //    @Secured("ROLE_ADMINISTRATOR")
-    public ResponseEntity<?> updateDepartmentById(@CurrentUser UserPrincipal currentUser, @PathVariable (value = "departmentId") Long departmentId, @Valid @RequestBody DepartmentRequest departmentRequest) {
-        Department department = departmentService.updateDepartment(departmentRequest, departmentId, currentUser);
+    public ResponseEntity<?> updateDepartmentById(@CurrentUser UserPrincipal currentUser, @PathVariable (value = "departmentId") Long departmentId, @Valid @RequestBody DepartmentRequest departmentRequest, @RequestParam("file") MultipartFile file) throws IOException {
+        Department department = departmentService.updateDepartment(departmentRequest, departmentId, currentUser, file);
 
         URI location = ServletUriComponentsBuilder
                 .fromCurrentRequest().path("/{departmentId}")
@@ -86,13 +88,13 @@ public class DepartmentController {
     }
 
     @GetMapping("/{departmentId}")
-//    @Secured("ROLE_ADMINISTRATOR")
+    @Secured("ROLE_ADMINISTRATOR")
     public DepartmentResponse getDepartmentById(@PathVariable Long departmentId) {
         return departmentService.getDepartmentById(departmentId);
     }
 
     @DeleteMapping("/{departmentId}")
-//    @Secured("ROLE_ADMINISTRATOR")
+    @Secured("ROLE_ADMINISTRATOR")
     public HttpStatus deleteDepartment(@PathVariable (value = "departmentId") Long departmentId){
         departmentService.deleteDepartmentById(departmentId);
         return HttpStatus.FORBIDDEN;

@@ -150,6 +150,8 @@ class Organisasi extends Component {
               )}
             />
             <Column */}
+                      
+            <Column title="Judul" dataIndex="name" key="name" align="center" />
             <Column
               title="Images"
               dataIndex="image"
@@ -162,6 +164,7 @@ class Organisasi extends Component {
             }}
             />
             <Column
+            
               title="Operasi"
               key="action"
               width={195}

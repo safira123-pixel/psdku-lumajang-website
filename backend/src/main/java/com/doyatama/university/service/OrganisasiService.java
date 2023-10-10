@@ -74,6 +74,7 @@ public class OrganisasiService {
             organisasiResponse.setId(asResponse.getId());
 //            organisasiResponse.setCreatedAt(asResponse.getCreatedAt());
 //            organisasiResponse.setUpdatedAt(asResponse.getUpdatedAt());
+            organisasiResponse.setName(asResponse.getName());
             organisasiResponse.setFileName(asResponse.getFileName());
             organisasiResponse.setFileType(asResponse.getFileType());
             organisasiResponse.setData(asResponse.getData());
@@ -89,6 +90,7 @@ public class OrganisasiService {
         Organisasi organisasi = new Organisasi();
 //        organisasi.setCreatedBy(currentUser.getId());
 //        organisasi.setUpdatedBy(currentUser.getId());
+        organisasi.setName(organisasiUploadRequest.getName());
         organisasi.setFileName(fileName);
         organisasi.setFileType(file.getContentType());
         organisasi.setData(file.getBytes());
@@ -115,13 +117,14 @@ public class OrganisasiService {
             throw new BadRequestException("Page size must not be greater than " + AppConstants.MAX_PAGE_SIZE);
         }
     }
-    public Organisasi updateOrganisasi(OrganisasiUploadRequest organisasiUploadRequest, Long id, UserPrincipal currentUser, MultipartFile file) throws IOException {
+    public Organisasi updateOrganisasi(@Valid OrganisasiUploadRequest organisasiUploadRequest, Long id, UserPrincipal currentUser, MultipartFile file) throws IOException {
         return organisasiRepository.findById(id).map(organisasi -> {
 //            organisasi.setUpdatedBy(currentUser.getId());
             String fileName = StringUtils.cleanPath(file.getOriginalFilename());
             // Organisasi organisasi = new Organisasi();
     //        organisasi.setCreatedBy(currentUser.getId());
     //        organisasi.setUpdatedBy(currentUser.getId());
+            organisasi.setName(organisasiUploadRequest.getName());
             organisasi.setFileName(fileName);
             organisasi.setFileType(file.getContentType());
             try {

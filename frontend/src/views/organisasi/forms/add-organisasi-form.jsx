@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Modal, Form, Upload, Icon } from 'antd';
+import { Modal, Form, Upload, Icon, Input } from 'antd';
 
 class AddOrganisasiForm extends Component {
   state = {
@@ -69,6 +69,13 @@ class AddOrganisasiForm extends Component {
               <p className="ant-upload-hint">support semua file</p>
             </Upload>
           </Form.Item> */}
+          <Form.Item label="Judul:">
+            {getFieldDecorator("name", {
+              rules: [
+                { required: true, message: "Silahkan isikan judul" },
+              ],
+            })(<Input placeholder="Data" />)}
+          </Form.Item>
           <Form.Item label="File" name="file">
             {getFieldDecorator("file")(
               <Upload.Dragger

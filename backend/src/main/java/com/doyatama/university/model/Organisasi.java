@@ -1,6 +1,7 @@
 package com.doyatama.university.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "organisasis")
@@ -8,6 +9,8 @@ public class Organisasi {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Size(max = 100)
+    private String name;
     private String fileType;
     private String fileName;
     @Lob
@@ -21,8 +24,9 @@ public class Organisasi {
     }
 
 
-    public Organisasi(Long id, String fileName, String fileType, byte[] data) {
+    public Organisasi(Long id,String name, String fileName, String fileType, byte[] data) {
         this.id = id;
+        this.name = name;
         this.fileName = fileName;
         this.fileType = fileType;
         this.data = data;
@@ -33,6 +37,14 @@ public class Organisasi {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getFileName() {

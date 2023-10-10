@@ -13,13 +13,15 @@ public class DepartmentResponse {
     private String peluang;
     private Instant updatedAt;
     private Instant createdAt;
-    private String fileDir;
-
+    private String fileName;
+    private String fileType;
+    @Lob
+    private byte[] data;
     public DepartmentResponse() {
     }
 
 
-    public DepartmentResponse(Long id, String name, String description, String kompetensi, String peluang, Instant updatedAt, Instant createdAt, String fileDir) {
+    public DepartmentResponse(Long id, String name, String description, String kompetensi, String peluang, Instant updatedAt, Instant createdAt, String fileName, String fileType,byte[] data) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -27,7 +29,9 @@ public class DepartmentResponse {
         this.peluang = peluang;
         this.updatedAt = updatedAt;
         this.createdAt = createdAt;
-        this.fileDir = fileDir;
+        this.fileName = fileName;
+        this.fileType = fileType;
+        this.data = data;
     }
 
     public Long getId() {
@@ -86,11 +90,26 @@ public class DepartmentResponse {
         this.createdAt = createdAt;
     }
 
-    public String getFileDir() {
-        return fileDir;
+    public String getFileName() {
+        return fileName;
     }
 
-    public void setFileDir(String fileDir) {
-        this.fileDir = fileDir;
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
+    }
+
+    public String getFileType() {
+        return fileType;
+    }
+
+    public void setFileType(String fileType) {
+        this.fileType = fileType;
+    }
+
+    public byte[] getData() {
+        return data;
+    }
+    public void setData(byte[] data) {
+        this.data = data;
     }
 }

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Form, Input, Modal } from "antd";
+import { Form, Input, Modal, Upload, Icon } from "antd";
 const { TextArea } = Input;
 class EditBeritaForm extends Component {
   render() {
@@ -48,6 +48,24 @@ class EditBeritaForm extends Component {
               rules: [{ required: true, message: "Silahkan isikan deskripsi" }],
               initialValue: description,
             })(<TextArea rows={4} placeholder="Deskripsi" />)}
+          </Form.Item>
+          <Form.Item label="File" name="file">
+            {getFieldDecorator("file")(
+              <Upload.Dragger
+              beforeUpload={() => false}
+              listType="picture"
+            >
+              <p className="ant-upload-drag-icon">
+                <Icon type="inbox" />
+              </p>
+              <p className="ant-upload-text">
+                Click or drag file to this area to upload
+              </p>
+              <p className="ant-upload-hint">
+                Support for a single or bulk upload.
+              </p>
+            </Upload.Dragger>
+            )}
           </Form.Item>
         </Form>
       </Modal>

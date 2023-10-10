@@ -13,13 +13,18 @@ public class Berita extends UserDateAudit {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank
+//    @NotBlank
     @Size(max = 100)
     private String name;
 
-    @NotBlank
+//    @NotBlank
     @Lob
     private String description;
+
+    private String fileType;
+    private String fileName;
+    @Lob
+    private byte[] data;
 
     public Berita() {
     }
@@ -28,10 +33,13 @@ public class Berita extends UserDateAudit {
         this.id = id;
     }
 
-    public Berita(Long id, String name, String description) {
+    public Berita(Long id, String name, String description, String fileName, String fileType, byte[] data) {
         this.id = id;
         this.name = name;
         this.description = description;
+        this.fileName = fileName;
+        this.fileType = fileType;
+        this.data = data;
     }
 
     public Long getId() {
@@ -56,5 +64,28 @@ public class Berita extends UserDateAudit {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+    public String getFileName() {
+        return fileName;
+    }
+
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
+    }
+    public String getFileType() {
+        return fileType;
+    }
+
+    public void setFileType(String fileType) {
+        this.fileType = fileType;
+    }
+
+
+    public byte[] getData() {
+        return data;
+    }
+
+    public void setData(byte[] data) {
+        this.data = data;
     }
 }

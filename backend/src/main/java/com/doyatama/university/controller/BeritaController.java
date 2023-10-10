@@ -17,11 +17,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.annotation.Secured;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-
+import org.springframework.core.io.Resource;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import java.io.IOException;
 import java.net.URI;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/api/berita")
@@ -38,40 +48,43 @@ public class BeritaController {
     private static final Logger logger = LoggerFactory.getLogger(BeritaController.class);
 
     @GetMapping
-//    @Secured("ROLE_ADMINISTRATOR")
+    @Secured("ROLE_ADMINISTRATOR")
     public PagedResponse<BeritaResponse> getBerita(@RequestParam(value = "page", defaultValue = AppConstants.DEFAULT_PAGE_NUMBER) int page,
                                                            @RequestParam(value = "size", defaultValue = AppConstants.DEFAULT_PAGE_SIZE) int size) {
         return beritaService.getAllBerita(page, size);
     }
 
     @PostMapping
-//    @Secured("ROLE_ADMINISTRATOR")
-    public ResponseEntity<?> createBerita(@CurrentUser UserPrincipal currentUser, @Valid @RequestBody BeritaRequest beritaRequest) {
-        Berita berita = beritaService.createBerita(currentUser, beritaRequest);
-
+    @Secured("ROLE_ADMINISTRATOR")
+    public ResponseEntity<?> createBerita(@CurrentUser UserPrincipal currentUser, @Valid @ModelAttribute BeritaRequest beritaRequest, @RequestParam("file") MultipartFile file) throws IOException {
+//        MultipartFile file = departmentRequest.getFile();
+        Berita berita = beritaService.createBerita(currentUser, beritaRequest, file);
+        String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath()
+                .path("/downloadFile/")
+                .path(berita.getId().toString())
+                .toUriString();
         URI location = ServletUriComponentsBuilder
-                .fromCurrentRequest().path("/{beritaId}")
+                .fromCurrentRequest().path("/{organisasiId}")
                 .buildAndExpand(berita.getId()).toUri();
 
         return ResponseEntity.created(location)
                 .body(new ApiResponse(true, "Berita Created Successfully"));
     }
 
-    @PutMapping("/{beritaId}")
-//    @Secured("ROLE_ADMINISTRATOR")
-    public ResponseEntity<?> updateBeritaById(@CurrentUser UserPrincipal currentUser, @PathVariable (value = "beritaId") Long beritaId, @Valid @RequestBody BeritaRequest beritaRequest) {
-        Berita berita = beritaService.updateBerita(beritaRequest, beritaId, currentUser);
+    @PostMapping("/{beritaId}")
+    @Secured("ROLE_ADMINISTRATOR")
+    public ResponseEntity<?> updateBeritaById(@CurrentUser UserPrincipal currentUser, @PathVariable (value = "beritaId") Long beritaId, @Valid @RequestBody BeritaRequest beritaRequest, @RequestParam("file") MultipartFile file) throws IOException {
+        Berita berita = beritaService.updateBerita(beritaRequest, beritaId, currentUser, file);
 
         URI location = ServletUriComponentsBuilder
                 .fromCurrentRequest().path("/{beritaId}")
                 .buildAndExpand(berita.getId()).toUri();
-
         return ResponseEntity.created(location)
                 .body(new ApiResponse(true, "Berita Updated Successfully"));
     }
 
     @GetMapping("/{beritaId}")
-//    @Secured("ROLE_ADMINISTRATOR")
+    @Secured("ROLE_ADMINISTRATOR")
     public BeritaResponse getBeritaById(@PathVariable Long beritaId) {
         return beritaService.getBeritaById(beritaId);
     }

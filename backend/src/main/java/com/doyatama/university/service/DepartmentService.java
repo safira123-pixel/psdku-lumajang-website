@@ -4,9 +4,11 @@ import com.doyatama.university.exception.BadRequestException;
 import com.doyatama.university.exception.FileStorageException;
 import com.doyatama.university.exception.ResourceNotFoundException;
 import com.doyatama.university.model.Department;
+import com.doyatama.university.model.Organisasi;
 import com.doyatama.university.payload.PagedResponse;
 import com.doyatama.university.payload.department.DepartmentRequest;
 import com.doyatama.university.payload.department.DepartmentResponse;
+import com.doyatama.university.payload.organisasi.OrganisasiUploadRequest;
 import com.doyatama.university.property.FileStorageProperties;
 import com.doyatama.university.repository.DepartmentRepository;
 import com.doyatama.university.security.UserPrincipal;
@@ -77,9 +79,11 @@ public class DepartmentService {
             departmentResponse.setDescription(asResponse.getDescription());
             departmentResponse.setKompetensi(asResponse.getKompetensi());
             departmentResponse.setPeluang(asResponse.getPeluang());
-            departmentResponse.setCreatedAt(asResponse.getCreatedAt());
-            departmentResponse.setUpdatedAt(asResponse.getUpdatedAt());
-            departmentResponse.setFileDir(asResponse.getFileDir());
+//            departmentResponse.setCreatedAt(asResponse.getCreatedAt());
+//            departmentResponse.setUpdatedAt(asResponse.getUpdatedAt());
+            departmentResponse.setFileName(asResponse.getFileName());
+            departmentResponse.setFileType(asResponse.getFileType());
+            departmentResponse.setData(asResponse.getData());
 
             return departmentResponse;
         }).getContent();
@@ -87,34 +91,52 @@ public class DepartmentService {
         return new PagedResponse<>(departmentResponses, departments.getNumber(),
                 departments.getSize(), departments.getTotalElements(), departments.getTotalPages(), departments.isLast(), 200);
     }
-
     public Department createDepartment(UserPrincipal currentUser, @Valid DepartmentRequest departmentRequest, MultipartFile file) throws IOException {
         String fileName = StringUtils.cleanPath(file.getOriginalFilename());
+        Department department = new Department();
+//        organisasi.setCreatedBy(currentUser.getId());
+//        organisasi.setUpdatedBy(currentUser.getId());
+        department.setName(departmentRequest.getName());
+        department.setDescription(departmentRequest.getDescription());
+        department.setKompetensi(departmentRequest.getKompetensi());
+        department.setPeluang(departmentRequest.getPeluang());
+        department.setFileName(fileName);
+        department.setFileType(file.getContentType());
+        department.setData(file.getBytes());
 
-        try {
-            // Check if the file's name contains invalid characters
-            if(fileName.contains("..")) {
-                throw new FileStorageException("Sorry! Filename contains invalid path sequence " + fileName);
-            }
+        return departmentRepository.save(department);
 
-            // Copy file to the target location (Replacing existing file with the same name)
-            Path targetLocation = this.fileStorageLocation.resolve(fileName);
-            Files.copy(file.getInputStream(), targetLocation, StandardCopyOption.REPLACE_EXISTING);
-            Department department = new Department();
-            department.setName(departmentRequest.getName());
-            department.setDescription(departmentRequest.getDescription());
-            department.setKompetensi(departmentRequest.getKompetensi());
-            department.setPeluang(departmentRequest.getPeluang());
-            department.setCreatedBy(currentUser.getId());
-            department.setUpdatedBy(currentUser.getId());
-            department.setFileDir(fileName);
-
-            return departmentRepository.save(department);
-        } catch (IOException ex) {
-            throw new FileStorageException("Could not store file " + fileName + ". Please try again!", ex);
-        }
 
     }
+
+//    public Department createDepartment(UserPrincipal currentUser, @Valid DepartmentRequest departmentRequest, MultipartFile file) throws IOException {
+//        String fileName = StringUtils.cleanPath(file.getOriginalFilename());
+//
+//        try {
+//            // Check if the file's name contains invalid characters
+//            if(fileName.contains("..")) {
+//                throw new FileStorageException("Sorry! Filename contains invalid path sequence " + fileName);
+//            }
+//
+//            // Copy file to the target location (Replacing existing file with the same name)
+//            Path targetLocation = this.fileStorageLocation.resolve(fileName);
+//            Files.copy(file.getInputStream(), targetLocation, StandardCopyOption.REPLACE_EXISTING);
+//            Department department = new Department();
+//            department.setName(departmentRequest.getName());
+//            department.setDescription(departmentRequest.getDescription());
+//            department.setKompetensi(departmentRequest.getKompetensi());
+//            department.setPeluang(departmentRequest.getPeluang());
+////            department.setCreatedBy(currentUser.getId());
+////            department.setUpdatedBy(currentUser.getId());
+//            department.setFileName(fileName);
+//            department.setFileType(file.getContentType());
+//            department.setData(file.getBytes());
+//            return departmentRepository.save(department);
+//        } catch (IOException ex) {
+//            throw new FileStorageException("Could not store file " + fileName + ". Please try again!", ex);
+//        }
+//
+//    }
 
     public DepartmentResponse getDepartmentById(Long departmentId) {
         Department department = departmentRepository.findById(departmentId).orElseThrow(
@@ -126,8 +148,9 @@ public class DepartmentService {
         departmentResponse.setDescription(department.getDescription());
         departmentResponse.setKompetensi(department.getKompetensi());
         departmentResponse.setPeluang(department.getPeluang());
-        departmentResponse.setCreatedAt(department.getCreatedAt());
-        departmentResponse.setUpdatedAt(department.getUpdatedAt());
+
+//        departmentResponse.setCreatedAt(department.getCreatedAt());
+//        departmentResponse.setUpdatedAt(department.getUpdatedAt());
         return departmentResponse;
     }
 
@@ -140,17 +163,51 @@ public class DepartmentService {
             throw new BadRequestException("Page size must not be greater than " + AppConstants.MAX_PAGE_SIZE);
         }
     }
-
-    public Department updateDepartment(DepartmentRequest departmentReq, Long id, UserPrincipal currentUser){
+    public Department updateDepartment(@Valid DepartmentRequest departmentRequest, Long id, UserPrincipal currentUser, MultipartFile file) throws IOException {
         return departmentRepository.findById(id).map(department -> {
-            department.setName(departmentReq.getName());
-            department.setDescription(departmentReq.getDescription());
-            department.setKompetensi(departmentReq.getKompetensi());
-            department.setPeluang(departmentReq.getPeluang());
-            department.setUpdatedBy(currentUser.getId());
+//            kalender.setUpdatedBy(currentUser.getId());
+            String fileName = StringUtils.cleanPath(file.getOriginalFilename());
+            // Kalender kalender = new Kalender();
+            //        kalender.setCreatedBy(currentUser.getId());
+            //        kalender.setUpdatedBy(currentUser.getId());
+            department.setName(departmentRequest.getName());
+            department.setDescription(departmentRequest.getDescription());
+            department.setKompetensi(departmentRequest.getKompetensi());
+            department.setPeluang(departmentRequest.getPeluang());
+            department.setFileName(fileName);
+            department.setFileType(file.getContentType());
+            try {
+                department.setData(file.getBytes());
+            } catch (IOException e) {
+                // Handle the IOException here or rethrow it as an unchecked exception if needed.
+                throw new RuntimeException("Error reading file content: " + e.getMessage(), e);
+            }
             return departmentRepository.save(department);
         }).orElseThrow(() -> new ResourceNotFoundException("Department" , "id" , id));
     }
+//    public Department updateDepartment(DepartmentRequest departmentReq, Long id, UserPrincipal currentUser, MultipartFile file){
+//        return departmentRepository.findById(id).map(department -> {
+//            Department department = new Department();
+//            department.setName(departmentRequest.getName());
+//            department.setDescription(departmentRequest.getDescription());
+//            department.setKompetensi(departmentRequest.getKompetensi());
+//            department.setPeluang(departmentRequest.getPeluang());
+////            department.setCreatedBy(currentUser.getId());
+////            department.setUpdatedBy(currentUser.getId());
+//            department.setFileName(fileName);
+//            department.setFileType(file.getContentType());
+//            department.setData(file.getBytes());
+//
+////            department.setUpdatedBy(currentUser.getId());
+//            try {
+//                department.setData(file.getBytes());
+//            } catch (IOException e) {
+//                // Handle the IOException here or rethrow it as an unchecked exception if needed.
+//                throw new RuntimeException("Error reading file content: " + e.getMessage(), e);
+//            }
+//            return departmentRepository.save(department);
+//        }).orElseThrow(() -> new ResourceNotFoundException("Department" , "id" , id));
+//    }
 
     public void deleteDepartmentById(Long id){
         Optional<Department> department = departmentRepository.findById(id);

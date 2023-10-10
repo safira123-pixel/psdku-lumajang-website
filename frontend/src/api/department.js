@@ -1,10 +1,18 @@
 import request from "@/utils/request";
 
 export function addDepartment(data) {
+  // Buat objek FormData untuk mengirim file
+  const formData = new FormData();
+  formData.append('name', data.name)
+  formData.append('description', data.description)
+  formData.append('kompetensi', data.kompetensi)
+  formData.append('peluang', data.peluang)
+  formData.append('file', data.file.file); // 'file' sesuai dengan nama field di backend
+
   return request({
-    url: `/department`,
+    url: "/department",
     method: "post",
-    data,
+    data: formData, // Mengirim FormData dengan file
   });
 }
 
@@ -16,10 +24,19 @@ export function getDepartments() {
 }
 
 export function editDepartment(data, id) {
+  // Buat objek FormData untuk mengirim file
+  const formData = new FormData();
+  formData.append('name', data.name)
+  formData.append('description', data.description)
+  formData.append('kompetensi', data.kompetensi)
+  formData.append('peluang', data.peluang)
+  formData.append('file', data.file.file); // 'file' sesuai dengan nama field di backend
+
   return request({
     url: `/department/${id}`,
-    method: "put",
-    data,
+    // method: "put",
+    method: "post",
+    data: formData, // Mengirim FormData dengan file
   });
 }
 

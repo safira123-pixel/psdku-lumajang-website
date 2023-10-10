@@ -12,23 +12,22 @@ public class Department extends UserDateAudit {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank
     @Size(max = 100)
     private String name;
 
-    @NotBlank
     @Lob
     private String description;
 
-    @NotBlank
     @Lob
     private String kompetensi;
 
-    @NotBlank
     @Lob
     private String peluang;
 
-    private String fileDir;
+    private String fileType;
+    private String fileName;
+    @Lob
+    private byte[] data;
 
     public Department() {
     }
@@ -37,13 +36,15 @@ public class Department extends UserDateAudit {
         this.id = id;
     }
 
-    public Department(Long id, @NotBlank @Size(max = 100) String name, @NotBlank String description, @NotBlank String kompetensi, @NotBlank String peluang, String fileDir) {
+    public Department(Long id, @NotBlank @Size(max = 100) String name, @NotBlank String description, @NotBlank String kompetensi, @NotBlank String peluang, String fileName, String fileType, byte[] data) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.kompetensi = kompetensi;
         this.peluang = peluang;
-        this.fileDir = fileDir;
+        this.fileName = fileName;
+        this.fileType = fileType;
+        this.data = data;
     }
 
     public Long getId() {
@@ -86,11 +87,27 @@ public class Department extends UserDateAudit {
         this.peluang = peluang;
     }
 
-    public String getFileDir() {
-        return fileDir;
+    public String getFileName() {
+        return fileName;
     }
 
-    public void setFileDir(String fileDir) {
-        this.fileDir = fileDir;
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
+    }
+    public String getFileType() {
+        return fileType;
+    }
+
+    public void setFileType(String fileType) {
+        this.fileType = fileType;
+    }
+
+
+    public byte[] getData() {
+        return data;
+    }
+
+    public void setData(byte[] data) {
+        this.data = data;
     }
 }

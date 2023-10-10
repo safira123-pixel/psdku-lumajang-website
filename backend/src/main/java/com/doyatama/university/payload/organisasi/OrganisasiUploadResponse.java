@@ -8,6 +8,7 @@ public class OrganisasiUploadResponse {
     private Long id;
     private Instant updatedAt;
     private Instant createdAt;
+    private String name;
     private String fileName;
     private String fileType;
     @Lob
@@ -17,10 +18,11 @@ public class OrganisasiUploadResponse {
     public OrganisasiUploadResponse() {
     }
 
-    public OrganisasiUploadResponse(Long id, Instant updatedAt, Instant createdAt, String fileName, String fileType, byte[] data) {
+    public OrganisasiUploadResponse(Long id, Instant updatedAt, Instant createdAt, String name, String fileName, String fileType, byte[] data) {
         this.id = id;
         this.updatedAt = updatedAt;
         this.createdAt = createdAt;
+        this.name = name;
         this.fileName = fileName;
         this.fileType = fileType;
         this.data = data;
@@ -50,6 +52,14 @@ public class OrganisasiUploadResponse {
     public void setCreatedAt(Instant createdAt) {
         this.createdAt = createdAt;
     }
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public String getFileName() {
         return fileName;
     }

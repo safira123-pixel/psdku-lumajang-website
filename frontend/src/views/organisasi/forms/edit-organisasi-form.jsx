@@ -44,7 +44,15 @@ class EditOrganisasiForm extends Component {
         onOk={onOk}
         confirmLoading={confirmLoading}
       >
+        
         <Form {...formItemLayout}>
+        <Form.Item label="Judul:">
+            {getFieldDecorator("name", {
+              rules: [
+                { required: true, message: "Silahkan isikan judul" },
+              ],
+            })(<Input placeholder="Data" />)}
+          </Form.Item>
           <Form.Item label="ID Gambar:">
             {getFieldDecorator("id", {
               initialValue: id,

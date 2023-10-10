@@ -157,16 +157,15 @@ class Department extends Component {
               align="center"
             />
             <Column
-              title="Images"
+              title="Gambar"
               dataIndex="image"
               key="image"
               align="center"
-              render={(text, row) => (
-                <img src={`http://localhost:8080/downloadFile/${row.fileDir}`}
-                width={200}
-                height={150}/>
-              )
-            }
+              render={(text, row) => {
+                // console.log(row.data)
+                return row.data != null ? 
+                <BlobImageDisplay blob={row.data} /> : <></> 
+            }}
             />
             <Column
             

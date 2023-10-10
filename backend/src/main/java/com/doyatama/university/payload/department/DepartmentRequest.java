@@ -5,16 +5,13 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.validation.constraints.NotBlank;
 
 public class DepartmentRequest {
-    @NotBlank
+
     private String name;
 
-    @NotBlank
     private String description;
 
-    @NotBlank
     private String kompetensi;
 
-    @NotBlank
     private String peluang;
 
     private MultipartFile file;
