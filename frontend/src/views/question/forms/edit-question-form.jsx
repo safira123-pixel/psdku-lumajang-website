@@ -1,7 +1,18 @@
 import React, { Component } from "react";
-import { Form, Input, Modal, Upload, Icon } from "antd";
+import { Form, Input, Modal, Select, Upload, message, Icon } from "antd";
 const { TextArea } = Input;
 class EditBeritaForm extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      fileList: [], // Menyimpan file yang akan diunggah
+    };
+  }
+
+  // Fungsi ini akan dipanggil saat file diunggah atau dihapus
+  handleChange = ({ fileList }) => {
+    this.setState({ fileList });
+  };
   render() {
     const {
       visible,
@@ -25,23 +36,24 @@ class EditBeritaForm extends Component {
     };
     return (
       <Modal
-        title="Edit Berita"
+        title="Edit Jalur Pendaftaran"
         visible={visible}
         onCancel={onCancel}
         onOk={onOk}
         confirmLoading={confirmLoading}
       >
         <Form {...formItemLayout}>
-          <Form.Item label="ID Berita:">
+          <Form.Item label="ID Jalur:">
             {getFieldDecorator("id", {
               initialValue: id,
             })(<Input disabled />)}
           </Form.Item>
           <Form.Item label="Judul:">
             {getFieldDecorator("name", {
-              rules: [{ required: true, message: "Silahkan isi Judul" }],
-              initialValue: name,
-            })(<Input placeholder="Nama Judul" />)}
+              rules: [
+                { required: true, message: "Silahkan isikan judul" },
+              ],
+            })(<Input placeholder="Data" />)}
           </Form.Item>
           <Form.Item label="Deskripsi:">
             {getFieldDecorator("description", {
@@ -73,4 +85,4 @@ class EditBeritaForm extends Component {
   }
 }
 
-export default Form.create({ name: "EditBeritatForm" })(EditBeritaForm);
+export default Form.create({ name: "EditBeritaForm" })(EditBeritaForm);

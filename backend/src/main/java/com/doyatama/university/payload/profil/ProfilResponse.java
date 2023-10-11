@@ -1,5 +1,5 @@
 package com.doyatama.university.payload.profil;
-import org.springframework.web.multipart.MultipartFile;
+import javax.persistence.Lob;
 
 import java.time.Instant;
 
@@ -7,21 +7,25 @@ public class ProfilResponse {
     private Long id;
     private String name;
     private String description;
-    private String fileDir;
     private Instant updatedAt;
     private Instant createdAt;
-
+    private String fileName;
+    private String fileType;
+    @Lob
+    private byte[] data;
 
     public ProfilResponse() {
     }
 
-    public ProfilResponse(Long id, String name, String description, String fileDir, Instant updatedAt, Instant createdAt) {
+    public ProfilResponse(Long id, String name, String description, Instant updatedAt, Instant createdAt, String fileName, String fileType, byte[] data) {
         this.id = id;
         this.name = name;
         this.description = description;
-        this.fileDir = fileDir;
         this.updatedAt = updatedAt;
         this.createdAt = createdAt;
+        this.fileName = fileName;
+        this.fileType = fileType;
+        this.data = data;
     }
 
     public Long getId() {
@@ -63,11 +67,26 @@ public class ProfilResponse {
     public void setCreatedAt(Instant createdAt) {
         this.createdAt = createdAt;
     }
-    public String getFileDir() {
-        return fileDir;
+    public String getFileName() {
+        return fileName;
     }
 
-    public void setFileDir(String fileDir) {
-        this.fileDir = fileDir;
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
+    }
+
+    public String getFileType() {
+        return fileType;
+    }
+
+    public void setFileType(String fileType) {
+        this.fileType = fileType;
+    }
+
+    public byte[] getData() {
+        return data;
+    }
+    public void setData(byte[] data) {
+        this.data = data;
     }
 }

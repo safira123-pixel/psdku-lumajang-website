@@ -1,13 +1,9 @@
 package com.doyatama.university.payload.berita;
 import org.springframework.web.multipart.MultipartFile;
 
-//import javax.validation.constraints.NotBlank;
 
 public class BeritaRequest {
-//    @NotBlank
     private String name;
-
-//    @NotBlank
     private String description;
     private MultipartFile file;
 

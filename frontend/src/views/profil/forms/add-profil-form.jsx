@@ -1,7 +1,33 @@
 import React, { Component } from "react";
-import { Form, Input, Modal, Upload, Icon } from "antd";
+import axios from 'axios';
+
+import { Form, Input, Modal, Upload, Icon } from "antd";;
+
 const { TextArea } = Input;
 class AddProfilForm extends Component {
+  state = {
+    selectedFile: null,
+  };
+
+  fileSelectedHandler = (event) => {
+    this.setState({
+      selectedFile: event.target.files[0],
+    });
+  };
+
+  fileUploadHandler = () => {
+    const formData = new FormData();
+    const options = {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+      data: formData,
+      method: 'POST',
+    };
+  
+    return axios('api/profil', options);
+
+  };
   render() {
     const { visible, onCancel, onOk, form, confirmLoading } = this.props;
     const { getFieldDecorator } = form;

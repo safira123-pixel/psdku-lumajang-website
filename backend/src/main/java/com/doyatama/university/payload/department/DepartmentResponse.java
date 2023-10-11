@@ -1,8 +1,6 @@
 package com.doyatama.university.payload.department;
-
-import org.springframework.web.multipart.MultipartFile;
-
 import javax.persistence.Lob;
+
 import java.time.Instant;
 
 public class DepartmentResponse {
@@ -17,11 +15,11 @@ public class DepartmentResponse {
     private String fileType;
     @Lob
     private byte[] data;
+
     public DepartmentResponse() {
     }
 
-
-    public DepartmentResponse(Long id, String name, String description, String kompetensi, String peluang, Instant updatedAt, Instant createdAt, String fileName, String fileType,byte[] data) {
+    public DepartmentResponse(Long id, String name, String description, String kompetensi, String peluang, Instant updatedAt, Instant createdAt, String fileName, String fileType, byte[] data) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -57,7 +55,6 @@ public class DepartmentResponse {
     public void setDescription(String description) {
         this.description = description;
     }
-
     public String getKompetensi() {
         return kompetensi;
     }
@@ -74,6 +71,7 @@ public class DepartmentResponse {
         this.peluang = peluang;
     }
 
+
     public Instant getUpdatedAt() {
         return updatedAt;
     }
@@ -89,7 +87,6 @@ public class DepartmentResponse {
     public void setCreatedAt(Instant createdAt) {
         this.createdAt = createdAt;
     }
-
     public String getFileName() {
         return fileName;
     }

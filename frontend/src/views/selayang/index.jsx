@@ -134,7 +134,7 @@ class Selayang extends Component {
             dataSource={selayangs}
             pagination={false}
           >
-            <Column title="ID Selayang" dataIndex="id" key="id" align="center" />
+            {/* <Column title="ID Selayang" dataIndex="id" key="id" align="center" /> */}
             <Column title="Judul" dataIndex="name" key="name" align="center" />
             <Column
               title="Deskripsi"

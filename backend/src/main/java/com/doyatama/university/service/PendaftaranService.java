@@ -69,7 +69,7 @@ public class PendaftaranService {
                     pendaftarans.getSize(), pendaftarans.getTotalElements(), pendaftarans.getTotalPages(), pendaftarans.isLast(), 200);
         }
         // Map Polls to PollResponses containing vote counts and poll creator details
-        List<PendaftaranResponse> kegiatanResponses = pendaftarans.map(asResponse -> {
+        List<PendaftaranResponse> pendaftaranResponses = pendaftarans.map(asResponse -> {
             PendaftaranResponse pendaftaranResponse = new PendaftaranResponse();
             pendaftaranResponse.setId(asResponse.getId());
 //            organisasiResponse.setCreatedAt(asResponse.getCreatedAt());
@@ -82,17 +82,17 @@ public class PendaftaranService {
 
             return pendaftaranResponse;
         }).getContent();
-        return new PagedResponse<>(kegiatanResponses, pendaftarans.getNumber(),
+        return new PagedResponse<>(pendaftaranResponses, pendaftarans.getNumber(),
                 pendaftarans.getSize(), pendaftarans.getTotalElements(), pendaftarans.getTotalPages(), pendaftarans.isLast(), 200);
     }
 
-    public Pendaftaran createPendaftaran(UserPrincipal currentUser, @Valid PendaftaranRequest kegiatanRequest, MultipartFile file) throws IOException {
+    public Pendaftaran createPendaftaran(UserPrincipal currentUser, @Valid PendaftaranRequest pendaftaranRequest, MultipartFile file) throws IOException {
         String fileName = StringUtils.cleanPath(file.getOriginalFilename());
         Pendaftaran pendaftaran = new Pendaftaran();
 //        organisasi.setCreatedBy(currentUser.getId());
 //        organisasi.setUpdatedBy(currentUser.getId());
-        pendaftaran.setName(kegiatanRequest.getName());
-        pendaftaran.setDescription(kegiatanRequest.getDescription());
+        pendaftaran.setName(pendaftaranRequest.getName());
+        pendaftaran.setDescription(pendaftaranRequest.getDescription());
         pendaftaran.setFileName(fileName);
         pendaftaran.setFileType(file.getContentType());
         pendaftaran.setData(file.getBytes());
@@ -137,7 +137,7 @@ public class PendaftaranService {
                 throw new RuntimeException("Error reading file content: " + e.getMessage(), e);
             }
             return pendaftaranRepository.save(pendaftaran);
-        }).orElseThrow(() -> new ResourceNotFoundException("Kegiatan" , "id" , id));
+        }).orElseThrow(() -> new ResourceNotFoundException("Pendaftaran" , "id" , id));
     }
     public void deletePendaftaranById(Long id){
         Optional<Pendaftaran> pendaftaran = pendaftaranRepository.findById(id);

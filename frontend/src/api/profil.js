@@ -21,10 +21,17 @@ export function getProfil() {
 }
 
 export function editProfil(data, id) {
+  // Buat objek FormData untuk mengirim file
+  const formData = new FormData();
+  formData.append('name', data.name); // 'file' sesuai dengan nama field di backend
+  formData.append('description', data.description); // 'file' sesuai dengan nama field di backend
+  formData.append('file', data.file.file); // 'file' sesuai dengan nama field di backend
+
   return request({
     url: `/profil/${id}`,
-    method: "put",
-    data,
+    // method: "put",
+    method: "post",
+    data: formData, // Mengirim FormData dengan file
   });
 }
 

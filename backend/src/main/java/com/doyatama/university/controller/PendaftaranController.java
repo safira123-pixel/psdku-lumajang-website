@@ -69,10 +69,10 @@ public class PendaftaranController {
     public ResponseEntity<?> updatePendaftaranById(@CurrentUser UserPrincipal currentUser, @PathVariable(value = "pendaftaranId") Long pendaftaranId, @Valid PendaftaranRequest pendaftaranRequest, @RequestParam("file") MultipartFile file) throws IOException {
         Pendaftaran pendaftaran = pendaftaranService.updatePendaftaran(pendaftaranRequest, pendaftaranId, currentUser, file);
         URI location = ServletUriComponentsBuilder
-                .fromCurrentRequest().path("/{kegiatanId}")
+                .fromCurrentRequest().path("/{pendaftaranId}")
                 .buildAndExpand(pendaftaran.getId()).toUri();
         return ResponseEntity.created(location)
-                .body(new ApiResponse(true, "Kegiatan Updated Successfully"));
+                .body(new ApiResponse(true, "Pendaftaran Updated Successfully"));
     }
 
     @GetMapping("/{pendaftaranId}")

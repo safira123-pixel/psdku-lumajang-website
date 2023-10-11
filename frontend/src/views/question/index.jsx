@@ -42,7 +42,7 @@ class Berita extends Component {
   handleDeleteBerita = (row) => {
     const { id } = row;
     if (id === "admin") {
-      message.error("Tidak dapat menghapus！");
+      message.error("Tidak dapat menghapus pengguna admin！");
       return;
     }
     console.log(id);
@@ -134,7 +134,7 @@ class Berita extends Component {
             dataSource={beritas}
             pagination={false}
           >
-            {/* <Column title="ID Berita" dataIndex="id" key="id" align="center" /> */}
+            {/* <Column title="ID Selayang" dataIndex="id" key="id" align="center" /> */}
             <Column title="Judul" dataIndex="name" key="name" align="center" />
             <Column
               title="Deskripsi"

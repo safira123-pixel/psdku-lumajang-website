@@ -1,5 +1,6 @@
 package com.doyatama.university.payload.berita;
 import javax.persistence.Lob;
+
 import java.time.Instant;
 
 public class BeritaResponse {
@@ -66,7 +67,6 @@ public class BeritaResponse {
     public void setCreatedAt(Instant createdAt) {
         this.createdAt = createdAt;
     }
-
     public String getFileName() {
         return fileName;
     }

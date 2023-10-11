@@ -9,6 +9,8 @@ import {
 import TypingCard from "@/components/TypingCard";
 import EditProfilForm from "./forms/edit-profil-form";
 import AddProfilForm from "./forms/add-profil-form";
+import { BlobImageDisplay } from "../../components/BlobImageDisplay";
+
 const { Column } = Table;
 class Profil extends Component {
   state = {
@@ -138,7 +140,7 @@ class Profil extends Component {
             dataSource={profils}
             pagination={false}
           >
-            <Column title="ID Profil" dataIndex="id" key="id" align="center" />
+            {/* <Column title="ID Profil" dataIndex="id" key="id" align="center" /> */}
             <Column title="Judul" dataIndex="name" key="name" align="center" />
             <Column
               title="Deskripsi"
@@ -147,16 +149,15 @@ class Profil extends Component {
               align="center"
             />
             <Column
-              title="Files"
-              dataIndex="file"
-              key="file"
+              title="Images"
+              dataIndex="image"
+              key="image"
               align="center"
-              render={(text, row) => (
-                <img src={`http://localhost:8080/downloadFile/${row.fileDir}`}
-                width={200}
-                height={150}/>
-              )
-            }
+              render={(text, row) => {
+                // console.log(row.data)
+                return row.data != null ? 
+                <BlobImageDisplay blob={row.data} /> : <></> 
+            }}
             />
             <Column
               title="Operasi"

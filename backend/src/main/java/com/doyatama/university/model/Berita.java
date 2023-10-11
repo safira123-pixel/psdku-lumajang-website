@@ -1,30 +1,22 @@
 package com.doyatama.university.model;
 
-import com.doyatama.university.model.audit.UserDateAudit;
-
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "beritas")
-public class Berita extends UserDateAudit {
+public class Berita {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-//    @NotBlank
     @Size(max = 100)
     private String name;
-
-//    @NotBlank
-    @Lob
     private String description;
-
     private String fileType;
     private String fileName;
     @Lob
     private byte[] data;
+
 
     public Berita() {
     }
@@ -65,13 +57,13 @@ public class Berita extends UserDateAudit {
     public void setDescription(String description) {
         this.description = description;
     }
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
+    }
     public String getFileName() {
         return fileName;
     }
 
-    public void setFileName(String fileName) {
-        this.fileName = fileName;
-    }
     public String getFileType() {
         return fileType;
     }

@@ -1,33 +1,24 @@
 package com.doyatama.university.model;
 
-import com.doyatama.university.model.audit.UserDateAudit;
-
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+
 @Entity
 @Table(name = "departments")
-public class Department extends UserDateAudit {
+public class Department {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     @Size(max = 100)
     private String name;
-
-    @Lob
     private String description;
-
-    @Lob
     private String kompetensi;
-
-    @Lob
     private String peluang;
-
     private String fileType;
     private String fileName;
     @Lob
     private byte[] data;
+
 
     public Department() {
     }
@@ -36,7 +27,7 @@ public class Department extends UserDateAudit {
         this.id = id;
     }
 
-    public Department(Long id, @NotBlank @Size(max = 100) String name, @NotBlank String description, @NotBlank String kompetensi, @NotBlank String peluang, String fileName, String fileType, byte[] data) {
+    public Department(Long id, String name, String description, String kompetensi, String peluang, String fileName, String fileType, byte[] data) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -70,7 +61,6 @@ public class Department extends UserDateAudit {
     public void setDescription(String description) {
         this.description = description;
     }
-
     public String getKompetensi() {
         return kompetensi;
     }
@@ -78,7 +68,6 @@ public class Department extends UserDateAudit {
     public void setKompetensi(String kompetensi) {
         this.kompetensi = kompetensi;
     }
-
     public String getPeluang() {
         return peluang;
     }
@@ -86,14 +75,13 @@ public class Department extends UserDateAudit {
     public void setPeluang(String peluang) {
         this.peluang = peluang;
     }
-
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
+    }
     public String getFileName() {
         return fileName;
     }
 
-    public void setFileName(String fileName) {
-        this.fileName = fileName;
-    }
     public String getFileType() {
         return fileType;
     }

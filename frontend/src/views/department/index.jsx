@@ -136,7 +136,7 @@ class Department extends Component {
             dataSource={departments}
             pagination={false}
           >
-            <Column title="ID Jurusan" dataIndex="id" key="id" align="center" />
+            {/* <Column title="ID Jurusan" dataIndex="id" key="id" align="center" /> */}
             <Column title="Nama" dataIndex="name" key="name" align="center" />
             <Column
               title="Deskripsi Jurusan"

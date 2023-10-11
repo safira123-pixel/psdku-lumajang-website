@@ -5,7 +5,6 @@ import com.doyatama.university.payload.ApiResponse;
 import com.doyatama.university.payload.PagedResponse;
 import com.doyatama.university.payload.profil.ProfilRequest;
 import com.doyatama.university.payload.profil.ProfilResponse;
-import com.doyatama.university.payload.storage.UploadFileResponse;
 import com.doyatama.university.repository.ProfilRepository;
 import com.doyatama.university.repository.UserRepository;
 import com.doyatama.university.security.CurrentUser;
@@ -18,18 +17,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.annotation.Secured;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-import org.springframework.core.io.Resource;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.MediaType;
-import javax.servlet.http.HttpServletRequest;
-import java.io.IOException;
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
 
 import javax.validation.Valid;
 import java.io.IOException;
@@ -52,15 +42,19 @@ public class ProfilController {
     @GetMapping
 //    @Secured("ROLE_ADMINISTRATOR")
     public PagedResponse<ProfilResponse> getProfil(@RequestParam(value = "page", defaultValue = AppConstants.DEFAULT_PAGE_NUMBER) int page,
-                                                   @RequestParam(value = "size", defaultValue = AppConstants.DEFAULT_PAGE_SIZE) int size) {
+                                                             @RequestParam(value = "size", defaultValue = AppConstants.DEFAULT_PAGE_SIZE) int size) {
         return profilService.getAllProfil(page, size);
     }
 
     @PostMapping
 //    @Secured("ROLE_ADMINISTRATOR")
     public ResponseEntity<?> createProfil(@CurrentUser UserPrincipal currentUser, @Valid @ModelAttribute ProfilRequest profilRequest, @RequestParam("file") MultipartFile file) throws IOException {
-        Profil profil = profilService.createProfil(currentUser, profilRequest,  file);
-
+//        MultipartFile file = departmentRequest.getFile();
+        Profil profil = profilService.createProfil(currentUser, profilRequest, file);
+        String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath()
+                .path("/downloadFile/")
+                .path(profil.getId().toString())
+                .toUriString();
         URI location = ServletUriComponentsBuilder
                 .fromCurrentRequest().path("/{profilId}")
                 .buildAndExpand(profil.getId()).toUri();
@@ -69,15 +63,14 @@ public class ProfilController {
                 .body(new ApiResponse(true, "Profil Created Successfully"));
     }
 
-    @PutMapping("/{profilId}")
-//    @Secured("ROLE_ADMINISTRATOR")
-    public ResponseEntity<?> updateProfilById(@CurrentUser UserPrincipal currentUser, @PathVariable (value = "profilId") Long profilId, @Valid @RequestBody ProfilRequest profilRequest) {
-        Profil profil = profilService.updateProfil(profilRequest, profilId, currentUser);
 
+    @PostMapping("/{profilId}")
+//    @Secured("ROLE_ADMINISTRATOR")
+    public ResponseEntity<?> updateProfilById(@CurrentUser UserPrincipal currentUser, @PathVariable(value = "profilId") Long profilId, @Valid ProfilRequest profilRequest, @RequestParam("file") MultipartFile file) throws IOException {
+        Profil profil = profilService.updateProfil(profilRequest, profilId, currentUser, file);
         URI location = ServletUriComponentsBuilder
                 .fromCurrentRequest().path("/{profilId}")
                 .buildAndExpand(profil.getId()).toUri();
-
         return ResponseEntity.created(location)
                 .body(new ApiResponse(true, "Profil Updated Successfully"));
     }

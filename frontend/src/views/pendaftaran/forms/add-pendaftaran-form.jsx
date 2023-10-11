@@ -24,7 +24,7 @@ class AddPendaftaranForm extends Component {
       method: 'POST',
     };
   
-    return axios('api/kegiatan', options);
+    return axios('api/pendaftaran', options);
 
   };
   render() {
