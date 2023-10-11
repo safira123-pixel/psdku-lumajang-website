@@ -4,6 +4,7 @@ import { Helmet } from 'react-helmet';
 import AppBar from './AppBar'
 import Drawer from './Drawer'
 import Footer from './Footer'
+import NavBarLine from './NavBarLine';
 
 const styles = theme => ({
   layout: {

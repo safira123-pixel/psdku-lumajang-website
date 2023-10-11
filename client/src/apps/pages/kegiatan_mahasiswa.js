@@ -55,15 +55,15 @@ const kegiatan_mahasiswa = (props) => {
                         // bgContain
                         key={index}
                         profileImg="https://franciscan.edu/wp-content/uploads/2023/01/March-for-Life-2022-768x512.jpg"
-                        profileImgTitle="Mantapu Jiwa"
                         profileName={t(item[0].name)}
                         content={item[0].description}
+                        linkName={t('Baca selengkapnya')}
+                        profileLink="/kegiatan_mahasiswa1"
                         bgContain
-                    >
-                    </EventsCard>
-                    ))} 
+                    />
+                ))} 
 
-                    {data.map((item, index) => (
+                {data.map((item, index) => (
                     <EventsCard
                         // profileImg="https://franciscan.edu/wp-content/uploads/2023/01/March-for-Life-2022-768x512.jpg"
                         // profileName="Franciscan University President, Students Prepare for First Post-Roe March for Life in Washington, D.C."
@@ -71,22 +71,25 @@ const kegiatan_mahasiswa = (props) => {
                         // bgContain
                         key={index}
                         profileImg="https://franciscan.edu/wp-content/uploads/2023/01/March-for-Life-2022-768x512.jpg"
-                        profileImgTitle="Mantapu Jiwa"
                         profileName={item[1].name}
                         content={item[1].description}
+                        linkName={t('Baca selengkapnya')}
+                        profileLink="/kegiatan_mahasiswa2"
                         bgContain
-
                     />
-                    ))} 
+                ))} 
 
+                {data.map((item, index) => (
                     <EventsCard
                         profileImg="https://franciscan.edu/wp-content/uploads/2023/01/March-for-Life-2022-768x512.jpg"
-                        profileImgTitle="Mantapu Jiwa"
-                        profileType="Alumni Profile"
-                        profileName="Franciscan University President, Students Prepare for First Post-Roe March for Life in Washington, D.C."
-                        content="My choice to say Yes to giving my all even in those trying moments can be attributed to the growth and education I received at Franciscan."
-                        bgContain
+                        profileName= {item[1].name}
+                        content={item[1].description}
+                        linkName={t('Baca selengkapnya')}
+                        profileLink="/kegiatan_mahasiswa3"
+                        bgContain                    
                     />
+                ))} 
+
                 </Grid>
             <Grid container className={classes.Button} style={{ display: 'block', justifyContent: "center" }}>
                 <div style = {{ backgroundColor: '#e7e7e7', margin: 10, padding: 10 }}>

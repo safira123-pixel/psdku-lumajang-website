@@ -17,6 +17,7 @@ import { withTranslation } from "react-i18next";
 import AppBarMenuItem from './AppBarMenuItem'
 import IconId from '../components/Flag/IconId'
 import IconEn from "../components/Flag/IconEn"
+import Breadcrumbs from './BreadCrumb'
 
 class ButtonAppBar extends Component {
 
@@ -78,25 +79,53 @@ class ButtonAppBar extends Component {
                     <Hidden mdUp>
                       <img
                         className={classes.mobileHeaderImage}
-                        src="./assets/images/logo-polinema-navbar.png"
+                        src="./assets/images/logo-polinema.png"
                         alt="Logo Polinema"
                       />
                     </Hidden>
                     <Hidden smDown>
                       <img
                         className={classes.headerImage}
-                        src="./assets/images/logo-polinema-navbar.png"
+                        src="./assets/images/logo-polinema.png"
                         alt="Logo Polinema"
                       />
                     </Hidden>
+                    <Grid>
+                </Grid>
                   </a>
                 </Link>
               </Typography>
-            </div>
+              {/* <Hidden mdUp>
+              <Typography
+               variant="display1"
+               style={{ textAlign: 'left', fontSize: '200%', marginTop: "20px" }}
+              >
+                <Link to="/" style={{ textDecoration: 'none', color: '#051d47'}}>PSDKU</Link>
+              </Typography>
+              <Typography
+               variant="display1"
+               style={{ textAlign: 'left',marginLeft:'10px', fontSize: '200%', marginTop: "20px" }}
+              >
+               <Link to="/" style={{ textDecoration: 'none',color: '#e77e23'}}>KAMPUS LUMAJANG</Link>
+              </Typography>
+              </Hidden>
+              <Hidden smDown>
+              <Typography
+               variant="display1"
+               style={{ textAlign: 'left', fontSize: '200%', marginTop: "20px" }}
+              >
+                <Link to="/" style={{ textDecoration: 'none', color: '#051d47'}}>POLITEKNIK NEGERI MALANG</Link>
+              </Typography>
+              <Typography
+               variant="display1"
+               style={{ textAlign: 'left',marginLeft:'10px', fontSize: '200%', marginTop: "20px" }}
+              >
+               <Link to="/" style={{ textDecoration: 'none',color: '#e77e23'}}>KAMPUS LUMAJANG</Link>
+              </Typography>
+              </Hidden> */}
+=            </div>
 
-            <Grid
-              container
-              className={`${classes.col2} ${classes.mobileGridContainer}`}
+            <Grid container className={`${classes.col2} ${classes.mobileGridContainer}`}
             >
               {/* <Grid item xs={12} className={classes.telContainer}>
                 <a href="tel:18007836220" className={classes.telLink}>
@@ -191,9 +220,11 @@ const styles = theme => ({
       transform: 'translate(-50%)'
     }
   },
+  Breadcrumbs: {
+color: "#053070",
+  },
   appBar: {
     background: '#ffffff',
-    borderBottom: `solid 3px #998643`
   },
   toolbar: {
     minHeight: '72px',

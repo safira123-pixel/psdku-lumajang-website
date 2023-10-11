@@ -4,6 +4,10 @@ import CardContent from '@material-ui/core/CardContent'
 import { withStyles } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
 import { Link } from 'react-router-dom'
+import CardActions from '@material-ui/core/CardActions'
+import React, { Component, Fragment } from 'react'
+import Button from '@material-ui/core/Button'
+
 
 const styles = theme => ({
     card: {
@@ -55,6 +59,9 @@ const NewsCard = (props) => {
         profileImgTitle,
         profileName,
         content,
+        profileLink,
+        linkName
+        
     } = props
     return (
         <Card className={classes.card}>
@@ -76,6 +83,15 @@ const NewsCard = (props) => {
                 </Typography>
                 <Typography component="p" className={classes.description}>
                 </Typography>
+                <CardActions>
+                <Fragment>
+                    <Link prefetch to={profileLink}>
+                        <Button size="small" color="primary">
+                            {linkName}
+                        </Button>
+                    </Link>
+                </Fragment>
+            </CardActions>
             </CardContent>
             {/* {profileLink && ( */}
 

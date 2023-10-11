@@ -19,10 +19,10 @@ const Footer = ({classes}) => {
             <div class="menu-footer-program-studi-container">
             <ul id="secondary-menu" class="menu">
               <a style={{ color: 'white'}}>{t('Program.label')}</a><br></br>
-              <li id="menu-item-682" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-682"><a href="#" style={{ color: 'white'}}>{t('Item1.label')}</a></li>
-              <li id="menu-item-680" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-680"><a href="#" style={{ color: 'white'}}>{t('Item2.label')}</a></li>
-              <li id="menu-item-326" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-326"><a href="#" style={{ color: 'white'}}>{t('Item3.label')}</a></li>
-              <li id="menu-item-325" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-325"><a href="#" style={{ color: 'white'}}>{t('Item4.label')}</a></li>
+              <li id="menu-item-682" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-682"><a href="/otomotif" style={{ color: 'white'}}>{t('Item1.label')}</a></li>
+              <li id="menu-item-680" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-680"><a href="/teknologi_sipil" style={{ color: 'white'}}>{t('Item2.label')}</a></li>
+              <li id="menu-item-326" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-326"><a href="/akuntansi" style={{ color: 'white'}}>{t('Item3.label')}</a></li>
+              <li id="menu-item-325" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-325"><a href="/teknologi_informasi" style={{ color: 'white'}}>{t('Item4.label')}</a></li>
               </ul>
               <ul id="secondary-menu" class="menu">
               <a href="#"><img src="https://www.linkpicture.com/q/pngwing.com_71.png" width="20" alt="Icon"/></a>    <a href="#"><img src="https://www.linkpicture.com/q/pngwing.com-1_32.png" width="20" alt="Icon"/></a>   <a href="#"><img src="https://www.linkpicture.com/q/pngwing.com-2_6.png" width="20" alt="Icon"/></a>
@@ -56,15 +56,11 @@ const Footer = ({classes}) => {
 
 const styles = theme => ({
   root: {
-    marginTop: 30,
     backgroundColor: `#051d47`,
-    borderTop: 'solid 3px #998643',
     paddingTop: '16px',
     overflowX: 'hidden'
   },
-  footerSections: {
-    margin: '0 16px'
-  },
+
   subFooter: {
     backgroundColor: '#051d47',
     padding: '8px 16px 8px 16px',

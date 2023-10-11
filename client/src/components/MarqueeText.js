@@ -19,10 +19,10 @@ const MarqueeText = (props) => {
     }, []);
     
     return (
-    <marquee direction = "left" behavior = "scroll" scrollamount="20">
+    <marquee direction = "left" behavior = "scroll" scrollamount="20" style={{backgroundColor: '#051d47', color: "#ffff"}}>
          {data.map((item, index) => (
                         <div key={index}>
-                            <h2>{item[0].name}</h2>
+                            <h2>{item[0].description}</h2>
                         </div>
                     ))} 
         </marquee>

@@ -10,8 +10,13 @@ import SlideShow from '../../components/SlideShow'
 import NewsCard from '../../components/NewsCard'
 import { useTranslation, withTranslation } from 'react-i18next'
 import { Button } from '@material-ui/core'
+import BreadCrumb from '../../components/BreadCrumb'
+import { Component } from 'react';
+import Breadcrumb from 'react-bootstrap/Breadcrumb';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Profile = (props) => {
+    const cardContent = `BreadCrumbs.`;
     const [data, setData] = useState([]);
     const { classes} = props
     const { t } = useTranslation();
@@ -35,6 +40,16 @@ const Profile = (props) => {
                             <h2>{item[1].description}</h2>
                         </div>
                     ))} */}
+        <Card className={classes.card}>
+            <div class="container">
+        <Breadcrumb>
+          <Breadcrumb.Item href="/"> {t('beranda.label')}</Breadcrumb.Item>
+          <Breadcrumb.Item href="/profile"> {t('Profil')}</Breadcrumb.Item>
+          <Breadcrumb.Item href="/profile"> {t('Profil')}</Breadcrumb.Item>
+        </Breadcrumb>        
+      </div>
+      </Card>
+      <Card className={classes.cardContent}>
             <Grid item xs={12} sm={10} className={classes.section}>
                 <div className={classes.innerContainer} style={{justifyContent: "left", marginLeft: '30px' }}>
                     <Typography variant="display2" style={{ color: '#051d47', textAlign: "left", marginLeft: '0px' }} gutterBottom>
@@ -51,8 +66,8 @@ const Profile = (props) => {
                 ))}
 
                 {data.map((item, index) => (
-                    <div key={index} className={classes.innerContainer} style={{justifyContent: "left", marginLeft: '30px' }}>
-                        <Typography variant="headline" component="h2" style={{ color: '#051d47', textAlign: "left", marginLeft: '0px', fontSize: '16px' }} gutterBottom>
+                    <div key={index} className={classes.innerContainer} style={{justifyContent: "left", marginLeft: '30px', fontSize: '14px'  }}>
+                        <Typography component="p" style={{ color: '#051d47', textAlign: "left", marginLeft: '0px', fontSize: '14px' }} gutterBottom>
                             <h2>{item[3].description}</h2>
                             <h2>{item[2].description}</h2>
                             <h2>{item[1].description}</h2>
@@ -60,8 +75,8 @@ const Profile = (props) => {
                         </Typography>
                     </div>
                 ))}
-
             </Grid>
+            </Card>
         </Layout>
     )
 }
@@ -71,7 +86,23 @@ const styles = theme => ({
         color: '#fff'
     },
     card: {
-        width: '100%'
+        width: '97%',
+        display: "flex",
+        flexWrap: "wrap",
+        marginLeft: "20px",
+        marginRight: "20px",
+        marginBottom: "20px",
+        marginTop:"20px", 
+        backgroundColor:"#FFD700",
+    },
+    cardContent: {
+        width: '97%',
+        display: "flex",
+        flexWrap: "wrap",
+        marginLeft: "20px",
+        marginRight: "20px",
+        marginBottom: "20px",
+        marginTop:"20px", 
     },
     media: {
         minHeight: 280,

@@ -286,11 +286,6 @@ const TemporaryDrawer = props => {
                   />
                 </FormControl>
               </ListItem>
-              <AppBarMenuItem1
-                toggleDrawer={toggleDrawer}
-                linkId="home"
-                content={t('beranda.label')}
-              />
               <DrawerItem
                 toggleDrawer={toggleDrawer}
                 primaryText={t("Profil")}

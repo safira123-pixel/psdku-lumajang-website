@@ -12,13 +12,16 @@ import snbp from './snbp'
 import snbt from './snbt'
 import mandiri from './mandiri'
 import kegiatan_mahasiswa from './kegiatan_mahasiswa'
+import kegiatan_mahasiswa1 from './kegiatan_mahasiswa1'
+import kegiatan_mahasiswa2 from './kegiatan_mahasiswa1'
 import pengumuman from './pengumuman'
+import pengumuman1 from './pengumuman'
+import pengumuman2 from './pengumuman'
 import profil_lumajang from './profil_lumajang'
 import pariwisata_lumajang from './pariwisata_lumajang'
 import kuliner_lumajang from './kuliner_lumajang'
 import penginapan_lumajang from './penginapan_lumajang'
 import budaya_lumajang from './budaya_lumajang'
-
 
 export {
     HomePage,
@@ -35,7 +38,11 @@ export {
     snbt,
     mandiri,
     kegiatan_mahasiswa,
+    kegiatan_mahasiswa1,
+    kegiatan_mahasiswa2,
     pengumuman,
+    pengumuman1,
+    pengumuman2,
     profil_lumajang,
     pariwisata_lumajang,
     budaya_lumajang,

@@ -1,14 +1,49 @@
+// import React from "react";
+// import { withRouter, useLocation } from "react-router-dom";
+// import useBreadcrumbs from 'use-react-router-breadcrumbs'
+// // import menuList from "@/config/menuConfig";
+// // import drawerMenu from "@/data/drawerMenu";
+// import "./index.less";
+// import { Link} from 'react-router-dom'
+
+// function Breadcrumbs() {
+//   const location = useLocation();
+
+//   return (
+//     <nav>
+//       <Link to="/"
+//         className={location.pathname === "/" ? "breadcrumb-active" : "breadcrumb-not-active"}
+//       >
+//         Home
+//       </Link>
+//       <span className="breadcrumb-arrow">&gt;</span>
+//       <Link to="/profile"
+//         className={location.pathname.startsWith("/profile") ? "breadcrumb-active" : "breadcrumb-not-active"}
+//       >
+//         Profil
+//       </Link>
+//       <span className="breadcrumb-arrow">&gt;</span>
+//       <Link to="/selayang_pandang"
+//         className={location.pathname === "/selayang_pandang" ? "breadcrumb-active" : "breadcrumb-not-active"}
+//       >
+//         Selayang Pandang
+//       </Link>
+//     </nav>
+//   );
+// }
+
+// export default Breadcrumbs;
+
 import React from "react";
 import { withRouter } from "react-router-dom";
 import { Breadcrumb } from "antd";
-// import menuList from "@/config/menuConfig";
-import drawerMenu from "@/data/drawerMenu";
+import menuList from "../../config/menuConfig";
 import "./index.less";
 /**
  * 根据当前浏览器地址栏的路由地址，在menuConfig中查找路由跳转的路径
  * 如路由地址为/charts/keyboard,则查找到的路径为[{title: "图表",...},{title: "键盘图表",...}]
  */
-const getPath = (drawerMenu, pathname) => {
+const getPath = (menuList, pathname) => {
   let temppath = [];
   try {
     function getNodePath(node) {
@@ -28,8 +63,8 @@ const getPath = (drawerMenu, pathname) => {
         temppath.pop();
       }
     }
-    for (let i = 0; i < drawerMenu.length; i++) {
-      getNodePath(drawerMenu[i]);
+    for (let i = 0; i < menuList.length; i++) {
+      getNodePath(menuList[i]);
     }
   } catch (e) {
     return temppath;
@@ -39,9 +74,9 @@ const getPath = (drawerMenu, pathname) => {
 const BreadCrumb = (props) => {
   const { location } = props;
   const { pathname } = location;
-  let path = getPath(drawerMenu, pathname);
+  let path = getPath(menuList, pathname);
   const first = path && path[0];
-  if (first && first.title.trim() !== "Beranda") {
+  if (first && first.title.trim() !== "Home") {
     path = [{ title: "Beranda", path: "/" }].concat(path);
   }
   return (
