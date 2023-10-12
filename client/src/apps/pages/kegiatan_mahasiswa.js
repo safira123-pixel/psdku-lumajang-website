@@ -12,6 +12,7 @@ import EventsCard from '../../components/EventsCard'
 import { useTranslation, withTranslation } from 'react-i18next'
 import { Button } from '@material-ui/core'
 import { Link } from 'react-router-dom'
+// import { BlobImageDisplay } from "../../components/BlobImageDisplay";
 
 const kegiatan_mahasiswa = (props) => {
     const [data, setData] = useState([]);
@@ -54,14 +55,15 @@ const kegiatan_mahasiswa = (props) => {
                         // content="My choice to say Yes to giving my all even in those trying moments can be attributed to the growth and education I received at Franciscan."
                         // bgContain
                         key={index}
-                        profileImg="https://franciscan.edu/wp-content/uploads/2023/01/March-for-Life-2022-768x512.jpg"
-                        profileName={t(item[0].name)}
-                        content={item[0].description}
+                        profileImg={item[0].data}
+                        profileName={item[1].name}
+                        content={item[1].description}
                         linkName={t('Baca selengkapnya')}
-                        profileLink="/kegiatan_mahasiswa1"
+                        profileLink="/kegiatan_mahasiswa2"
                         bgContain
                     />
                 ))} 
+        
 
                 {data.map((item, index) => (
                     <EventsCard
@@ -70,7 +72,7 @@ const kegiatan_mahasiswa = (props) => {
                         // content="My choice to say Yes to giving my all even in those trying moments can be attributed to the growth and education I received at Franciscan."
                         // bgContain
                         key={index}
-                        profileImg="https://franciscan.edu/wp-content/uploads/2023/01/March-for-Life-2022-768x512.jpg"
+                        profileImg={item[0].data}
                         profileName={item[1].name}
                         content={item[1].description}
                         linkName={t('Baca selengkapnya')}
@@ -78,17 +80,24 @@ const kegiatan_mahasiswa = (props) => {
                         bgContain
                     />
                 ))} 
+        
 
                 {data.map((item, index) => (
                     <EventsCard
-                        profileImg="https://franciscan.edu/wp-content/uploads/2023/01/March-for-Life-2022-768x512.jpg"
-                        profileName= {item[1].name}
+                        // profileImg="https://franciscan.edu/wp-content/uploads/2023/01/March-for-Life-2022-768x512.jpg"
+                        // profileName="Franciscan University President, Students Prepare for First Post-Roe March for Life in Washington, D.C."
+                        // content="My choice to say Yes to giving my all even in those trying moments can be attributed to the growth and education I received at Franciscan."
+                        // bgContain
+                        key={index}
+                        profileImg={item[0].data}
+                        profileName={item[1].name}
                         content={item[1].description}
                         linkName={t('Baca selengkapnya')}
-                        profileLink="/kegiatan_mahasiswa3"
-                        bgContain                    
+                        profileLink="/kegiatan_mahasiswa2"
+                        bgContain
                     />
                 ))} 
+        
 
                 </Grid>
             <Grid container className={classes.Button} style={{ display: 'block', justifyContent: "center" }}>

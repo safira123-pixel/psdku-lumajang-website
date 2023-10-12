@@ -11,7 +11,7 @@ import NewsCard from '../../components/NewsCard'
 import { useTranslation, withTranslation } from 'react-i18next'
 import { Button } from '@material-ui/core'
 
-const Struktur_organisasi = (props) => {
+const struktur_organisasi = (props) => {
     const [data, setData] = useState([]);
     const { classes} = props
     const { t } = useTranslation();
@@ -152,4 +152,4 @@ const styles = theme => ({
     }
 })
 
-export default withRoot(withStyles(styles)(withTranslation()(Struktur_organisasi)))
+export default withRoot(withStyles(styles)(withTranslation()(struktur_organisasi)))

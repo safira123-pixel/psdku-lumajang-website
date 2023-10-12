@@ -10,8 +10,7 @@ import SlideShow from '../../components/SlideShow'
 import NewsCard from '../../components/NewsCard'
 import { useTranslation, withTranslation } from 'react-i18next'
 import { Button } from '@material-ui/core'
-import BreadCrumb from '../../components/BreadCrumb'
-import { Component } from 'react';
+// import { Component } from 'react';
 import Breadcrumb from 'react-bootstrap/Breadcrumb';
 import 'bootstrap/dist/css/bootstrap.min.css';
 

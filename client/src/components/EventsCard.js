@@ -7,6 +7,8 @@ import { Link } from 'react-router-dom'
 import CardActions from '@material-ui/core/CardActions'
 import React, { Component, Fragment } from 'react'
 import Button from '@material-ui/core/Button'
+import { BlobImageDisplay } from "../apps/pages/BlobImageDisplay";
+
 
 
 const styles = theme => ({
@@ -17,7 +19,7 @@ const styles = theme => ({
         marginBottom: 20
     },
     image: {
-        maxWidth: '100%',
+        maxWidth: '80%',
         [theme.breakpoints.up('lg')]: {
             maxWidth: '20%',
         }
@@ -65,12 +67,16 @@ const NewsCard = (props) => {
     } = props
     return (
         <Card className={classes.card}>
-            <img
+            
+            {/* <img
+            
                 src={profileImg}
                 title={profileImgTitle}
                 className={classes.image}
                 alt={profileImgTitle}
-            />
+            /> */}
+            <BlobImageDisplay blob={profileImg} />
+
             <CardContent className={classes.content}>
                 {/* <Typography variant="caption" className={classes.category}>
                     {profileType}
