@@ -10,16 +10,20 @@ import SlideShow from '../../components/SlideShow'
 import NewsCard from '../../components/NewsCard'
 import { useTranslation, withTranslation } from 'react-i18next'
 import { Button } from '@material-ui/core'
+import { BlobImageDisplay } from './BlobImageDisplay2'
+import Breadcrumb from 'react-bootstrap/Breadcrumb';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const mandiri = (props) => {
     const [data, setData] = useState([]);
     const { classes} = props
     const { t } = useTranslation();
+
     useEffect(() => {
         fetch('http://localhost:8080/api/pendaftaran') // Pastikan URL endpoint sesuai
         .then(response => response.json())
         .then(data => {
-            setData([data.content[0]]);
+            setData([data.content]);
             console.log(data.content);
         })
         .catch(error => {
@@ -29,19 +33,31 @@ const mandiri = (props) => {
 
     return (
         <Layout title="Home">
-            {/* {data.map((item, index) => (
-                        <div key={index}>
-                            <h2>{item.name}</h2>
-                            <h2>{item.description}</h2>
-                        </div>
-                    ))} */}
-                    <Grid item xs={12} sm={10} className={classes.section}>
-                <div className={classes.innerContainer} style={{justifyContent: "left", marginLeft: '30px' }}>
-                    <Typography variant="display2" style={{ color: '#051d47', textAlign: "left", marginLeft: '0px' }} gutterBottom>
+              <Card className={classes.card}>
+                    <div class="container">
+                        <Breadcrumb style={{marginTop:"10px"}}>
+                            <Breadcrumb.Item href="/"> {t('beranda.label')}</Breadcrumb.Item>
+                            <Breadcrumb.Item href="/mandiri"> {t('Profil')}</Breadcrumb.Item>
+                            <Breadcrumb.Item href="/mandiri"> {t('Mandiri')}</Breadcrumb.Item>
+                        </Breadcrumb>        
+                    </div>
+                </Card>
+            <Card className={classes.cardContent}>
+             <Grid item xs={12} sm={10} className={classes.section}>
+               <div style={{justifyContent: "center"}}>
+                    <Typography variant="display2" style={{ color: '#051d47', textAlign: "center", marginLeft: '250px' }} gutterBottom>
                         {t('Mandiri')}
                     </Typography>
                 </div>
             </Grid>
+            <Grid item xs={12} sm={10} className={classes.sectionItem}>
+               {data.map((item, index) => ( 
+               <div key={index}className={classes.innerContainer} style={{ justifyContent: "center" }}>
+                    <BlobImageDisplay blob={item[2].data} className={classes.image}/>
+                </div>
+                ))}
+            </Grid>
+            </Card>
         </Layout>
     )
 }
@@ -51,7 +67,37 @@ const styles = theme => ({
         color: '#fff'
     },
     card: {
-        width: '100%'
+        width: '97%',
+        display: "flex",
+        flexWrap: "wrap",
+        marginLeft: "20px",
+        marginRight: "20px",
+        marginBottom: "20px",
+        marginTop:"20px", 
+        backgroundColor:"#FFD700",
+    },
+    cardContent: {
+        width: '97%',
+        display: "flex",
+        flexWrap: "wrap",
+        marginLeft: "20px",
+        marginRight: "20px",
+        marginBottom: "20px",
+        marginTop:"20px",
+        [theme.breakpoints.down('sm')]: {
+            maxWidth: '100%'
+        } 
+
+    },
+    cardContentSection: {
+        display: "flex",
+        flexWrap: "wrap",
+        marginLeft: "290px",
+        marginBottom: "20px",
+        marginTop:"20px",
+        border: `solid 3px #eeeeee`,
+        borderRadius:"5",
+        boxShadow:'5px 5px 5px #999DA0'
     },
     media: {
         minHeight: 280,
@@ -129,9 +175,27 @@ const styles = theme => ({
         padding: '38px 0',
         textAlign: 'center'
     },
+    sectionItem: {
+        display: 'flex',
+        alignItems: 'left',
+        justifyContent: 'left',
+        flexDirection: 'column',
+        padding: '38px 0',
+        textAlign: 'left',
+        marginBottom: "20px",
+        marginTop:"20px",
+    },
     innerContainer: {
         width: '70%',
-        margin: '0 auto'
+        margin: '0 auto',
+        display: "flex",
+        flexWrap: "wrap",
+        marginLeft: "290px",
+        marginBottom: "20px",
+        marginTop:"20px",
+        border: `solid 3px #eeeeee`,
+        borderRadius:"5",
+        boxShadow:'5px 5px 5px #999DA0'
     },
     sectionText: {
         fontSize: '28px',

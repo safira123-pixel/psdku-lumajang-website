@@ -56,8 +56,8 @@ const kegiatan_mahasiswa = (props) => {
                         // bgContain
                         key={index}
                         profileImg={item[0].data}
-                        profileName={item[1].name}
-                        content={item[1].description}
+                        profileName={item[0].name}
+                        content={item[0].description}
                         linkName={t('Baca selengkapnya')}
                         profileLink="/kegiatan_mahasiswa2"
                         bgContain

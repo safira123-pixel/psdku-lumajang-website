@@ -13,6 +13,8 @@ import { Button } from '@material-ui/core'
 // import { Component } from 'react';
 import Breadcrumb from 'react-bootstrap/Breadcrumb';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { BlobImageDisplay } from './BlobImageDisplay1'
+
 
 const Profile = (props) => {
     const cardContent = `BreadCrumbs.`;
@@ -59,13 +61,25 @@ const Profile = (props) => {
                 {data.map((item, index) => (
                     <div key={index} className={classes.innerContainer} style={{justifyContent: "left", marginLeft: '30px' }}>
                         <Typography component="p" style={{ color: '#051d47', textAlign: "left", marginLeft: '0px', fontSize: '16px' }} gutterBottom>
-                            <h2>{item[4].description}</h2>
+                            <h2>{item[0].description}</h2>
+                            <h2>{item[1].description}</h2>
                         </Typography>
                     </div>
                 ))}
 
                 {data.map((item, index) => (
                     <div key={index} className={classes.innerContainer} style={{justifyContent: "left", marginLeft: '30px', fontSize: '14px'  }}>
+                        <Typography component="p" style={{ color: '#051d47', textAlign: "left", marginLeft: '0px', fontSize: '14px' }} gutterBottom>
+                            <h2>{item[2].description}</h2>
+                            <h2>{item[3].description}</h2>
+                            <h2>{item[5].description}</h2>
+                        </Typography>
+                    </div>
+                ))}
+
+                {data.map((item, index) => (
+                    <div key={index} className={classes.innerContainer} style={{justifyContent: "left", marginLeft: '30px', fontSize: '14px'  }}>
+                                    <BlobImageDisplay blob={item[4].data} className={classes.image}/>
                         <Typography component="p" style={{ color: '#051d47', textAlign: "left", marginLeft: '0px', fontSize: '14px' }} gutterBottom>
                             <h2>{item[3].description}</h2>
                             <h2>{item[2].description}</h2>
