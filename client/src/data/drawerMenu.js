@@ -476,24 +476,107 @@ export const studentMenu = [
 ]
 export const campusMenu = [
   {
-    text: <Trans i18nKey="Profil-Kota">Profil Kota Lumajang</Trans>,
-    linkUrl: '/profil_lumajang',
-    asUrl: '/profil_lumajang',
+    text: <Trans i18nKey="Profil-Kota">Profil Lumajang</Trans>,
+    linkUrl: '#',
+    asUrl: '#',
+    subMenu: [
+      {
+        text: 'Profil',
+        linkUrl: '/profil_lumajang',
+        asUrl: '/profil_lumajang'
+      },
+      {
+        text: 'Sejarah',
+        linkUrl: '/musik',
+        asUrl: '/musik'
+      }
+    ]
   },
   {
     text: <Trans i18nKey="Budaya">Budaya Lumajang</Trans>,
     linkUrl: '/budaya_lumajang',
-    asUrl: '/budaya_lumajang'
+    asUrl: '/budaya_lumajang',
+   subMenu: [
+      {
+        text: 'Tari Tradisional',
+        linkUrl: '/tari',
+        asUrl: '/tari'
+      },
+      {
+        text: 'Musik Tradisional',
+        linkUrl: '/musik',
+        asUrl: '/musik'
+      },
+      {
+        text: 'Batik dan Seni Lukis',
+        linkUrl: '/musik',
+        asUrl: '/musik'
+      },
+      {
+        text: 'Pertunjukan Tradisonal',
+        linkUrl: '/musik',
+        asUrl: '/musik'
+      }
+    ]
   },
   {
     text: <Trans i18nKey="pariwisata">Pariwisata Lumajang</Trans>,
     linkUrl: '/pariwisata_lumajang',
-    asUrl: '/pariwisata_lumajang'
+    asUrl: '/pariwisata_lumajang',
+    subMenu: [
+      {
+        text: 'Tempat Umum',
+        linkUrl: '/tempat_umum',
+        asUrl: '/tempat_umum'
+      },
+      {
+        text: 'Pantai',
+        linkUrl: '/pantai_lumajang',
+        asUrl: '/pantai_lumajang'
+      },
+      {
+        text: 'Pegunungan',
+        linkUrl: '/pegunungan_lumajang',
+        asUrl: '/pegunungan_lumajang'
+      },
+      {
+        text: 'Pemandian',
+        linkUrl: '/pemandian',
+        asUrl: '/pemandian'
+      },
+      {
+        text: 'lainnya',
+        linkUrl: '/lainnya',
+        asUrl: '/lainnya'
+      }
+    ]
   },
   {
     text: <Trans i18nKey="kuliner">Kuliner Lumajang</Trans>,
     linkUrl: '/kuliner_lumajang',
-    asUrl: '/kuliner_lumajang'
+    asUrl: '/kuliner_lumajang',
+    subMenu: [
+      {
+        text: 'Makanan Khas',
+        linkUrl: '/makanan',
+        asUrl: '/makanan'
+      },
+      {
+        text: 'Jajanan Khas',
+        linkUrl: '/jajanan',
+        asUrl: '/jajanan'
+      },
+      {
+        text: 'Minuman Khas',
+        linkUrl: '/pegunungan_lumajang',
+        asUrl: '/pegunungan_lumajang'
+      },
+      {
+        text: 'Buah Khas',
+        linkUrl: '/pemandian',
+        asUrl: '/pemandian'
+      },
+    ]
   },
   {
     text: <Trans i18nKey="penginapan">Penginapan Lumajang</Trans>,

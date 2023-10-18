@@ -26,7 +26,7 @@ class ButtonAppBar extends Component {
   state = {
     isSearchOpen: false,
     search: '',
-    language: 'ina'
+    language: 'ina, en'
   }
   onSearchClick = () => {
     this.state.isSearchOpen
