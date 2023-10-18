@@ -7,12 +7,14 @@ import Layout from '../../components/Layout'
 import TextSection from '../../components/TextSection'
 import withRoot from '../../components/withRoot'
 import SlideShow from '../../components/SlideShow'
-import NewsCard from '../../components/NewsCard'
+import NewsCard from '../../components/NewsCard_Pendaftaran2'
+import NewsCard2 from '../../components/NewsCard_NavBar'
+import NewsCard1 from '../../components/NewsCard_NavBarKalender'
 import { useTranslation, withTranslation } from 'react-i18next'
 import { Button } from '@material-ui/core'
-import { BlobImageDisplay } from './BlobImageDisplay2'
 import Breadcrumb from 'react-bootstrap/Breadcrumb';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import ChatIcon from '../../components/ChatIcon';
 
 const mandiri = (props) => {
     const [data, setData] = useState([]);
@@ -32,39 +34,54 @@ const mandiri = (props) => {
     }, []);
 
     return (
+        <div style={{background: 'linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%)'}}>
         <Layout title="Home">
-              <Card className={classes.card}>
-                    <div class="container">
+        <Card className={classes.card}>
+                    <div className={classes.container}>
                         <Breadcrumb style={{marginTop:"10px"}}>
                             <Breadcrumb.Item href="/"> {t('beranda.label')}</Breadcrumb.Item>
-                            <Breadcrumb.Item href="/mandiri"> {t('Profil')}</Breadcrumb.Item>
+                            <Breadcrumb.Item href="/mandiri"> {t('Info Penerimaan Mahasiswa Baru')}</Breadcrumb.Item>
                             <Breadcrumb.Item href="/mandiri"> {t('Mandiri')}</Breadcrumb.Item>
                         </Breadcrumb>        
                     </div>
                 </Card>
-            <Card className={classes.cardContent}>
-             <Grid item xs={12} sm={10} className={classes.section}>
-               <div style={{justifyContent: "center"}}>
-                    <Typography variant="display2" style={{ color: '#051d47', textAlign: "center", marginLeft: '250px' }} gutterBottom>
-                        {t('Mandiri')}
-                    </Typography>
-                </div>
-            </Grid>
-            <Grid item xs={12} sm={10} className={classes.sectionItem}>
-               {data.map((item, index) => ( 
-               <div key={index}className={classes.innerContainer} style={{ justifyContent: "center" }}>
-                    <BlobImageDisplay blob={item[2].data} className={classes.image}/>
-                </div>
-                ))}
-            </Grid>
-            </Card>
+                <Grid container className={classes.contentContainer}>
+                    <Grid item className={classes.gridItemFix} xs={12} sm={4} lg={9}>
+                        {data.map((item, index) => (
+                            <NewsCard
+                                 key={index}
+                                 profileName={t('Mandiri')}           
+                                 profileImg1={item[2].data}
+                                 profileImg2={item[1].data}
+                                 content1={item[3].description}
+                            />
+                        ))}
+                    </Grid>
+                
+                    <Grid item className={classes.gridItemFix} xs={10} sm={4} lg={3}>
+                        <NewsCard1/>
+                            <Grid>                    
+                                <NewsCard2
+                                    profileName= "BERITA TERKINI"
+                                    linkName1={t('> Kegiatan Mentoring 2023')}
+                                    profileLink1="/kegiatan_mahasiswa1"
+                                    linkName2={t('> Kegiatan LDK 2023')}
+                                    profileLink2="/kegiatan_mahasiswa2"
+                                    linkName3={t('> Kegiatan Magang 2023')}
+                                    profileLink3="/kegiatan_mahasiswa3"
+                                />
+                            </Grid>
+                    </Grid>
+                </Grid>
         </Layout>
+        <ChatIcon/>
+        </div>
     )
 }
 
 const styles = theme => ({
-    white: {
-        color: '#fff'
+    container: {
+        marginLeft: "20px"
     },
     card: {
         width: '97%',
@@ -75,6 +92,9 @@ const styles = theme => ({
         marginBottom: "20px",
         marginTop:"20px", 
         backgroundColor:"#FFD700",
+        [theme.breakpoints.down('sm')]: {
+            maxWidth: '100%'
+        } 
     },
     cardContent: {
         width: '97%',
@@ -88,16 +108,6 @@ const styles = theme => ({
             maxWidth: '100%'
         } 
 
-    },
-    cardContentSection: {
-        display: "flex",
-        flexWrap: "wrap",
-        marginLeft: "290px",
-        marginBottom: "20px",
-        marginTop:"20px",
-        border: `solid 3px #eeeeee`,
-        borderRadius:"5",
-        boxShadow:'5px 5px 5px #999DA0'
     },
     media: {
         minHeight: 280,
@@ -175,27 +185,9 @@ const styles = theme => ({
         padding: '38px 0',
         textAlign: 'center'
     },
-    sectionItem: {
-        display: 'flex',
-        alignItems: 'left',
-        justifyContent: 'left',
-        flexDirection: 'column',
-        padding: '38px 0',
-        textAlign: 'left',
-        marginBottom: "20px",
-        marginTop:"20px",
-    },
     innerContainer: {
         width: '70%',
-        margin: '0 auto',
-        display: "flex",
-        flexWrap: "wrap",
-        marginLeft: "290px",
-        marginBottom: "20px",
-        marginTop:"20px",
-        border: `solid 3px #eeeeee`,
-        borderRadius:"5",
-        boxShadow:'5px 5px 5px #999DA0'
+        margin: '0 auto'
     },
     sectionText: {
         fontSize: '28px',

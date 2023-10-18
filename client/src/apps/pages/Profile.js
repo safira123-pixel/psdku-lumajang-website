@@ -7,20 +7,20 @@ import Layout from '../../components/Layout'
 import TextSection from '../../components/TextSection'
 import withRoot from '../../components/withRoot'
 import SlideShow from '../../components/SlideShow'
-import NewsCard from '../../components/NewsCard'
+import NewsCard from '../../components/NewsCard_Profil'
+import NewsCard2 from '../../components/NewsCard_NavBar'
+import NewsCard1 from '../../components/NewsCard_NavBarKalender'
 import { useTranslation, withTranslation } from 'react-i18next'
 import { Button } from '@material-ui/core'
-// import { Component } from 'react';
 import Breadcrumb from 'react-bootstrap/Breadcrumb';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { BlobImageDisplay } from './BlobImageDisplay1'
-
+import ChatIcon from '../../components/ChatIcon';
 
 const Profile = (props) => {
-    const cardContent = `BreadCrumbs.`;
     const [data, setData] = useState([]);
     const { classes} = props
     const { t } = useTranslation();
+
     useEffect(() => {
         fetch('http://localhost:8080/api/profil') // Pastikan URL endpoint sesuai
         .then(response => response.json())
@@ -34,69 +34,66 @@ const Profile = (props) => {
     }, []);
 
     return (
+        <div style={{background: 'linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%)'}}>
         <Layout title="Home">
-            {/* {data.map((item, index) => (
-                        <div key={index}>
-                            <h2>{item[1].name}</h2>
-                            <h2>{item[1].description}</h2>
-                        </div>
-                    ))} */}
-        <Card className={classes.card}>
-            <div class="container">
-        <Breadcrumb>
-          <Breadcrumb.Item href="/"> {t('beranda.label')}</Breadcrumb.Item>
-          <Breadcrumb.Item href="/profile"> {t('Profil')}</Breadcrumb.Item>
-          <Breadcrumb.Item href="/profile"> {t('Profil')}</Breadcrumb.Item>
-        </Breadcrumb>        
-      </div>
-      </Card>
-      <Card className={classes.cardContent}>
-            <Grid item xs={12} sm={10} className={classes.section}>
-                <div className={classes.innerContainer} style={{justifyContent: "left", marginLeft: '30px' }}>
-                    <Typography variant="display2" style={{ color: '#051d47', textAlign: "left", marginLeft: '0px' }} gutterBottom>
-                        {t('Profilku')}
-                    </Typography>
-                </div>
-
-                {data.map((item, index) => (
-                    <div key={index} className={classes.innerContainer} style={{justifyContent: "left", marginLeft: '30px' }}>
-                        <Typography component="p" style={{ color: '#051d47', textAlign: "left", marginLeft: '0px', fontSize: '16px' }} gutterBottom>
-                            <h2>{item[0].description}</h2>
-                            <h2>{item[1].description}</h2>
-                        </Typography>
+              <Card className={classes.card}>
+                    <div className={classes.container}>
+                        <Breadcrumb style={{marginTop:"10px"}}>
+                            <Breadcrumb.Item href="/"> {t('beranda.label')}</Breadcrumb.Item>
+                            <Breadcrumb.Item href="/profile"> {t('Profil')}</Breadcrumb.Item>
+                            <Breadcrumb.Item href="/profile"> {t('Profil')}</Breadcrumb.Item>
+                        </Breadcrumb>        
                     </div>
-                ))}
-
-                {data.map((item, index) => (
-                    <div key={index} className={classes.innerContainer} style={{justifyContent: "left", marginLeft: '30px', fontSize: '14px'  }}>
-                        <Typography component="p" style={{ color: '#051d47', textAlign: "left", marginLeft: '0px', fontSize: '14px' }} gutterBottom>
-                            <h2>{item[2].description}</h2>
-                            <h2>{item[3].description}</h2>
-                            <h2>{item[5].description}</h2>
-                        </Typography>
-                    </div>
-                ))}
-
-                {data.map((item, index) => (
-                    <div key={index} className={classes.innerContainer} style={{justifyContent: "left", marginLeft: '30px', fontSize: '14px'  }}>
-                                    <BlobImageDisplay blob={item[4].data} className={classes.image}/>
-                        <Typography component="p" style={{ color: '#051d47', textAlign: "left", marginLeft: '0px', fontSize: '14px' }} gutterBottom>
-                            <h2>{item[3].description}</h2>
-                            <h2>{item[2].description}</h2>
-                            <h2>{item[1].description}</h2>
-                            <h2>{item[0].description}</h2>
-                        </Typography>
-                    </div>
-                ))}
-            </Grid>
-            </Card>
+                </Card>
+                <Grid container className={classes.contentContainer}>
+                    <Grid item className={classes.gridItemFix} xs={12} sm={4} lg={9}>
+                        {data.map((item, index) => (
+                            <NewsCard
+                                 key={index}
+                                 profileName={t('Profil')}
+                                 content1={item[0].description}
+                                 content2={item[1].description}
+                                 content3={item[2].description}
+                                 content4={item[3].description}
+                                 content5={item[4].description}
+                                 content6={item[6].description}
+                                 profileImg1={item[5].data}
+                                 content7={item[7].description}
+                                 content8={item[8].description}
+                                 content9={item[9].description}
+                                 content10={item[10].description}
+                                 content11={item[11].description}
+                                 content12={item[12].description}
+                                 profileImg2={item[13].data}  
+                            />
+                        ))}
+                    </Grid>
+                
+                    <Grid item className={classes.gridItemFix} xs={10} sm={4} lg={3}>
+                        <NewsCard1/>
+                            <Grid>                    
+                                <NewsCard2
+                                    profileName= "BERITA TERKINI"
+                                    linkName1={t('> Kegiatan Mentoring 2023')}
+                                    profileLink1="/kegiatan_mahasiswa1"
+                                    linkName2={t('> Kegiatan LDK 2023')}
+                                    profileLink2="/kegiatan_mahasiswa2"
+                                    linkName3={t('> Kegiatan Magang 2023')}
+                                    profileLink3="/kegiatan_mahasiswa3"
+                                />
+                            </Grid>
+                    </Grid>
+                </Grid>
         </Layout>
+        <ChatIcon/>
+        </div>
     )
 }
 
 const styles = theme => ({
-    white: {
-        color: '#fff'
+    container: {
+        marginLeft: "20px",
+        display:"flex"
     },
     card: {
         width: '97%',
@@ -107,6 +104,9 @@ const styles = theme => ({
         marginBottom: "20px",
         marginTop:"20px", 
         backgroundColor:"#FFD700",
+        [theme.breakpoints.down('sm')]: {
+            maxWidth: '100%'
+        } 
     },
     cardContent: {
         width: '97%',
@@ -115,7 +115,11 @@ const styles = theme => ({
         marginLeft: "20px",
         marginRight: "20px",
         marginBottom: "20px",
-        marginTop:"20px", 
+        marginTop:"20px",
+        [theme.breakpoints.down('sm')]: {
+            maxWidth: '100%'
+        } 
+
     },
     media: {
         minHeight: 280,
@@ -216,4 +220,3 @@ const styles = theme => ({
 })
 
 export default withRoot(withStyles(styles)(withTranslation()(Profile)))
-

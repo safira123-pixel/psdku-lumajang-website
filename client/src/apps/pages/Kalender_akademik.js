@@ -7,12 +7,15 @@ import Layout from '../../components/Layout'
 import TextSection from '../../components/TextSection'
 import withRoot from '../../components/withRoot'
 import SlideShow from '../../components/SlideShow'
-import NewsCard from '../../components/NewsCard'
+import NewsCard from '../../components/NewsCard_Gambar'
+import NewsCard2 from '../../components/NewsCard_NavBar'
+import NewsCard1 from '../../components/NewsCard_NavBarKalender'
 import { useTranslation, withTranslation } from 'react-i18next'
 import { Button } from '@material-ui/core'
-import { BlobImageDisplay } from './BlobImageDisplay2'
 import Breadcrumb from 'react-bootstrap/Breadcrumb';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import ChatIcon from '../../components/ChatIcon';
+
 
 const kalender_akademik = (props) => {
     const [data, setData] = useState([]);
@@ -32,39 +35,54 @@ const kalender_akademik = (props) => {
     }, []);
 
     return (
+        <div style={{background: 'linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%)'}}>
         <Layout title="Home">
               <Card className={classes.card}>
-                    <div class="container">
+                    <div className={classes.container}>
                         <Breadcrumb style={{marginTop:"10px"}}>
                             <Breadcrumb.Item href="/"> {t('beranda.label')}</Breadcrumb.Item>
-                            <Breadcrumb.Item href="/kalender_akademik"> {t('Profil')}</Breadcrumb.Item>
+                            <Breadcrumb.Item href="/kalender_akademik"> {t('Program Studi')}</Breadcrumb.Item>
                             <Breadcrumb.Item href="/kalender_akademik"> {t('Kalender')}</Breadcrumb.Item>
                         </Breadcrumb>        
                     </div>
                 </Card>
-            <Card className={classes.cardContent}>
-             <Grid item xs={12} sm={10} className={classes.section}>
-               <div style={{justifyContent: "center"}}>
-                    <Typography variant="display2" style={{ color: '#051d47', textAlign: "center", marginLeft: '250px' }} gutterBottom>
-                        {t('Kalender')}
-                    </Typography>
-                </div>
-            </Grid>
-            <Grid item xs={12} sm={10} className={classes.section}>
-               {data.map((item, index) => ( 
-               <div key={index}className={classes.innerContainer} style={{ justifyContent: "center" }}>
-                    <BlobImageDisplay blob={item[0].data} className={classes.image}/>
-                </div>
-                ))}
-            </Grid>
-            </Card>
+                <Grid container className={classes.contentContainer}>
+                    <Grid item className={classes.gridItemFix} xs={12} sm={4} lg={9}>
+                        {data.map((item, index) => (
+                            <NewsCard
+                                 key={index}
+                                 profileName={t('Kalender')}           
+                                 profileImg={item[0].data}
+                                 profileLink="https://www.polinema.ac.id/wp-content/uploads/2023/08/KALENDER-AKADEMIK-TA-2023-2024.pdf"
+                                 linkName={t('DOWNLOAD KALENDER AKADEMIK 2023/2024')} 
+                            />
+                        ))}
+                    </Grid>
+                
+                    <Grid item className={classes.gridItemFix} xs={10} sm={4} lg={3}>
+                        <NewsCard1/>
+                            <Grid>                    
+                                <NewsCard2
+                                    profileName= "BERITA TERKINI"
+                                    linkName1={t('> Kegiatan Mentoring 2023')}
+                                    profileLink1="/kegiatan_mahasiswa1"
+                                    linkName2={t('> Kegiatan LDK 2023')}
+                                    profileLink2="/kegiatan_mahasiswa2"
+                                    linkName3={t('> Kegiatan Magang 2023')}
+                                    profileLink3="/kegiatan_mahasiswa3"
+                                />
+                            </Grid>
+                    </Grid>
+                </Grid>
         </Layout>
+        <ChatIcon/>
+        </div>
     )
 }
 
 const styles = theme => ({
-    white: {
-        color: '#fff'
+    container: {
+        marginLeft: "20px"
     },
     card: {
         width: '97%',
@@ -75,6 +93,9 @@ const styles = theme => ({
         marginBottom: "20px",
         marginTop:"20px", 
         backgroundColor:"#FFD700",
+        [theme.breakpoints.down('sm')]: {
+            maxWidth: '100%'
+        } 
     },
     cardContent: {
         width: '97%',
@@ -88,16 +109,6 @@ const styles = theme => ({
             maxWidth: '100%'
         } 
 
-    },
-    cardContentSection: {
-        display: "flex",
-        flexWrap: "wrap",
-        marginLeft: "290px",
-        marginBottom: "20px",
-        marginTop:"20px",
-        border: `solid 3px #eeeeee`,
-        borderRadius:"5",
-        boxShadow:'5px 5px 5px #999DA0'
     },
     media: {
         minHeight: 280,
@@ -177,15 +188,7 @@ const styles = theme => ({
     },
     innerContainer: {
         width: '70%',
-        margin: '0 auto',
-        display: "flex",
-        flexWrap: "wrap",
-        marginLeft: "290px",
-        marginBottom: "20px",
-        marginTop:"20px",
-        border: `solid 3px #eeeeee`,
-        borderRadius:"5",
-        boxShadow:'5px 5px 5px #999DA0'
+        margin: '0 auto'
     },
     sectionText: {
         fontSize: '28px',
