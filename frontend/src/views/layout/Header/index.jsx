@@ -47,17 +47,8 @@ const LayoutHeader = (props) => {
       <Menu.Item key="dashboard">
         <Link to="/dashboard">Beranda</Link>
       </Menu.Item>
-      <Menu.Item key="project">
-        <a
-          target="_blank"
-          href="https://github.com/NLRX-WJC/react-antd-admin-template"
-          rel="noopener noreferrer"
-        >
-        project address
-        </a>
-      </Menu.Item>
       <Menu.Divider />
-      <Menu.Item key="logout">logout</Menu.Item>
+      <Menu.Item key="logout">Logout</Menu.Item>
     </Menu>
   );
   const computedStyle = () => {
