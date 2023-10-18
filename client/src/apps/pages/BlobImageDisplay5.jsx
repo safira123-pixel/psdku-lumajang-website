@@ -25,7 +25,7 @@ export function BlobImageDisplay({ blob }) {
     return (
       <div>
         {blobUrl ? (
-          <img src={`data:image/png;base64,${blobUrl}`} style={{height: "250px"}} alt="Blob Image" />
+          <img src={`data:image/png;base64,${blobUrl}`} style={{height: "500px", width: "700px", marginTop:'20px', marginLeft:"60px", marginRight:"20px", marginBottom:"20px", textAlign:"center"}} alt="Blob Image" />
         ) : (
           <p>No image to display</p>
         )}

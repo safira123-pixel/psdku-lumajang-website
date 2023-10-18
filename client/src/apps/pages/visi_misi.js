@@ -1,96 +1,116 @@
+import Card from '@material-ui/core/Card'
 import Grid from '@material-ui/core/Grid'
 import withStyles from '@material-ui/core/styles/withStyles'
 import Typography from '@material-ui/core/Typography'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Layout from '../../components/Layout'
-import withRoot from '../../components/withRoot'
-import { withTranslation } from 'react-i18next'
 import TextSection from '../../components/TextSection'
-import Pictures from '../../components/Pictures'
-import { useTranslation } from 'react-i18next'
-
+import withRoot from '../../components/withRoot'
+import SlideShow from '../../components/SlideShow'
+import NewsCard from '../../components/NewsCard_VisiMisi'
+import NewsCard2 from '../../components/NewsCard_NavBar'
+import NewsCard1 from '../../components/NewsCard_NavBarKalender'
+import { useTranslation, withTranslation } from 'react-i18next'
+import { Button } from '@material-ui/core'
+import Breadcrumb from 'react-bootstrap/Breadcrumb';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import ChatIcon from '../../components/ChatIcon';
 
 const visi_misi = (props) => {
+    const [data] = useState([]);
     const { classes} = props
     const { t } = useTranslation();
-    const gridStyle = {
-        backgroundColor: '#051d47'
-    }
+
+    // useEffect(() => {
+    //     fetch('http://localhost:8080/api/selayang') // Pastikan URL endpoint sesuai
+    //     .then(response => response.json())
+    //     .then(data => {
+    //         setData([data.content]);
+    //         console.log(data.content);
+    //     })
+    //     .catch(error => {
+    //         console.error(error);
+    //     });
+    // }, []);
+
     return (
-        <Layout title="Visi dan Misi" >
-            <Pictures/>
-            <Grid container className={classes.contentContainer} style={gridStyle}>
-                <Grid item className={classes.gridItemFix} xs={12}>
-                <Typography
-                    variant="display2"
-                    gutterBottom
-                    style={{ textAlign: 'center', color: '#fff' }}>
-                {t('judul1.label')}                
-                </Typography>
+        <div style={{background: 'linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%)'}}>
+        <Layout title="Home">
+              <Card className={classes.card}>
+                    <div className={classes.container}>
+                        <Breadcrumb style={{marginTop:"10px"}}>
+                            <Breadcrumb.Item href="/"> {t('beranda.label')}</Breadcrumb.Item>
+                            <Breadcrumb.Item href="/visi_misi"> {t('Profil')}</Breadcrumb.Item>
+                            <Breadcrumb.Item href="/visi_misi"> {t('VisiMisi')}</Breadcrumb.Item>
+                        </Breadcrumb>        
+                    </div>
+                </Card>
+                <Grid container className={classes.contentContainer}>
+                    <Grid item className={classes.gridItemFix} xs={12} sm={4} lg={9}>
+                            <NewsCard
+                                 profileName={t('VisiMisi')}
+                                 title1={t('judul1.label')}
+                                 content1={t('visi.label')}
+                                 title2={t('judul2.label')}
+                                 content3={t('misi1.label')}
+                                 content4={t('misi2.label')} 
+                                 content5={t('misi3.label')} 
+                                 content6={t('misi4.label')}  
+                                 content7={t('misi5.label')}                    
+                            />
+                    </Grid>
+                
+                    <Grid item className={classes.gridItemFix} xs={10} sm={4} lg={3}>
+                        <NewsCard1/>
+                            <Grid>                    
+                                <NewsCard2
+                                    profileName= "BERITA TERKINI"
+                                    linkName1={t('> Kegiatan Mentoring 2023')}
+                                    profileLink1="/kegiatan_mahasiswa1"
+                                    linkName2={t('> Kegiatan LDK 2023')}
+                                    profileLink2="/kegiatan_mahasiswa2"
+                                    linkName3={t('> Kegiatan Magang 2023')}
+                                    profileLink3="/kegiatan_mahasiswa3"
+                                />
+                            </Grid>
+                    </Grid>
                 </Grid>
-            </Grid>
-            <TextSection
-                text={t('visi.label')}  
-                bgColor="#fff"
-                textColor=""
-                borderColor="#998643"
-                padding="12px 0"
-                darkBg={true}
-            />
-            <Grid container className={classes.contentContainer} style={gridStyle}>
-                <Grid item className={classes.gridItemFix} xs={12}>
-                <Typography
-                    variant="display2"
-                    gutterBottom
-                    style={{ textAlign: 'center', color: '#fff' }}>
-                {t('judul2.label')}  
-                </Typography>
-                </Grid>
-            </Grid>
-            <TextSection
-                text={t('misi1.label')}  
-                bgColor="#fff"
-                textColor=""
-                padding="12px 0"
-                darkBg={true}
-            />
-            <TextSection
-                text={t('misi2.label')}
-                bgColor="#fff"
-                textColor=""
-                padding="12px 0"
-                darkBg={true}
-            />
-            <TextSection
-                text={t('misi3.label')}
-                bgColor="#fff"
-                textColor=""
-                padding="12px 0"
-                darkBg={true}
-            />
-            <TextSection
-                text={t('misi4.label')}  
-                textColor=""
-                padding="12px 0"
-                darkBg={true}
-            />
-            <TextSection
-                text={t('misi5.label')}
-                bgColor="#fff"
-                textColor=""
-                padding="12px 0"
-                darkBg={true}
-            />
         </Layout>
+        <ChatIcon/>
+        </div>
     )
 }
 
 const styles = theme => ({
-    white: {
-        color: '#fff'
+    container: {
+        marginLeft: "20px",
+        display:"flex"
     },
     card: {
-        width: '100%'
+        width: '97%',
+        display: "flex",
+        flexWrap: "wrap",
+        marginLeft: "20px",
+        marginRight: "20px",
+        marginBottom: "20px",
+        marginTop:"20px", 
+        backgroundColor:"#FFD700",
+        [theme.breakpoints.down('sm')]: {
+            maxWidth: '100%'
+        } 
+    },
+    cardContent: {
+        width: '97%',
+        display: "flex",
+        flexWrap: "wrap",
+        marginLeft: "20px",
+        marginRight: "20px",
+        marginBottom: "20px",
+        marginTop:"20px",
+        [theme.breakpoints.down('sm')]: {
+            maxWidth: '100%'
+        } 
+
     },
     media: {
         minHeight: 280,

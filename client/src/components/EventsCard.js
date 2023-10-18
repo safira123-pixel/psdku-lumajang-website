@@ -75,7 +75,7 @@ const NewsCard = (props) => {
                 className={classes.image}
                 alt={profileImgTitle}
             /> */}
-            <BlobImageDisplay blob={profileImg} />
+            <BlobImageDisplay blob={profileImg} className={classes.image}/>
 
             <CardContent className={classes.content}>
                 {/* <Typography variant="caption" className={classes.category}>

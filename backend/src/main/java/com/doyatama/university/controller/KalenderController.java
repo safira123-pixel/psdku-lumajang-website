@@ -45,14 +45,14 @@ public class KalenderController {
     private static final Logger logger = LoggerFactory.getLogger(KalenderController.class);
 
     @GetMapping
-    @Secured("ROLE_ADMINISTRATOR")
+//    @Secured("ROLE_ADMINISTRATOR")
     public PagedResponse<KalenderUploadResponse> getKalender(@RequestParam(value = "page", defaultValue = AppConstants.DEFAULT_PAGE_NUMBER) int page,
                                                        @RequestParam(value = "size", defaultValue = AppConstants.DEFAULT_PAGE_SIZE) int size) {
         return kalenderService.getAllKalender(page, size);
     }
 
     @PostMapping
-    @Secured("ROLE_ADMINISTRATOR")
+//    @Secured("ROLE_ADMINISTRATOR")
     public ResponseEntity<?> createKalender(@CurrentUser UserPrincipal currentUser, @Valid @ModelAttribute KalenderUploadRequest kalenderUploadRequest, @RequestParam("file") MultipartFile file) throws IOException {
 //        MultipartFile file = departmentRequest.getFile();
         Kalender kalender = kalenderService.createKalender(currentUser, kalenderUploadRequest, file);
@@ -69,7 +69,7 @@ public class KalenderController {
     }
 
     @PostMapping("/{kalenderId}")
-    @Secured("ROLE_ADMINISTRATOR")
+//    @Secured("ROLE_ADMINISTRATOR")
     public ResponseEntity<?> updateKalenderById(@CurrentUser UserPrincipal currentUser, @PathVariable(value = "kalenderId") Long kalenderId, @Valid KalenderUploadRequest kalenderUploadRequest, @RequestParam("file") MultipartFile file) throws IOException {
         Kalender kalender = kalenderService.updateKalender(kalenderUploadRequest, kalenderId, currentUser, file);
         URI location = ServletUriComponentsBuilder
@@ -80,7 +80,7 @@ public class KalenderController {
     }
 
     @GetMapping("/{kalenderId}")
-    @Secured("ROLE_ADMINISTRATOR")
+//    @Secured("ROLE_ADMINISTRATOR")
     public KalenderUploadResponse getKalenderById(@PathVariable Long kalenderId) {
         return kalenderService.getKalenderById(kalenderId);
     }

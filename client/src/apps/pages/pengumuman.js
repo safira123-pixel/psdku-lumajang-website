@@ -10,6 +10,8 @@ import SlideShow from '../../components/SlideShow'
 import NewsCard from '../../components/NewsCard'
 import { useTranslation, withTranslation } from 'react-i18next'
 import { Button } from '@material-ui/core'
+import EventsCard from '../../components/EventsCard'
+
 
 const pengumuman = (props) => {
     const [data, setData] = useState([]);

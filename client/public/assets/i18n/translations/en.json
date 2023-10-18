@@ -33,18 +33,24 @@
     "Profilku": "Profile",
     "Selayang": "Overview",
     "VisiMisi": "Vision & Mission",
-    "Organisasi": "Organization",
+    "Organisasi": "Organization Structure",
     "Kalender": "Academic Calendar",
-    "TRO": "Applied Bachelor of (D4) Automotive Engineering Technology",
-    "Sipil": "Diploma in (D3) Civil Engineering Technology",
-    "Akuntansi": "Diploma in (D3) Accounting",
-    "TI": "Diploma in (D3) Information Technology",
-    "SNBP": "National Selection Based on Achievements (Seleksi Nasional Berdasarkan Prestasi – SNBP)",
-    "SNBT": "National Selection Based on Test (Seleksi Nasional Berdasarkan Tes – SNBT)",
+    "TRO": "D-IV Automotive Engineering Technology",
+    "Sipil": "D-III Civil Engineering Technology",
+    "Akuntansi": "D-III Accounting",
+    "TI": "D-III Information Technology",
+    "SNBP": "National Selection Based on Achievements",
+    "SNBT": "National Selection Based on Test",
     "Mandiri": "Mandiri Selection",
     "Kegiatan": "Student Activity",
     "Pengumuman": "Announcement",
-    "Kalender Akademik": "Academic Calendar"
+    "Kalender Akademik": "Academic Calendar",
+    "Kehidupan Kampus": "Campus Life",
+    "Profil Lumajang": "Lumajang Profile",
+    "Budaya Lumajang": "Lumajang Culture",
+    "Kuliner Lumajang": "Lumajang Culinary",
+    "Penginapan Lumajang": "Lumajang Hostelry",
+    "Wisata Lumajang": "Lumajang Excursion"
 
 
 
