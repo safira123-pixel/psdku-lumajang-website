@@ -8,6 +8,5 @@ import java.util.Optional;
 
 @Repository
 public interface PendaftaranRepository extends JpaRepository<Pendaftaran, Long> {
-    Optional<Pendaftaran> findByName(String username);
     Optional<Pendaftaran> findById(Long id);
 }

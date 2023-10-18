@@ -7,6 +7,5 @@ import java.util.Optional;
 
 @Repository
 public interface KalenderRepository extends JpaRepository<Kalender, Long> {
-//    Optional<Kalender> findByName(String username);
     Optional<Kalender> findById(Long id);
 }

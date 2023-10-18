@@ -10,55 +10,62 @@ const menuList = [
   {
     title: "Manajemen Profil",
     path: "/profil",
-    icon: "file",
+    icon: "smile",
     roles:["ROLE_ADMINISTRATOR"]
   },
  
   {
     title: "Selayang Pandang",
     path: "/selayang",
-    icon: "file",
+    icon: "gift",
     roles:["ROLE_ADMINISTRATOR","ROLE_LECTURE"]
   },
   {
     title: "Manajemen Jurusan",
     path: "/department",
-    icon: "file",
+    icon: "contacts",
     roles:["ROLE_ADMINISTRATOR"]
   },
   
   {
     title: "Manajemen Berita",
     path: "/berita",
-    icon: "file",
+    icon: "book",
     roles:["ROLE_ADMINISTRATOR","ROLE_LECTURE"]
   },
 
   {
     title: "Manajemen Kegiatan",
     path: "/kegiatan",
-    icon: "file",
+    icon: "team",
     roles:["ROLE_ADMINISTRATOR"]
   },
 
   {
     title: "Pendaftaran Mahasiswa",
     path: "/pendaftaran",
-    icon: "file",
+    icon: "audit",
     roles:["ROLE_ADMINISTRATOR"]
   },
 
   {
     title: "Struktur Organisasi",
     path: "/organisasi",
-    icon: "file",
+    icon: "apartment",
     roles:["ROLE_ADMINISTRATOR"]
   },
 
   {
     title: "Kalender Akademik",
     path: "/kalender",
-    icon: "file",
+    icon: "calendar",
+    roles:["ROLE_ADMINISTRATOR"]
+  },
+
+  {
+    title: "Campus Life",
+    path: "/campus_life",
+    icon: "heart",
     roles:["ROLE_ADMINISTRATOR"]
   },
   

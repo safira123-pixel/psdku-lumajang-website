@@ -25,7 +25,7 @@ const FullScreen = () => {
     };
   }, []);
 
-  const title = isFullscreen ? "取消全屏" : "全屏";
+  const title = isFullscreen ? "Full Screen exit" : "Full Screen";
   const type = isFullscreen ? "fullscreen-exit" : "fullscreen";
   return (
     <div className="fullScreen-container">

@@ -8,6 +8,5 @@ import java.util.Optional;
 
 @Repository
 public interface KegiatanRepository extends JpaRepository<Kegiatan, Long> {
-    Optional<Kegiatan> findByName(String username);
     Optional<Kegiatan> findById(Long id);
 }

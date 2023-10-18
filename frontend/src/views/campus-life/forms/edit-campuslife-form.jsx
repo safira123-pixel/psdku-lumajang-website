@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { Form, Input, Modal, Select, Upload, message, Icon } from "antd";
+import { Form, Input, Select, Button, Upload, message, Icon, Modal } from "antd";
 const { TextArea } = Input;
-class EditPendaftaranForm extends Component {
+class EditCampusLifeForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -23,7 +23,7 @@ class EditPendaftaranForm extends Component {
       currentRowData,
     } = this.props;
     const { getFieldDecorator } = form;
-    const { id, name, role, description } = currentRowData;
+    const { id, name, description } = currentRowData;
     const formItemLayout = {
       labelCol: {
         xs: { span: 24 },
@@ -36,33 +36,40 @@ class EditPendaftaranForm extends Component {
     };
     return (
       <Modal
-        title="Edit Jalur Pendaftaran"
+        title="Edit Jurusan"
         visible={visible}
         onCancel={onCancel}
         onOk={onOk}
         confirmLoading={confirmLoading}
       >
         <Form {...formItemLayout}>
-          <Form.Item label="ID Pendaftaran:">
+          <Form.Item label="ID Campus Life:">
             {getFieldDecorator("id", {
               initialValue: id,
             })(<Input disabled />)}
           </Form.Item>
-          <Form.Item label="Jalur:">
+          <Form.Item label="Kategori:">
             {getFieldDecorator("name", {
-              rules: [{ required: true, message: "Silahkan isi Jalur Pendaftaran" }],
-              initialValue: name,
-            })(<Select style={{ width: 250 }}>
-              <Select.Option value="Seleksi Nasional Berdasarkan Prestasi (SNBP)">Jalur SNBP</Select.Option>
-              <Select.Option value="Seleksi Nasional Berdasarkan Tes (SNBT)">Jalur SNBT</Select.Option>
-              <Select.Option value="Seleksi Mandiri">Jalur Mandiri</Select.Option>
+              rules: [
+                { required: true, message: "Silahkan pilih kategori campus life" },
+              ],
+            })(<Select style={{ width: 300 }}>
+              <Select.Option value="Kuliner">Kuliner</Select.Option>
+              <Select.Option value="Pariwisata">Pariwisata</Select.Option>
+              <Select.Option value="Profil Lumajang">Profil Lumajang</Select.Option>
+              <Select.Option value="Penginapan">Penginapan</Select.Option>
+              <Select.Option value="Budaya">Budaya</Select.Option>
             </Select>)}
           </Form.Item>
-          <Form.Item label="Deskripsi:">
+          <Form.Item label="Deskripsi Kategori:">
             {getFieldDecorator("description", {
-              rules: [{ required: true, message: "Silahkan isikan deskripsi" }],
-              initialValue: description,
-            })(<TextArea rows={4} placeholder="Deskripsi" />)}
+              rules: [
+                {
+                  required: true,
+                  message: "Silahkan isikan deskripsi kategori",
+                },
+              ],
+            })(<TextArea rows={4} placeholder="Deskripsi Kategori Campus Life" />)}
           </Form.Item>
           <Form.Item label="File" name="file">
             {getFieldDecorator("file")(
@@ -88,4 +95,4 @@ class EditPendaftaranForm extends Component {
   }
 }
 
-export default Form.create({ name: "EditPendaftaranForm" })(EditPendaftaranForm);
+export default Form.create({ name: "EditCampusLifeForm" })(EditCampusLifeForm);

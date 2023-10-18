@@ -43,7 +43,7 @@ class EditBeritaForm extends Component {
         confirmLoading={confirmLoading}
       >
         <Form {...formItemLayout}>
-          <Form.Item label="ID Jalur:">
+          <Form.Item label="ID Berita:">
             {getFieldDecorator("id", {
               initialValue: id,
             })(<Input disabled />)}

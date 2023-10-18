@@ -7,6 +7,7 @@ import FullScreen from "@/components/FullScreen";
 import Settings from "@/components/Settings";
 import Hamburger from "@/components/Hamburger";
 import BreadCrumb from "@/components/BreadCrumb";
+import logo from "../../../assets/images/Logo-Polinema.png"
 import "./index.less";
 const { Header } = Layout;
 
@@ -93,7 +94,7 @@ const LayoutHeader = (props) => {
           <div className="dropdown-wrap">
             <Dropdown overlay={menu}>
               <div>
-                <Avatar shape="square" size="medium" src={avatar} />
+                <Avatar shape="square" size="medium" src={logo} />
                 <Icon style={{ color: "rgba(0,0,0,.3)" }} type="caret-down" />
               </div>
             </Dropdown>

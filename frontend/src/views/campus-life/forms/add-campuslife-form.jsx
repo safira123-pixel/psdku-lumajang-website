@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Form, Input, Select, Button, Upload, message, Icon, Modal } from "antd";
 const { TextArea } = Input;
-class AddDepartmentForm extends Component {
+class AddCampusLifeForm extends Component {
   render() {
     const { visible, onCancel, onOk, form, confirmLoading } = this.props;
     const { getFieldDecorator } = form;
@@ -19,54 +19,35 @@ class AddDepartmentForm extends Component {
     // const { getFieldDecorator } = this.props.form;
     return (
       <Modal
-        title="Tambah Jurusan"
+        title="Tambah Campus Life"
         visible={visible}
         onCancel={onCancel}
         onOk={onOk}
         confirmLoading={confirmLoading}
       >
         <Form {...formItemLayout} onSubmit={this.handleSubmit}>
-          <Form.Item label="Nama Jurusan:">
+          <Form.Item label="Kategori:">
             {getFieldDecorator("name", {
               rules: [
-                { required: true, message: "Silahkan pilih jurusan" },
+                { required: true, message: "Silahkan pilih kategori campus life" },
               ],
             })(<Select style={{ width: 300 }}>
-              <Select.Option value="Jurusan Teknologi Informasi">Jurusan Teknologi Informasi</Select.Option>
-              <Select.Option value="Jurusan Teknologi Sipil">Jurusan Teknologi Sipil</Select.Option>
-              <Select.Option value="Jurusan Teknologi Rekayasa Otomotif">Jurusan Teknologi Rekayasa Otomotif</Select.Option>
-              <Select.Option value="Jurusan Akuntansi">Jurusan Akuntansi</Select.Option>
+              <Select.Option value="Kuliner">Kuliner</Select.Option>
+              <Select.Option value="Pariwisata">Pariwisata</Select.Option>
+              <Select.Option value="Profil Lumajang">Profil Lumajang</Select.Option>
+              <Select.Option value="Penginapan">Penginapan</Select.Option>
+              <Select.Option value="Budaya">Budaya</Select.Option>
             </Select>)}
           </Form.Item>
-          <Form.Item label="Deskripsi Jurusan:">
+          <Form.Item label="Deskripsi Kategori:">
             {getFieldDecorator("description", {
               rules: [
                 {
                   required: true,
-                  message: "Silahkan isikan deskripsi jurusan",
+                  message: "Silahkan isikan deskripsi kategori",
                 },
               ],
-            })(<TextArea rows={4} placeholder="Deskripsi Jurusan" />)}
-          </Form.Item>
-          <Form.Item label="Kompetensi Lulusan:">
-            {getFieldDecorator("kompetensi", {
-              rules: [
-                {
-                  required: true,
-                  message: "Silahkan isi kompetensi lulusan",
-                },
-              ],
-            })(<TextArea rows={4} placeholder="Kompetensi Lulusan" />)}
-          </Form.Item>
-          <Form.Item label="Peluang Kerja:">
-            {getFieldDecorator("peluang", {
-              rules: [
-                {
-                  required: true,
-                  message: "Silahkan isi peluang kerja",
-                },
-              ],
-            })(<TextArea rows={4} placeholder="Peluang Kerja" />)}
+            })(<TextArea rows={4} placeholder="Deskripsi Kategori Campus Life" />)}
           </Form.Item>
           <Form.Item label="File" name="file">
             {getFieldDecorator("file")(
@@ -93,6 +74,6 @@ class AddDepartmentForm extends Component {
   }
 }
 
-export default Form.create({ name: "AddDepartmentForm" })(AddDepartmentForm);
+export default Form.create({ name: "AddCampusLifeForm" })(AddCampusLifeForm);
 // })(<Button type="primary" onClick={this.showSelectImageDialog}>Select image...</Button>
 

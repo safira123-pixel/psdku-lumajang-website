@@ -72,7 +72,7 @@ const kegiatan_mahasiswa = (props) => {
                         // content="My choice to say Yes to giving my all even in those trying moments can be attributed to the growth and education I received at Franciscan."
                         // bgContain
                         key={index}
-                        profileImg={item[0].data}
+                        profileImg={item[1].data}
                         profileName={item[1].name}
                         content={item[1].description}
                         linkName={t('Baca selengkapnya')}
@@ -89,7 +89,7 @@ const kegiatan_mahasiswa = (props) => {
                         // content="My choice to say Yes to giving my all even in those trying moments can be attributed to the growth and education I received at Franciscan."
                         // bgContain
                         key={index}
-                        profileImg={item[0].data}
+                        profileImg={item[2].data}
                         profileName={item[1].name}
                         content={item[1].description}
                         linkName={t('Baca selengkapnya')}

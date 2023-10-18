@@ -46,6 +46,11 @@ class EditOrganisasiForm extends Component {
       >
         
         <Form {...formItemLayout}>
+        <Form.Item label="ID Gambar:">
+            {getFieldDecorator("id", {
+              initialValue: id,
+            })(<Input disabled />)}
+          </Form.Item>
         <Form.Item label="Judul:">
             {getFieldDecorator("name", {
               rules: [
@@ -53,11 +58,7 @@ class EditOrganisasiForm extends Component {
               ],
             })(<Input placeholder="Data" />)}
           </Form.Item>
-          <Form.Item label="ID Gambar:">
-            {getFieldDecorator("id", {
-              initialValue: id,
-            })(<Input disabled />)}
-          </Form.Item>
+          
           {/* <Form.Item label="File">
             {getFieldDecorator("data")(
               <Upload

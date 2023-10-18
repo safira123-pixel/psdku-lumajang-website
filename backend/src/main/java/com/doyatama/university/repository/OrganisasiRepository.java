@@ -7,6 +7,5 @@ import java.util.Optional;
 
 @Repository
 public interface OrganisasiRepository extends JpaRepository<Organisasi, Long> {
-//    Optional<Organisasi> findByName(String username);
     Optional<Organisasi> findById(Long id);
 }

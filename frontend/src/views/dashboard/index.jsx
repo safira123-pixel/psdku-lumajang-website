@@ -1,13 +1,15 @@
-import React, { useState } from "react";
-import { Row, Col } from "antd";
-import "./index.less";
-import PanelGroup from "./components/PanelGroup";
-import LineChart from "./components/LineChart";
-import BarChart from "./components/BarChart";
-import RaddarChart from "./components/RaddarChart";
-import PieChart from "./components/PieChart";
-import TransactionTable from "./components/TransactionTable";
-import BoxCard from "./components/BoxCard";
+// import React, { useState, useEffect } from "react";
+// import { Row, Col } from "antd";
+// import "./index.less";
+// import PanelGroup from "./components/PanelGroup";
+// import LineChart from "./components/LineChart";
+// import BarChart from "./components/BarChart";
+// import RaddarChart from "./components/RaddarChart";
+// import PieChart from "./components/PieChart";
+// import TransactionTable from "./components/TransactionTable";
+// import BoxCard from "./components/BoxCard";
+// import { getBeritas, getDepartments, getKegiatans,  getSelayangs } from "../../api/index";
+
 
 // const lineChartDefaultData = {
 //   "New Visits": {
@@ -22,32 +24,90 @@ import BoxCard from "./components/BoxCard";
 //     expectedData: [80, 100, 121, 104, 105, 90, 100],
 //     actualData: [120, 90, 100, 138, 142, 130, 130],
 //   },
-//   Shoppings: {
-//     expectedData: [130, 140, 141, 142, 145, 150, 160],
-//     actualData: [120, 82, 91, 154, 162, 140, 130],
-//   },
+  
 // };
 
-const Dashboard = () => {
-  // const [lineChartData, setLineChartData] = useState(
-  //   lineChartDefaultData["New Visits"]
-  // );
+// const Dashboard = () => {
+//   const [berita, setBerita] = useState(0);
+//   const [department, setDepartment] = useState(0);
+//   const [kegiatan, setKegiatan] = useState(0);
+//   const [selayang, setSelayang] = useState(0);
 
-  // const handleSetLineChartData = (type) => setLineChartData(lineChartDefaultData[type]);
+//   useEffect(() => {
+//     getBeritas().then((res) => {
+//       setBerita(res.total);
+//     });
+//     getDepartments().then((res) => {
+//       setDepartment(res.total);
+//     });
+//     getKegiatans().then((res) => {
+//       setKegiatan(res.total);
+//     });
+//     getSelayangs().then((res) => {
+//       setSelayang(res.total);
+//     });
+//   }, []);
+//   const [lineChartData, setLineChartData] = useState(
+//     lineChartDefaultData["New Visits"]
+//   );
+
+//   const handleSetLineChartData = (type) => setLineChartData(lineChartDefaultData[type]);
+
+//   return (
+//     <div className="app-container">
+
+//           title={"Revenue"}
+//           value={department}
+//     </div>
+//   );
+// };
+
+// export default Dashboard;
+
+
+import React, { useState } from "react";
+import { Row, Col } from "antd";
+import "./index.less";
+import PanelGroup from "./components/PanelGroup";
+import LineChart from "./components/LineChart";
+import BarChart from "./components/BarChart";
+import RaddarChart from "./components/RaddarChart";
+import PieChart from "./components/PieChart";
+import TransactionTable from "./components/TransactionTable";
+import BoxCard from "./components/BoxCard";
+
+const lineChartDefaultData = {
+  "New Visits": {
+    expectedData: [100, 120, 161, 134, 105, 160, 165],
+    actualData: [120, 82, 91, 154, 162, 140, 145],
+  },
+  Messages: {
+    expectedData: [200, 192, 120, 144, 160, 130, 140],
+    actualData: [180, 160, 151, 106, 145, 150, 130],
+  },
+  Purchases: {
+    expectedData: [80, 100, 121, 104, 105, 90, 100],
+    actualData: [120, 90, 100, 138, 142, 130, 130],
+  },
+  Shoppings: {
+    expectedData: [130, 140, 141, 142, 145, 150, 160],
+    actualData: [120, 82, 91, 154, 162, 140, 130],
+  },
+};
+
+const Dashboard = () => {
+  const [lineChartData, setLineChartData] = useState(
+    lineChartDefaultData["New Visits"]
+  );
+
+  const handleSetLineChartData = (type) => setLineChartData(lineChartDefaultData[type]);
 
   return (
     <div className="app-container">
-      <h> Ini Dashboard</h>
-      {/* <a
-        href="https://github.com/NLRX-WJC/react-antd-admin-template"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="github-corner"
-      ></a> */}
 
-      {/* <PanelGroup handleSetLineChartData={handleSetLineChartData} /> */}
+      <PanelGroup handleSetLineChartData={handleSetLineChartData} />
 
-      {/* <LineChart
+      <LineChart
         chartData={lineChartData}
         styles={{
           padding: 12,
@@ -95,7 +155,7 @@ const Dashboard = () => {
         >
           <BoxCard />
         </Col>
-      </Row> */}
+      </Row>
     </div>
   );
 };
