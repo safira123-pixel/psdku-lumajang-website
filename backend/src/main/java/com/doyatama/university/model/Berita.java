@@ -12,6 +12,7 @@ public class Berita {
     @Size(max = 100)
     private String name;
     private String description;
+    private String selengkapnya;
     private String fileType;
     private String fileName;
     @Lob
@@ -25,10 +26,11 @@ public class Berita {
         this.id = id;
     }
 
-    public Berita(Long id, String name, String description, String fileName, String fileType, byte[] data) {
+    public Berita(Long id, String name, String description, String selengkapnya,  String fileName, String fileType, byte[] data) {
         this.id = id;
         this.name = name;
         this.description = description;
+        this.selengkapnya = selengkapnya;
         this.fileName = fileName;
         this.fileType = fileType;
         this.data = data;
@@ -56,6 +58,13 @@ public class Berita {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+    public String getSelengkapnya() {
+        return selengkapnya;
+    }
+
+    public void setSelengkapnya(String selengkapnya) {
+        this.selengkapnya = selengkapnya;
     }
     public void setFileName(String fileName) {
         this.fileName = fileName;

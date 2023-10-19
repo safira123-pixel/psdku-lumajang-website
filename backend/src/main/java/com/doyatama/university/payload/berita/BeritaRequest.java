@@ -5,6 +5,8 @@ import org.springframework.web.multipart.MultipartFile;
 public class BeritaRequest {
     private String name;
     private String description;
+    private String selengkapnya;
+
     private MultipartFile file;
 
 
@@ -22,6 +24,13 @@ public class BeritaRequest {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+    public String getSelengkapnya() {
+        return selengkapnya;
+    }
+
+    public void setSelengkapnya(String selengkapnya) {
+        this.selengkapnya = selengkapnya;
     }
     public MultipartFile getFile(){
         return file;

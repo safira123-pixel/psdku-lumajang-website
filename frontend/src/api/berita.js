@@ -4,6 +4,7 @@ export function addBerita(data) {
   const formData = new FormData();
   formData.append('name', data.name)
   formData.append('description', data.description)
+  formData.append('selengkapnya', data.selengkapnya); // 'selengkapnya' sesuai dengan nama field di backend
   formData.append('file', data.file.file); // 'file' sesuai dengan nama field di backend
 
   return request({
@@ -24,6 +25,7 @@ export function editBerita(data, id) {
   const formData = new FormData();
   formData.append('name', data.name); // 'file' sesuai dengan nama field di backend
   formData.append('description', data.description)
+  formData.append('selengkapnya', data.selengkapnya); // 'selengkapnya' sesuai dengan nama field di backend
   formData.append('file', data.file.file); // 'file' sesuai dengan nama field di backend
 
   return request({

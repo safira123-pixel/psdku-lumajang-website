@@ -60,6 +60,16 @@ class EditKegiatanForm extends Component {
               initialValue: description,
             })(<TextArea rows={4} placeholder="Deskripsi Kegiatan" />)}
           </Form.Item>
+          <Form.Item label="Selengkapnya:">
+            {getFieldDecorator("selengkapnya", {
+              rules: [
+                {
+                  required: true,
+                  message: "Silahkan isikan catatan/tambahan",
+                },
+              ],
+            })(<TextArea rows={4} placeholder="Selengkapnya" />)}
+          </Form.Item>
           <Form.Item label="File" name="file">
             {getFieldDecorator("file")(
               <Upload.Dragger

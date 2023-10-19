@@ -7,6 +7,7 @@ public class KegiatanResponse {
     private Long id;
     private String name;
     private String description;
+    private String selengkapnya;
     private Instant updatedAt;
     private Instant createdAt;
      private String fileName;
@@ -17,10 +18,11 @@ public class KegiatanResponse {
     public KegiatanResponse() {
     }
 
-    public KegiatanResponse(Long id, String name, String description, Instant updatedAt, Instant createdAt,  String fileName, String fileType, byte[] data) {
+    public KegiatanResponse(Long id, String name, String description, String selengkapnya, Instant updatedAt, Instant createdAt,  String fileName, String fileType, byte[] data) {
         this.id = id;
         this.name = name;
         this.description = description;
+        this.selengkapnya = selengkapnya;
         this.updatedAt = updatedAt;
         this.createdAt = createdAt;
         this.fileName = fileName;
@@ -50,6 +52,13 @@ public class KegiatanResponse {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+    public String getSelengkapnya() {
+        return selengkapnya;
+    }
+
+    public void setSelengkapnya(String selengkapnya) {
+        this.selengkapnya = selengkapnya;
     }
 
     public Instant getUpdatedAt() {

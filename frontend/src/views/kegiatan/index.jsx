@@ -143,6 +143,12 @@ class Kegiatan extends Component {
               align="center"
             />
             <Column
+              title="Selengkapnya"
+              dataIndex="selengkapnya"
+              key="selengkapnya"
+              align="center"
+            />
+            <Column
               title="Images"
               dataIndex="image"
               key="image"

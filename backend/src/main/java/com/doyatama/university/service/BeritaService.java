@@ -76,6 +76,7 @@ public class BeritaService {
 //            organisasiResponse.setUpdatedAt(asResponse.getUpdatedAt());
             beritaResponse.setName(asResponse.getName());
             beritaResponse.setDescription(asResponse.getDescription());
+            beritaResponse.setSelengkapnya(asResponse.getSelengkapnya());
             beritaResponse.setFileName(asResponse.getFileName());
             beritaResponse.setFileType(asResponse.getFileType());
             beritaResponse.setData(asResponse.getData());
@@ -93,6 +94,8 @@ public class BeritaService {
 //        organisasi.setUpdatedBy(currentUser.getId());
         berita.setName(beritaRequest.getName());
         berita.setDescription(beritaRequest.getDescription());
+        berita.setSelengkapnya(beritaRequest.getSelengkapnya());
+
         berita.setFileName(fileName);
         berita.setFileType(file.getContentType());
         berita.setData(file.getBytes());
@@ -128,6 +131,8 @@ public class BeritaService {
             //        organisasi.setUpdatedBy(currentUser.getId());
             berita.setName(beritaRequest.getName());
             berita.setDescription(beritaRequest.getDescription());
+            berita.setSelengkapnya(beritaRequest.getSelengkapnya());
+
             berita.setFileName(fileName);
             berita.setFileType(file.getContentType());
             try {

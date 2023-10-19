@@ -3,8 +3,9 @@ import request from "@/utils/request";
 export function addKegiatan(data) {
   // Buat objek FormData untuk mengirim file
   const formData = new FormData();
-  formData.append('name', data.name); // 'file' sesuai dengan nama field di backend
-  formData.append('description', data.description); // 'file' sesuai dengan nama field di backend
+  formData.append('name', data.name); // 'name' sesuai dengan nama field di backend
+  formData.append('description', data.description); // 'description' sesuai dengan nama field di backend
+  formData.append('selengkapnya', data.selengkapnya); // 'selengkapnya' sesuai dengan nama field di backend
   formData.append('file', data.file.file); // 'file' sesuai dengan nama field di backend
 
   return request({
@@ -26,6 +27,7 @@ export function editKegiatan(data, id) {
   const formData = new FormData();
   formData.append('name', data.name); // 'file' sesuai dengan nama field di backend
   formData.append('description', data.description); // 'file' sesuai dengan nama field di backend
+  formData.append('selengkapnya', data.selengkapnya); // 'selengkapnya' sesuai dengan nama field di backend
   formData.append('file', data.file.file); // 'file' sesuai dengan nama field di backend
 
   return request({

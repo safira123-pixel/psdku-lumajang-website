@@ -67,10 +67,7 @@ const kegiatan_mahasiswa = (props) => {
 
                 {data.map((item, index) => (
                     <EventsCard
-                        // profileImg="https://franciscan.edu/wp-content/uploads/2023/01/March-for-Life-2022-768x512.jpg"
-                        // profileName="Franciscan University President, Students Prepare for First Post-Roe March for Life in Washington, D.C."
-                        // content="My choice to say Yes to giving my all even in those trying moments can be attributed to the growth and education I received at Franciscan."
-                        // bgContain
+                   
                         key={index}
                         profileImg={item[1].data}
                         profileName={item[1].name}

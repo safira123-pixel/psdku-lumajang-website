@@ -76,6 +76,7 @@ public class KegiatanService {
 //            organisasiResponse.setUpdatedAt(asResponse.getUpdatedAt());
             kegiatanResponse.setName(asResponse.getName());
             kegiatanResponse.setDescription(asResponse.getDescription());
+            kegiatanResponse.setSelengkapnya(asResponse.getSelengkapnya());
             kegiatanResponse.setFileName(asResponse.getFileName());
             kegiatanResponse.setFileType(asResponse.getFileType());
             kegiatanResponse.setData(asResponse.getData());
@@ -93,6 +94,7 @@ public class KegiatanService {
 //        organisasi.setUpdatedBy(currentUser.getId());
         kegiatan.setName(kegiatanRequest.getName());
         kegiatan.setDescription(kegiatanRequest.getDescription());
+        kegiatan.setSelengkapnya(kegiatanRequest.getSelengkapnya());
         kegiatan.setFileName(fileName);
         kegiatan.setFileType(file.getContentType());
         kegiatan.setData(file.getBytes());
@@ -128,6 +130,7 @@ public class KegiatanService {
     //        organisasi.setUpdatedBy(currentUser.getId());
             kegiatan.setName(kegiatanRequest.getName());
             kegiatan.setDescription(kegiatanRequest.getDescription());
+            kegiatan.setSelengkapnya(kegiatanRequest.getSelengkapnya());
             kegiatan.setFileName(fileName);
             kegiatan.setFileType(file.getContentType());
             try {
