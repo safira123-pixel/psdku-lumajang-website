@@ -38,7 +38,7 @@ const pengumuman = (props) => {
                             <h2>{item.description}</h2>
                         </div>
                     ))} */}
-<div style={{ backgroundColor: '#e7e7e7' }}>
+<div style={{backgroundImage: 'url("/assets/images/bg_polinema1.png")', backgroundRepeat: 'repeat', backgroundSize: 900 }}>
                 <div className={classes.section}>
                     {/* <div className={classes.innerContainer}>
                         <Typography variant="display2" style={{ color: '#051d47' }} gutterBottom>

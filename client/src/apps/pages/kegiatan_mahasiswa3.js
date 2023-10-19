@@ -7,22 +7,23 @@ import Layout from '../../components/Layout'
 import TextSection from '../../components/TextSection'
 import withRoot from '../../components/withRoot'
 import SlideShow from '../../components/SlideShow'
-import NewsCard from '../../components/NewsCard_Profil'
-import NewsCard2 from '../../components/NewsCard_NavBar'
-import NewsCard1 from '../../components/NewsCard_NavBarKalender'
+import NewsCard from '../../components/NewsCard_kegiatanMahasiswa3'
 import { useTranslation, withTranslation } from 'react-i18next'
 import { Button } from '@material-ui/core'
+import { Link } from 'react-router-dom'
+import NewsCard2 from '../../components/NewsCard_NavBar'
+import NewsCard1 from '../../components/NewsCard_NavBarKalender'
 import Breadcrumb from 'react-bootstrap/Breadcrumb';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ChatIcon from '../../components/ChatIcon';
+// import { BlobImageDisplay } from "../../components/BlobImageDisplay";
 
-const Profile = (props) => {
+const kegiatan_mahasiswa3 = (props) => {
     const [data, setData] = useState([]);
     const { classes} = props
     const { t } = useTranslation();
-
     useEffect(() => {
-        fetch('http://localhost:8080/api/profil') // Pastikan URL endpoint sesuai
+        fetch('http://localhost:8080/api/kegiatan') // Pastikan URL endpoint sesuai
         .then(response => response.json())
         .then(data => {
             setData([data.content]);
@@ -33,8 +34,6 @@ const Profile = (props) => {
         });
     }, []);
 
-    //background: 'linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%)'
-
     return (
         <div style={{backgroundImage: 'url("/assets/images/bg_polinema1.png")', backgroundRepeat: 'repeat', backgroundSize: 900}}>
         <Layout title="Home">
@@ -42,8 +41,8 @@ const Profile = (props) => {
                     <div className={classes.container}>
                         <Breadcrumb style={{marginTop:"10px"}}>
                             <Breadcrumb.Item href="/"> {t('beranda.label')}</Breadcrumb.Item>
-                            <Breadcrumb.Item href="/profile"> {t('Profil')}</Breadcrumb.Item>
-                            <Breadcrumb.Item href="/profile"> {t('Profil')}</Breadcrumb.Item>
+                            <Breadcrumb.Item href="/kegiatan_mahasiswa"> {t('Kegiatan Mahasiswa')}</Breadcrumb.Item>
+                            <Breadcrumb.Item href="/kegiatan_mahasiswa3"> {t('Kegiatan Mahasiswa')}</Breadcrumb.Item>
                         </Breadcrumb>        
                     </div>
                 </Card>
@@ -52,21 +51,22 @@ const Profile = (props) => {
                         {data.map((item, index) => (
                             <NewsCard
                                  key={index}
-                                 profileName={t('Profil')}
-                                 content1={item[0].description}
-                                 content2={item[1].description}
-                                 content3={item[2].description}
-                                 content4={item[3].description}
-                                 content5={item[4].description}
-                                 content6={item[6].description}
-                                 profileImg1={item[5].data}
-                                 content7={item[7].description}
-                                 content8={item[8].description}
-                                 content9={item[9].description}
-                                 content10={item[10].description}
-                                 content11={item[11].description}
-                                 content12={item[12].description}
-                                 profileImg2={item[13].data}  
+                                 profileName={t('Kegiatan mahasiswa')} 
+                                 link1={"/item_kegiatan1"}
+                                 content1={t("Selengkapnya")}
+                                 data1={item[0].data}
+                                 nama1={item[0].name}
+                                 deskripsi1={item[0].description}
+                                 link2={"/item_kegiatan1"}
+                                 content2={t("Selengkapnya")}
+                                 data2={item[0].data}
+                                 nama2={item[0].name}
+                                 deskripsi2={item[0].description}
+                                 link3={"/item_kegiatan1"}
+                                 content3={t("Selengkapnya")}
+                                 data3={item[0].data}
+                                 nama3={item[0].name}
+                                 deskripsi3={item[0].description}
                             />
                         ))}
                     </Grid>
@@ -84,7 +84,7 @@ const Profile = (props) => {
                                     profileLink3="/kegiatan_mahasiswa3"
                                 />
                             </Grid>
-                    </Grid>
+                    </Grid>      
                 </Grid>
         </Layout>
         <ChatIcon/>
@@ -221,4 +221,4 @@ const styles = theme => ({
     }
 })
 
-export default withRoot(withStyles(styles)(withTranslation()(Profile)))
+export default withRoot(withStyles(styles)(withTranslation()(kegiatan_mahasiswa3)))

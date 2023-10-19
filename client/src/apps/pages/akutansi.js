@@ -34,7 +34,7 @@ const akuntansi = (props) => {
     }, []);
 
     return (
-        <div style={{backgroundImage: 'url("/assets/images/background.jpeg")', backgroundRepeat: 'repeat', backgroundSize: 400}}>
+        <div style={{backgroundImage: 'url("/assets/images/bg_polinema1.png")', backgroundRepeat: 'repeat', backgroundSize: 900}}>
         <Layout title="Home">
               <Card className={classes.card}>
                     <div className={classes.container}>

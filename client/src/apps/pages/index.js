@@ -12,8 +12,9 @@ import snbp from './snbp'
 import snbt from './snbt'
 import mandiri from './mandiri'
 import kegiatan_mahasiswa from './kegiatan_mahasiswa'
-import kegiatan_mahasiswa1 from './kegiatan_mahasiswa1'
-import kegiatan_mahasiswa2 from './kegiatan_mahasiswa1'
+import kegiatan_mahasiswa2 from './kegiatan_mahasiswa2'
+import kegiatan_mahasiswa3 from './kegiatan_mahasiswa3'
+import item_kegiatan1 from './item_kegiatan1'
 import pengumuman from './pengumuman'
 import pengumuman1 from './pengumuman'
 import pengumuman2 from './pengumuman'
@@ -38,8 +39,9 @@ export {
     snbt,
     mandiri,
     kegiatan_mahasiswa,
-    kegiatan_mahasiswa1,
     kegiatan_mahasiswa2,
+    kegiatan_mahasiswa3,
+    item_kegiatan1,
     pengumuman,
     pengumuman1,
     pengumuman2,

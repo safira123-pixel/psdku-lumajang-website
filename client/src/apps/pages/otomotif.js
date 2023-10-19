@@ -36,7 +36,7 @@ const otomotif = (props) => {
 
 //backgroundImage: 'url("/assets/images/background.jpeg")', backgroundRepeat: 'repeat', backgroundSize: 400
     return (
-        <div style={{background: 'linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%)'}}>
+        <div style={{backgroundImage: 'url("/assets/images/bg_polinema1.png")', backgroundRepeat: 'repeat', backgroundSize: 900}}>
         <Layout title="Home">
               <Card className={classes.card}>
                     <div className={classes.container}>
