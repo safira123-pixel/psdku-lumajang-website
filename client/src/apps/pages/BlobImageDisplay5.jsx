@@ -1,34 +1,39 @@
 import React, { useEffect, useState } from "react";
+import ReactImageMagnify from 'react-image-magnify';
 
 export function BlobImageDisplay({ blob }) {
     const [blobUrl, setBlobUrl] = useState(null);
   
     useEffect(() => {
-      // if (blob instanceof Blob) {
-      //   // Create a URL for the blob
-      //   const imageUrl = URL.createObjectURL(blob);
-  
-      //   // Set the URL as the src for the img element
-      //   setBlobUrl(imageUrl);z
-  
-      //   // Clean up the URL when the component unmounts
-      //   return () => {
-      //     URL.revokeObjectURL(imageUrl);
-      //   };
-      // }
-
-      if (blob) {
-        setBlobUrl(blob)
-      }
+        if (blob) {
+            setBlobUrl(`data:image/png;base64,${blob}`);
+        }
     }, [blob]);
   
     return (
-      <div>
-        {blobUrl ? (
-          <img src={`data:image/png;base64,${blobUrl}`} style={{height: "500px", width: "700px", marginTop:'20px', marginLeft:"60px", marginRight:"20px", marginBottom:"20px", textAlign:"center"}} alt="Blob Image" />
-        ) : (
-          <p>No image to display</p>
-        )}
-      </div>
+        <div style={{
+          height: "500px",
+          width: "730px",
+          // marginTop:'20px',
+          // marginLeft:"60px",
+          // marginRight:"20px",
+          // marginBottom:"40px", // Ubah nilai marginBottom di sini
+          textAlign:"center"
+        }}>
+            <ReactImageMagnify {...{
+                smallImage: {
+                    alt: 'Wristwatch by Ted Baker London',
+                    isFluidWidth: true,
+                    src: blobUrl, // Use blobUrl as the image source
+                },
+                largeImage: {
+                    src: blobUrl, // Use blobUrl as the image source
+                    width: 1200,
+                    height: 1800
+                },
+                isHintEnabled: true,
+                enlargedImagePosition: 'over'
+            }} />
+        </div>
     );
-  }
+}

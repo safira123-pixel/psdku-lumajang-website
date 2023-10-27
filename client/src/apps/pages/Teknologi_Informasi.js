@@ -51,7 +51,12 @@ const teknologi_informasi = (props) => {
                             <NewsCard
                                  key={index}
                                  profileName={t('TI')}           
-                                 profileImg={item[3].data}
+                                //  profileImg={item[3].data}
+                                 profileImg1={item[1].data}
+                                 profileImg2={item[2].data}
+                                 profileImg3={item[3].data}
+                                 profileImg4={item[2].data}
+                                 profileImg5={item[3].data}
                                  title1={t('Deskripsi')} 
                                  content1={item[3].description}
                                  title2={t('Kompetensi Lulusan')}  

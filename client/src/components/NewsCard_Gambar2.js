@@ -9,7 +9,6 @@ import React, { Component, Fragment } from 'react'
 import { BlobImageDisplay } from "../apps/pages/BlobImageDisplay5";
 import Breadcrumb from 'react-bootstrap/Breadcrumb';
 
-
 const styles = theme => ({
     card: {
         width: '97%',
@@ -29,11 +28,12 @@ const styles = theme => ({
         marginLeft: "20px",
     },
     cardImage: {
-        width: '80%',
+        // width: '80%',
         display: "flex",
         flexWrap: "wrap",
         textAlign:"center",
-        marginLeft: "70px",
+        marginLeft: "160px",
+        // marginRight: "100px",
         marginBottom: "40px",
         marginTop:"20px",
 
@@ -93,3 +93,4 @@ const NewsCard = (props) => {
 }
 
 export default withStyles(styles)(NewsCard)
+

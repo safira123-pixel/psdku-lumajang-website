@@ -40,7 +40,7 @@ const pariwisata_lumajang = (props) => {
                     <div className={classes.container}>
                         <Breadcrumb style={{marginTop:"10px"}}>
                             <Breadcrumb.Item href="/"> {t('beranda.label')}</Breadcrumb.Item>
-                            <Breadcrumb.Item href="/pariwisata_lumajang"> {t('Kehidupan Kampus')}</Breadcrumb.Item>
+                            <Breadcrumb.Item href="/pariwisata_lumajang"> {t('Kehidupan Lumajang')}</Breadcrumb.Item>
                             <Breadcrumb.Item href="/pariwisata_lumajang"> {t('Pariwisata')}</Breadcrumb.Item>
                         </Breadcrumb>        
                     </div>

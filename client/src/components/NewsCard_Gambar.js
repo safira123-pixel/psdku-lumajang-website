@@ -29,11 +29,11 @@ const styles = theme => ({
         marginLeft: "20px",
     },
     cardImage: {
-        width: '80%',
+        // width: '80%',
         display: "flex",
         flexWrap: "wrap",
         textAlign:"center",
-        marginLeft: "70px",
+        marginLeft: "160px",
         marginBottom: "40px",
         marginTop:"20px",
 

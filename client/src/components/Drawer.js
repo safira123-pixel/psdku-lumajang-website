@@ -25,7 +25,8 @@ import {
   admissionsMenu,
   faithMenu,
   studentMenu,
-  campusMenu
+  campusMenu,
+  psdkuMenu
 } from '../data/drawerMenu'
 import DrawerItem from './DrawerItem'
 const TemporaryDrawer = props => {
@@ -145,16 +146,27 @@ const TemporaryDrawer = props => {
                 isSubOpen={props.drawerSubItems}
                 isOpen={props.drawerItems['student-life']}
               />
-               <DrawerItem
+                 <DrawerItem
                 toggleDrawer={toggleDrawer}
                 expandSubItem={props.expandSubItem}
                 expandItem={props.expandItem}
                 itemId="campus-life"
                 primaryText={t("Kehidupan Kampus")}
+                submenuItems={psdkuMenu}
+                isSubOpen={props.drawerSubItems}
+                isOpen={props.drawerItems['campus-life']}
+              />
+               <DrawerItem
+                toggleDrawer={toggleDrawer}
+                expandSubItem={props.expandSubItem}
+                expandItem={props.expandItem}
+                itemId="campus-life"
+                primaryText={t("Kehidupan Lumajang")}
                 submenuItems={campusMenu}
                 isSubOpen={props.drawerSubItems}
                 isOpen={props.drawerItems['campus-life']}
               />
+           
               {/* <Divider /> */}
             </List>
           </div>

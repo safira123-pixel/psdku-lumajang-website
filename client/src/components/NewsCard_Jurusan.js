@@ -14,8 +14,13 @@ const styles = theme => ({
         width: '97%',
         display: "flex",
         flexWrap: "wrap",
-        marginLeft: "5px",
+        // marginLeft: "5px",
+        // marginBottom: "20px",
+        marginLeft: "20px",
+        marginRight: "20px",
         marginBottom: "20px",
+        marginTop:"20px", 
+
         marginTop:"20px",
         [theme.breakpoints.down('sm')]: {
             maxWidth: '100%'
@@ -25,7 +30,7 @@ const styles = theme => ({
         width: '60%',
         display: "flex",
         flexWrap: "wrap",
-        marginLeft: "40px",
+        marginLeft: "200px",
         marginBottom: "20px",
         marginTop:"20px",
         border: `solid 3px #eeeeee`,
@@ -65,6 +70,11 @@ const NewsCard = (props) => {
     const {
         classes,
         profileImg,
+        profileImg1,
+        profileImg2,
+        profileImg3,
+        profileImg4,
+        profileImg5,
         profileName,
         content1,
         content2,
@@ -80,9 +90,7 @@ const NewsCard = (props) => {
                    {profileName}
                 </Typography>
                 </CardContent>
-                <Card className={classes.cardImage}>
-            <BlobImageDisplay blob={profileImg}/>
-                </Card>
+             
             <CardContent>
                 <Typography variant="title" style={{ color: '#051d47', textAlign: "left", marginLeft: '0px', borderBottom: "1px solid #eee", paddingBottom: "7px"}} >
                    {title1}
@@ -102,6 +110,10 @@ const NewsCard = (props) => {
                 <Typography component="p" className={classes.description}>
                     {content3}
                 </Typography>
+                <Card className={classes.cardImage}>
+            {/* <BlobImageDisplay blob={profileImg}/> */}
+            <BlobImageDisplay blobs={[profileImg1, profileImg2, profileImg3, profileImg4, profileImg5]} />
+                </Card>
             </CardContent>
         </Card>
     )

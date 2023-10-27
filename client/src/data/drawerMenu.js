@@ -496,7 +496,34 @@ export const campusMenu = [
     asUrl: '/kuliner_lumajang',
   },
   {
-    text: <Trans i18nKey="transportasi">transportasi Lumajang</Trans>,
+    text: <Trans i18nKey="transportasi">Transportasi Lumajang</Trans>,
+    linkUrl: '/transportasi_lumajang',
+    asUrl: '/transportasi_lumajang'
+  },
+]
+export const psdkuMenu = [
+  {
+    text: <Trans i18nKey="Profil-Kota">Perpustakaan</Trans>,
+    linkUrl: '/profil_lumajang',
+    asUrl: '/profil_lumajang',
+  },
+  {
+    text: <Trans i18nKey="Budaya">Fasilitas Bangunan</Trans>,
+    linkUrl: '/budaya_lumajang',
+    asUrl: '/budaya_lumajang',
+  },
+  {
+    text: <Trans i18nKey="pariwisata">Kantin</Trans>,
+    linkUrl: '/pariwisata_lumajang',
+    asUrl: '/pariwisata_lumajang',
+  },
+  {
+    text: <Trans i18nKey="kuliner">Keamanan</Trans>,
+    linkUrl: '/kuliner_lumajang',
+    asUrl: '/kuliner_lumajang',
+  },
+  {
+    text: <Trans i18nKey="transportasi">Fasilitas Parkir</Trans>,
     linkUrl: '/transportasi_lumajang',
     asUrl: '/transportasi_lumajang'
   },
