@@ -54,11 +54,15 @@ class EditCampusLifeForm extends Component {
                 { required: true, message: "Silahkan pilih kategori campus life" },
               ],
             })(<Select style={{ width: 300 }}>
-              <Select.Option value="Kuliner">Kuliner</Select.Option>
-              <Select.Option value="Pariwisata">Pariwisata</Select.Option>
-              <Select.Option value="Profil Lumajang">Profil Lumajang</Select.Option>
-              <Select.Option value="Penginapan">Penginapan</Select.Option>
-              <Select.Option value="Budaya">Budaya</Select.Option>
+              <Select.Option value="Unit Aktivitas Mahasiswa">Unit Aktivitas Mahasiswa</Select.Option>
+              <Select.Option value="Keamanan">Keamanan</Select.Option>
+              <Select.Option value="Kantin">Kantin</Select.Option>
+              <Select.Option value="Fasilitas Parkir">Fasilitas Parkir</Select.Option>
+              <Select.Option value="Flora dan Fauna">Flora dan Fauna</Select.Option>
+              <Select.Option value="Fasilitas Olahraga">Fasilitas Olahraga</Select.Option>
+              <Select.Option value="Keselamatan dan Kesehatan Kerja">Keselamatan dan Kesehatan Kerja</Select.Option>
+              <Select.Option value="Perpustakaan">Perpustakaan</Select.Option>
+              <Select.Option value="Peta Kampus">Peta Kampus</Select.Option>
             </Select>)}
           </Form.Item>
           <Form.Item label="Deskripsi Kategori:">

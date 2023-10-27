@@ -134,7 +134,7 @@ class Department extends Component {
             bordered
             rowKey="id"
             dataSource={departments}
-            pagination={false}
+            pagination={{ size: 5 }}
           >
             {/* <Column title="ID Jurusan" dataIndex="id" key="id" align="center" /> */}
             <Column title="Nama" dataIndex="name" key="name" align="center" />

@@ -27,6 +27,7 @@ class AddPendaftaranForm extends Component {
     return axios('api/pendaftaran', options);
 
   };
+
   render() {
     const { visible, onCancel, onOk, form, confirmLoading } = this.props;
     const { getFieldDecorator } = form;

@@ -132,7 +132,7 @@ class Pendaftaran extends Component {
             bordered
             rowKey="id"
             dataSource={pendaftarans}
-            pagination={false}
+            pagination={{ pageSize: 5 }}
           >
             {/* <Column title="ID Jalur Penerimaan" dataIndex="id" key="id" align="center" /> */}
             <Column title="Jalur Penerimaan Mahasiswa" dataIndex="name" key="name" align="center" />

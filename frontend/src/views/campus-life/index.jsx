@@ -134,7 +134,7 @@ class CampusLife extends Component {
             bordered
             rowKey="id"
             dataSource={campusLifes}
-            pagination={false}
+            pagination={{ pageSize: 5 }}
           >
             {/* <Column title="ID Jurusan" dataIndex="id" key="id" align="center" /> */}
             <Column title="Nama" dataIndex="name" key="name" align="center" />

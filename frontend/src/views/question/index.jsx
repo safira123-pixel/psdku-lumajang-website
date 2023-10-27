@@ -132,7 +132,7 @@ class Berita extends Component {
             bordered
             rowKey="id"
             dataSource={beritas}
-            pagination={false}
+            pagination={{ pageSize: 5 }}
           >
             {/* <Column title="ID Selayang" dataIndex="id" key="id" align="center" /> */}
             <Column title="Judul" dataIndex="name" key="name" align="center" />

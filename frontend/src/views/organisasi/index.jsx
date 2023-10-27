@@ -133,7 +133,7 @@ class Organisasi extends Component {
             bordered
             rowKey="id"
             dataSource={Organisasis}
-            pagination={false}
+            pagination={{ pageSize: 5 }}
           >
             {/* <Column title="ID Kalender" dataIndex="id" key="id" align="center" />
             <Column title="Judul" dataIndex="fileName" key="name" align="center" /> */}

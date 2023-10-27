@@ -102,7 +102,8 @@ const Login = (props) => {
             </Form.Item>
             <Form.Item>
               <Button
-                type="primary"
+                type="primary" 
+                style={{ background: "#2d2765", borderColor: "#f7e824" }}
                 htmlType="submit"
                 className="login-form-button"
               >
