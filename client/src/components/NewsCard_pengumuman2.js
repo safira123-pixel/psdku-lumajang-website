@@ -111,7 +111,7 @@ const NewsCard = (props) => {
                 profileLink={link3}
                 bgContain/>
             </CardContent>
-                    <Button style={{ backgroundColor: '#051d47', float: 'right' ,color:'white', marginLeft: "810px" }} href="/kegiatan_mahasiswa2" >Pos-Pos Baru</Button>
+                    <Button style={{ backgroundColor: '#051d47', float: 'right' ,color:'white', marginLeft: "810px" }} href="/pengumuman1" >Pos-Pos Baru</Button>
             <Grid container className={classes.Button} style={{justifyContent: "center", margin: 10, padding: 10  }}>
             </Grid>   
         </Card>

@@ -7,20 +7,25 @@ import Layout from '../../components/Layout'
 import TextSection from '../../components/TextSection'
 import withRoot from '../../components/withRoot'
 import SlideShow from '../../components/SlideShow'
-import NewsCard from '../../components/NewsCard'
-import EventsCard from '../../components/EventsCard'
+import NewsCard from '../../components/NewsCard_Pariwisata'
+import NewsCard2 from '../../components/NewsCard_NavBar'
+import NewsCard1 from '../../components/NewsCard_NavBarKalender'
 import { useTranslation, withTranslation } from 'react-i18next'
 import { Button } from '@material-ui/core'
+import Breadcrumb from 'react-bootstrap/Breadcrumb';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import ChatIcon from '../../components/ChatIcon';
 
 const pariwisata_lumajang = (props) => {
     const [data, setData] = useState([]);
     const { classes} = props
     const { t } = useTranslation();
+
     useEffect(() => {
-        fetch('http://localhost:8080/api/pariwisata') // Pastikan URL endpoint sesuai
+        fetch('http://localhost:8080/api/campus_life') // Pastikan URL endpoint sesuai
         .then(response => response.json())
         .then(data => {
-            setData([data.content[0]]);
+            setData([data.content]);
             console.log(data.content);
         })
         .catch(error => {
@@ -29,33 +34,75 @@ const pariwisata_lumajang = (props) => {
     }, []);
 
     return (
+        <div style={{backgroundImage: 'url("/assets/images/bg_polinema1.png")', backgroundRepeat: 'repeat', backgroundSize: 900}}>
         <Layout title="Home">
-            {/* {data.map((item, index) => (
-                        <div key={index}>
-                            <h2>{item.name}</h2>
-                            <h2>{item.description}</h2>
-                        </div>
-                    ))} */}
-
-                    <div style={{ backgroundColor: '#e7e7e7' }}>
-                <div className={classes.section}>
-                    <div className={classes.innerContainer}>
-                        <Typography variant="display2" style={{ color: '#051d47' }} gutterBottom>
-                            {t('Pariwisata Lumajang')}
-                        </Typography>
+              <Card className={classes.card}>
+                    <div className={classes.container}>
+                        <Breadcrumb style={{marginTop:"10px"}}>
+                            <Breadcrumb.Item href="/"> {t('beranda.label')}</Breadcrumb.Item>
+                            <Breadcrumb.Item href="/pariwisata_lumajang"> {t('Kehidupan Kampus')}</Breadcrumb.Item>
+                            <Breadcrumb.Item href="/pariwisata_lumajang"> {t('Pariwisata')}</Breadcrumb.Item>
+                        </Breadcrumb>        
                     </div>
-                </div>
-               </div>
+                </Card>
+                <Grid container className={classes.contentContainer}>
+                    <Grid item className={classes.gridItemFix} xs={12} sm={4} lg={9}>
+                            <NewsCard
+                                 profileName={t('Pariwisata Lumajang')}           
+                                 content1={t('Pariwisata di Lumajang adalah sektor yang berkaitan dengan perjalanan dan kunjungan wisatawan ke daerah Lumajang, Jawa Timur, Indonesia. Lumajang terkenal dengan keindahan alamnya, seperti Gunung Semeru, Pantai Sendang Biru, dan objek wisata lainnya. Sektor pariwisata di Lumajang mencakup berbagai kegiatan seperti petualangan alam, pantai, agrowisata, dan budaya lokal. Pariwisata memiliki peran penting dalam perekonomian daerah ini dengan menciptakan lapangan kerja dan pendapatan bagi penduduk setempat.')}  
+                            />
+                    </Grid>
+                
+                    <Grid item className={classes.gridItemFix} xs={10} sm={4} lg={3}>
+                        <NewsCard1/>
+                            <Grid>                    
+                                <NewsCard2
+                                    profileName= "BERITA TERKINI"
+                                    linkName1={t('> Kegiatan Mentoring 2023')}
+                                    profileLink1="/kegiatan_mahasiswa1"
+                                    linkName2={t('> Kegiatan LDK 2023')}
+                                    profileLink2="/kegiatan_mahasiswa2"
+                                    linkName3={t('> Kegiatan Magang 2023')}
+                                    profileLink3="/kegiatan_mahasiswa3"
+                                />
+                            </Grid>
+                    </Grid>
+                </Grid>
         </Layout>
+        <ChatIcon/>
+        </div>
     )
 }
 
 const styles = theme => ({
-    white: {
-        color: '#fff'
+    container: {
+        marginLeft: "20px"
     },
     card: {
-        width: '100%'
+        width: '97%',
+        display: "flex",
+        flexWrap: "wrap",
+        marginLeft: "20px",
+        marginRight: "20px",
+        marginBottom: "20px",
+        marginTop:"20px", 
+        backgroundColor:"#FFD700",
+        [theme.breakpoints.down('sm')]: {
+            maxWidth: '100%'
+        } 
+    },
+    cardContent: {
+        width: '97%',
+        display: "flex",
+        flexWrap: "wrap",
+        marginLeft: "20px",
+        marginRight: "20px",
+        marginBottom: "20px",
+        marginTop:"20px",
+        [theme.breakpoints.down('sm')]: {
+            maxWidth: '100%'
+        } 
+
     },
     media: {
         minHeight: 280,

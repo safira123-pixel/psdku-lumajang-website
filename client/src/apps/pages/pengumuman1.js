@@ -7,20 +7,25 @@ import Layout from '../../components/Layout'
 import TextSection from '../../components/TextSection'
 import withRoot from '../../components/withRoot'
 import SlideShow from '../../components/SlideShow'
-import NewsCard from '../../components/NewsCard'
+import NewsCard from '../../components/NewsCard_pengumuman1'
 import { useTranslation, withTranslation } from 'react-i18next'
 import { Button } from '@material-ui/core'
+import { Link } from 'react-router-dom'
+import NewsCard2 from '../../components/NewsCard_NavBar'
+import NewsCard1 from '../../components/NewsCard_NavBarKalender'
+import Breadcrumb from 'react-bootstrap/Breadcrumb';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import ChatIcon from '../../components/ChatIcon';
 
 const pengumuman1 = (props) => {
     const [data, setData] = useState([]);
     const { classes} = props
     const { t } = useTranslation();
-
     useEffect(() => {
         fetch('http://localhost:8080/api/berita') // Pastikan URL endpoint sesuai
         .then(response => response.json())
         .then(data => {
-            setData([data.content[0]]);
+            setData([data.content]);
             console.log(data.content);
         })
         .catch(error => {
@@ -29,67 +34,92 @@ const pengumuman1 = (props) => {
     }, []);
 
     return (
+        <div style={{backgroundImage: 'url("/assets/images/bg_polinema1.png")', backgroundRepeat: 'repeat', backgroundSize: 900}}>
         <Layout title="Home">
-            {/* {data.map((item, index) => (
-                        <div key={index}>
-                            <h2>{item.name}</h2>
-                            <h2>{item.description}</h2>
-                        </div>
-                    ))} */}
-<div style={{ backgroundImage: 'url("/assets/images/bg_polinema1.png")', backgroundRepeat: 'repeat', backgroundSize: 900 }}>
-                <div className={classes.section}>
-                    {/* <div className={classes.innerContainer}>
-                        <Typography variant="display2" style={{ color: '#051d47' }} gutterBottom>
-                            {t('Kegiatan Mahasiswa')}
-                        </Typography>
-                    </div> */}
-                </div>
-                <Grid container className={classes.contentContainer} style={{ justifyContent: 'center' }}>
-                    <EventsCard
-                        profileImg="https://franciscan.edu/wp-content/uploads/2023/01/March-for-Life-2022-768x512.jpg"
-                        profileImgTitle="Mantapu Jiwa"
-                        profileType="Alumni Profile"
-                        profileName="Franciscan University President, Students Prepare for First Post-Roe March for Life in Washington, D.C."
-                        content="My choice to say Yes to giving my all even in those trying moments can be attributed to the growth and education I received at Franciscan."
-                        bgContain
-                    />
-
-                    <EventsCard
-                        profileImg="https://franciscan.edu/wp-content/uploads/2023/01/March-for-Life-2022-768x512.jpg"
-                        profileImgTitle="Mantapu Jiwa"
-                        profileType="Alumni Profile"
-                        profileName="Franciscan University President, Students Prepare for First Post-Roe March for Life in Washington, D.C."
-                        content="My choice to say Yes to giving my all even in those trying moments can be attributed to the growth and education I received at Franciscan."
-                        bgContain
-                    />
-
-                    <EventsCard
-                        profileImg="https://franciscan.edu/wp-content/uploads/2023/01/March-for-Life-2022-768x512.jpg"
-                        profileImgTitle="Mantapu Jiwa"
-                        profileType="Alumni Profile"
-                        profileName="Franciscan University President, Students Prepare for First Post-Roe March for Life in Washington, D.C."
-                        content="My choice to say Yes to giving my all even in those trying moments can be attributed to the growth and education I received at Franciscan."
-                        bgContain
-                    />
+              <Card className={classes.card}>
+                    <div className={classes.container}>
+                        <Breadcrumb style={{marginTop:"10px"}}>
+                            <Breadcrumb.Item href="/"> {t('beranda.label')}</Breadcrumb.Item>
+                            <Breadcrumb.Item href="/pengumuman1"> {t('Kegiatan Mahasiswa')}</Breadcrumb.Item>
+                            <Breadcrumb.Item href="/pengumuman1"> {t('Pengumuman')}</Breadcrumb.Item>
+                        </Breadcrumb>        
+                    </div>
+                </Card>
+                <Grid container className={classes.contentContainer}>
+                    <Grid item className={classes.gridItemFix} xs={12} sm={4} lg={9}>
+                        {data.map((item, index) => (
+                            <NewsCard
+                            key={index}
+                            link1={"/item_pengumuman1"}
+                            content1={t("selengkapnya →")}
+                            data1={item[0].data}
+                            nama1={item[0].name}
+                            deskripsi1={item[0].selengkapnya}
+                            link2={"/item_pengumuman2"}
+                            content2={t("selengkapnya →")}
+                            data2={item[1].data}
+                            nama2={item[1].name}
+                            deskripsi2={item[1].selengkapnya}
+                            link3={"/item_pengumuman3"}
+                            content3={t("selengkapnya →")}
+                            data3={item[0].data}
+                            nama3={item[0].name}
+                            deskripsi3={item[0].selengkapnya}
+                            />
+                        ))}
+                    </Grid>
+                
+                    <Grid item className={classes.gridItemFix} xs={10} sm={4} lg={3}>
+                        <NewsCard1/>
+                            <Grid>                    
+                                <NewsCard2
+                                    profileName= "BERITA TERKINI"
+                                    linkName1={t('> Kegiatan Mentoring 2023')}
+                                    profileLink1="/kegiatan_mahasiswa1"
+                                    linkName2={t('> Kegiatan LDK 2023')}
+                                    profileLink2="/kegiatan_mahasiswa2"
+                                    linkName3={t('> Kegiatan Magang 2023')}
+                                    profileLink3="/kegiatan_mahasiswa3"
+                                />
+                            </Grid>
+                    </Grid>      
                 </Grid>
-            <Grid container className={classes.Button} style={{ display: 'block', justifyContent: "center" }}>
-                <div style = {{ backgroundColor: '#e7e7e7', margin: 10, padding: 10 }}>
-                    <Button style={{ backgroundColor: '#051d47', float: 'left',color:'white' }} >Pos-Pos Lama</Button>
-                </div>  
-            </Grid>
-            <Grid container className={classes.Button} style={{justifyContent: "center", margin: 10, padding: 10  }}>
-            </Grid>
-            </div>
         </Layout>
+        <ChatIcon/>
+        </div>
     )
 }
 
 const styles = theme => ({
-    white: {
-        color: '#fff'
+    container: {
+        marginLeft: "20px",
+        display:"flex"
     },
     card: {
-        width: '100%'
+        width: '97%',
+        display: "flex",
+        flexWrap: "wrap",
+        marginLeft: "20px",
+        marginRight: "20px",
+        marginBottom: "20px",
+        marginTop:"20px", 
+        backgroundColor:"#FFD700",
+        [theme.breakpoints.down('sm')]: {
+            maxWidth: '100%'
+        } 
+    },
+    cardContent: {
+        width: '97%',
+        display: "flex",
+        flexWrap: "wrap",
+        marginLeft: "20px",
+        marginRight: "20px",
+        marginBottom: "20px",
+        marginTop:"20px",
+        [theme.breakpoints.down('sm')]: {
+            maxWidth: '100%'
+        } 
+
     },
     media: {
         minHeight: 280,

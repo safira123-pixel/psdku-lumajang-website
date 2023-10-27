@@ -7,16 +7,30 @@ import Layout from '../../components/Layout'
 import TextSection from '../../components/TextSection'
 import withRoot from '../../components/withRoot'
 import SlideShow from '../../components/SlideShow'
-import NewsCard from '../../components/NewsCard'
+import NewsCard from '../../components/NewsCard_Home'
 import { withTranslation } from 'react-i18next'
 import { Button } from '@material-ui/core'
 import { useTranslation } from 'react-i18next'
 import MarqueeText from '../../components/MarqueeText'
 import ChatIcon from '../../components/ChatIcon'
+import { useEffect, useState } from 'react'
+
 
 const HomePage = (props) => {
+    const [data, setData] = useState([]);
     const { classes} = props
     const { t } = useTranslation();
+    useEffect(() => {
+        fetch('http://localhost:8080/api/berita') // Pastikan URL endpoint sesuai
+        .then(response => response.json())
+        .then(data => {
+            setData([data.content]);
+            console.log(data.content);
+        })
+        .catch(error => {
+            console.error(error);
+        });
+    }, []);
     return (
         <Layout title="Home" >
             <MarqueeText/>
@@ -28,9 +42,11 @@ const HomePage = (props) => {
                 borderColor="#998643"
                 padding="12px 0"
                 darkBg={true}
+                
             />
+            {/* <NewsCardCounter profileName={t('Pengunjung')}  /> */}
 
-            <div style={{backgroundImage: 'url("/assets/images/background.jpeg")', backgroundRepeat: 'repeat', backgroundSize: 400}}>
+            <div style={{backgroundImage: 'url("/assets/images/bg_polinema2.png")', backgroundRepeat: 'repeat', backgroundSize: 500}}>
             <Grid container className={classes.contentContainer}>
                 <Grid item className={classes.gridItemFix} xs={12}>
                     <Typography
@@ -54,7 +70,7 @@ const HomePage = (props) => {
             </Grid>
             </div>
 
-            <div className={classes.containerSection} style={{backgroundImage: 'url("/assets/images/background.jpeg")', backgroundRepeat: 'repeat', backgroundSize: 400}}>
+            <div className={classes.containerSection} style={{backgroundImage: 'url("/assets/images/bg_polinema2.png")', backgroundRepeat: 'repeat', backgroundSize: 500}}>
                 <div className={classes.section}>
                     <div className={classes.innerContainer}>
                         <Typography variant="display2" style={{ color: '#051d47' }} gutterBottom>
@@ -64,41 +80,50 @@ const HomePage = (props) => {
                 </div>
                 <Grid container className={classes.contentContainer}>
                     <Grid item className={classes.gridItemFix} xs={12} sm={4} lg={4}>
+                    {data.map((item, index) => (
                         <NewsCard
-                            profileImg="https://franciscan.edu/wp-content/uploads/2023/01/March-for-Life-2022-768x512.jpg"
-                            profileImgTitle="Mantapu Jiwa"
-                            profileType="Alumni Profile"
-                            profileName="Franciscan University President, Students Prepare for First Post-Roe March for Life in Washington, D.C."
-                            content="My choice to say Yes to giving my all even in those trying moments can be attributed to the growth and education I received at Franciscan."
+                            key={index}
+                            Img={item[0].data}
+                            profileName={item[0].name}
+                            content={item[0].selengkapnya}
+                            profileLink={"/item_pengumuman1"}
+                            link={t("selengkapnya →")}
                             bgContain
                         />
+                    ))}
                     </Grid>
 
                     <Grid item className={classes.gridItemFix} xs={12} sm={4} lg={4}>
+                    {data.map((item, index) => (
                         <NewsCard
-                            profileImg="https://franciscan.edu/wp-content/uploads/2023/01/March-for-Life-2022-768x512.jpg"
-                            profileImgTitle="Franciscan University President, Students Prepare for First Post-Roe March for Life in Washington, D.C."
-                            profileType="Alumni Profile"
-                            profileName="Franciscan University President, Students Prepare for First Post-Roe March for Life in Washington, D.C."
-                            content="My choice to say Yes to giving my all even in those trying moments can be attributed to the growth and education I received at Franciscan."
-                            bgContain
+                           key={index}
+                           Img={item[1].data}
+                           profileName={item[1].name}
+                           content={item[1].selengkapnya}
+                           profileLink={"/item_pengumuman1"}
+                           link={t("selengkapnya →")}
+                           bgContain
                         />
+                    ))}
                     </Grid>
 
                     <Grid item className={classes.gridItemFix} xs={12} sm={4} lg={4}>
+                    {data.map((item, index) => (
                         <NewsCard
-                            profileImg="https://franciscan.edu/wp-content/uploads/2023/01/March-for-Life-2022-768x512.jpg"
-                            profileImgTitle="Franciscan University President, Students Prepare for First Post-Roe March for Life in Washington, D.C."
-                            profileType="Alumni Profile"
-                            profileName="Franciscan University President, Students Prepare for First Post-Roe March for Life in Washington, D.C."
-                            content="My choice to say Yes to giving my all even in those trying moments can be attributed to the growth and education I received at Franciscan."
-                            bgContain
+                           key={index}
+                           Img={item[1].data}
+                           profileName={item[1].name}
+                           content={item[1].selengkapnya}
+                           profileLink={"/item_pengumuman1"}
+                           link={t("selengkapnya →")}
+                           bgContain
                         />
+                    ))}
                     </Grid>
                 </Grid>
 
                 <div style={{ textAlign: 'center', padding: 20 }}>
-                    <Button style={{ backgroundColor: '#fbb555', fontWeight: 'bold' }} >View All News Item</Button>
+                    <Button style={{ backgroundColor: '#fbb555', fontWeight: 'bold' }} href="/pengumuman" >{t("Tampilkan Berita")}</Button>
                 </div>
             </div>
             

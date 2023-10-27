@@ -9,6 +9,7 @@ import React, { Component, Fragment } from 'react'
 import { BlobImageDisplay } from "../apps/pages/BlobImageDisplay7";
 import EventsCard from './EventsCard_kegiatanMahasiswa'
 import Grid from '@material-ui/core/Grid'
+import NewsCard_pengumuman1 from './NewsCard_pengumuman1'
 
 
 
@@ -64,7 +65,7 @@ const styles = theme => ({
     }
 })
 
-const NewsCard = (props) => {
+const NewsCard_pengumuman = (props) => {
     const {
         classes,
         profileImg1,
@@ -111,11 +112,11 @@ const NewsCard = (props) => {
                 profileLink={link3}
                 bgContain/>
             </CardContent>
-                    <Button style={{ backgroundColor: '#051d47', float: 'right' ,color:'white', marginLeft: "810px" }} href="/kegiatan_mahasiswa2" >Pos-Pos Baru</Button>
+                <Button style={{ backgroundColor: '#051d47', float: 'left',color:'white', marginLeft: "70px" }}  href="/pengumuman1" >Pos-Pos Lama</Button>
             <Grid container className={classes.Button} style={{justifyContent: "center", margin: 10, padding: 10  }}>
             </Grid>   
         </Card>
     )
 }
 
-export default withStyles(styles)(NewsCard)
+export default withStyles(styles)(NewsCard_pengumuman)

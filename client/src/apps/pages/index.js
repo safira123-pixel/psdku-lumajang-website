@@ -15,13 +15,18 @@ import kegiatan_mahasiswa from './kegiatan_mahasiswa'
 import kegiatan_mahasiswa2 from './kegiatan_mahasiswa2'
 import kegiatan_mahasiswa3 from './kegiatan_mahasiswa3'
 import item_kegiatan1 from './item_kegiatan1'
+import item_kegiatan2 from './item_kegiatan2'
+import item_kegiatan3 from './item_kegiatan3'
 import pengumuman from './pengumuman'
-import pengumuman1 from './pengumuman'
-import pengumuman2 from './pengumuman'
+import pengumuman1 from './pengumuman1'
+import pengumuman2 from './pengumuman2'
+import item_pengumuman1 from './item_pengumuman1'
+import item_pengumuman2 from './item_pengumuman2'
+import item_pengumuman3 from './item_pengumuman3'
 import profil_lumajang from './profil_lumajang'
 import pariwisata_lumajang from './pariwisata_lumajang'
 import kuliner_lumajang from './kuliner_lumajang'
-import penginapan_lumajang from './penginapan_lumajang'
+import transportasi_lumajang from './transportasi_lumajang'
 import budaya_lumajang from './budaya_lumajang'
 
 export {
@@ -42,6 +47,11 @@ export {
     kegiatan_mahasiswa2,
     kegiatan_mahasiswa3,
     item_kegiatan1,
+    item_kegiatan2,
+    item_kegiatan3,
+    item_pengumuman1,
+    item_pengumuman2,
+    item_pengumuman3,
     pengumuman,
     pengumuman1,
     pengumuman2,
@@ -49,6 +59,6 @@ export {
     pariwisata_lumajang,
     budaya_lumajang,
     kuliner_lumajang,
-    penginapan_lumajang
+    transportasi_lumajang
 
 }

@@ -7,32 +7,19 @@ import Layout from '../../components/Layout'
 import TextSection from '../../components/TextSection'
 import withRoot from '../../components/withRoot'
 import SlideShow from '../../components/SlideShow'
-import NewsCard from '../../components/NewsCard_pengumuman2'
-import { useTranslation, withTranslation } from 'react-i18next'
-import { Button } from '@material-ui/core'
-import { Link } from 'react-router-dom'
+import NewsCard from '../../components/NewsCard_Kuliner'
 import NewsCard2 from '../../components/NewsCard_NavBar'
 import NewsCard1 from '../../components/NewsCard_NavBarKalender'
+import { useTranslation, withTranslation } from 'react-i18next'
+import { Button } from '@material-ui/core'
 import Breadcrumb from 'react-bootstrap/Breadcrumb';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ChatIcon from '../../components/ChatIcon';
-// import { BlobImageDisplay } from "../../components/BlobImageDisplay";
 
-const pengumuman2 = (props) => {
+const transportasi_lumajang = (props) => {
     const [data, setData] = useState([]);
     const { classes} = props
     const { t } = useTranslation();
-    useEffect(() => {
-        fetch('http://localhost:8080/api/berita') // Pastikan URL endpoint sesuai
-        .then(response => response.json())
-        .then(data => {
-            setData([data.content]);
-            console.log(data.content);
-        })
-        .catch(error => {
-            console.error(error);
-        });
-    }, []);
 
     return (
         <div style={{backgroundImage: 'url("/assets/images/bg_polinema1.png")', backgroundRepeat: 'repeat', backgroundSize: 900}}>
@@ -41,33 +28,52 @@ const pengumuman2 = (props) => {
                     <div className={classes.container}>
                         <Breadcrumb style={{marginTop:"10px"}}>
                             <Breadcrumb.Item href="/"> {t('beranda.label')}</Breadcrumb.Item>
-                            <Breadcrumb.Item href="/pengumuman3"> {t('Kegiatan Mahasiswa')}</Breadcrumb.Item>
-                            <Breadcrumb.Item href="/pengumuman3"> {t('Pengumuman')}</Breadcrumb.Item>
+                            <Breadcrumb.Item href="/kuliner_lumajang"> {t('Kehidupan Lumajang')}</Breadcrumb.Item>
+                            <Breadcrumb.Item active href="/kuliner_lumajang"> {t('Kuliner Lumajang')}</Breadcrumb.Item>
                         </Breadcrumb>        
                     </div>
                 </Card>
                 <Grid container className={classes.contentContainer}>
                     <Grid item className={classes.gridItemFix} xs={12} sm={4} lg={9}>
-                        {data.map((item, index) => (
                             <NewsCard
-                            key={index}
-                                 link1={"/item_pengumuman1"}
-                                 content1={t("selengkapnya →")}
-                                 data1={item[0].data}
-                                 nama1={item[0].name}
-                                 deskripsi1={item[0].selengkapnya}
-                                 link2={"/item_pengumuman2"}
-                                 content2={t("selengkapnya →")}
-                                 data2={item[1].data}
-                                 nama2={item[1].name}
-                                 deskripsi2={item[1].selengkapnya}
-                                 link3={"/item_pengumuman3"}
-                                 content3={t("selengkapnya →")}
-                                 data3={item[0].data}
-                                 nama3={item[0].name}
-                                 deskripsi3={item[0].selengkapnya}
+                                 profileName={t('Kuliner Khas Lumajang')}
+                                 description1={("Lumajang adalah daerah yang mempunyai ciri khas yaitu, sering dijuluki sebagai “kota pisang” karena terkenal dengan produksi pisang yang besar dan berkualitas. Selain itu, Lumajang juga populer dan terkenal dengan keanekaragaman kue tradisionalnya. Bukan hanya makanan utamanya saja, tetapi juga kue-kue tradisionalnya yang memiliki cita rasa khas dan unik.")}
+                                 name={t('Nama')}
+                                 image={t('Gambar')}
+                                 link={t('Link Sumber')}
+                                 no={t('No')}
+
+                                 profileName1={t('Kuliner Khas Lumajang')}
+                                 nomor1={"1"}
+                                 content1={("Kue Latok")}
+                                 profileImg1={"/assets/images/peta.jpg"}
+                                 link1={"https://www.wartabromo.com/2023/07/26/kue-tradisional-khas-lumajang/"}
+
+                                 nomor2={"2"}
+                                 content2={("Kue Lupis")}
+                                 profileImg2={"/assets/images/peta.jpg"}
+                                 link2={"/#"}
+
+                                 nomor3={"3"}
+                                 content3={("Ketan Koro")}
+                                 profileImg3={"/assets/images/peta.jpg"}
+                                 link3={"https://www.wartabromo.com/2023/07/26/kue-tradisional-khas-lumajang/"}
+
+                                 nomor4={"4"}
+                                 content4={("Bledus")}
+                                 profileImg4={"/assets/images/peta.jpg"}
+                                 link4={"/#"}
+
+                                 nomor5={"5"}
+                                 content5={("Tape Pisang")}
+                                 profileImg5={"/assets/images/peta.jpg"}
+                                 link5={"/#"}
+
+                                 nomor6={"6"}
+                                 content6={("Kripik Pisang")}
+                                 profileImg6={"/assets/images/peta.jpg"}
+                                 link6={"/#"}
                             />
-                        ))}
                     </Grid>
                 
                     <Grid item className={classes.gridItemFix} xs={10} sm={4} lg={3}>
@@ -83,7 +89,7 @@ const pengumuman2 = (props) => {
                                     profileLink3="/kegiatan_mahasiswa3"
                                 />
                             </Grid>
-                    </Grid>      
+                    </Grid>
                 </Grid>
         </Layout>
         <ChatIcon/>
@@ -220,4 +226,4 @@ const styles = theme => ({
     }
 })
 
-export default withRoot(withStyles(styles)(withTranslation()(pengumuman2)))
+export default withRoot(withStyles(styles)(withTranslation()(transportasi_lumajang)))

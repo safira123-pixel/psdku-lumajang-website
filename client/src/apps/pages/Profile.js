@@ -9,6 +9,7 @@ import withRoot from '../../components/withRoot'
 import SlideShow from '../../components/SlideShow'
 import NewsCard from '../../components/NewsCard_Profil'
 import NewsCard2 from '../../components/NewsCard_NavBar'
+import NewsCard3 from '../../components/NewsCard_MenuNav'
 import NewsCard1 from '../../components/NewsCard_NavBarKalender'
 import { useTranslation, withTranslation } from 'react-i18next'
 import { Button } from '@material-ui/core'
@@ -43,7 +44,7 @@ const Profile = (props) => {
                         <Breadcrumb style={{marginTop:"10px"}}>
                             <Breadcrumb.Item href="/"> {t('beranda.label')}</Breadcrumb.Item>
                             <Breadcrumb.Item href="/profile"> {t('Profil')}</Breadcrumb.Item>
-                            <Breadcrumb.Item href="/profile"> {t('Profil')}</Breadcrumb.Item>
+                            <Breadcrumb.Item href="/profile"> {t('Profil Kampus')}</Breadcrumb.Item>
                         </Breadcrumb>        
                     </div>
                 </Card>
@@ -82,6 +83,17 @@ const Profile = (props) => {
                                     profileLink2="/kegiatan_mahasiswa2"
                                     linkName3={t('> Kegiatan Magang 2023')}
                                     profileLink3="/kegiatan_mahasiswa3"
+                                />
+                            </Grid>
+                            <Grid>                    
+                                <NewsCard3
+                                    profileName= "MENU NAVIGASI"
+                                    linkName1={t('Profil Kampus')}
+                                    profileLink1="/profile"
+                                    linkName2={t('Selayang Pandang')}
+                                    profileLink2="/selayang_pandang"
+                                    linkName3={t('Struktur Organisasi')}
+                                    profileLink3="/struktur_organisasi"
                                 />
                             </Grid>
                     </Grid>

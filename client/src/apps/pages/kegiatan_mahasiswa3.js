@@ -50,23 +50,23 @@ const kegiatan_mahasiswa3 = (props) => {
                     <Grid item className={classes.gridItemFix} xs={12} sm={4} lg={9}>
                         {data.map((item, index) => (
                             <NewsCard
-                                 key={index}
-                                 profileName={t('Kegiatan mahasiswa')} 
-                                 link1={"/item_kegiatan1"}
-                                 content1={t("Selengkapnya")}
-                                 data1={item[0].data}
-                                 nama1={item[0].name}
-                                 deskripsi1={item[0].description}
-                                 link2={"/item_kegiatan1"}
-                                 content2={t("Selengkapnya")}
-                                 data2={item[0].data}
-                                 nama2={item[0].name}
-                                 deskripsi2={item[0].description}
-                                 link3={"/item_kegiatan1"}
-                                 content3={t("Selengkapnya")}
-                                 data3={item[0].data}
-                                 nama3={item[0].name}
-                                 deskripsi3={item[0].description}
+                            key={index}
+                            profileName={t('Kegiatan mahasiswa')} 
+                            link1={"/item_kegiatan1"}
+                            content1={t("Selengkapnya")}
+                            data1={item[0].data}
+                            nama1={item[0].name}
+                            deskripsi1={item[0].selengkapnya}
+                            link2={"/item_kegiatan2"}
+                            content2={t("Selengkapnya")}
+                            data2={item[1].data}
+                            nama2={item[1].name}
+                            deskripsi2={item[1].selengkapnya}
+                            link3={"/item_kegiatan3"}
+                            content3={t("Selengkapnya")}
+                            data3={item[2].data}
+                            nama3={item[2].name}
+                            deskripsi3={item[2].selengkapnya}
                             />
                         ))}
                     </Grid>

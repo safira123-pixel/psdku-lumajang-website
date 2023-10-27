@@ -6,28 +6,40 @@ import { withStyles } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
 import { Link } from 'react-router-dom'
 import React, { Component, Fragment } from 'react'
-import { BlobImageDisplay } from "../apps/pages/BlobImageDisplay3";
+import { BlobImageDisplay } from "../apps/pages/BlobImageDisplay5";
+import Breadcrumb from 'react-bootstrap/Breadcrumb';
+import Counter from './counter'
 
 
 const styles = theme => ({
     card: {
-        width: '97%',
+        width: '100%',
+        height: "20%",
         display: "flex",
         flexWrap: "wrap",
-        marginLeft: "5px",
-        marginBottom: "20px",
-        marginTop:"20px",
+        color:"#051d47",
+        borderColor:"#998643",
+        padding:"12px 0",
+        textAlign:"center",
         [theme.breakpoints.down('sm')]: {
             maxWidth: '100%'
         } 
     },
-    cardImage: {
-        width: '60%',
+    breadcrumb: {
+        width: '70%',
         display: "flex",
         flexWrap: "wrap",
-        marginLeft: "40px",
-        marginBottom: "20px",
+        marginLeft: "20px",
+    },
+    cardImage: {
+        width: '80%',
+        display: "flex",
+        flexWrap: "wrap",
+        textAlign:"center",
+        marginLeft: "70px",
+        marginBottom: "40px",
         marginTop:"20px",
+
         border: `solid 3px #eeeeee`,
         borderRadius:"5",
         boxShadow:'5px 5px 5px #999DA0',
@@ -66,28 +78,20 @@ const NewsCard = (props) => {
         classes,
         profileImg,
         profileName,
-        content1,
-        content2,
-        content3,
-        title1,
-        title2,
-        title3,
+        linkName,
+        profileLink,
     } = props
     return (
         <Card className={classes.card}>
              <CardContent>
-                <Typography variant="display2" style={{ color: '#051d47', textAlign: "left", marginLeft: '0px', borderBottom: "2px solid #eee", paddingBottom: "7px" }} gutterBottom>
+             <img
+                src={profileImg}
+                style={{ width: '100%' }}/>
+                <Counter/>
+                <Typography variant="headline" style={{ color: '#fff', textAlign: "center", marginLeft: '0px' }} gutterBottom>
                    {profileName}
                 </Typography>
                 </CardContent>
-            <Card className={classes.cardImage}>
-                <BlobImageDisplay blob={profileImg}/>
-            </Card>
-            <CardContent>
-                <Typography component="h2" className={classes.description}>
-                    {content1}
-                </Typography>
-            </CardContent>
         </Card>
     )
 }

@@ -7,55 +7,138 @@ import Layout from '../../components/Layout'
 import TextSection from '../../components/TextSection'
 import withRoot from '../../components/withRoot'
 import SlideShow from '../../components/SlideShow'
-import NewsCard from '../../components/NewsCard'
-import EventsCard from '../../components/EventsCard'
+import NewsCard from '../../components/NewsCard_Kuliner'
+import NewsCard2 from '../../components/NewsCard_NavBar'
+import NewsCard1 from '../../components/NewsCard_NavBarKalender'
 import { useTranslation, withTranslation } from 'react-i18next'
 import { Button } from '@material-ui/core'
+import Breadcrumb from 'react-bootstrap/Breadcrumb';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import ChatIcon from '../../components/ChatIcon';
 
 const kuliner_lumajang = (props) => {
     const [data, setData] = useState([]);
     const { classes} = props
     const { t } = useTranslation();
-    useEffect(() => {
-        fetch('http://localhost:8080/api/kuliner') // Pastikan URL endpoint sesuai
-        .then(response => response.json())
-        .then(data => {
-            setData([data.content[0]]);
-            console.log(data.content);
-        })
-        .catch(error => {
-            console.error(error);
-        });
-    }, []);
+
+    // useEffect(() => {
+    //     fetch('http://localhost:8080/api/campus_life') // Pastikan URL endpoint sesuai
+    //     .then(response => response.json())
+    //     .then(data => {
+    //         setData([data.content]);
+    //         console.log(data.content);
+    //     })
+    //     .catch(error => {
+    //         console.error(error);
+    //     });
+    // }, []);
 
     return (
+        <div style={{backgroundImage: 'url("/assets/images/bg_polinema1.png")', backgroundRepeat: 'repeat', backgroundSize: 900}}>
         <Layout title="Home">
-            {/* {data.map((item, index) => (
-                        <div key={index}>
-                            <h2>{item.name}</h2>
-                            <h2>{item.description}</h2>
-                        </div>
-                    ))} */}
-
-                    <div style={{ backgroundColor: '#e7e7e7' }}>
-                <div className={classes.section}>
-                    <div className={classes.innerContainer}>
-                        <Typography variant="display2" style={{ color: '#051d47' }} gutterBottom>
-                            {t('Kuliner Khas Lumajang')}
-                        </Typography>
+              <Card className={classes.card}>
+                    <div className={classes.container}>
+                        <Breadcrumb style={{marginTop:"10px"}}>
+                            <Breadcrumb.Item href="/"> {t('beranda.label')}</Breadcrumb.Item>
+                            <Breadcrumb.Item href="/kuliner_lumajang"> {t('Kehidupan Lumajang')}</Breadcrumb.Item>
+                            <Breadcrumb.Item active href="/kuliner_lumajang"> {t('Kuliner Lumajang')}</Breadcrumb.Item>
+                        </Breadcrumb>        
                     </div>
-                </div>
-               </div>
+                </Card>
+                <Grid container className={classes.contentContainer}>
+                    <Grid item className={classes.gridItemFix} xs={12} sm={4} lg={9}>
+                            <NewsCard
+                                 profileName={t('Kuliner Khas Lumajang')}
+                                 description1={("Lumajang adalah daerah yang mempunyai ciri khas yaitu, sering dijuluki sebagai “kota pisang” karena terkenal dengan produksi pisang yang besar dan berkualitas. Selain itu, Lumajang juga populer dan terkenal dengan keanekaragaman kue tradisionalnya. Bukan hanya makanan utamanya saja, tetapi juga kue-kue tradisionalnya yang memiliki cita rasa khas dan unik.")}
+                                 name={t('Nama')}
+                                 image={t('Gambar')}
+                                 link={t('Link Sumber')}
+                                 no={t('No')}
+
+                                 profileName1={t('Kuliner Khas Lumajang')}
+                                 nomor1={"1"}
+                                 content1={("Kue Latok")}
+                                 profileImg1={"/assets/images/peta.jpg"}
+                                 link1={"https://www.wartabromo.com/2023/07/26/kue-tradisional-khas-lumajang/"}
+
+                                 nomor2={"2"}
+                                 content2={("Kue Lupis")}
+                                 profileImg2={"/assets/images/peta.jpg"}
+                                 link2={"/#"}
+
+                                 nomor3={"3"}
+                                 content3={("Ketan Koro")}
+                                 profileImg3={"/assets/images/peta.jpg"}
+                                 link3={"https://www.wartabromo.com/2023/07/26/kue-tradisional-khas-lumajang/"}
+
+                                 nomor4={"4"}
+                                 content4={("Bledus")}
+                                 profileImg4={"/assets/images/peta.jpg"}
+                                 link4={"/#"}
+
+                                 nomor5={"5"}
+                                 content5={("Tape Pisang")}
+                                 profileImg5={"/assets/images/peta.jpg"}
+                                 link5={"/#"}
+
+                                 nomor6={"6"}
+                                 content6={("Kripik Pisang")}
+                                 profileImg6={"/assets/images/peta.jpg"}
+                                 link6={"/#"}
+                            />
+                    </Grid>
+                
+                    <Grid item className={classes.gridItemFix} xs={10} sm={4} lg={3}>
+                        <NewsCard1/>
+                            <Grid>                    
+                                <NewsCard2
+                                    profileName= "BERITA TERKINI"
+                                    linkName1={t('> Kegiatan Mentoring 2023')}
+                                    profileLink1="/kegiatan_mahasiswa1"
+                                    linkName2={t('> Kegiatan LDK 2023')}
+                                    profileLink2="/kegiatan_mahasiswa2"
+                                    linkName3={t('> Kegiatan Magang 2023')}
+                                    profileLink3="/kegiatan_mahasiswa3"
+                                />
+                            </Grid>
+                    </Grid>
+                </Grid>
         </Layout>
+        <ChatIcon/>
+        </div>
     )
 }
 
 const styles = theme => ({
-    white: {
-        color: '#fff'
+    container: {
+        marginLeft: "20px",
+        display:"flex"
     },
     card: {
-        width: '100%'
+        width: '97%',
+        display: "flex",
+        flexWrap: "wrap",
+        marginLeft: "20px",
+        marginRight: "20px",
+        marginBottom: "20px",
+        marginTop:"20px", 
+        backgroundColor:"#FFD700",
+        [theme.breakpoints.down('sm')]: {
+            maxWidth: '100%'
+        } 
+    },
+    cardContent: {
+        width: '97%',
+        display: "flex",
+        flexWrap: "wrap",
+        marginLeft: "20px",
+        marginRight: "20px",
+        marginBottom: "20px",
+        marginTop:"20px",
+        [theme.breakpoints.down('sm')]: {
+            maxWidth: '100%'
+        } 
+
     },
     media: {
         minHeight: 280,

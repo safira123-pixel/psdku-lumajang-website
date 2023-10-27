@@ -40,8 +40,8 @@ const profil_lumajang = (props) => {
                     <div className={classes.container}>
                         <Breadcrumb style={{marginTop:"10px"}}>
                             <Breadcrumb.Item href="/"> {t('beranda.label')}</Breadcrumb.Item>
-                            <Breadcrumb.Item href="/profile"> {t('Profil')}</Breadcrumb.Item>
-                            <Breadcrumb.Item href="/profile"> {t('Profil')}</Breadcrumb.Item>
+                            <Breadcrumb.Item href="/profile_lumajang"> {t('Kehidupan Kampus')}</Breadcrumb.Item>
+                            <Breadcrumb.Item href="/profile_lumajang"> {t('Profil Kota')}</Breadcrumb.Item>
                         </Breadcrumb>        
                     </div>
                 </Card>
@@ -50,7 +50,22 @@ const profil_lumajang = (props) => {
                         {data.map((item, index) => (
                             <NewsCard
                                  key={index}
-                                 profileName={t('Profil')} 
+                                 profileName={t('Profil Kota Lumajang')}
+                                 profileName1={t('Profil Kota')}
+                                 profileImg={"/assets/images/peta.jpg"}
+                                 content1={("Lumajang (Hanacaraka: ꦭꦸꦩꦗꦁ, Pegon: لوماجاڠ, Bahasa Jawa: Lumajâng) adalah sebuah kabupaten di Provinsi Jawa Timur, Indonesia. Ibu kotanya adalah Kecamatan Lumajang Kota. Kabupaten ini berbatasan dengan Kabupaten Probolinggo di utara, Kabupaten Jember di timur, Samudra Hindia di selatan, serta Kabupaten Malang di barat. Kabupaten Lumajang merupakan bagian dari wilayah Tapal Kuda Jawa Timur.")}
+                                 content2={("Kabupaten Lumajang terletak pada 112°53'–113°23' Bujur Timur dan 7°54'–8°23' Lintang Selatan. Luas wilayah keseluruhan Kabupaten Lumajang adalah 1790,90 km2. Kabupaten Lumajang terdiri dari dataran yang subur karena diapit oleh tiga gunung berapi yaitu:")}
+                                 content3={("1. Gunung Semeru (3.676 m)")}
+                                 content4={("2.	Gunung Bromo (2.329 m)")}
+                                 content5={("3.	Gunung Lemongan (1.651 m)")}
+                                 content6={("Penduduk Kabupaten Lumajang umumnya adalah suku Jawa dan Suku Madura Pendalungan, dan agama mayoritas adalah Islam. Di Pegunungan Tengger Kecamatan Senduro (terutama di daerah Ranupane, Argosari, dan sekitarnya), terdapat masyarakat Tengger yang termasuk sub-suku Jawa yang memiliki bahasa khas dan beragama Hindu.")}
+                                 profileName2={t('Sejarah Kota Lumajang')}
+                                 profileImg2={"/assets/images/sejarah.jpg"}
+                                 content8={("Prasasti Mula Malurung merupakan prasasti tertua yang mencatat keberadaan 'Nagara Lamajang' dan dianggap sebagai titik tolak hari jadi Lumajang. Prasasti ini ditemukan di Kediri pada tahun 1975 dan diterbitkan oleh Raja Kertanegara dari Singasari pada tahun 1177 Saka (setara dengan 1255 Masehi). Pada tanggal 15 Desember 1255 Masehi, Lumajang dianggap sudah merupakan sebuah negara yang berpenduduk dengan pemerintahan yang teratur.")}
+                                 content9={("Sejarah Lumajang juga terkait dengan tokoh Aria Wiraraja yang mendukung Raden Wijaya dalam mendirikan Kerajaan Majapahit. Setelah Kerajaan Majapahit runtuh, wilayah Lumajang masuk pada masa pemerintahan kerajaan Blambangan dan kemudian dikuasai oleh keluarga Untung Suropati.")}
+                                 content10={("Pada masa penjajahan Belanda, Lumajang awalnya merupakan bagian dari Pasuruan dan Probolinggo. Pada tahun 1882, Lumajang diangkat menjadi Afdeeling (setingkat kabupaten), dan pada tahun 1929, statusnya ditingkatkan menjadi Kabupaten.")}
+
+
                             />
                         ))}
                     </Grid>

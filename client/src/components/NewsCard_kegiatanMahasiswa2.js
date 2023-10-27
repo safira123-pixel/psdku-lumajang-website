@@ -88,11 +88,6 @@ const NewsCard = (props) => {
     } = props
     return (
         <Card className={classes.card}>
-             <CardContent>
-                <Typography variant="display2" style={{ color: '#051d47', textAlign: "left", marginLeft: '0px', borderBottom: "2px solid #eee", paddingBottom: "7px" }} gutterBottom>
-                   {profileName}
-                </Typography>
-                </CardContent>
             <CardContent>
                 <EventsCard
                 profileImg={data1}
@@ -116,10 +111,8 @@ const NewsCard = (props) => {
                 profileLink={link3}
                 bgContain/>
             </CardContent>
-                <div style = {{ backgroundColor: '#e7e7e7', margin: 10, padding: 10 }}>
-                    <Button style={{ backgroundColor: '#051d47', float: 'right' ,color:'white' }} href="/kegiatan_mahasiswa" >Pos-Pos Baru</Button>
-                    <Button style={{ backgroundColor: '#051d47', float: 'left',color:'white' }}  href="/kegiatan_mahasiswa3" >Pos-Pos Lama</Button>
-                </div>  
+                <Button style={{ backgroundColor: '#051d47', float: 'left',color:'white', marginLeft: "70px" }}  href="/kegiatan_mahasiswa3" >Pos-Pos Lama</Button>
+                    <Button style={{ backgroundColor: '#051d47', float: 'right' ,color:'white', marginLeft: "580px" }} href="/kegiatan_mahasiswa" >Pos-Pos Baru</Button>
             <Grid container className={classes.Button} style={{justifyContent: "center", margin: 10, padding: 10  }}>
             </Grid>   
         </Card>

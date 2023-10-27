@@ -6,7 +6,7 @@ import { withStyles } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
 import { Link } from 'react-router-dom'
 import React, { Component, Fragment } from 'react'
-import { BlobImageDisplay } from "../apps/pages/BlobImageDisplay7";
+// import { BlobImageDisplay } from "../apps/pages/BlobImageDisplay7";
 
 
 const styles = theme => ({
@@ -22,10 +22,25 @@ const styles = theme => ({
         } 
     },
     cardImage: {
-        width: '52%',
+        width: '90%',
         display: "flex",
         flexWrap: "wrap",
-        marginLeft: "40px",
+        marginLeft: "20px",
+        marginBottom: "20px",
+        marginTop:"10px",
+        border: `solid 3px #eeeeee`,
+        borderRadius:"5",
+        boxShadow:'5px 5px 5px #999DA0',
+        [theme.breakpoints.down('sm')]: {
+            maxWidth: '100%'
+        } 
+    },
+    cardImage2: {
+        display: "flex",
+        flexWrap: "wrap",
+        marginLeft: "20px",
+        marginRight: "150px",
+
         marginBottom: "20px",
         marginTop:"10px",
         border: `solid 3px #eeeeee`,
@@ -64,9 +79,11 @@ const styles = theme => ({
 const NewsCard = (props) => {
     const {
         classes,
-        profileImg1,
+        profileImg,
         profileImg2,
-        profileName,
+        profileName,        
+        profileName1,
+        profileName2,
         content1,
         content2,
         content3,
@@ -78,14 +95,26 @@ const NewsCard = (props) => {
         content9,
         content10,
         content11,
-        content12
+        content12,
+        content13
     } = props
     return (
         <Card className={classes.card}>
              <CardContent>
-                <Typography variant="display2" style={{ color: '#051d47', textAlign: "left", marginLeft: '0px', borderBottom: "2px solid #eee", paddingBottom: "7px" }} gutterBottom>
+                <Typography variant="display2" style={{ color: '#051d47', textAlign: "left", marginLeft: '0px', marginBottom:"10px", borderBottom: "2px solid #eee", paddingBottom: "7px" }} gutterBottom>
                    {profileName}
                 </Typography>
+                  <Typography variant="title" style={{ color: '#051d47', textAlign: "left", marginLeft: '0px', borderBottom: "2px solid #eee", paddingBottom: "7px" }} gutterBottom>
+                   {profileName1}
+                </Typography>
+                </CardContent>
+              
+                <CardContent>
+                <img
+                src={profileImg}
+                style={{ width: '75%'}}
+                className={classes.cardImage}
+                />
                 </CardContent>
             <CardContent>
                 <Typography component="h2" className={classes.description}>
@@ -107,9 +136,19 @@ const NewsCard = (props) => {
                     {content6}
                 </Typography>
             </CardContent>
-                <Card className={classes.cardImage}>
-                    <BlobImageDisplay blob={profileImg1}/>
-                </Card>
+
+            <CardContent>
+                  <Typography variant="title" style={{ color: '#051d47', textAlign: "left", marginLeft: '0px', borderBottom: "2px solid #eee", paddingBottom: "7px" }} gutterBottom>
+                   {profileName2}
+                </Typography>
+                </CardContent>
+            <CardContent>
+                <img
+                src={profileImg2}
+                style={{ width: '60%'}}
+                className={classes.cardImage2}
+                />
+            </CardContent>
                 <CardContent>
                 <Typography component="p" className={classes.description}>
                     {content7}
@@ -130,9 +169,6 @@ const NewsCard = (props) => {
                     {content12}
                 </Typography>
             </CardContent>
-            <Card className={classes.cardImage}>
-                    <BlobImageDisplay blob={profileImg2}/>
-                </Card>
         </Card>
     )
 }
