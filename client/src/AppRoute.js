@@ -8,7 +8,6 @@ import kantin from './apps/pages/kantin'
 
 
 
-
 const AppRoute = () => {
     return (
         <Switch>

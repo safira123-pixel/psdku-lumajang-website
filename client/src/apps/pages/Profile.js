@@ -16,8 +16,12 @@ import { Button } from '@material-ui/core'
 import Breadcrumb from 'react-bootstrap/Breadcrumb';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ChatIcon from '../../components/ChatIcon';
+import ClipLoader from "react-spinners/ClipLoader";
+
 
 const Profile = (props) => {
+    const [loading, setLoading] = useState(true);
+
     const [data, setData] = useState([]);
     const { classes} = props
     const { t } = useTranslation();
@@ -27,16 +31,24 @@ const Profile = (props) => {
         .then(response => response.json())
         .then(data => {
             setData([data.content]);
+            setLoading(false); // Set loading to false when data is loaded
             console.log(data.content);
         })
         .catch(error => {
             console.error(error);
+            setLoading(false);
         });
     }, []);
 
     //background: 'linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%)'
 
     return (
+        <div>
+        {loading ? (
+          <div className={classes.spinnerContainer}>
+            <ClipLoader color="#051d47" loading={loading} size={50} />
+          </div>
+        ) : (
         <div style={{backgroundImage: 'url("/assets/images/bg_polinema1.png")', backgroundRepeat: 'repeat', backgroundSize: 900}}>
         <Layout title="Home">
               <Card className={classes.card}>
@@ -117,6 +129,8 @@ const Profile = (props) => {
                 </Grid>
         </Layout>
         <ChatIcon/>
+        </div>
+        )}
         </div>
     )
 }
@@ -247,7 +261,19 @@ const styles = theme => ({
         backgroundColor: 'transparent',
         border: '2px #051d47 solid',
         boxShadow: 'none'
-    }
+    },
+    spinnerContainer: {
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "100vh",
+      },
+      spinnerContainer: {
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "100vh",
+      },
 })
 
 export default withRoot(withStyles(styles)(withTranslation()(Profile)))

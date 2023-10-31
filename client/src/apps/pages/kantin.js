@@ -42,7 +42,8 @@ const kantin = (props) => {
     }, []);
 
 //backgroundImage: 'url("/assets/images/background.jpeg")', backgroundRepeat: 'repeat', backgroundSize: 400
-    return (<div>
+    return (
+    <div>
         {loading ? (
           <div className={classes.spinnerContainer}>
             <ClipLoader color="#051d47" loading={loading} size={50} />
