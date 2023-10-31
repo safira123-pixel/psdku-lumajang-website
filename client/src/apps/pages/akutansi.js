@@ -53,11 +53,9 @@ const akuntansi = (props) => {
                                  key={index}
                                  profileName={t('Akuntansi')}           
                                 //  profileImg={item[1].data}
-                                profileImg1={item[2].data}
-                                profileImg2={item[3].data}
-                                profileImg3={item[2].data}
-                                profileImg4={item[3].data}
-                                profileImg5={item[2].data}
+                                profileImg1={item[9].data}
+                                profileImg2={item[0].data}
+                                profileImg3={item[1].data}
                                  title1={t('Deskripsi')} 
                                  content1={item[1].description}
                                  title2={t('Kompetensi Lulusan')}  

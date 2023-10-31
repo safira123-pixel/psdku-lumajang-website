@@ -6,7 +6,7 @@ import { withStyles } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
 import { Link } from 'react-router-dom'
 import React, { Component, Fragment } from 'react'
-import { BlobImageDisplay } from "../apps/pages/BlobImageDisplay3";
+import { BlobImageDisplay } from "../apps/pages/BlobImageDisplay5";
 
 
 const styles = theme => ({
@@ -14,7 +14,7 @@ const styles = theme => ({
         width: '97%',
         display: "flex",
         flexWrap: "wrap",
-        marginLeft: "5px",
+        marginLeft: "20px",
         marginBottom: "20px",
         marginTop:"20px",
         [theme.breakpoints.down('sm')]: {
@@ -22,12 +22,12 @@ const styles = theme => ({
         } 
     },
     cardImage: {
-        width: '60%',
+        // width: '60%',
         display: "flex",
         flexWrap: "wrap",
-        marginLeft: "40px",
+        marginLeft:"230px",
         marginBottom: "20px",
-        marginTop:"20px",
+        marginTop:"10px",
         border: `solid 3px #eeeeee`,
         borderRadius:"5",
         boxShadow:'5px 5px 5px #999DA0',
@@ -68,7 +68,8 @@ const styles = theme => ({
 const NewsCard = (props) => {
     const {
         classes,
-        profileImg,
+        profileImg1,
+        profileImg2,
         profileName,
         content1,
         content2,
@@ -86,10 +87,7 @@ const NewsCard = (props) => {
                    {profileName}
                 </Typography>
                 </CardContent>
-            <Card className={classes.cardImage}>
-                <BlobImageDisplay blob={profileImg}/>
-            </Card>
-            <CardContent>
+                <CardContent>
                 <Typography component="h2" className={classes.description}>
                     {content1}
                 </Typography>
@@ -104,6 +102,13 @@ const NewsCard = (props) => {
                     </a>
                 </Typography>
             </CardContent>
+            <Card className={classes.cardImage}>
+                <BlobImageDisplay blob={profileImg1}/>
+            </Card>
+            <Card className={classes.cardImage}>
+                <BlobImageDisplay blob={profileImg2}/>
+            </Card>
+            
         </Card>
     )
 }

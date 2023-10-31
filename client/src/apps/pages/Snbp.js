@@ -52,7 +52,8 @@ const snbp = (props) => {
                             <NewsCard
                                  key={index}
                                  profileName={t('SNBP')} 
-                                 profileImg={item[4].data}          
+                                 profileImg1={item[5].data}         
+                                 profileImg2={item[0].data}         
                                  content1={item[5].description}
                                  content2={t('Untuk informasi selengkapnya dapat mengunjungi halaman berikut : ')}
                                  profileLink3="https://snpmb.bppp.kemdikbud.go.id/"

@@ -10,6 +10,8 @@ import SlideShow from '../../components/SlideShow'
 import NewsCard from '../../components/NewsCard_Parkir'
 import NewsCard2 from '../../components/NewsCard_NavBar'
 import NewsCard1 from '../../components/NewsCard_NavBarKalender'
+import NewsCard3 from '../../components/NewsCard_MenuNav'
+
 import { useTranslation, withTranslation } from 'react-i18next'
 import { Button } from '@material-ui/core'
 import Breadcrumb from 'react-bootstrap/Breadcrumb';
@@ -56,25 +58,53 @@ const fasilitas_parkir = (props) => {
                                  profileName={t('Fasilitas Parkir')}           
                                 //  profileImg={item[0].data}
                                  profileImg1={item[8].data}
-                                 profileImg2={item[6].data}
-                                 profileImg3={item[7].data}
+                                 profileImg2={item[9].data}
+                                 profileImg3={item[10].data}
                                  title1={t('Deskripsi')} 
-                                 content1={item[2].description}
+                                 content1={item[8].description}
                             />
                         ))}
                     </Grid>
                 
                     <Grid item className={classes.gridItemFix} xs={10} sm={4} lg={3}>
                         <NewsCard1/>
-                            <Grid>                    
+                        <Grid>                    
                                 <NewsCard2
-                                    profileName= "BERITA TERKINI"
+                                    profileName= "PENGUMUMAN"
+                                    subMenu1= "2023"
+                                    subMenu2= "2022"
+                                    subMenu3= "2021"
                                     linkName1={t('> Kegiatan Mentoring 2023')}
                                     profileLink1="/kegiatan_mahasiswa1"
                                     linkName2={t('> Kegiatan LDK 2023')}
                                     profileLink2="/kegiatan_mahasiswa2"
                                     linkName3={t('> Kegiatan Magang 2023')}
                                     profileLink3="/kegiatan_mahasiswa3"
+                                    linkName4={t('> Kegiatan Mentoring 2023')}
+                                    profileLink4="/kegiatan_mahasiswa1"
+                                    linkName5={t('> Kegiatan LDK 2023')}
+                                    profileLink5="/kegiatan_mahasiswa2"
+                                    linkName6={t('> Kegiatan Magang 2023')}
+                                    profileLink6="/kegiatan_mahasiswa3"
+                                    linkName7={t('> Kegiatan Mentoring 2023')}
+                                    profileLink7="/kegiatan_mahasiswa1"
+                                    linkName8={t('> Kegiatan LDK 2023')}
+                                    profileLink8="/kegiatan_mahasiswa2"
+                                    linkName9={t('> Kegiatan Magang 2023')}
+                                    profileLink9="/kegiatan_mahasiswa3"
+                                />
+                            </Grid>
+                            <Grid>                    
+                            <NewsCard3
+                                    profileName= "MENU NAVIGASI"
+                                    linkName1={t('Perpustakaan')}
+                                    profileLink1="/perpustakaan_polinema"
+                                    linkName2={t('Fasilitas Parkir')}
+                                    profileLink2="/fasilitas_parkir"
+                                    linkName3={t('Kantin')}
+                                    profileLink3="/kantin"
+                                    linkName4={t('Keamanan')}
+                                    profileLink4="/keamanan"
                                 />
                             </Grid>
                     </Grid>
