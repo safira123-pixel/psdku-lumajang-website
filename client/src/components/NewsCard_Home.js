@@ -54,9 +54,7 @@ const NewsCard = (props) => {
                 title={profileImgTitle}
                 style={{ width: '100%' }}
             /> */}
-            <Card className={classes.cardImage}>
                 <BlobImageDisplay blob={Img}/>
-            </Card>
             <CardContent>
                 {/* <Typography variant="caption" className={classes.category}>
                     {profileType}
