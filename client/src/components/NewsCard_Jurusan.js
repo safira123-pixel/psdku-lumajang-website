@@ -20,8 +20,6 @@ const styles = theme => ({
         marginRight: "20px",
         marginBottom: "20px",
         marginTop:"20px", 
-
-        marginTop:"20px",
         [theme.breakpoints.down('sm')]: {
             maxWidth: '100%'
         } 
@@ -73,8 +71,6 @@ const NewsCard = (props) => {
         profileImg1,
         profileImg2,
         profileImg3,
-        profileImg4,
-        profileImg5,
         profileName,
         content1,
         content2,
@@ -112,7 +108,7 @@ const NewsCard = (props) => {
                 </Typography>
                 <Card className={classes.cardImage}>
             {/* <BlobImageDisplay blob={profileImg}/> */}
-            <BlobImageDisplay blobs={[profileImg1, profileImg2, profileImg3, profileImg4, profileImg5]} />
+            <BlobImageDisplay blobs={[profileImg1, profileImg2, profileImg3]} />
                 </Card>
             </CardContent>
         </Card>

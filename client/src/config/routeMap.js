@@ -28,4 +28,11 @@ export default [
   { path: "/Penginapan_lumajang", name: "Penginapan", component: Penginapan},
   { path: "/Wisata_Lumajang", name: "Wisata Lumajang", component: Wisata},
 
+  { path: "/perpustakaan_polinema", name: "Perpustakaan", component: Perpustakaan},
+  // { path: "/fasilitas_bangunan", name: "Fasilitas Bangunan", component: fasilitasBangunan},
+  { path: "/fasilitas_parkir", name: "Fasilitas Parkir", component: fasilitasParkir},
+  { path: "/kantin", name: "Kantin", component: Kantin},
+  { path: "/keamanan", name: "Keamanan", component: Keamanan},
+
+
 ];

@@ -36,7 +36,7 @@ class EditCampusLifeForm extends Component {
     };
     return (
       <Modal
-        title="Edit Jurusan"
+        title="Edit Campus Life"
         visible={visible}
         onCancel={onCancel}
         onOk={onOk}
@@ -57,8 +57,9 @@ class EditCampusLifeForm extends Component {
               <Select.Option value="Unit Aktivitas Mahasiswa">Unit Aktivitas Mahasiswa</Select.Option>
               <Select.Option value="Keamanan">Keamanan</Select.Option>
               <Select.Option value="Kantin">Kantin</Select.Option>
-              <Select.Option value="Fasilitas Parkir">Fasilitas Parkir</Select.Option>
               <Select.Option value="Flora dan Fauna">Flora dan Fauna</Select.Option>
+              <Select.Option value="Fasilitas Parkir">Fasilitas Parkir</Select.Option>
+              <Select.Option value="Fasilitas Bangunan">Fasilitas Bangunan</Select.Option>
               <Select.Option value="Fasilitas Olahraga">Fasilitas Olahraga</Select.Option>
               <Select.Option value="Keselamatan dan Kesehatan Kerja">Keselamatan dan Kesehatan Kerja</Select.Option>
               <Select.Option value="Perpustakaan">Perpustakaan</Select.Option>

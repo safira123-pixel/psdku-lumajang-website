@@ -503,28 +503,48 @@ export const campusMenu = [
 ]
 export const psdkuMenu = [
   {
-    text: <Trans i18nKey="Profil-Kota">Perpustakaan</Trans>,
-    linkUrl: '/profil_lumajang',
-    asUrl: '/profil_lumajang',
+    text: <Trans i18nKey="Perpustakaan">Perpustakaan</Trans>,
+    linkUrl: '/perpustakaan_polinema',
+    asUrl: '/perpustakaan_polinema',
+  },
+  // {
+  //   text: <Trans i18nKey="Fasilitas-Bangunan">Fasilitas Bangunan</Trans>,
+  //   linkUrl: '/fasilitas_bangunan',
+  //   asUrl: '/fasilitas_bangunan',
+  // },
+  {
+    text: <Trans i18nKey="Fasilitas-Parkir">Fasilitas Parkir</Trans>,
+    linkUrl: '/fasilitas_parkir',
+    asUrl: '/fasilitas_parkir',
   },
   {
-    text: <Trans i18nKey="Budaya">Fasilitas Bangunan</Trans>,
-    linkUrl: '/budaya_lumajang',
-    asUrl: '/budaya_lumajang',
+    text: <Trans i18nKey="Kantin">Kantin</Trans>,
+    linkUrl: '/kantin',
+    asUrl: '/kantin',
   },
   {
-    text: <Trans i18nKey="pariwisata">Kantin</Trans>,
-    linkUrl: '/pariwisata_lumajang',
-    asUrl: '/pariwisata_lumajang',
+    text: <Trans i18nKey="Keamanan">Keamanan</Trans>,
+    linkUrl: '/keamanan',
+    asUrl: '/keamanan',
   },
-  {
-    text: <Trans i18nKey="kuliner">Keamanan</Trans>,
-    linkUrl: '/kuliner_lumajang',
-    asUrl: '/kuliner_lumajang',
-  },
-  {
-    text: <Trans i18nKey="transportasi">Fasilitas Parkir</Trans>,
-    linkUrl: '/transportasi_lumajang',
-    asUrl: '/transportasi_lumajang'
-  },
+  // {
+  //   text: <Trans i18nKey="Budaya">Fasilitas Bangunan</Trans>,
+  //   linkUrl: '/budaya_lumajang',
+  //   asUrl: '/budaya_lumajang',
+  // },
+  // {
+  //   text: <Trans i18nKey="pariwisata">Kantin</Trans>,
+  //   linkUrl: '/pariwisata_lumajang',
+  //   asUrl: '/pariwisata_lumajang',
+  // },
+  // {
+  //   text: <Trans i18nKey="kuliner">Keamanan</Trans>,
+  //   linkUrl: '/kuliner_lumajang',
+  //   asUrl: '/kuliner_lumajang',
+  // },
+  // {
+  //   text: <Trans i18nKey="transportasi">Fasilitas Parkir</Trans>,
+  //   linkUrl: '/transportasi_lumajang',
+  //   asUrl: '/transportasi_lumajang'
+  // },
 ]

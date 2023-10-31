@@ -1,5 +1,13 @@
 import { Route, Switch } from 'react-router-dom'
-import { HomePage, ProfilePage, selayang_pandang, akutansi, visi_misi, struktur_organisasi, Kalender_akademik, otomotif, teknologi_sipil, teknologi_informasi, snbp, snbt, mandiri, kegiatan_mahasiswa, kegiatan_mahasiswa2,kegiatan_mahasiswa3, pengumuman, pengumuman1, pengumuman2, profil_lumajang, kuliner_lumajang, pariwisata_lumajang, transportasi_lumajang, budaya_lumajang, item_kegiatan1, item_kegiatan2, item_kegiatan3, item_pengumuman1, item_pengumuman2, item_pengumuman3 } from './apps/pages'
+import { HomePage, ProfilePage, selayang_pandang, akutansi, visi_misi, struktur_organisasi, Kalender_akademik, otomotif, teknologi_sipil, teknologi_informasi, snbp, snbt, mandiri, kegiatan_mahasiswa, kegiatan_mahasiswa2,kegiatan_mahasiswa3, pengumuman, pengumuman1, pengumuman2, profil_lumajang, kuliner_lumajang, pariwisata_lumajang, transportasi_lumajang, budaya_lumajang, item_kegiatan1, item_kegiatan2, item_kegiatan3, item_pengumuman1, item_pengumuman2, item_pengumuman3} from './apps/pages'
+import perpustakaan_polinema from './apps/pages/perpustakaan_polinema'
+// import fasilitas_bangunan from './apps/pages/fasilitas_bangunan'
+import fasilitas_parkir from './apps/pages/fasilitas_parkir'
+import keamanan from './apps/pages/keamanan'
+import kantin from './apps/pages/kantin'
+
+
+
 
 const AppRoute = () => {
     return (
@@ -39,6 +47,12 @@ const AppRoute = () => {
             <Route exact path='/kuliner_lumajang' component={kuliner_lumajang} />
             <Route exact path='/transportasi_lumajang' component={transportasi_lumajang} />
             <Route exact path='/pariwisata_lumajang' component={pariwisata_lumajang} />
+
+            <Route exact path='/perpustakaan_polinema' component={perpustakaan_polinema} />
+            {/* <Route exact path='/fasilitas_bangunan' component={fasilitas_bangunan} /> */}
+            <Route exact path='/fasilitas_parkir' component={fasilitas_parkir} />
+            <Route exact path='/kantin' component={kantin} />
+            <Route exact path='/keamanan' component={keamanan} />
         </Switch>
     )
 }

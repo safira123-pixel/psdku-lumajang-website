@@ -14,6 +14,7 @@ const styles = theme => ({
         width: '100%',
         display: "flex",
         flexWrap: "wrap",
+        marginLeft: "20px",
         marginRight: "20px",
         marginBottom: "20px",
         marginTop:"20px",
@@ -23,7 +24,7 @@ const styles = theme => ({
     },
     cardImage: {
         display: "flex",
-        marginLeft:"20px",
+        marginLeft:"270px",
         marginBottom:"20px",
         flexWrap: "wrap",
         marginTop:"10px",

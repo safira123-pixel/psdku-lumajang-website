@@ -106,6 +106,25 @@ const menuList = [
     path: "/kalender_akademik",
     icon: "file",
   },
-  
+  {
+    title: "Perpustakaan",
+    path: "/perpustakaan_polinema",
+  },
+  // {
+  //   title: "Fasilitas Bangunan",
+  //   path: "/fasilitas_bangunan",
+  // },
+  {
+    title: "Fasilitas Parkir",
+    path: "/fasilitas_parkir",
+  },
+  {
+    title: "Kantin",
+    path: "/kantin",
+  },
+  {
+    title: "Keamanan",
+    path: "/keamanan",
+  },
 ];
 export default menuList;

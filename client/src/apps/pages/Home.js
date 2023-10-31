@@ -83,9 +83,9 @@ const HomePage = (props) => {
                     {data.map((item, index) => (
                         <NewsCard
                             key={index}
-                            Img={item[0].data}
-                            profileName={item[0].name}
-                            content={item[0].selengkapnya}
+                            Img={item[1].data}
+                            profileName={item[1].name}
+                            content={item[1].selengkapnya}
                             profileLink={"/item_pengumuman1"}
                             link={t("selengkapnya →")}
                             bgContain
