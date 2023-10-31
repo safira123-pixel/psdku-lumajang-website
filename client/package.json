@@ -33,6 +33,7 @@
     "react-scripts": "5.0.1",
     "react-scroll": "^1.7.9",
     "react-slideshow-image": "^4.1.1",
+    "react-spinners": "^0.13.8",
     "react-swipeable-views": "^0.12.16",
     "recompose": "^0.30.0",
     "use-react-router-breadcrumbs": "^4.0.1",

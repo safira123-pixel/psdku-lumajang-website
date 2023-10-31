@@ -7,7 +7,7 @@ import Layout from '../../components/Layout'
 import TextSection from '../../components/TextSection'
 import withRoot from '../../components/withRoot'
 import SlideShow from '../../components/SlideShow'
-import NewsCard from '../../components/NewsCard_Pendaftaran'
+import NewsCard from '../../components/NewsCard_Pendaftaran2'
 import NewsCard2 from '../../components/NewsCard_NavBar'
 import NewsCard1 from '../../components/NewsCard_NavBarKalender'
 import NewsCard3 from '../../components/NewsCard_MenuNav'
@@ -16,8 +16,12 @@ import { Button } from '@material-ui/core'
 import Breadcrumb from 'react-bootstrap/Breadcrumb';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ChatIcon from '../../components/ChatIcon';
+import ClipLoader from "react-spinners/ClipLoader";
+
 
 const snbt = (props) => {
+    const [loading, setLoading] = useState(true);
+
     const [data, setData] = useState([]);
     const { classes} = props
     const { t } = useTranslation();
@@ -27,85 +31,97 @@ const snbt = (props) => {
         .then(response => response.json())
         .then(data => {
             setData([data.content]);
+            setLoading(false); // Set loading to false when data is loaded
             console.log(data.content);
         })
         .catch(error => {
             console.error(error);
+            setLoading(false); // Set loading to false when data is loaded
+
         });
     }, []);
 
-    return (
-        <div style={{backgroundImage: 'url("/assets/images/bg_polinema1.png")', backgroundRepeat: 'repeat', backgroundSize: 900}}>
-        <Layout title="Home">
-              <Card className={classes.card}>
-                    <div className={classes.container}>
-                        <Breadcrumb style={{marginTop:"10px"}}>
-                            <Breadcrumb.Item href="/"> {t('beranda.label')}</Breadcrumb.Item>
-                            <Breadcrumb.Item href="/snbt"> {t('Info Penerimaan Mahasiswa Baru')}</Breadcrumb.Item>
-                            <Breadcrumb.Item active href="/snbt"> {t('SNBT')}</Breadcrumb.Item>
-                        </Breadcrumb>        
-                    </div>
-                </Card>
-                <Grid container className={classes.contentContainer}>
-                    <Grid item className={classes.gridItemFix} xs={12} sm={4} lg={9}>
-                        {data.map((item, index) => (
-                            <NewsCard
-                                 key={index}
-                                 profileName={t('SNBT')}           
-                                 profileImg1={item[4].data}         
-                                 profileImg2={item[3].data}   
-                                 content1={item[4].description}
-                                 content2={t('Untuk informasi selengkapnya dapat menuju halaman berikut : ')}
-                                 profileLink3="https://snpmb.bppp.kemdikbud.go.id/"
-                                 linkName3={'https://snpmb.bppp.kemdikbud.go.id/'} 
-                            />
-                        ))}
-                    </Grid>
-                
-                    <Grid item className={classes.gridItemFix} xs={10} sm={4} lg={3}>
-                        <NewsCard1/>
-                        <Grid>                    
-                                <NewsCard2
-                                    profileName= "PENGUMUMAN"
-                                    subMenu1= "2023"
-                                    subMenu2= "2022"
-                                    subMenu3= "2021"
-                                    linkName1={t('> Kegiatan Mentoring 2023')}
-                                    profileLink1="/kegiatan_mahasiswa1"
-                                    linkName2={t('> Kegiatan LDK 2023')}
-                                    profileLink2="/kegiatan_mahasiswa2"
-                                    linkName3={t('> Kegiatan Magang 2023')}
-                                    profileLink3="/kegiatan_mahasiswa3"
-                                    linkName4={t('> Kegiatan Mentoring 2023')}
-                                    profileLink4="/kegiatan_mahasiswa1"
-                                    linkName5={t('> Kegiatan LDK 2023')}
-                                    profileLink5="/kegiatan_mahasiswa2"
-                                    linkName6={t('> Kegiatan Magang 2023')}
-                                    profileLink6="/kegiatan_mahasiswa3"
-                                    linkName7={t('> Kegiatan Mentoring 2023')}
-                                    profileLink7="/kegiatan_mahasiswa1"
-                                    linkName8={t('> Kegiatan LDK 2023')}
-                                    profileLink8="/kegiatan_mahasiswa2"
-                                    linkName9={t('> Kegiatan Magang 2023')}
-                                    profileLink9="/kegiatan_mahasiswa3"
-                                />
-                            </Grid>
-                            <Grid>                    
-                            <NewsCard3
-                                    profileName= "MENU NAVIGASI"
-                                    linkName1={t('Jalur SNBP')}
-                                    profileLink1="/snbp"
-                                    linkName2={t('Jalur SNBT')}
-                                    profileLink2="/snbt"
-                                    linkName3={t('Jalur Mandiri')}
-                                    profileLink3="/mandiri"
-                                />
-                            </Grid>
-                    </Grid>
-                </Grid>
-        </Layout>
-        <ChatIcon/>
-        </div>
+    return (<div>
+        {loading ? (
+          <div className={classes.spinnerContainer}>
+            <ClipLoader color="#051d47" loading={loading} size={50} />
+          </div>
+        ) : (
+          // Your existing JSX code for the "kantin" page
+          <div style={{backgroundImage: 'url("/assets/images/bg_polinema1.png")', backgroundRepeat: 'repeat', backgroundSize: 900}}>
+          <Layout title="Home">
+                <Card className={classes.card}>
+                      <div className={classes.container}>
+                          <Breadcrumb style={{marginTop:"10px"}}>
+                              <Breadcrumb.Item href="/"> {t('beranda.label')}</Breadcrumb.Item>
+                              <Breadcrumb.Item href="/snbt"> {t('Info Penerimaan Mahasiswa Baru')}</Breadcrumb.Item>
+                              <Breadcrumb.Item active href="/snbt"> {t('SNBT')}</Breadcrumb.Item>
+                          </Breadcrumb>        
+                      </div>
+                  </Card>
+                  <Grid container className={classes.contentContainer}>
+                      <Grid item className={classes.gridItemFix} xs={12} sm={4} lg={9}>
+                          {data.map((item, index) => (
+                              <NewsCard
+                                   key={index}
+                                   profileName={t('SNBT')}           
+                                   profileImg1={item[4].data}         
+                                   profileImg2={item[3].data}   
+                                   content1={item[4].description}
+                                   content2={t('Untuk informasi selengkapnya dapat menuju halaman berikut : ')}
+                                   profileLink3="https://snpmb.bppp.kemdikbud.go.id/"
+                                   linkName3={'https://snpmb.bppp.kemdikbud.go.id/'} 
+                              />
+                          ))}
+                      </Grid>
+                  
+                      <Grid item className={classes.gridItemFix} xs={10} sm={4} lg={3}>
+                          <NewsCard1/>
+                          <Grid>                    
+                                  <NewsCard2
+                                      profileName= "PENGUMUMAN"
+                                      subMenu1= "2023"
+                                      subMenu2= "2022"
+                                      subMenu3= "2021"
+                                      linkName1={t('> Kegiatan Mentoring 2023')}
+                                      profileLink1="/kegiatan_mahasiswa1"
+                                      linkName2={t('> Kegiatan LDK 2023')}
+                                      profileLink2="/kegiatan_mahasiswa2"
+                                      linkName3={t('> Kegiatan Magang 2023')}
+                                      profileLink3="/kegiatan_mahasiswa3"
+                                      linkName4={t('> Kegiatan Mentoring 2023')}
+                                      profileLink4="/kegiatan_mahasiswa1"
+                                      linkName5={t('> Kegiatan LDK 2023')}
+                                      profileLink5="/kegiatan_mahasiswa2"
+                                      linkName6={t('> Kegiatan Magang 2023')}
+                                      profileLink6="/kegiatan_mahasiswa3"
+                                      linkName7={t('> Kegiatan Mentoring 2023')}
+                                      profileLink7="/kegiatan_mahasiswa1"
+                                      linkName8={t('> Kegiatan LDK 2023')}
+                                      profileLink8="/kegiatan_mahasiswa2"
+                                      linkName9={t('> Kegiatan Magang 2023')}
+                                      profileLink9="/kegiatan_mahasiswa3"
+                                  />
+                              </Grid>
+                              <Grid>                    
+                              <NewsCard3
+                                      profileName= "MENU NAVIGASI"
+                                      linkName1={t('Jalur SNBP')}
+                                      profileLink1="/snbp"
+                                      linkName2={t('Jalur SNBT')}
+                                      profileLink2="/snbt"
+                                      linkName3={t('Jalur Mandiri')}
+                                      profileLink3="/mandiri"
+                                  />
+                              </Grid>
+                      </Grid>
+                  </Grid>
+          </Layout>
+          <ChatIcon/>
+          </div>
+        )}
+      </div>
+        
     )
 }
 
@@ -113,6 +129,12 @@ const styles = theme => ({
     container: {
         marginLeft: "20px"
     },
+    spinnerContainer: {
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "100vh",
+      },
     card: {
         width: '97%',
         display: "flex",
@@ -229,6 +251,12 @@ const styles = theme => ({
         justifyContent: 'center',
         marginTop: '16px'
     },
+    spinnerContainer: {
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "100vh",
+      },
     invertedBtn: {
         color: '#051d47',
         backgroundColor: 'transparent',

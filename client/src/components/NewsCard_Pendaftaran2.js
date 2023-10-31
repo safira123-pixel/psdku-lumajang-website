@@ -6,7 +6,7 @@ import { withStyles } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
 import { Link } from 'react-router-dom'
 import React, { Component, Fragment } from 'react'
-import { BlobImageDisplay } from "../apps/pages/BlobImageDisplay6";
+import { BlobImageDisplay } from "../apps/pages/BlobImageDisplay5";
 
 
 const styles = theme => ({
@@ -24,7 +24,7 @@ const styles = theme => ({
     },
     cardImage: {
         display: "flex",
-        marginLeft:"270px",
+        marginLeft:"230px",
         marginBottom:"20px",
         flexWrap: "wrap",
         marginTop:"10px",

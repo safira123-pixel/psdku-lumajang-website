@@ -16,9 +16,13 @@ import { Button } from '@material-ui/core'
 import Breadcrumb from 'react-bootstrap/Breadcrumb';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ChatIcon from '../../components/ChatIcon';
+import ClipLoader from "react-spinners/ClipLoader";
 
 
 const keamanan = (props) => {
+    const [loading, setLoading] = useState(true);
+
+
     const [data, setData] = useState([]);
     const { classes} = props
     const { t } = useTranslation();
@@ -28,89 +32,102 @@ const keamanan = (props) => {
         .then(response => response.json())
         .then(data => {
             setData([data.content]);
+            setLoading(false); // Set loading to false when data is loaded
             console.log(data.content);
         })
         .catch(error => {
             console.error(error);
+            setLoading(false); // Set loading to false when data is loaded
+
         });
     }, []);
 
 //backgroundImage: 'url("/assets/images/background.jpeg")', backgroundRepeat: 'repeat', backgroundSize: 400
-    return (
-        <div style={{backgroundImage: 'url("/assets/images/bg_polinema1.png")', backgroundRepeat: 'repeat', backgroundSize: 900}}>
-        <Layout title="Home">
-              <Card className={classes.card}>
-                    <div className={classes.container}>
-                        
-                        <Breadcrumb style={{marginTop:"10px"}}>
-                            <Breadcrumb.Item href="/"> {t('beranda.label')}</Breadcrumb.Item>
-                             <Breadcrumb.Item href="/keamanan"> {t('Keamanan PSDKU Polinema Kampus Lumajang')}</Breadcrumb.Item>
-                             <Breadcrumb.Item href="/keamanan"> {t('Keamanan')}</Breadcrumb.Item>
-                         </Breadcrumb>             
-                    </div>
-                </Card>
-                <Grid container className={classes.contentContainer}>
-                    <Grid item className={classes.gridItemFix} xs={12} sm={4} lg={9}>
-                        {data.map((item, index) => (
-                            <NewsCard
-                                 key={index}
-                                 profileName={t('Keamanan')}           
-                                //  profileImg={item[0].data}
-                                 profileImg1={item[1].data}
-                                 profileImg2={item[0].data}
-                                 profileImg3={item[11].data}
-                                 title1={t('Deskripsi')} 
-                                 content1={item[1].description}
-                            />
-                        ))}
-                    </Grid>
-                
-                    <Grid item className={classes.gridItemFix} xs={10} sm={4} lg={3}>
-                        <NewsCard1/>
-                        <Grid>                    
-                                <NewsCard2
-                                    profileName= "PENGUMUMAN"
-                                    subMenu1= "2023"
-                                    subMenu2= "2022"
-                                    subMenu3= "2021"
-                                    linkName1={t('> Kegiatan Mentoring 2023')}
-                                    profileLink1="/kegiatan_mahasiswa1"
-                                    linkName2={t('> Kegiatan LDK 2023')}
-                                    profileLink2="/kegiatan_mahasiswa2"
-                                    linkName3={t('> Kegiatan Magang 2023')}
-                                    profileLink3="/kegiatan_mahasiswa3"
-                                    linkName4={t('> Kegiatan Mentoring 2023')}
-                                    profileLink4="/kegiatan_mahasiswa1"
-                                    linkName5={t('> Kegiatan LDK 2023')}
-                                    profileLink5="/kegiatan_mahasiswa2"
-                                    linkName6={t('> Kegiatan Magang 2023')}
-                                    profileLink6="/kegiatan_mahasiswa3"
-                                    linkName7={t('> Kegiatan Mentoring 2023')}
-                                    profileLink7="/kegiatan_mahasiswa1"
-                                    linkName8={t('> Kegiatan LDK 2023')}
-                                    profileLink8="/kegiatan_mahasiswa2"
-                                    linkName9={t('> Kegiatan Magang 2023')}
-                                    profileLink9="/kegiatan_mahasiswa3"
-                                />
-                            </Grid>
-                            <Grid>                    
-                            <NewsCard3
-                                    profileName= "MENU NAVIGASI"
-                                    linkName1={t('Perpustakaan')}
-                                    profileLink1="/perpustakaan_polinema"
-                                    linkName2={t('Fasilitas Parkir')}
-                                    profileLink2="/fasilitas_parkir"
-                                    linkName3={t('Kantin')}
-                                    profileLink3="/kantin"
-                                    linkName4={t('Keamanan')}
-                                    profileLink4="/keamanan"
-                                />
-                            </Grid>
-                    </Grid>
+
+    return (<div>
+        {loading ? (
+          <div className={classes.spinnerContainer}>
+            <ClipLoader color="#051d47" loading={loading} size={50} />
+          </div>
+        ) : (
+          // Your existing JSX code for the "kantin" page
+          <div style={{backgroundImage: 'url("/assets/images/bg_polinema1.png")', backgroundRepeat: 'repeat', backgroundSize: 900}}>
+    <Layout title="Home">
+          <Card className={classes.card}>
+                <div className={classes.container}>
+                    
+                    <Breadcrumb style={{marginTop:"10px"}}>
+                        <Breadcrumb.Item href="/"> {t('beranda.label')}</Breadcrumb.Item>
+                         <Breadcrumb.Item href="/keamanan"> {t('Keamanan PSDKU Polinema Kampus Lumajang')}</Breadcrumb.Item>
+                         <Breadcrumb.Item href="/keamanan"> {t('Keamanan')}</Breadcrumb.Item>
+                     </Breadcrumb>             
+                </div>
+            </Card>
+            <Grid container className={classes.contentContainer}>
+                <Grid item className={classes.gridItemFix} xs={12} sm={4} lg={9}>
+                    {data.map((item, index) => (
+                        <NewsCard
+                             key={index}
+                             profileName={t('Keamanan')}           
+                            //  profileImg={item[0].data}
+                             profileImg1={item[1].data}
+                             profileImg2={item[0].data}
+                             profileImg3={item[11].data}
+                             title1={t('Deskripsi')} 
+                             content1={item[1].description}
+                        />
+                    ))}
                 </Grid>
-        </Layout>
-        <ChatIcon/>
-        </div>
+            
+                <Grid item className={classes.gridItemFix} xs={10} sm={4} lg={3}>
+                    <NewsCard1/>
+                    <Grid>                    
+                            <NewsCard2
+                                profileName= "PENGUMUMAN"
+                                subMenu1= "2023"
+                                subMenu2= "2022"
+                                subMenu3= "2021"
+                                linkName1={t('> Kegiatan Mentoring 2023')}
+                                profileLink1="/kegiatan_mahasiswa1"
+                                linkName2={t('> Kegiatan LDK 2023')}
+                                profileLink2="/kegiatan_mahasiswa2"
+                                linkName3={t('> Kegiatan Magang 2023')}
+                                profileLink3="/kegiatan_mahasiswa3"
+                                linkName4={t('> Kegiatan Mentoring 2023')}
+                                profileLink4="/kegiatan_mahasiswa1"
+                                linkName5={t('> Kegiatan LDK 2023')}
+                                profileLink5="/kegiatan_mahasiswa2"
+                                linkName6={t('> Kegiatan Magang 2023')}
+                                profileLink6="/kegiatan_mahasiswa3"
+                                linkName7={t('> Kegiatan Mentoring 2023')}
+                                profileLink7="/kegiatan_mahasiswa1"
+                                linkName8={t('> Kegiatan LDK 2023')}
+                                profileLink8="/kegiatan_mahasiswa2"
+                                linkName9={t('> Kegiatan Magang 2023')}
+                                profileLink9="/kegiatan_mahasiswa3"
+                            />
+                        </Grid>
+                        <Grid>                    
+                        <NewsCard3
+                                profileName= "MENU NAVIGASI"
+                                linkName1={t('Perpustakaan')}
+                                profileLink1="/perpustakaan_polinema"
+                                linkName2={t('Fasilitas Parkir')}
+                                profileLink2="/fasilitas_parkir"
+                                linkName3={t('Kantin')}
+                                profileLink3="/kantin"
+                                linkName4={t('Keamanan')}
+                                profileLink4="/keamanan"
+                            />
+                        </Grid>
+                </Grid>
+            </Grid>
+    </Layout>
+    <ChatIcon/>
+    </div>
+        )}
+      </div>
+        
     )
 }
 
@@ -118,6 +135,12 @@ const styles = theme => ({
     container: {
         marginLeft: "20px"
     },
+    spinnerContainer: {
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "100vh",
+      },
     card: {
         width: '97%',
         display: "flex",
@@ -234,6 +257,12 @@ const styles = theme => ({
         justifyContent: 'center',
         marginTop: '16px'
     },
+    spinnerContainer: {
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "100vh",
+      },
     invertedBtn: {
         color: '#051d47',
         backgroundColor: 'transparent',

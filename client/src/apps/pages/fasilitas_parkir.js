@@ -17,9 +17,12 @@ import { Button } from '@material-ui/core'
 import Breadcrumb from 'react-bootstrap/Breadcrumb';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ChatIcon from '../../components/ChatIcon';
+import ClipLoader from "react-spinners/ClipLoader";
 
 
 const fasilitas_parkir = (props) => {
+    const [loading, setLoading] = useState(true);
+
     const [data, setData] = useState([]);
     const { classes} = props
     const { t } = useTranslation();
@@ -29,16 +32,25 @@ const fasilitas_parkir = (props) => {
         .then(response => response.json())
         .then(data => {
             setData([data.content]);
+            setLoading(false); // Set loading to false when data is loaded
             console.log(data.content);
         })
         .catch(error => {
             console.error(error);
+            setLoading(false); // Set loading to false when data is loaded
+
         });
     }, []);
 
 //backgroundImage: 'url("/assets/images/background.jpeg")', backgroundRepeat: 'repeat', backgroundSize: 400
-    return (
-        <div style={{backgroundImage: 'url("/assets/images/bg_polinema1.png")', backgroundRepeat: 'repeat', backgroundSize: 900}}>
+    return (<div>
+        {loading ? (
+          <div className={classes.spinnerContainer}>
+            <ClipLoader color="#051d47" loading={loading} size={50} />
+          </div>
+        ) : (
+          // Your existing JSX code for the "kantin" page
+          <div style={{backgroundImage: 'url("/assets/images/bg_polinema1.png")', backgroundRepeat: 'repeat', backgroundSize: 900}}>
         <Layout title="Home">
               <Card className={classes.card}>
                     <div className={classes.container}>
@@ -112,6 +124,9 @@ const fasilitas_parkir = (props) => {
         </Layout>
         <ChatIcon/>
         </div>
+        )}
+      </div>
+        
     )
 }
 
@@ -119,6 +134,12 @@ const styles = theme => ({
     container: {
         marginLeft: "20px"
     },
+    spinnerContainer: {
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "100vh",
+      },
     card: {
         width: '97%',
         display: "flex",
@@ -235,6 +256,12 @@ const styles = theme => ({
         justifyContent: 'center',
         marginTop: '16px'
     },
+    spinnerContainer: {
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "100vh",
+      },
     invertedBtn: {
         color: '#051d47',
         backgroundColor: 'transparent',
