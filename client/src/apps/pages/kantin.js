@@ -52,6 +52,7 @@ const kantin = (props) => {
                 </Card>
                 <Grid container className={classes.contentContainer}>
                     <Grid item className={classes.gridItemFix} xs={12} sm={4} lg={9}>
+                        
                         {data.map((item, index) => (
                             <NewsCard
                                  key={index}
