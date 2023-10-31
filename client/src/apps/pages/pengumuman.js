@@ -13,6 +13,7 @@ import { Button } from '@material-ui/core'
 import { Link } from 'react-router-dom'
 import NewsCard2 from '../../components/NewsCard_NavBar'
 import NewsCard1 from '../../components/NewsCard_NavBarKalender'
+import NewsCard3 from '../../components/NewsCard_MenuNav'
 import Breadcrumb from 'react-bootstrap/Breadcrumb';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ChatIcon from '../../components/ChatIcon';
@@ -42,7 +43,7 @@ const pengumuman = (props) => {
                         <Breadcrumb style={{marginTop:"10px"}}>
                             <Breadcrumb.Item href="/"> {t('beranda.label')}</Breadcrumb.Item>
                             <Breadcrumb.Item href="/pengumuman"> {t('Kegiatan Mahasiswa')}</Breadcrumb.Item>
-                            <Breadcrumb.Item href="/pengumuman"> {t('Pengumuman')}</Breadcrumb.Item>
+                            <Breadcrumb.Item active href="/pengumuman"> {t('Pengumuman')}</Breadcrumb.Item>
                         </Breadcrumb>        
                     </div>
                 </Card>
@@ -72,15 +73,39 @@ const pengumuman = (props) => {
                 
                     <Grid item className={classes.gridItemFix} xs={10} sm={4} lg={3}>
                         <NewsCard1/>
-                            <Grid>                    
+                        <Grid>                    
                                 <NewsCard2
-                                    profileName= "BERITA TERKINI"
+                                    profileName= "PENGUMUMAN"
+                                    subMenu1= "2023"
+                                    subMenu2= "2022"
+                                    subMenu3= "2021"
                                     linkName1={t('> Kegiatan Mentoring 2023')}
                                     profileLink1="/kegiatan_mahasiswa1"
                                     linkName2={t('> Kegiatan LDK 2023')}
                                     profileLink2="/kegiatan_mahasiswa2"
                                     linkName3={t('> Kegiatan Magang 2023')}
                                     profileLink3="/kegiatan_mahasiswa3"
+                                    linkName4={t('> Kegiatan Mentoring 2023')}
+                                    profileLink4="/kegiatan_mahasiswa1"
+                                    linkName5={t('> Kegiatan LDK 2023')}
+                                    profileLink5="/kegiatan_mahasiswa2"
+                                    linkName6={t('> Kegiatan Magang 2023')}
+                                    profileLink6="/kegiatan_mahasiswa3"
+                                    linkName7={t('> Kegiatan Mentoring 2023')}
+                                    profileLink7="/kegiatan_mahasiswa1"
+                                    linkName8={t('> Kegiatan LDK 2023')}
+                                    profileLink8="/kegiatan_mahasiswa2"
+                                    linkName9={t('> Kegiatan Magang 2023')}
+                                    profileLink9="/kegiatan_mahasiswa3"
+                                />
+                            </Grid>
+                            <Grid>                    
+                            <NewsCard3
+                                    profileName= "MENU NAVIGASI"
+                                    linkName1={t('Kegiatan Mahasiswa')}
+                                    profileLink1="/kegiatan_mahasiswa"
+                                    linkName2={t('Pengumuman')}
+                                    profileLink2="/pengumuman"
                                 />
                             </Grid>
                     </Grid>      

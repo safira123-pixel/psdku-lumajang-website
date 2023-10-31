@@ -55,7 +55,11 @@ const styles = theme => ({
     description: {
         fontSize: '14px',
         marginTop: 10,
-        marginBottom: 10,
+        color: '#52535A',
+        textAlign: 'justify'
+    },
+    description1: {
+        fontSize: '14px',
         color: '#52535A',
         textAlign: 'justify'
     }
@@ -69,6 +73,8 @@ const NewsCard = (props) => {
         content1,
         content2,
         content3,
+        profileLink3,
+        linkName3,
         title1,
         title2,
         title3,
@@ -86,6 +92,16 @@ const NewsCard = (props) => {
             <CardContent>
                 <Typography component="h2" className={classes.description}>
                     {content1}
+                </Typography>
+            </CardContent>
+            <CardContent>
+                <Typography component="h2" className={classes.description1}>
+                    {content2}
+                </Typography>
+                <Typography component="p" className={classes.description}>
+                    <a href={profileLink3} target= "_blank">                    
+                        {linkName3}
+                    </a>
                 </Typography>
             </CardContent>
         </Card>

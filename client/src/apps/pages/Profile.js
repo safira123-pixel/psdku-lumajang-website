@@ -44,7 +44,7 @@ const Profile = (props) => {
                         <Breadcrumb style={{marginTop:"10px"}}>
                             <Breadcrumb.Item href="/"> {t('beranda.label')}</Breadcrumb.Item>
                             <Breadcrumb.Item href="/profile"> {t('Profil')}</Breadcrumb.Item>
-                            <Breadcrumb.Item href="/profile"> {t('Profil Kampus')}</Breadcrumb.Item>
+                            <Breadcrumb.Item active href="/profile"> {t('Profil Kampus')}</Breadcrumb.Item>
                         </Breadcrumb>        
                     </div>
                 </Card>
@@ -76,13 +76,28 @@ const Profile = (props) => {
                         <NewsCard1/>
                             <Grid>                    
                                 <NewsCard2
-                                    profileName= "BERITA TERKINI"
+                                    profileName= "PENGUMUMAN"
+                                    subMenu1= "2023"
+                                    subMenu2= "2022"
+                                    subMenu3= "2021"
                                     linkName1={t('> Kegiatan Mentoring 2023')}
                                     profileLink1="/kegiatan_mahasiswa1"
                                     linkName2={t('> Kegiatan LDK 2023')}
                                     profileLink2="/kegiatan_mahasiswa2"
                                     linkName3={t('> Kegiatan Magang 2023')}
                                     profileLink3="/kegiatan_mahasiswa3"
+                                    linkName4={t('> Kegiatan Mentoring 2023')}
+                                    profileLink4="/kegiatan_mahasiswa1"
+                                    linkName5={t('> Kegiatan LDK 2023')}
+                                    profileLink5="/kegiatan_mahasiswa2"
+                                    linkName6={t('> Kegiatan Magang 2023')}
+                                    profileLink6="/kegiatan_mahasiswa3"
+                                    linkName7={t('> Kegiatan Mentoring 2023')}
+                                    profileLink7="/kegiatan_mahasiswa1"
+                                    linkName8={t('> Kegiatan LDK 2023')}
+                                    profileLink8="/kegiatan_mahasiswa2"
+                                    linkName9={t('> Kegiatan Magang 2023')}
+                                    profileLink9="/kegiatan_mahasiswa3"
                                 />
                             </Grid>
                             <Grid>                    
@@ -92,8 +107,10 @@ const Profile = (props) => {
                                     profileLink1="/profile"
                                     linkName2={t('Selayang Pandang')}
                                     profileLink2="/selayang_pandang"
-                                    linkName3={t('Struktur Organisasi')}
-                                    profileLink3="/struktur_organisasi"
+                                    linkName3={t('Visi dan Misi')}
+                                    profileLink3="/visi_misi"
+                                    linkName4={t('Struktur Organisasi')}
+                                    profileLink4="/struktur_organisasi"
                                 />
                             </Grid>
                     </Grid>

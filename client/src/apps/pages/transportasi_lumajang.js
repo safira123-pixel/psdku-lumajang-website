@@ -7,9 +7,10 @@ import Layout from '../../components/Layout'
 import TextSection from '../../components/TextSection'
 import withRoot from '../../components/withRoot'
 import SlideShow from '../../components/SlideShow'
-import NewsCard from '../../components/NewsCard_Kuliner'
+import NewsCard from '../../components/NewsCard_Transportasi'
 import NewsCard2 from '../../components/NewsCard_NavBar'
 import NewsCard1 from '../../components/NewsCard_NavBarKalender'
+import NewsCard3 from '../../components/NewsCard_MenuNav'
 import { useTranslation, withTranslation } from 'react-i18next'
 import { Button } from '@material-ui/core'
 import Breadcrumb from 'react-bootstrap/Breadcrumb';
@@ -28,65 +29,62 @@ const transportasi_lumajang = (props) => {
                     <div className={classes.container}>
                         <Breadcrumb style={{marginTop:"10px"}}>
                             <Breadcrumb.Item href="/"> {t('beranda.label')}</Breadcrumb.Item>
-                            <Breadcrumb.Item href="/kuliner_lumajang"> {t('Kehidupan Lumajang')}</Breadcrumb.Item>
-                            <Breadcrumb.Item active href="/kuliner_lumajang"> {t('Kuliner Lumajang')}</Breadcrumb.Item>
+                            <Breadcrumb.Item href="/transportasi_lumajang"> {t('Kehidupan Lumajang')}</Breadcrumb.Item>
+                            <Breadcrumb.Item active href="/transportasi_lumajang"> {t('Transportasi Lumajang')}</Breadcrumb.Item>
                         </Breadcrumb>        
                     </div>
                 </Card>
                 <Grid container className={classes.contentContainer}>
                     <Grid item className={classes.gridItemFix} xs={12} sm={4} lg={9}>
                             <NewsCard
-                                 profileName={t('Kuliner Khas Lumajang')}
-                                 description1={("Lumajang adalah daerah yang mempunyai ciri khas yaitu, sering dijuluki sebagai “kota pisang” karena terkenal dengan produksi pisang yang besar dan berkualitas. Selain itu, Lumajang juga populer dan terkenal dengan keanekaragaman kue tradisionalnya. Bukan hanya makanan utamanya saja, tetapi juga kue-kue tradisionalnya yang memiliki cita rasa khas dan unik.")}
-                                 name={t('Nama')}
-                                 image={t('Gambar')}
-                                 link={t('Link Sumber')}
-                                 no={t('No')}
+                                 profileName={t('Transportasi Lumajang')}
+                                 profileImg={"/assets/images/transportasi.jpg"}
 
-                                 profileName1={t('Kuliner Khas Lumajang')}
-                                 nomor1={"1"}
-                                 content1={("Kue Latok")}
-                                 profileImg1={"/assets/images/peta.jpg"}
-                                 link1={"https://www.wartabromo.com/2023/07/26/kue-tradisional-khas-lumajang/"}
-
-                                 nomor2={"2"}
-                                 content2={("Kue Lupis")}
-                                 profileImg2={"/assets/images/peta.jpg"}
-                                 link2={"/#"}
-
-                                 nomor3={"3"}
-                                 content3={("Ketan Koro")}
-                                 profileImg3={"/assets/images/peta.jpg"}
-                                 link3={"https://www.wartabromo.com/2023/07/26/kue-tradisional-khas-lumajang/"}
-
-                                 nomor4={"4"}
-                                 content4={("Bledus")}
-                                 profileImg4={"/assets/images/peta.jpg"}
-                                 link4={"/#"}
-
-                                 nomor5={"5"}
-                                 content5={("Tape Pisang")}
-                                 profileImg5={"/assets/images/peta.jpg"}
-                                 link5={"/#"}
-
-                                 nomor6={"6"}
-                                 content6={("Kripik Pisang")}
-                                 profileImg6={"/assets/images/peta.jpg"}
-                                 link6={"/#"}
+                                 description1={("Transportasi Lumajang adalah sistem transportasi yang melayani Kabupaten Lumajang di Provinsi Jawa Timur, Indonesia. Sistem ini mencakup berbagai moda transportasi, termasuk jalan raya, angkutan umum, sepeda, dan kendaraan pribadi. Kendaraan bermotor, seperti mobil dan sepeda motor, merupakan sarana utama mobilitas penduduk di Lumajang. Selain itu, transportasi publik seperti angkutan kota dan ojek juga tersedia untuk memudahkan perjalanan penduduk dan wisatawan di daerah ini. Selain itu, Lumajang juga memiliki sejumlah terminal transportasi yang menghubungkan berbagai wilayah di dalam dan luar kabupaten ini. Transportasi Lumajang memiliki peran penting dalam mendukung konektivitas dan pertumbuhan ekonomi daerah ini serta memberikan akses ke tempat-tempat wisata alam yang indah di sekitarnya.")}
                             />
                     </Grid>
                 
                     <Grid item className={classes.gridItemFix} xs={10} sm={4} lg={3}>
                         <NewsCard1/>
-                            <Grid>                    
+                        <Grid>                    
                                 <NewsCard2
-                                    profileName= "BERITA TERKINI"
+                                    profileName= "PENGUMUMAN"
+                                    subMenu1= "2023"
+                                    subMenu2= "2022"
+                                    subMenu3= "2021"
                                     linkName1={t('> Kegiatan Mentoring 2023')}
                                     profileLink1="/kegiatan_mahasiswa1"
                                     linkName2={t('> Kegiatan LDK 2023')}
                                     profileLink2="/kegiatan_mahasiswa2"
                                     linkName3={t('> Kegiatan Magang 2023')}
                                     profileLink3="/kegiatan_mahasiswa3"
+                                    linkName4={t('> Kegiatan Mentoring 2023')}
+                                    profileLink4="/kegiatan_mahasiswa1"
+                                    linkName5={t('> Kegiatan LDK 2023')}
+                                    profileLink5="/kegiatan_mahasiswa2"
+                                    linkName6={t('> Kegiatan Magang 2023')}
+                                    profileLink6="/kegiatan_mahasiswa3"
+                                    linkName7={t('> Kegiatan Mentoring 2023')}
+                                    profileLink7="/kegiatan_mahasiswa1"
+                                    linkName8={t('> Kegiatan LDK 2023')}
+                                    profileLink8="/kegiatan_mahasiswa2"
+                                    linkName9={t('> Kegiatan Magang 2023')}
+                                    profileLink9="/kegiatan_mahasiswa3"
+                                />
+                            </Grid>
+                            <Grid>                    
+                            <NewsCard3
+                                    profileName= "MENU NAVIGASI"
+                                    linkName1={t('Profil Lumajang')}
+                                    profileLink1="/profil_lumajang"
+                                    linkName2={t('Budaya Lumajang')}
+                                    profileLink2="/budaya_lumajang"
+                                    linkName3={t('Pariwisata Lumajang')}
+                                    profileLink3="/pariwisata_lumajang"
+                                    linkName4={t('Kuliner Lumajang')}
+                                    profileLink4="/kuliner_lumajang"
+                                    linkName5={t('Transportasi Lumajang')}
+                                    profileLink5="/transportasi_lumajang"
                                 />
                             </Grid>
                     </Grid>

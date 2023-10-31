@@ -72,12 +72,16 @@ const NewsCard = (props) => {
     const {
         classes,
         profileName,
-        linkName1,
         profileLink1,
         profileLink2,
         profileLink3,
+        profileLink4,
+        profileLink5,
+        linkName1,
         linkName2,
         linkName3,
+        linkName4,
+        linkName5
     } = props
     return (
         <Card className={classes.card}>
@@ -105,6 +109,20 @@ const NewsCard = (props) => {
                 <Fragment>
                     <Link prefetch to={profileLink3} style={{textDecoration:"none", color:"#051d47"}}>
                             {linkName3}
+                    </Link>
+                </Fragment>
+            </CardActions>
+            <CardActions>
+                <Fragment>
+                    <Link prefetch to={profileLink4} style={{textDecoration:"none", color:"#051d47"}}>
+                            {linkName4}
+                    </Link>
+                </Fragment>
+            </CardActions>
+            <CardActions>
+                <Fragment>
+                    <Link prefetch to={profileLink5} style={{textDecoration:"none", color:"#051d47"}}>
+                            {linkName5}
                     </Link>
                 </Fragment>
             </CardActions>

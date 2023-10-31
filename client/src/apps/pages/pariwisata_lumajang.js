@@ -10,6 +10,7 @@ import SlideShow from '../../components/SlideShow'
 import NewsCard from '../../components/NewsCard_Pariwisata'
 import NewsCard2 from '../../components/NewsCard_NavBar'
 import NewsCard1 from '../../components/NewsCard_NavBarKalender'
+import NewsCard3 from '../../components/NewsCard_MenuNav'
 import { useTranslation, withTranslation } from 'react-i18next'
 import { Button } from '@material-ui/core'
 import Breadcrumb from 'react-bootstrap/Breadcrumb';
@@ -41,29 +42,63 @@ const pariwisata_lumajang = (props) => {
                         <Breadcrumb style={{marginTop:"10px"}}>
                             <Breadcrumb.Item href="/"> {t('beranda.label')}</Breadcrumb.Item>
                             <Breadcrumb.Item href="/pariwisata_lumajang"> {t('Kehidupan Lumajang')}</Breadcrumb.Item>
-                            <Breadcrumb.Item href="/pariwisata_lumajang"> {t('Pariwisata')}</Breadcrumb.Item>
+                            <Breadcrumb.Item active href="/pariwisata_lumajang"> {t('Pariwisata Lumajang')}</Breadcrumb.Item>
                         </Breadcrumb>        
                     </div>
                 </Card>
                 <Grid container className={classes.contentContainer}>
                     <Grid item className={classes.gridItemFix} xs={12} sm={4} lg={9}>
                             <NewsCard
-                                 profileName={t('Pariwisata Lumajang')}           
+                                 profileName={t('Pariwisata Lumajang')}        
+                                 profileImg={"/assets/images/wisata.webp"}   
                                  content1={t('Pariwisata di Lumajang adalah sektor yang berkaitan dengan perjalanan dan kunjungan wisatawan ke daerah Lumajang, Jawa Timur, Indonesia. Lumajang terkenal dengan keindahan alamnya, seperti Gunung Semeru, Pantai Sendang Biru, dan objek wisata lainnya. Sektor pariwisata di Lumajang mencakup berbagai kegiatan seperti petualangan alam, pantai, agrowisata, dan budaya lokal. Pariwisata memiliki peran penting dalam perekonomian daerah ini dengan menciptakan lapangan kerja dan pendapatan bagi penduduk setempat.')}  
+                                 content2={t(" Untuk selengkapnya bisa mengunjungi halaman berikut : ")}
+                                 profileLink3="https://tempatwisataseru.com/wisata-lumajang/"
+                                 linkName3={'https://tempatwisataseru.com/wisata-lumajang/'} 
                             />
                     </Grid>
                 
                     <Grid item className={classes.gridItemFix} xs={10} sm={4} lg={3}>
                         <NewsCard1/>
-                            <Grid>                    
+                        <Grid>                    
                                 <NewsCard2
-                                    profileName= "BERITA TERKINI"
+                                    profileName= "PENGUMUMAN"
+                                    subMenu1= "2023"
+                                    subMenu2= "2022"
+                                    subMenu3= "2021"
                                     linkName1={t('> Kegiatan Mentoring 2023')}
                                     profileLink1="/kegiatan_mahasiswa1"
                                     linkName2={t('> Kegiatan LDK 2023')}
                                     profileLink2="/kegiatan_mahasiswa2"
                                     linkName3={t('> Kegiatan Magang 2023')}
                                     profileLink3="/kegiatan_mahasiswa3"
+                                    linkName4={t('> Kegiatan Mentoring 2023')}
+                                    profileLink4="/kegiatan_mahasiswa1"
+                                    linkName5={t('> Kegiatan LDK 2023')}
+                                    profileLink5="/kegiatan_mahasiswa2"
+                                    linkName6={t('> Kegiatan Magang 2023')}
+                                    profileLink6="/kegiatan_mahasiswa3"
+                                    linkName7={t('> Kegiatan Mentoring 2023')}
+                                    profileLink7="/kegiatan_mahasiswa1"
+                                    linkName8={t('> Kegiatan LDK 2023')}
+                                    profileLink8="/kegiatan_mahasiswa2"
+                                    linkName9={t('> Kegiatan Magang 2023')}
+                                    profileLink9="/kegiatan_mahasiswa3"
+                                />
+                            </Grid>
+                            <Grid>                    
+                            <NewsCard3
+                                    profileName= "MENU NAVIGASI"
+                                    linkName1={t('Profil Lumajang')}
+                                    profileLink1="/profil_lumajang"
+                                    linkName2={t('Budaya Lumajang')}
+                                    profileLink2="/budaya_lumajang"
+                                    linkName3={t('Pariwisata Lumajang')}
+                                    profileLink3="/pariwisata_lumajang"
+                                    linkName4={t('Kuliner Lumajang')}
+                                    profileLink4="/kuliner_lumajang"
+                                    linkName5={t('Transportasi Lumajang')}
+                                    profileLink5="/transportasi_lumajang"
                                 />
                             </Grid>
                     </Grid>

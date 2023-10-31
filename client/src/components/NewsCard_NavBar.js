@@ -7,6 +7,8 @@ import Typography from '@material-ui/core/Typography'
 import { Link } from 'react-router-dom'
 import React, { Component, Fragment } from 'react'
 import { BlobImageDisplay } from "../apps/pages/BlobImageDisplay3";
+import Accordion from 'react-bootstrap/Accordion'
+import AccordionBody from 'react-bootstrap/esm/AccordionBody'
 
 
 const styles = theme => ({
@@ -71,12 +73,28 @@ const NewsCard = (props) => {
     const {
         classes,
         profileName,
+        subMenu1,
+        subMenu2,
+        subMenu3,
         linkName1,
+        linkName2,
+        linkName3,
+        linkName4,
+        linkName5,
+        linkName6,
+        linkName7,
+        linkName8,
+        linkName9,
         profileLink1,
         profileLink2,
         profileLink3,
-        linkName2,
-        linkName3,
+        profileLink4,
+        profileLink5,
+        profileLink6,
+        profileLink7,
+        profileLink8,
+        profileLink9,
+        
     } = props
     return (
         <Card className={classes.card}>
@@ -86,27 +104,109 @@ const NewsCard = (props) => {
                 </Typography>
             </CardContent>
             <CardContent>
-            <CardActions>
+
+            <Accordion flush style={{ width:"100%", marginLeft:"20px", marginBottom:"20px"}}>
+    
+            <Accordion.Item eventKey="0" style={{ width:"250px"}}>
+                <Accordion.Header>
+                    {subMenu1}
+                </Accordion.Header>
+                    <Accordion.Body>
+                    <CardActions>
                 <Fragment>
                     <Link prefetch to={profileLink1} style={{textDecoration:"none", color:"#051d47"}}>
                             {linkName1}
                     </Link>
                 </Fragment>
             </CardActions>
-            <CardActions>
+                    </Accordion.Body>
+                    <Accordion.Body>
+                    <CardActions>
                 <Fragment>
                     <Link prefetch to={profileLink2} style={{textDecoration:"none", color:"#051d47"}}>
                             {linkName2}
                     </Link>
                 </Fragment>
             </CardActions>
-            <CardActions>
+                    </Accordion.Body>
+                    <Accordion.Body>
+                        <CardActions>
+                            <Fragment>
+                                <Link prefetch to={profileLink3} style={{textDecoration:"none", color:"#051d47"}}>
+                                    {linkName3}
+                                </Link>
+                            </Fragment>
+                        </CardActions>
+                    </Accordion.Body>
+            </Accordion.Item>
+
+            <Accordion.Item eventKey="1" style={{ width:"250px"}}>
+            <Accordion.Header>
+                    {subMenu2}
+                </Accordion.Header>
+                    <Accordion.Body>
+                    <CardActions>
                 <Fragment>
-                    <Link prefetch to={profileLink3} style={{textDecoration:"none", color:"#051d47"}}>
-                            {linkName3}
+                    <Link prefetch to={profileLink4} style={{textDecoration:"none", color:"#051d47"}}>
+                            {linkName4}
                     </Link>
                 </Fragment>
             </CardActions>
+                    </Accordion.Body>
+                    <Accordion.Body>
+                    <CardActions>
+                <Fragment>
+                    <Link prefetch to={profileLink5} style={{textDecoration:"none", color:"#051d47"}}>
+                            {linkName5}
+                    </Link>
+                </Fragment>
+            </CardActions>
+                    </Accordion.Body>
+                    <Accordion.Body>
+                        <CardActions>
+                            <Fragment>
+                                <Link prefetch to={profileLink6} style={{textDecoration:"none", color:"#051d47"}}>
+                                    {linkName6}
+                                </Link>
+                            </Fragment>
+                        </CardActions>
+                    </Accordion.Body>
+            </Accordion.Item>
+
+            <Accordion.Item eventKey="2" style={{ width:"250px"}}>
+            <Accordion.Header>
+                    {subMenu3}
+                </Accordion.Header>
+                    <Accordion.Body>
+                    <CardActions>
+                <Fragment>
+                    <Link prefetch to={profileLink7} style={{textDecoration:"none", color:"#051d47"}}>
+                            {linkName7}
+                    </Link>
+                </Fragment>
+            </CardActions>
+                    </Accordion.Body>
+                    <Accordion.Body>
+                    <CardActions>
+                <Fragment>
+                    <Link prefetch to={profileLink8} style={{textDecoration:"none", color:"#051d47"}}>
+                            {linkName8}
+                    </Link>
+                </Fragment>
+            </CardActions>
+                    </Accordion.Body>
+                    <Accordion.Body>
+                        <CardActions>
+                            <Fragment>
+                                <Link prefetch to={profileLink9} style={{textDecoration:"none", color:"#051d47"}}>
+                                    {linkName9}
+                                </Link>
+                            </Fragment>
+                        </CardActions>
+                    </Accordion.Body>
+            </Accordion.Item>
+
+            </Accordion>
             </CardContent>
         </Card>
     )

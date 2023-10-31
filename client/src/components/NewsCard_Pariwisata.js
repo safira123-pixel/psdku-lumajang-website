@@ -70,6 +70,8 @@ const NewsCard = (props) => {
         title1,
         title2,
         title3,
+        profileLink3,
+        linkName3
     } = props
     return (
         <Card className={classes.card}>
@@ -78,9 +80,26 @@ const NewsCard = (props) => {
                    {profileName}
                 </Typography>
                 </CardContent>
+                <CardContent>
+                <img
+                src={profileImg}
+                style={{ width: '75%'}}
+                className={classes.cardImage}
+                />
+                </CardContent>
             <CardContent>
                 <Typography component="h2" className={classes.description}>
                     {content1}
+                </Typography>
+            </CardContent>
+            <CardContent>
+                <Typography component="h2" className={classes.description1}>
+                    {content2}
+                </Typography>
+                <Typography component="p" className={classes.description}>
+                    <a href={profileLink3} target= "_blank">                    
+                        {linkName3}
+                    </a>
                 </Typography>
             </CardContent>
         </Card>

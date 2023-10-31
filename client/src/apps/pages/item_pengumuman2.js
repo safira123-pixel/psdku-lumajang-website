@@ -43,7 +43,7 @@ const item_pengumuman2 = (props) => {
                             <Breadcrumb.Item href="/"> {t('beranda.label')}</Breadcrumb.Item>
                             <Breadcrumb.Item href="/kegiatan_mahasiswa"> {t('Kegiatan Mahasiswa')}</Breadcrumb.Item>
                             <Breadcrumb.Item href="/pengumuman1"> {t('Kegiatan Mahasiswa')}</Breadcrumb.Item>
-                            <Breadcrumb.Item href="/item_pengumuman2"> {item[1].name}</Breadcrumb.Item>
+                            <Breadcrumb.Item active href="/item_pengumuman2"> {item[1].name}</Breadcrumb.Item>
                         </Breadcrumb> 
                     ))}       
                     </div>
