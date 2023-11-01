@@ -56,6 +56,9 @@ const transportasi_lumajang = (props) => {
                                  profileImg={"/assets/images/transportasi.jpg"}
 
                                  description1={("Transportasi Lumajang adalah sistem transportasi yang melayani Kabupaten Lumajang di Provinsi Jawa Timur, Indonesia. Sistem ini mencakup berbagai moda transportasi, termasuk jalan raya, angkutan umum, sepeda, dan kendaraan pribadi. Kendaraan bermotor, seperti mobil dan sepeda motor, merupakan sarana utama mobilitas penduduk di Lumajang. Selain itu, transportasi publik seperti angkutan kota dan ojek juga tersedia untuk memudahkan perjalanan penduduk dan wisatawan di daerah ini. Selain itu, Lumajang juga memiliki sejumlah terminal transportasi yang menghubungkan berbagai wilayah di dalam dan luar kabupaten ini. Transportasi Lumajang memiliki peran penting dalam mendukung konektivitas dan pertumbuhan ekonomi daerah ini serta memberikan akses ke tempat-tempat wisata alam yang indah di sekitarnya.")}
+                                 description2={("Informasi selengkapnya dapat dilihat di link berikut : ")}
+                                 profileLink="https://lumajangkab.go.id/fasum/index/perhubungan/terminal"
+                                 linkName={'https://lumajangkab.go.id/fasum/index/perhubungan/terminal'} 
                             />
                     </Grid>
                 

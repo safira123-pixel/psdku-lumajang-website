@@ -69,6 +69,8 @@ const NewsCard = (props) => {
         profileName,
         content1,
         content2,
+        profileLink3,
+        linkName3,
         content3,
         title1,
         title2,
@@ -88,6 +90,9 @@ const NewsCard = (props) => {
                 <Typography component="h2" className={classes.description}>
                     {content2}
                 </Typography>
+                    <a href={profileLink3} target= "_blank">
+                            {linkName3}
+                    </a>
             </CardContent>
                 <Card className={classes.cardImage}>
             <BlobImageDisplay blob={profileImg1}/>

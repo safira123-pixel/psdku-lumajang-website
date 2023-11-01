@@ -63,33 +63,33 @@ const kuliner_lumajang = (props) => {
                                  profileName1={t('Kuliner Khas Lumajang')}
                                  nomor1={"1"}
                                  content1={("Kue Latok")}
-                                 profileImg1={"/assets/images/peta.jpg"}
+                                 profileImg1={"/assets/images/4.jpeg"}
                                  link1={"https://www.wartabromo.com/2023/07/26/kue-tradisional-khas-lumajang/"}
 
                                  nomor2={"2"}
                                  content2={("Kue Lupis")}
-                                 profileImg2={"/assets/images/peta.jpg"}
-                                 link2={"/#"}
+                                 profileImg2={"/assets/images/5.jpeg"}
+                                 link2={"https://www.wartabromo.com/2023/07/26/kue-tradisional-khas-lumajang/"}
 
                                  nomor3={"3"}
                                  content3={("Ketan Koro")}
-                                 profileImg3={"/assets/images/peta.jpg"}
+                                 profileImg3={"/assets/images/3.jpeg"}
                                  link3={"https://www.wartabromo.com/2023/07/26/kue-tradisional-khas-lumajang/"}
 
                                  nomor4={"4"}
                                  content4={("Bledus")}
-                                 profileImg4={"/assets/images/peta.jpg"}
-                                 link4={"/#"}
+                                 profileImg4={"/assets/images/1.jpeg"}
+                                 link4={"https://www.wartabromo.com/2023/07/26/kue-tradisional-khas-lumajang/"}
 
                                  nomor5={"5"}
                                  content5={("Tape Pisang")}
-                                 profileImg5={"/assets/images/peta.jpg"}
-                                 link5={"/#"}
+                                 profileImg5={"/assets/images/5.jpeg"}
+                                 link5={"https://www.wartabromo.com/2023/07/26/kue-tradisional-khas-lumajang/"}
 
                                  nomor6={"6"}
                                  content6={("Kripik Pisang")}
-                                 profileImg6={"/assets/images/peta.jpg"}
-                                 link6={"/#"}
+                                 profileImg6={"/assets/images/2.jpeg"}
+                                 link6={"https://www.wartabromo.com/2023/07/26/kue-tradisional-khas-lumajang/"}
                             />
                     </Grid>
                 

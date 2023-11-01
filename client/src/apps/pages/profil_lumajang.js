@@ -82,8 +82,9 @@ const profil_lumajang = (props) => {
                                  content8={("Prasasti Mula Malurung merupakan prasasti tertua yang mencatat keberadaan 'Nagara Lamajang' dan dianggap sebagai titik tolak hari jadi Lumajang. Prasasti ini ditemukan di Kediri pada tahun 1975 dan diterbitkan oleh Raja Kertanegara dari Singasari pada tahun 1177 Saka (setara dengan 1255 Masehi). Pada tanggal 15 Desember 1255 Masehi, Lumajang dianggap sudah merupakan sebuah negara yang berpenduduk dengan pemerintahan yang teratur.")}
                                  content9={("Sejarah Lumajang juga terkait dengan tokoh Aria Wiraraja yang mendukung Raden Wijaya dalam mendirikan Kerajaan Majapahit. Setelah Kerajaan Majapahit runtuh, wilayah Lumajang masuk pada masa pemerintahan kerajaan Blambangan dan kemudian dikuasai oleh keluarga Untung Suropati.")}
                                  content10={("Pada masa penjajahan Belanda, Lumajang awalnya merupakan bagian dari Pasuruan dan Probolinggo. Pada tahun 1882, Lumajang diangkat menjadi Afdeeling (setingkat kabupaten), dan pada tahun 1929, statusnya ditingkatkan menjadi Kabupaten.")}
-
-
+                                 content13={("Untuk informasi selengkapnya bisa mengunjungi link berikut : ")}
+                                 profileLink="https://lumajangkab.go.id/main/gambaran"
+                                 linkName={'https://lumajangkab.go.id/main/gambaran'} 
                             />
                         ))}
                     </Grid>

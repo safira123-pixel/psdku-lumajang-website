@@ -63,61 +63,61 @@ const budaya_lumajang = (props) => {
                                  profileName1={t('Tari Khas Lumajang')}
                                  nomor1={"1"}
                                  content1={("Tari Topeng Kaliwungu")}
-                                 profileImg1={"/assets/images/peta.jpg"}
-                                 link1={"/#"}
+                                 profileImg1={"/assets/images/kaliwungu.jpg"}
+                                 link1={"https://warisanbudaya.kemdikbud.go.id/?newdetail&detailTetap=2902"}
 
                                  nomor2={"2"}
                                  content2={("Tari Glipang")}
-                                 profileImg2={"/assets/images/peta.jpg"}
-                                 link2={"/#"}
+                                 profileImg2={"/assets/images/glipang.jpg"}
+                                 link2={"https://www.kompasiana.com/amynaylan2201/58f4c8dbe1afbd482de4f0c3/kesenian-tari-glipang-khas-lumajang"}
 
                                  nomor3={"3"}
                                  content3={("Tari Godril Lumajang")}
-                                 profileImg3={"/assets/images/peta.jpg"}
-                                 link3={"/#"}
+                                 profileImg3={"/assets/images/godril.png"}
+                                 link3={"https://warisanbudaya.kemdikbud.go.id/?newdetail&detailCatat=3375"}
 
                                  nomor4={"4"}
                                  content4={("Tari Bedhaya Lumajang")}
-                                 profileImg4={"/assets/images/peta.jpg"}
-                                 link4={"/#"}
+                                 profileImg4={"/assets/images/bedhaya.jpg"}
+                                 link4={"https://lumajangsatu.com/baca/tari-bedoyo-disparbud-sambut-penguasa-lumajang"}
 
                                  nomor5={"5"}
                                  content5={("Tari Kanya Puspita")}
-                                 profileImg5={"/assets/images/peta.jpg"}
-                                 link5={"/#"}
+                                 profileImg5={"/assets/images/kanya.jpg"}
+                                 link5={"https://jawatimuran.wordpress.com/2012/10/20/kanya-puspita-tarian-khas-kabupaten-lumajang/"}
 
                                  profileName2={t('Kesenian Musik')}
                                  nomor6={"1"}
                                  content6={("Musik Danglung")}
-                                 profileImg6={"/assets/images/peta.jpg"}
-                                 link6={"/#"}
+                                 profileImg6={"/assets/images/danglung.jpg"}
+                                 link6={"https://nasional.tempo.co/read/1109670/cita-cita-luhur-lewat-kesenian-musik-danglung"}
 
                                  nomor7={"2"}
                                  content7={("Harpa Mulut")}
-                                 profileImg7={"/assets/images/peta.jpg"}
-                                 link7={"/#"}
+                                 profileImg7={"/assets/images/rinding.jpg"}
+                                 link7={"https://www.wisatalumajang.com/single-post/rinding-lumajang-harpa-mulut"}
 
                                  nomor8={"3"}
                                  content8={("Kesenian Serbung")}
-                                 profileImg8={"/assets/images/peta.jpg"}
-                                 link8={"/#"}
+                                 profileImg8={"/assets/images/serbung.jpg"}
+                                 link8={"https://www.kompasiana.com/serbungjatimulyo2109/5e42e5e2097f36105b378df4/serbung-kesenian-musik-tradisional-desa-jatimulyo-kabupaten-lumajang"}
 
                                  profileName3={t('Kesenian Batik')}
                                  nomor9={"1"}
                                  content9={("Batik Lumajang")}
-                                 profileImg9={"/assets/images/peta.jpg"}
-                                 link9={"/#"}
+                                 profileImg9={"/assets/images/batik.jpg"}
+                                 link9={"https://www.visitlumajang.com/batik-khas-lumajang-miliki-corak-berupa-ikonikon-kota-lumajang/3071"}
 
                                  profileName4={t('Kesenian Pertunjukan')}
                                  nomor10={"1"}
                                  content10={("Jaran Kecak")}
-                                 profileImg10={"/assets/images/peta.jpg"}
-                                 link10={"/#"}
+                                 profileImg10={"/assets/images/kuda kencak.jpg"}
+                                 link10={"https://www.wisatalumajang.com/jaran-kencak"}
 
                                  nomor11={"2"}
                                  content11={("Jaran Slining")}
-                                 profileImg11={"/assets/images/peta.jpg"}
-                                 link11={"/#"}
+                                 profileImg11={"/assets/images/jaran slining.jpg"}
+                                 link11={"https://warisanbudaya.kemdikbud.go.id/?newdetail&detailCatat=3326"}
 
 
 

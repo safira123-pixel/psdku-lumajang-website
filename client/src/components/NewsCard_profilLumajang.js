@@ -79,6 +79,8 @@ const styles = theme => ({
 const NewsCard = (props) => {
     const {
         classes,
+        profileLink,
+        linkName,
         profileImg,
         profileImg2,
         profileName,        
@@ -167,6 +169,14 @@ const NewsCard = (props) => {
                 </Typography>
                 <Typography component="p" className={classes.description}>
                     {content12}
+                </Typography>
+                <Typography component="p" className={classes.description}>
+                    {content13}
+                </Typography>
+                <Typography>
+                <a href={profileLink} target= "_blank">
+                            {linkName}
+                    </a>
                 </Typography>
             </CardContent>
         </Card>

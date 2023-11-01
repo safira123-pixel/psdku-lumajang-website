@@ -101,6 +101,7 @@ const NewsCard = (props) => {
     const {
         profileName,
         description1,
+        description2,
         classes,
 
         profileName1,
@@ -167,7 +168,9 @@ const NewsCard = (props) => {
         link11,
         nomor11,
         content11,
-        profileImg
+        profileImg,
+        profileLink,
+        linkName
     } = props
     
     
@@ -188,6 +191,14 @@ const NewsCard = (props) => {
             <CardContent>
                 <Typography component="h2" className={classes.description}>
                     {description1}
+                </Typography>
+                <Typography component="subheading" className={classes.description}>
+                    {description2}
+                </Typography>
+                <Typography>
+                <a href={profileLink} target= "_blank">
+                            {linkName}
+                    </a>
                 </Typography>
             </CardContent>
         </Card>
