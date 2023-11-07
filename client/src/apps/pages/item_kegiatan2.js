@@ -15,6 +15,8 @@ import { Button } from '@material-ui/core'
 import Breadcrumb from 'react-bootstrap/Breadcrumb';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ChatIcon from '../../components/ChatIcon';
+import ClipLoader from "react-spinners/ClipLoader";
+
 
 const item_kegiatan2 = (props) => {
     const [loading, setLoading] = useState(true);
