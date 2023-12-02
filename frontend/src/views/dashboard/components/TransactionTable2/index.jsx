@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import { Table, Tag } from "antd";
 import { transactionList } from "@/api/remoteSearch";
 import {
-  getBeritas,
-} from "@/api/berita";
+  getDepartments,
+} from "@/api/department";
 
 // const columns = [
 //   {
@@ -61,7 +61,7 @@ class TransactionTable extends Component {
     list: [],
   };
   fetchData = () => {
-    getBeritas().then((response) => {
+    getDepartments().then((response) => {
       const list = response.data.content;
       if (this._isMounted) {
         this.setState({ list });

@@ -1,5 +1,5 @@
 import { Route, Switch } from 'react-router-dom'
-import { HomePage, ProfilePage, selayang_pandang, akutansi, visi_misi, struktur_organisasi, Kalender_akademik, otomotif, teknologi_sipil, teknologi_informasi, snbp, snbt, mandiri, kegiatan_mahasiswa, kegiatan_mahasiswa2,kegiatan_mahasiswa3, pengumuman, pengumuman1, pengumuman2, profil_lumajang, kuliner_lumajang, pariwisata_lumajang, transportasi_lumajang, budaya_lumajang, item_kegiatan1, item_kegiatan2, item_kegiatan3, item_pengumuman1, item_pengumuman2, item_pengumuman3} from './apps/pages'
+import { HomePage, ProfilePage, selayang_pandang, akutansi, visi_misi, struktur_organisasi, Kalender_akademik, otomotif, teknologi_sipil, teknologi_informasi, snbp, snbt, mandiri, kegiatan_mahasiswa, kegiatan_mahasiswa2, kegiatan_mahasiswa3, pengumuman, pengumuman1, pengumuman2, profil_lumajang, kuliner_lumajang, pariwisata_lumajang, transportasi_lumajang, budaya_lumajang, item_kegiatan1, item_kegiatan2, item_kegiatan3, item_pengumuman1, item_pengumuman2, item_pengumuman3 } from './apps/pages'
 import perpustakaan_polinema from './apps/pages/perpustakaan_polinema'
 // import fasilitas_bangunan from './apps/pages/fasilitas_bangunan'
 import fasilitas_parkir from './apps/pages/fasilitas_parkir'
@@ -39,7 +39,7 @@ const AppRoute = () => {
             <Route exact path='/pengumuman2' component={pengumuman2} />
             <Route exact path='/item_pengumuman1' component={item_pengumuman1} />
             <Route exact path='/item_pengumuman2' component={item_pengumuman2} />
-            <Route exact path='/item_pengumuman3' component={item_pengumuman3} />            
+            <Route exact path='/item_pengumuman3' component={item_pengumuman3} />
 
             <Route exact path='/profil_lumajang' component={profil_lumajang} />
             <Route exact path='/budaya_lumajang' component={budaya_lumajang} />

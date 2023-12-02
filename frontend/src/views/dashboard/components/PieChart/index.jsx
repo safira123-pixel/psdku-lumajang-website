@@ -54,6 +54,18 @@ class PieChart extends Component {
   }
 
   setOptions() {
+    const {
+      handleSetLineChartData,
+      totalProfil,
+      totalJurusan,
+      totalBerita,
+      totalKegiatan,
+      totalSelayangPandang,
+      totalPendaftaran,
+      totalKalender,
+      totalCampusLife,
+    } = this.props;
+
     const animationDuration = 3000;
     this.state.chart.setOption({
       tooltip: {
@@ -63,7 +75,7 @@ class PieChart extends Component {
       legend: {
         left: "center",
         bottom: "10",
-        data: ["Industries", "Technology", "Forex", "Gold", "Forecasts"],
+        data: ["Profil", "Jurusan", "Berita", "Kegiatan", "Selayang Pandang", "Pendaftaran", "Kalender", "Campus Life"],
       },
       calculable: true,
       series: [
@@ -74,11 +86,14 @@ class PieChart extends Component {
           radius: [15, 95],
           center: ["50%", "38%"],
           data: [
-            { value: 320, name: "Industries" },
-            { value: 240, name: "Technology" },
-            { value: 149, name: "Forex" },
-            { value: 100, name: "Gold" },
-            { value: 59, name: "Forecasts" },
+            { value: totalProfil, name: "Profil" },
+            { value: totalJurusan, name: "Jurusan" },
+            { value: totalBerita, name: "Berita" },
+            { value: totalKegiatan, name: "Kegiatan" },
+            { value: totalSelayangPandang, name: "Selayang Pandang" },
+            { value: totalPendaftaran, name: "Pendaftaran" },
+            { value: totalKalender, name: "Kalender" },
+            { value: totalCampusLife, name: "Campus Life" },
           ],
           animationEasing: "cubicInOut",
           animationDuration

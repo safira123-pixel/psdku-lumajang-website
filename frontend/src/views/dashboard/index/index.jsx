@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Component } from "react";
+import React, { useState } from "react";
 import { Row, Col } from "antd";
 import "./index.less";
 import PanelGroup from "./components/PanelGroup";
@@ -8,95 +8,95 @@ import RaddarChart from "./components/RaddarChart";
 import PieChart from "./components/PieChart";
 import TransactionTable from "./components/TransactionTable";
 import BoxCard from "./components/BoxCard";
-import { getBeritas } from "@/api/berita";
-import { getDepartments } from "@/api/department";
-import { getKegiatans } from "@/api/kegiatan";
-import { getSelayangs } from "@/api/selayang";
-import { debounce } from "@/utils";
-import PropTypes from "prop-types";
 
-class Dashboard extends Component {
-    static propTypes = {
-        width: PropTypes.string,
-        height: PropTypes.string,
-        className: PropTypes.string,
-        styles: PropTypes.object,
-      };
-    
-      static defaultProps = {
-        width: "100%",
-        height: "300px",
-        styles: {},
-        className: "",
-      };
-    
-      state = {
-        chart: null,
-        beritas: [], 
-      };
-    
-      componentDidMount() {
-        this.fetchBeritas();
-        debounce(this.initChart.bind(this), 300)();
-        window.addEventListener("resize", () => this.resize());
-      }
-    
-      componentWillUnmount() {
-        this.dispose();
-      }
-    
-      resize() {
-        const chart = this.state.chart;
-        if (chart) {
-          debounce(chart.resize.bind(this), 300)();
-        }
-      }
-    
-      dispose() {
-        if (!this.state.chart) {
-          return;
-        }
-        window.removeEventListener("resize", () => this.resize());
-        this.setState({ chart: null });
-      }
-    
-      fetchBeritas() {
-        getBeritas()
-          .then((response) => {
-            const { content, statusCode } = response.data;
-            if (statusCode === 200) {
-              this.setState({ beritas: content }, () => {
-                // After fetching data, initialize the chart
-                debounce(this.initChart.bind(this), 300)();
-              });
-            }
-          })
-          .catch((error) => {
-            console.error("Error fetching berita data:", error);
-          });
-      }
-    
-      initChart() {
-        if (!this.el) return;
-        this.setState({ chart: echarts.init(this.el, "macarons") }, () => {
-          this.setOptions();
-        });
-      }
-    
-      render() {
-        const { className, height, width, styles } = this.props;
-        return (
-          <div
-            className={className}
-            ref={(el) => (this.el = el)}
-            style={{
-              ...styles,
-              height,
-              width,
-            }}
-          />
-        );
-      }
-    }
-    
+const lineChartDefaultData = {
+  "New Visits": {
+    expectedData: [100, 120, 161, 134, 105, 160, 165],
+    actualData: [120, 82, 91, 154, 162, 140, 145],
+  },
+  Messages: {
+    expectedData: [200, 192, 120, 144, 160, 130, 140],
+    actualData: [180, 160, 151, 106, 145, 150, 130],
+  },
+  Purchases: {
+    expectedData: [80, 100, 121, 104, 105, 90, 100],
+    actualData: [120, 90, 100, 138, 142, 130, 130],
+  },
+  Shoppings: {
+    expectedData: [130, 140, 141, 142, 145, 150, 160],
+    actualData: [120, 82, 91, 154, 162, 140, 130],
+  },
+};
+
+const Dashboard = () => {
+  const [lineChartData, setLineChartData] = useState(
+    lineChartDefaultData["New Visits"]
+  );
+
+  const handleSetLineChartData = (type) => setLineChartData(lineChartDefaultData[type]);
+
+  return (
+    <div className="app-container">
+      <a
+        href="https://github.com/NLRX-WJC/react-antd-admin-template"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="github-corner"
+      ></a>
+
+      <PanelGroup handleSetLineChartData={handleSetLineChartData} />
+
+      <LineChart
+        chartData={lineChartData}
+        styles={{
+          padding: 12,
+          backgroundColor: "#fff",
+          marginBottom: "25px",
+        }}
+      />
+
+      <Row gutter={32}>
+        <Col xs={24} sm={24} lg={8}>
+          <div className="chart-wrapper">
+            <RaddarChart />
+          </div>
+        </Col>
+        <Col xs={24} sm={24} lg={8}>
+          <div className="chart-wrapper">
+            <PieChart />
+          </div>
+        </Col>
+        <Col xs={24} sm={24} lg={8}>
+          <div className="chart-wrapper">
+            <BarChart />
+          </div>
+        </Col>
+      </Row>
+
+      <Row gutter={8}>
+        <Col
+          xs={24}
+          sm={24}
+          md={24}
+          lg={12}
+          xl={12}
+          style={{ paddingRight: "8px", marginBottom: "30px" }}
+        >
+          <TransactionTable />
+        </Col>
+        <Col
+          xs={24}
+          sm={24}
+          md={24}
+          lg={12}
+          xl={12}
+          style={{ marginBottom: "30px" }}
+        >
+          <BoxCard />
+        </Col>
+      </Row>
+    </div>
+  );
+};
+
 export default Dashboard;
