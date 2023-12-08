@@ -160,11 +160,11 @@ const TemporaryDrawer = props => {
                 toggleDrawer={toggleDrawer}
                 expandSubItem={props.expandSubItem}
                 expandItem={props.expandItem}
-                itemId="campus-life"
+                itemId="lumajang-life"
                 primaryText={t("Kehidupan Lumajang")}
                 submenuItems={campusMenu}
                 isSubOpen={props.drawerSubItems}
-                isOpen={props.drawerItems['campus-life']}
+                isOpen={props.drawerItems['lumajang-life']}
               />
            
               {/* <Divider /> */}

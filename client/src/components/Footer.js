@@ -25,7 +25,7 @@ const Footer = ({classes}) => {
               <li id="menu-item-325" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-325"><a href="/teknologi_informasi" style={{ color: 'white'}}>{t('Item4.label')}</a></li>
               </ul>
               <ul id="secondary-menu" class="menu">
-              <a href="#"><img src="https://www.linkpicture.com/q/pngwing.com_71.png" width="20" alt="Icon"/></a>    <a href="#"><img src="https://www.linkpicture.com/q/pngwing.com-1_32.png" width="20" alt="Icon"/></a>   <a href="#"><img src="https://www.linkpicture.com/q/pngwing.com-2_6.png" width="20" alt="Icon"/></a>
+              <a href="https://wa.link/wuglb5"><img src="/assets/images/whatsapp.png" width="30" alt="Icon"/></a>   <a href="https://www.facebook.com/aknlumajang.ID/?locale=id_ID"><img src="./assets/images/fb.png" width="40" alt="Icon"/></a>  <a href="https://www.instagram.com/polinema.lumajang.official/"><img src="./assets/images/ig.png" width="30" alt="Icon"/></a>  
               </ul>
            </div>
            <div>

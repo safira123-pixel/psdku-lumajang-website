@@ -41,6 +41,7 @@ const perpustakaan_polinema = (props) => {
             setLoading(false); // Set loading to false when data is loaded
 
         });
+        
     }, []);
 
 //backgroundImage: 'url("/assets/images/background.jpeg")', backgroundRepeat: 'repeat', backgroundSize: 400

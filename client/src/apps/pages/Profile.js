@@ -26,6 +26,7 @@ const Profile = (props) => {
     const { classes} = props
     const { t } = useTranslation();
 
+
     useEffect(() => {
         fetch('http://localhost:8080/api/profil') // Pastikan URL endpoint sesuai
         .then(response => response.json())
@@ -41,6 +42,9 @@ const Profile = (props) => {
     }, []);
 
     //background: 'linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%)'
+    // const getDescriptionTranslation = (descriptionKey) => {
+    //     return t(descriptionKey); // Menggunakan t() dari useTranslation untuk menerjemahkan deskripsi
+    //   };
 
     return (
         <div>
@@ -66,19 +70,39 @@ const Profile = (props) => {
                             <NewsCard
                                  key={index}
                                  profileName={t('Profil')}
-                                 content1={item[0].description}
-                                 content2={item[1].description}
-                                 content3={item[2].description}
-                                 content4={item[3].description}
-                                 content5={item[4].description}
-                                 content6={item[6].description}
+                                //  profileName={t('Profil')}
+                                //  content1={getDescriptionTranslation(item[0].description)} // Mendapatkan terjemahan deskripsi
+                                //  content1={item[0].description}
+                                //  content2={item[1].description}
+                                //  content1={t('item[0].description')} // Menggunakan t() untuk menerjemahkan deskripsi
+                                //  content2={t('item[1].description')} // Menggunakan t() untuk menerjemahkan deskripsi
+                                // content1={item[0].description} // Menggunakan t() untuk menerjemahkan deskripsi
+                                content1={t("content1", item[0].description )}
+                                content2={t("content2", item[1].description )}
+                                content3={t("content3", item[2].description )}
+                                content4={t("content4", item[3].description )}
+                                content5={t("content5", item[4].description )}
+                                content6={t("content6", item[6].description )}
+                                content7={t("content7", item[7].description )}
+                                content8={t("content8", item[8].description )}
+                                content9={t("content9", item[9].description )}
+                                content10={t("content10", item[10].description )}
+                                content11={t("content11", item[11].description )}
+                                content12={t("content12", item[12].description )}
+                                // content2={item[1].description} // Menggunakan t() untuk menerjemahkan deskripsi
+                                //  content3={item[2].description}
+                                //  content4={item[3].description}
+                                // content5={item[4].description}
+
+                                // //  content5={item[4].description}
+                                //  content6={item[6].description}
                                  profileImg1={item[5].data}
-                                 content7={item[7].description}
-                                 content8={item[8].description}
-                                 content9={item[9].description}
-                                 content10={item[10].description}
-                                 content11={item[11].description}
-                                 content12={item[12].description}
+                                //  content7={item[7].description}
+                                //  content8={item[8].description}
+                                //  content9={item[9].description}
+                                //  content10={item[10].description}
+                                //  content11={item[11].description}
+                                //  content12={item[12].description}
                                  profileImg2={item[13].data}  
                             />
                         ))}

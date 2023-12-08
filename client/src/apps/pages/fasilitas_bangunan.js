@@ -33,6 +33,7 @@ const fasilitas_bangunan = (props) => {
             console.error(error);
         });
     }, []);
+    
 
 //backgroundImage: 'url("/assets/images/background.jpeg")', backgroundRepeat: 'repeat', backgroundSize: 400
     return (

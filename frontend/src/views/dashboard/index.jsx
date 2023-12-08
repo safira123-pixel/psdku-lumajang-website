@@ -299,7 +299,7 @@ const Dashboard = () => {
           </div>
         </Col> */}
       </Row>
-
+{/* 
       <Row gutter={32}>
         <Col xs={24} sm={24} lg={12}>
           <TransactionTable />
@@ -307,7 +307,7 @@ const Dashboard = () => {
         <Col xs={24} sm={24} lg={12}>
           <TransactionTable2 />
         </Col>
-      </Row>
+      </Row> */}
     </div>
   );
 };

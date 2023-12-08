@@ -58,8 +58,8 @@ const profil_lumajang = (props) => {
                     <div className={classes.container}>
                         <Breadcrumb style={{marginTop:"10px"}}>
                             <Breadcrumb.Item href="/"> {t('beranda.label')}</Breadcrumb.Item>
-                            <Breadcrumb.Item href="/profil_lumajang"> {t('Kehidupan Kampus')}</Breadcrumb.Item>
-                            <Breadcrumb.Item active href="/profil_lumajang"> {t('Profil Kota')}</Breadcrumb.Item>
+                            <Breadcrumb.Item href="/profil_lumajang"> {t('Kehidupan Lumajang')}</Breadcrumb.Item>
+                            <Breadcrumb.Item active href="/profil_lumajang"> {t('Profil Kabupaten')}</Breadcrumb.Item>
                         </Breadcrumb>        
                     </div>
                 </Card>
@@ -68,8 +68,8 @@ const profil_lumajang = (props) => {
                         {data.map((item, index) => (
                             <NewsCard
                                  key={index}
-                                 profileName={t('Profil Kota Lumajang')}
-                                 profileName1={t('Profil Kota')}
+                                 profileName={t('Profil Kabupaten Lumajang')}
+                                 profileName1={t('Profil Kabupaten')}
                                  profileImg={"/assets/images/peta.jpg"}
                                  content1={("Lumajang (Hanacaraka: ꦭꦸꦩꦗꦁ, Pegon: لوماجاڠ, Bahasa Jawa: Lumajâng) adalah sebuah kabupaten di Provinsi Jawa Timur, Indonesia. Ibu kotanya adalah Kecamatan Lumajang Kota. Kabupaten ini berbatasan dengan Kabupaten Probolinggo di utara, Kabupaten Jember di timur, Samudra Hindia di selatan, serta Kabupaten Malang di barat. Kabupaten Lumajang merupakan bagian dari wilayah Tapal Kuda Jawa Timur.")}
                                  content2={("Kabupaten Lumajang terletak pada 112°53'–113°23' Bujur Timur dan 7°54'–8°23' Lintang Selatan. Luas wilayah keseluruhan Kabupaten Lumajang adalah 1790,90 km2. Kabupaten Lumajang terdiri dari dataran yang subur karena diapit oleh tiga gunung berapi yaitu:")}

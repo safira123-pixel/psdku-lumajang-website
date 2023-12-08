@@ -7,6 +7,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.data.jpa.convert.threeten.Jsr310JpaConverters;
+import org.springframework.context.annotation.Bean;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 //import org.springframework.boot.context.properties.EnableConfigurationProperties;
 
 import javax.annotation.PostConstruct;
@@ -29,5 +32,16 @@ public class UniversityExamApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(UniversityExamApplication.class, args);
+	}
+	@Bean
+	public WebMvcConfigurer corsConfigurer() {
+		return new WebMvcConfigurer() {
+			@Override
+			public void addCorsMappings(CorsRegistry registry){
+				registry.addMapping("/**")
+						.allowedOrigins("http://localhost:3001", "http://localhost:3000")
+						.allowedMethods("OPTIONS", "GET", "POST", "PUT", "DELETE");
+			}
+		};
 	}
 }
