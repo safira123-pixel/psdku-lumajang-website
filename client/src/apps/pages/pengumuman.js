@@ -75,9 +75,9 @@ const pengumuman = (props) => {
                                  deskripsi2={item[1].selengkapnya}
                                  link3={"/item_pengumuman3"}
                                  content3={t("selengkapnya →")}
-                                 data3={item[0].data}
-                                 nama3={item[0].name}
-                                 deskripsi3={item[0].selengkapnya}
+                                 data3={item[2].data}
+                                 nama3={item[2].name}
+                                 deskripsi3={item[2].selengkapnya}
                             />
                         ))}
                     </Grid>

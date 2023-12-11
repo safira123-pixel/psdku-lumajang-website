@@ -7,7 +7,7 @@ const MarqueeText = (props) => {
     const { classes} = props
     const { t } = useTranslation();
     useEffect(() => {
-        fetch('http://localhost:8080/api/kegiatan') // Pastikan URL endpoint sesuai
+        fetch('http://localhost:8080/api/berita') // Pastikan URL endpoint sesuai
         .then(response => response.json())
         .then(data => {
             setData([data.content]);
@@ -22,7 +22,7 @@ const MarqueeText = (props) => {
     <marquee direction = "left" behavior = "scroll" scrollamount="20" style={{backgroundColor: '#051d47', color: "#ffff",  display: "block" }}>
          {data.map((item, index) => (
                         <div key={index}>
-                            <h2>{item[0].description}</h2>
+                            <h2>{item[2].description}</h2>
                         </div>
                     ))} 
         </marquee>
