@@ -109,7 +109,7 @@ import { withStyles } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
 import { Link } from 'react-router-dom'
 import React, { Component, Fragment } from 'react'
-import { BlobImageDisplay } from "../apps/pages/BlobImageDisplay3";
+import { BlobImageDisplay } from "../apps/pages/BlobImageDisplay10";
 
 
 const styles = theme => ({
