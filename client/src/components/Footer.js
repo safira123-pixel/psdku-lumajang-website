@@ -46,7 +46,7 @@ const Footer = ({classes}) => {
                 component={'span'}
                 style={{ fontSize: 14}}
               >
-                © {currentYear} PSDKU Polinema Kampus Lumajang
+                © {currentYear} by PSDKU POLITEKNIK NEGERI MALANG DI KABUPATEN LUMAJANG. All rights reserved.
               </Typography>
 </div>
 </Grid>

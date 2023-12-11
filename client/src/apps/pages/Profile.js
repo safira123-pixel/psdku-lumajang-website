@@ -96,14 +96,14 @@ const Profile = (props) => {
 
                                 // //  content5={item[4].description}
                                 //  content6={item[6].description}
-                                 profileImg1={item[5].data}
+                                 profileImg1={item[1].data}
                                 //  content7={item[7].description}
                                 //  content8={item[8].description}
                                 //  content9={item[9].description}
                                 //  content10={item[10].description}
                                 //  content11={item[11].description}
                                 //  content12={item[12].description}
-                                 profileImg2={item[13].data}  
+                                 profileImg2={item[0].data}  
                             />
                         ))}
                     </Grid>
