@@ -65,15 +65,15 @@ const teknologi_informasi = (props) => {
                                  key={index}
                                  profileName={t('TI')}           
                                 //  profileImg={item[3].data}
-                                 profileImg1={item[6].data}
-                                 profileImg2={item[7].data}
+                                 profileImg1={item[9].data}
+                                 profileImg2={item[10].data}
                                  profileImg3={item[11].data}
                                  title1={t('Deskripsi')} 
-                                 content1={item[3].description}
+                                 content1={item[9].description}
                                  title2={t('Kompetensi Lulusan')}  
-                                 content2={item[3].kompetensi}
+                                 content2={item[9].kompetensi}
                                  title3={t('Peluang Kerja')}  
-                                 content3={item[3].peluang}
+                                 content3={item[9].peluang}
                             />
                         ))}
                     </Grid>
