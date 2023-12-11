@@ -100,7 +100,7 @@ const HomePage = (props) => {
                            Img={item[1].data}
                            profileName={item[1].name}
                            content={item[1].selengkapnya}
-                           profileLink={"/item_pengumuman1"}
+                           profileLink={"/item_pengumuman2"}
                            link={t("selengkapnya →")}
                            bgContain
                         />
@@ -111,10 +111,10 @@ const HomePage = (props) => {
                     {data.map((item, index) => (
                         <NewsCard
                            key={index}
-                           Img={item[1].data}
-                           profileName={item[1].name}
-                           content={item[1].selengkapnya}
-                           profileLink={"/item_pengumuman1"}
+                           Img={item[2].data}
+                           profileName={item[2].name}
+                           content={item[2].selengkapnya}
+                           profileLink={"/item_pengumuman3"}
                            link={t("selengkapnya →")}
                            bgContain
                         />
