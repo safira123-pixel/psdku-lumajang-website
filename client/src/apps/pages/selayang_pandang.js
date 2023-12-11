@@ -63,9 +63,9 @@ const selayang_pandang = (props) => {
                             <NewsCard
                                  key={index}
                                  profileName={t('Selayang')}
-                                 content1={item[0].description}
+                                 content1={item[2].description}
                                  content2={item[1].description}
-                                 content3={item[2].description}                         
+                                 content3={item[0].description}                         
                             />
                         ))}
                     </Grid>

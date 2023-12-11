@@ -14,6 +14,7 @@ import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { withTranslation } from "react-i18next";
+import GoogleTranslate from "./GoogleTranslate";
 import AppBarMenuItem from './AppBarMenuItem'
 import IconId from '../components/Flag/IconId'
 import IconEn from "../components/Flag/IconEn"
@@ -145,7 +146,7 @@ class ButtonAppBar extends Component {
                       linkId="about"
                       content={t('tentang.label')}
                     /> */}
-                    <li style={{ marginRight: 20 }}>
+                    {/* <li style={{ marginRight: 20 }}>
                       <div className={classes.language}>
                         <div onClick={() => changeLanguage('ina')} style={{ height: "20px", width: "20px", marginLeft: 2, cursor: 'pointer' }}>
                           <IconId />
@@ -154,7 +155,8 @@ class ButtonAppBar extends Component {
                           <IconEn />
                         </div>
                       </div>
-                    </li>
+                    </li> */}
+                    <GoogleTranslate />
 
                     <SvgIcon
                       viewBox="0 0 24 24"

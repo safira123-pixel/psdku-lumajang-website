@@ -11,36 +11,36 @@ const SlideShow = () => {
             <div className="each-slide-effect">
                 <Hero
                     backgroundImg='./assets/images/depan1.jpeg'
-                    titleText="PSDKU LUMAJANG"
+                    titleText="PSDKU POLINEMA KAMPUS LUMAJANG"
                     subtitleText={
-                        <span>Politeknik Negeri Malang | PSDKU Lumajang</span>
+                        <span>Politeknik Negeri Malang</span>
                     }
                 />
             </div>
             <div className="each-slide-effect">
                 <Hero
                     backgroundImg="./assets/images/gedung.jpeg"
-                    titleText="PSDKU LUMAJANG"
+                    titleText="PSDKU POLINEMA KAMPUS LUMAJANG"
                     subtitleText={
-                        <span>Politeknik Negeri Malang | PSDKU Lumajang</span>
+                        <span>Politeknik Negeri Malang</span>
                     }
                 />
             </div>
             <div className="each-slide-effect">
                 <Hero
                     backgroundImg='./assets/images/gedung1.jpeg'
-                    titleText="PSDKU LUMAJANG"
+                    titleText="PSDKU POLINEMA KAMPUS LUMAJANG"
                     subtitleText={
-                        <span>Politeknik Negeri Malang | PSDKU Lumajang</span>
+                        <span>Politeknik Negeri Malang</span>
                     }
                 />
             </div>
             <div className="each-slide-effect">
                 <Hero
                     backgroundImg='./assets/images/otomotif2.jpeg'
-                    titleText="PSDKU LUMAJANG"
+                    titleText="PSDKU POLINEMA KAMPUS LUMAJANG"
                     subtitleText={
-                        <span>Politeknik Negeri Malang | PSDKU Lumajang</span>
+                        <span>Politeknik Negeri Malang</span>
                     }
                 />
             </div>

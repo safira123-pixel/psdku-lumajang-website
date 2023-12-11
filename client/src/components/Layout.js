@@ -63,7 +63,7 @@ class Layout extends Component {
       <div className={classes.layout}>
         <Helmet>
           <title>{`${title ? `${title} | ` : ''
-            }PSDKU Lumajang`}</title>
+            }PSDKU POLINEMA KAMPUS LUMAJANG`}</title>
         </Helmet>
         <Drawer
           open={this.state.drawer}
