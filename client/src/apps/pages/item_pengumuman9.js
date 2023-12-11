@@ -7,7 +7,7 @@ import Layout from '../../components/Layout'
 import TextSection from '../../components/TextSection'
 import withRoot from '../../components/withRoot'
 import SlideShow from '../../components/SlideShow'
-import NewsCard from '../../components/NewsCard_itemKegiatan'
+import NewsCard from '../../components/NewsCard_itemPengumuman'
 import NewsCard2 from '../../components/NewsCard_NavBar'
 import NewsCard1 from '../../components/NewsCard_NavBarKalender'
 import NewsCard3 from '../../components/NewsCard_MenuNav'
@@ -19,14 +19,14 @@ import ChatIcon from '../../components/ChatIcon';
 import ClipLoader from "react-spinners/ClipLoader";
 
 
-const item_kegiatan2 = (props) => {
-    const [loading, setLoading] = useState(true);
+const item_pengumuman9 = (props) => {
     const [data, setData] = useState([]);
     const { classes} = props
     const { t } = useTranslation();
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch('http://localhost:8080/api/kegiatan') // Pastikan URL endpoint sesuai
+        fetch('http://localhost:8080/api/berita') // Pastikan URL endpoint sesuai
         .then(response => response.json())
         .then(data => {
             setData([data.content]);
@@ -36,7 +36,6 @@ const item_kegiatan2 = (props) => {
         .catch(error => {
             console.error(error);
             setLoading(false);
-
         });
     }, []);
 
@@ -55,8 +54,8 @@ const item_kegiatan2 = (props) => {
                         <Breadcrumb key={index} style={{marginTop:"10px"}}>
                             <Breadcrumb.Item href="/"> {t('beranda.label')}</Breadcrumb.Item>
                             <Breadcrumb.Item href="/kegiatan_mahasiswa"> {t('Kegiatan Mahasiswa')}</Breadcrumb.Item>
-                            <Breadcrumb.Item href="/kegiatan_mahasiswa"> {t('Kegiatan Mahasiswa')}</Breadcrumb.Item>
-                            <Breadcrumb.Item active href="/item_kegiatan2"> {item[0].name}</Breadcrumb.Item>
+                            <Breadcrumb.Item href="/pengumuman1"> {t('Kegiatan Mahasiswa')}</Breadcrumb.Item>
+                            <Breadcrumb.Item active href="/item_pengumuman3"> {item[0].name}</Breadcrumb.Item>
                         </Breadcrumb> 
                     ))}       
                     </div>
@@ -66,9 +65,9 @@ const item_kegiatan2 = (props) => {
                         {data.map((item, index) => (
                             <NewsCard
                                  key={index}
-                                 profileName={item[1].name}           
-                                 profileImg={item[1].data}
-                                 content1={item[1].description}
+                                 profileName={item[0].name}           
+                                 profileImg={item[0].data}
+                                 content1={item[0].description}
                             />
                         ))}
                     </Grid>
@@ -110,7 +109,7 @@ const item_kegiatan2 = (props) => {
                                     profileLink2="/pengumuman"
                                 />
                             </Grid>
-                    </Grid>  
+                    </Grid> 
                 </Grid>
         </Layout>
         <ChatIcon/>
@@ -260,4 +259,4 @@ const styles = theme => ({
       },
 })
 
-export default withRoot(withStyles(styles)(withTranslation()(item_kegiatan2)))
+export default withRoot(withStyles(styles)(withTranslation()(item_pengumuman9)))

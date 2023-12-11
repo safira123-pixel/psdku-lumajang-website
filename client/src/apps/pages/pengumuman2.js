@@ -62,17 +62,17 @@ const pengumuman2 = (props) => {
                         {data.map((item, index) => (
                             <NewsCard
                             key={index}
-                                 link1={"/item_pengumuman1"}
+                                 link1={"/item_pengumuman7"}
                                  content1={t("selengkapnya →")}
                                  data1={item[0].data}
                                  nama1={item[0].name}
                                  deskripsi1={item[0].selengkapnya}
-                                 link2={"/item_pengumuman2"}
+                                 link2={"/item_pengumuman8"}
                                  content2={t("selengkapnya →")}
                                  data2={item[1].data}
                                  nama2={item[1].name}
                                  deskripsi2={item[1].selengkapnya}
-                                 link3={"/item_pengumuman3"}
+                                 link3={"/item_pengumuman9"}
                                  content3={t("selengkapnya →")}
                                  data3={item[0].data}
                                  nama3={item[0].name}

@@ -17,12 +17,24 @@ import kegiatan_mahasiswa3 from './kegiatan_mahasiswa3'
 import item_kegiatan1 from './item_kegiatan1'
 import item_kegiatan2 from './item_kegiatan2'
 import item_kegiatan3 from './item_kegiatan3'
+import item_kegiatan4 from './item_kegiatan4'
+import item_kegiatan5 from './item_kegiatan5'
+import item_kegiatan6 from './item_kegiatan6'
+import item_kegiatan7 from './item_kegiatan7'
+import item_kegiatan8 from './item_kegiatan8'
+import item_kegiatan9 from './item_kegiatan9'
 import pengumuman from './pengumuman'
 import pengumuman1 from './pengumuman1'
 import pengumuman2 from './pengumuman2'
 import item_pengumuman1 from './item_pengumuman1'
 import item_pengumuman2 from './item_pengumuman2'
 import item_pengumuman3 from './item_pengumuman3'
+import item_pengumuman4 from './item_pengumuman4'
+import item_pengumuman5 from './item_pengumuman5'
+import item_pengumuman6 from './item_pengumuman6'
+import item_pengumuman7 from './item_pengumuman7'
+import item_pengumuman8 from './item_pengumuman8'
+import item_pengumuman9 from './item_pengumuman9'
 import profil_lumajang from './profil_lumajang'
 import pariwisata_lumajang from './pariwisata_lumajang'
 import kuliner_lumajang from './kuliner_lumajang'
@@ -49,9 +61,21 @@ export {
     item_kegiatan1,
     item_kegiatan2,
     item_kegiatan3,
+    item_kegiatan4,
+    item_kegiatan5,
+    item_kegiatan6,
+    item_kegiatan7,
+    item_kegiatan8,
+    item_kegiatan9,
     item_pengumuman1,
     item_pengumuman2,
     item_pengumuman3,
+    item_pengumuman4,
+    item_pengumuman5,
+    item_pengumuman6,
+    item_pengumuman7,
+    item_pengumuman8,
+    item_pengumuman9,
     pengumuman,
     pengumuman1,
     pengumuman2,
