@@ -6,7 +6,7 @@ import { withStyles } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
 import { Link } from 'react-router-dom'
 import React, { Component, Fragment } from 'react'
-import { BlobImageDisplay } from "../apps/pages/BlobImageDisplay3";
+import { BlobImageDisplay } from "../apps/pages/BlobImageDisplay10";
 import Calendar from 'react-calendar';
 import { useState } from 'react';
 import 'react-calendar/dist/Calendar.css';

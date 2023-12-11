@@ -71,9 +71,9 @@ const perpustakaan_polinema = (props) => {
                                    key={index}
                                    profileName={t('Perpustakaan')}           
                                   //  profileImg={item[0].data}
-                                   profileImg1={item[7].data}
+                                   profileImg1={item[5].data}
                                    profileImg2={item[6].data}
-                                   profileImg3={item[5].data}
+                                   profileImg3={item[7].data}
                                    title1={t('Deskripsi')} 
                                    content1={item[5].description}
                               />
