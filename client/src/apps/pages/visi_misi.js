@@ -71,24 +71,24 @@ const visi_misi = (props) => {
                                     subMenu1= "2023"
                                     subMenu2= "2022"
                                     subMenu3= "2021"
-                                    linkName1={t('> Kegiatan Mentoring 2023')}
-                                    profileLink1="/kegiatan_mahasiswa1"
-                                    linkName2={t('> Kegiatan LDK 2023')}
-                                    profileLink2="/kegiatan_mahasiswa2"
-                                    linkName3={t('> Kegiatan Magang 2023')}
-                                    profileLink3="/kegiatan_mahasiswa3"
-                                    linkName4={t('> Kegiatan Mentoring 2023')}
-                                    profileLink4="/kegiatan_mahasiswa1"
-                                    linkName5={t('> Kegiatan LDK 2023')}
-                                    profileLink5="/kegiatan_mahasiswa2"
-                                    linkName6={t('> Kegiatan Magang 2023')}
-                                    profileLink6="/kegiatan_mahasiswa3"
-                                    linkName7={t('> Kegiatan Mentoring 2023')}
-                                    profileLink7="/kegiatan_mahasiswa1"
-                                    linkName8={t('> Kegiatan LDK 2023')}
-                                    profileLink8="/kegiatan_mahasiswa2"
-                                    linkName9={t('> Kegiatan Magang 2023')}
-                                    profileLink9="/kegiatan_mahasiswa3"
+                                    linkName1={t('> PENERIMAAN CALON ASN POLINEMA 2023')}
+                                    profileLink1="/item_pengumuman1"
+                                    linkName2={t('> Supply Chain Management')}
+                                    profileLink2="/item_pengumuman2"
+                                    linkName3={t('> Sosialisasi SPK Untuk Meningkatkan Kualitas Hunian')}
+                                    profileLink3="/item_pengumuman3"
+                                    linkName4={t('> POLINEMA Gelar Wisuda ke-64')}
+                                    profileLink4="/item_pengumuman4"
+                                    linkName5={t('> Monev Penerima dana Matching Fund Vokasi 2023')}
+                                    profileLink5="/item_pengumuman5"
+                                    linkName6={t('> Campus – Company Fit and Hiring Program')}
+                                    profileLink6="/item_pengumuman6"
+                                    linkName7={t('> Raih 6 Penghargaan Pada Apresiasi Program Direktorat APTV 2023')}
+                                    profileLink7="/item_pengumuman7"
+                                    linkName8={t('> Desain Logo TeFa Polinema')}
+                                    profileLink8="/item_pengumuman8" 
+                                    linkName9={t('> Civil Creative Competition')}
+                                    profileLink9="/item_pengumuman9"
                                 />
                             </Grid>
                             <Grid>                    
