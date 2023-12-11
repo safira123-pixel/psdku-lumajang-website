@@ -81,15 +81,16 @@ const NewsCard = (props) => {
                    {profileName}
                 </Typography>
                 </CardContent>
-                <Card className={classes.cardImage}>
-            <BlobImageDisplay blob={profileImg}/>
-                </Card>
-            <CardContent>
+                 <CardContent>
                 <Typography component="h2" className={classes.description}>
                     {content1}
                 </Typography>
             </CardContent>
-            <Grid container className={classes.Button} style={{ display: 'block', justifyContent: "center", marginLeft:"20px", marginBottom:"20px" }}>
+                <Card className={classes.cardImage}>
+            <BlobImageDisplay blob={profileImg}/>
+                </Card>
+           
+                <Grid container className={classes.Button} style={{ display: 'block', justifyContent: "center", marginLeft:"900px", marginBottom:"20px" }}>
                     <Button style={{ backgroundColor: '#051d47', float: 'left',color:'white' }} href="/pengumuman" >Kembali</Button>
             </Grid>  
         </Card>

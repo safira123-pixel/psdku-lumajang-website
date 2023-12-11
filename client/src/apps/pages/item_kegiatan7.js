@@ -19,7 +19,7 @@ import ChatIcon from '../../components/ChatIcon';
 import ClipLoader from "react-spinners/ClipLoader";
 
 
-const item_kegiatan2 = (props) => {
+const item_kegiatan7 = (props) => {
     const [loading, setLoading] = useState(true);
     const [data, setData] = useState([]);
     const { classes} = props
@@ -36,7 +36,6 @@ const item_kegiatan2 = (props) => {
         .catch(error => {
             console.error(error);
             setLoading(false);
-
         });
     }, []);
 
@@ -56,7 +55,7 @@ const item_kegiatan2 = (props) => {
                             <Breadcrumb.Item href="/"> {t('beranda.label')}</Breadcrumb.Item>
                             <Breadcrumb.Item href="/kegiatan_mahasiswa"> {t('Kegiatan Mahasiswa')}</Breadcrumb.Item>
                             <Breadcrumb.Item href="/kegiatan_mahasiswa"> {t('Kegiatan Mahasiswa')}</Breadcrumb.Item>
-                            <Breadcrumb.Item active href="/item_kegiatan2"> {item[0].name}</Breadcrumb.Item>
+                            <Breadcrumb.Item active href="/item_kegiatan1"> {item[0].name}</Breadcrumb.Item>
                         </Breadcrumb> 
                     ))}       
                     </div>
@@ -66,9 +65,9 @@ const item_kegiatan2 = (props) => {
                         {data.map((item, index) => (
                             <NewsCard
                                  key={index}
-                                 profileName={item[1].name}           
-                                 profileImg={item[1].data}
-                                 content1={item[1].description}
+                                 profileName={item[0].name}           
+                                 profileImg={item[0].data}
+                                 content1={item[0].description}
                             />
                         ))}
                     </Grid>
@@ -110,7 +109,7 @@ const item_kegiatan2 = (props) => {
                                     profileLink2="/pengumuman"
                                 />
                             </Grid>
-                    </Grid>  
+                    </Grid>    
                 </Grid>
         </Layout>
         <ChatIcon/>
@@ -260,4 +259,4 @@ const styles = theme => ({
       },
 })
 
-export default withRoot(withStyles(styles)(withTranslation()(item_kegiatan2)))
+export default withRoot(withStyles(styles)(withTranslation()(item_kegiatan7)))

@@ -62,17 +62,17 @@ const kegiatan_mahasiswa2 = (props) => {
                             <NewsCard
                             key={index}
                             profileName={t('Kegiatan mahasiswa')} 
-                            link1={"/item_kegiatan1"}
+                            link1={"/item_kegiatan4"}
                             content1={t("Selengkapnya")}
                             data1={item[0].data}
                             nama1={item[0].name}
                             deskripsi1={item[0].selengkapnya}
-                            link2={"/item_kegiatan2"}
+                            link2={"/item_kegiatan5"}
                             content2={t("Selengkapnya")}
                             data2={item[1].data}
                             nama2={item[1].name}
                             deskripsi2={item[1].selengkapnya}
-                            link3={"/item_kegiatan3"}
+                            link3={"/item_kegiatan6"}
                             content3={t("Selengkapnya")}
                             data3={item[2].data}
                             nama3={item[2].name}
