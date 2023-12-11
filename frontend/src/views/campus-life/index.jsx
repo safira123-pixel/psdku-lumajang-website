@@ -123,7 +123,7 @@ class CampusLife extends Component {
         </Button>
       </span>
     );
-    const cardContent = `Di sini, Anda dapat mengelola Campus Life di sistem, seperti menambahkan Campus Life baru, atau mengubah Campus Life yang sudah ada di sistem.`;
+    const cardContent = `Di sini, Anda dapat mengelola informasi kehidupan kampus di sistem, seperti menambahkan kehidupan kampus baru, atau mengubah kehidupan kampus yang sudah ada di sistem.`;
     
     return (
       <div className="app-container">

@@ -123,7 +123,7 @@ class Organisasi extends Component {
         </Button>
       </span>
     );
-    const cardContent = `Pengelolaan Struktur Organisasi.`;
+    const cardContent = `Di sini, Anda dapat mengelola informasi struktur organisasi di sistem, seperti menambahkan struktur organisasi, atau mengubah struktur organisasi yang sudah ada di sistem.`;
     return (
       <div className="app-container">
         <TypingCard title="Manajemen Struktur Organisasi" source={cardContent} />

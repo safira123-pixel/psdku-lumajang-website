@@ -42,6 +42,7 @@ class GoogleTranslate extends PureComponent {
           onClick={this.handleScriptInsert}
         >
          <IconEn />
+           
          <IconId />
         </Button>
       );

@@ -123,7 +123,7 @@ class Kalender extends Component {
         </Button>
       </span>
     );
-    const cardContent = `Pengelolaan Kalender.`;
+    const cardContent = `Di sini, Anda dapat mengelola informasi kalender akademik di sistem, seperti menambahkan kalender akademik, atau mengubah kalender akademik yang sudah ada di sistem.`;
     return (
       <div className="app-container">
         <TypingCard title="Manajemen Kalender" source={cardContent} />

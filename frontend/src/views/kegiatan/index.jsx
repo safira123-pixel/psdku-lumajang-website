@@ -122,7 +122,7 @@ class Kegiatan extends Component {
         </Button>
       </span>
     );
-    const cardContent = `Pengelolaan Kegiatan Mahasiswa.`;
+    const cardContent = `Di sini, Anda dapat mengelola informasi kegiatan mahasiswa di sistem, seperti menambahkan kegiatan mahasiswa baru, atau mengubah kegiatan mahasiswa yang sudah ada di sistem.`;
     return (
       <div className="app-container">
         <TypingCard title="Manajemen Kegiatan Mahasiswa" source={cardContent} />

@@ -42,12 +42,12 @@ class Selayang extends Component {
   handleDeleteSelayang = (row) => {
     const { id } = row;
     if (id === "admin") {
-      message.error("Tidak dapat menghapus pengguna admin！");
+      message.error("Tidak dapat menghapus selayang pandang！");
       return;
     }
     console.log(id);
     deleteSelayang({ id }).then((res) => {
-      message.success("berhasil dihapus");
+      message.success("Berhasil dihapus!");
       this.getSelayangs();
     });
   };
@@ -122,7 +122,7 @@ class Selayang extends Component {
         </Button>
       </span>
     );
-    const cardContent = `Pengelolaan Selayang.`;
+    const cardContent = `Di sini, Anda dapat mengelola informasi selayang pandang di sistem, seperti menambahkan selayang pandang baru, atau mengubah selayang pandang yang sudah ada di sistem.`;
     return (
       <div className="app-container">
         <TypingCard title="Manajemen Selayang Pandang" source={cardContent} />

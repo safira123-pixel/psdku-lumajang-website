@@ -17,13 +17,13 @@ let chartList = [
     type: "Jurusan",
     icon: "contacts",
     num: 0,
-    color: "#36a3f7",
+    color: "#f4516c",
   },
   {
     type: "Berita",
     icon: "book",
     num: 0,
-    color: "#f4516c",
+    color: "#36a3f7",
   },
   {
     type: "Kegiatan",
@@ -35,7 +35,7 @@ let chartList = [
     type: "Selayang Pandang",
     icon: "gift",
     num: 0,
-    color: "#f6ab40",
+    color: "#40c9c6",
   },
   {
     type: "Pendaftaran",
@@ -53,7 +53,7 @@ let chartList = [
     type: "Campus Life",
     icon: "heart",
     num: 0,
-    color: "#40c9c6",
+    color: "#f6ab40",
   },
 ];
 
