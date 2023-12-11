@@ -135,6 +135,11 @@ class ButtonAppBar extends Component {
               <Hidden smDown>
                 <Grid item xs={12} style={{ paddingTop: 0 }}>
                   <ul className={classes.menuList}>
+                  <img
+                        className={classes.mobileHeaderImage}
+                        src="./assets/images/mbkm.PNG"
+                        alt="Logo MBKM"
+                      />
 
                     <AppBarMenuItem
                       toggleDrawer={toggleDrawer}
@@ -156,6 +161,7 @@ class ButtonAppBar extends Component {
                         </div>
                       </div>
                     </li> */}
+                    
                     <GoogleTranslate />
 
                     <SvgIcon

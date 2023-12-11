@@ -46,7 +46,7 @@ class AddQuestionForm extends Component {
 
     return (
       <Modal
-        title="Tambah Gambar"
+        title="Tambah Berita"
         visible={visible}
         onCancel={onCancel}
         onOk={onOk}
@@ -76,7 +76,7 @@ class AddQuestionForm extends Component {
               rules: [
                 { required: true, message: "Silahkan isikan judul" },
               ],
-            })(<Input placeholder="Data" />)}
+            })(<TextArea rows={4} placeholder="Judul" />)}
           </Form.Item>
           <Form.Item label="Deskripsi:">
             {getFieldDecorator("description", {

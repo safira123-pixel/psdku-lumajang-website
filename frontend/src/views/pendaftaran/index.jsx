@@ -122,7 +122,7 @@ class Pendaftaran extends Component {
         </Button>
       </span>
     );
-    const cardContent = `Pengelolaan Pendaftaran.`;
+    const cardContent = `Di sini, Anda dapat mengelola informasi pendaftaran mahasiswa di sistem, seperti menambahkan pendaftaran mahasiswa, atau mengubah pendaftaran mahasiswa yang sudah ada di sistem.`;
     return (
       <div className="app-container">
         <TypingCard title="Manajemen Pendaftaran Mahasiswa" source={cardContent} />

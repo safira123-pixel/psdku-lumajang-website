@@ -123,7 +123,7 @@ class Department extends Component {
         </Button>
       </span>
     );
-    const cardContent = `Di sini, Anda dapat mengelola jurusan di sistem, seperti menambahkan jurusan baru, atau mengubah jurusan yang sudah ada di sistem.`;
+    const cardContent = `Di sini, Anda dapat mengelola informasi jurusan (program studi) di sistem, seperti menambahkan jurusan baru, atau mengubah jurusan yang sudah ada di sistem.`;
     
     return (
       <div className="app-container">

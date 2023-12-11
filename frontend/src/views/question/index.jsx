@@ -122,7 +122,7 @@ class Berita extends Component {
         </Button>
       </span>
     );
-    const cardContent = `Pengelolaan Berita.`;
+    const cardContent = `Di sini, Anda dapat mengelola informasi berita di sistem, seperti menambahkan berita baru, atau mengubah berita yang sudah ada di sistem.`;
     return (
       <div className="app-container">
         <TypingCard title="Manajemen Berita" source={cardContent} />

@@ -53,7 +53,7 @@ class EditBeritaForm extends Component {
               rules: [
                 { required: true, message: "Silahkan isikan judul" },
               ],
-            })(<Input placeholder="Data" />)}
+            })(<TextArea rows={4} placeholder="Judul" />)}
           </Form.Item>
           <Form.Item label="Deskripsi:">
             {getFieldDecorator("description", {

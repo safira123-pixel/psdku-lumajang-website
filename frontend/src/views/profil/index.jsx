@@ -128,7 +128,7 @@ class Profil extends Component {
         </Button>
       </span>
     );
-    const cardContent = `Pengelolaan Profil.`;
+    const cardContent = `Di sini, Anda dapat mengelola informasi profil kampus di sistem, seperti menambahkan profil baru, atau mengubah profil yang sudah ada di sistem.`;
     return (
       <div className="app-container">
         <TypingCard title="Manajemen  Profil" source={cardContent} />
