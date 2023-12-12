@@ -15,7 +15,6 @@ import { useTranslation } from 'react-i18next'
 import MarqueeText from '../../components/MarqueeText'
 import ChatIcon from '../../components/ChatIcon'
 import NewsCard_Galeri from '../../components/NewsCard_Galeri'
-
 import { useEffect, useState } from 'react'
 
 
@@ -24,9 +23,6 @@ const galeri = (props) => {
     const { classes} = props
     const { t } = useTranslation();
 
-    const [beritaData, setBeritaData] = useState([]);
-    const [departmentData, setDepartmentData] = useState([]);
-    const [loading, setLoading] = useState(true);
     useEffect(() => {
         fetch('http://localhost:8080/api/department') // Pastikan URL endpoint sesuai
         .then(response => response.json())
@@ -38,10 +34,11 @@ const galeri = (props) => {
             console.error(error);
         });
     }, []);
+    
     return (
       <Grid item className={classes.gridItemFix} xs={12} sm={4} lg={9}>
                         {data.map((item, index) => (
-                            <NewsCard
+                            <NewsCard_Galeri
                                  key={index}
                                  profileName={t('TI')}           
                                 //  profileImg={item[3].data}

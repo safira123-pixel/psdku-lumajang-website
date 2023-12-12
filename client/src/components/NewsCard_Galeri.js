@@ -6,12 +6,12 @@ import { withStyles } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
 import { Link } from 'react-router-dom'
 import React, { Component, Fragment } from 'react'
-import { BlobImageDisplay } from "../apps/pages/BlobImageDisplay9";
+import { BlobImageDisplay } from "../apps/pages/BlobImageDisplay11";
 
 
 const styles = theme => ({
     card: {
-        width: '97%',
+        width: '130%',
         display: "flex",
         flexWrap: "wrap",
         // marginLeft: "5px",
@@ -20,6 +20,7 @@ const styles = theme => ({
         marginRight: "20px",
         marginBottom: "20px",
         marginTop:"20px", 
+        textAlign:"center",
         [theme.breakpoints.down('sm')]: {
             maxWidth: '100%'
         } 
@@ -79,26 +80,12 @@ const NewsCard_Galeri = (props) => {
         profileImg3,
        
     } = props
-
-    useEffect(() => {
-        fetch('http://localhost:8080/api/department') // Pastikan URL endpoint sesuai
-        .then(response => response.json())
-        .then(data => {
-            setData([data.content]);
-            setLoading(false); // Set loading to false when data is loaded
-            console.log(data.content);
-        })
-        .catch(error => {
-            console.error(error);
-            setLoading(false);
-        });
-    }, []);
     return (
         <Card className={classes.card}>
              
             <CardContent>
                
-            <BlobImageDisplay blobs={[profileImg1, profileImg2, profileImg3]} />
+            <BlobImageDisplay blobs={[profileImg1, profileImg2, profileImg3]}/>
             
             </CardContent>
         </Card>
