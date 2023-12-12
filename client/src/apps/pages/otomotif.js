@@ -27,6 +27,8 @@ const otomotif = (props) => {
     const { classes} = props
     const { t } = useTranslation();
 
+      
+
     useEffect(() => {
         fetch('http://localhost:8080/api/department') // Pastikan URL endpoint sesuai
         .then(response => response.json())
@@ -65,8 +67,8 @@ const otomotif = (props) => {
                         {data.map((item, index) => (
                             <NewsCard
                                  key={index}
-                                 profileName={t('TRO')}           
-                                //  profileImg={item[0].data}
+                                 profileName={t('TRO')}      
+                                                    //  profileImg={item[0].data}
                                  profileImg1={item[0].data}
                                  profileImg2={item[1].data}
                                  profileImg3={item[2].data}
@@ -76,6 +78,11 @@ const otomotif = (props) => {
                                  content2={item[0].kompetensi}
                                  title3={t('Peluang Kerja')}  
                                  content3={item[0].peluang}
+                                 instagramLink={(
+                                    <a href="https://www.instagram.com/hmtro.psdku_lumajang/" target="_blank" rel="noopener noreferrer">
+                                      <img src="././assets/images/logo_ig.png" width="40" alt="Icon" />
+                                    </a>
+                                  )}
                             />
                         ))}
                     </Grid>

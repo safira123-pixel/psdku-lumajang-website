@@ -61,6 +61,13 @@ const styles = theme => ({
         marginBottom: 10,
         color: '#52535A',
         textAlign: 'justify'
+    },
+    instagramLinkContainer: {
+        position: 'absolute',
+        // top: 0,
+        left: '70%',
+        marginTop: '15px',
+        transform: 'translateX(-50%)',
     }
 })
 
@@ -78,10 +85,14 @@ const NewsCard = (props) => {
         title1,
         title2,
         title3,
+        instagramLink,
     } = props
     return (
         <Card className={classes.card}>
              <CardContent>
+             <div className={classes.instagramLinkContainer}>
+                                {instagramLink}
+                            </div>
                 <Typography variant="display2" style={{ color: '#051d47', textAlign: "left", marginLeft: '0px', borderBottom: "2px solid #eee", paddingBottom: "7px" }} gutterBottom>
                    {profileName}
                 </Typography>
@@ -109,6 +120,7 @@ const NewsCard = (props) => {
                 <Card className={classes.cardImage}>
             {/* <BlobImageDisplay blob={profileImg}/> */}
             <BlobImageDisplay blobs={[profileImg1, profileImg2, profileImg3]} />
+            
                 </Card>
             </CardContent>
         </Card>
