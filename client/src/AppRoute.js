@@ -16,6 +16,7 @@ import item_pengumuman6 from './apps/pages/item_pengumuman6'
 import item_pengumuman7 from './apps/pages/item_pengumuman7'
 import item_pengumuman8 from './apps/pages/item_pengumuman8'
 import item_pengumuman9 from './apps/pages/item_pengumuman9'
+import galeri from './apps/galeri'
 
 
 const AppRoute = () => {
@@ -74,6 +75,8 @@ const AppRoute = () => {
             <Route exact path='/fasilitas_parkir' component={fasilitas_parkir} />
             <Route exact path='/kantin' component={kantin} />
             <Route exact path='/keamanan' component={keamanan} />
+            <Route exact path='/galeri' component={galeri} />
+
         </Switch>
     )
 }

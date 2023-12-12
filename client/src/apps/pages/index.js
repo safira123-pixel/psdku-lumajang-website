@@ -40,6 +40,7 @@ import pariwisata_lumajang from './pariwisata_lumajang'
 import kuliner_lumajang from './kuliner_lumajang'
 import transportasi_lumajang from './transportasi_lumajang'
 import budaya_lumajang from './budaya_lumajang'
+import galeri from './galeri'
 
 export {
     HomePage,
@@ -83,6 +84,7 @@ export {
     pariwisata_lumajang,
     budaya_lumajang,
     kuliner_lumajang,
-    transportasi_lumajang
+    transportasi_lumajang,
+    galeri
 
 }

@@ -7,12 +7,15 @@ import Layout from '../../components/Layout'
 import TextSection from '../../components/TextSection'
 import withRoot from '../../components/withRoot'
 import SlideShow from '../../components/SlideShow'
+import SlideShow_Galeri from '../../components/SlideShow_Galeri'
 import NewsCard from '../../components/NewsCard_Home'
 import { withTranslation } from 'react-i18next'
 import { Button } from '@material-ui/core'
 import { useTranslation } from 'react-i18next'
 import MarqueeText from '../../components/MarqueeText'
 import ChatIcon from '../../components/ChatIcon'
+import NewsCard_Galeri from '../../components/NewsCard_Galeri'
+import Galeri from './galeri'
 import { useEffect, useState } from 'react'
 
 
@@ -20,6 +23,10 @@ const HomePage = (props) => {
     const [data, setData] = useState([]);
     const { classes} = props
     const { t } = useTranslation();
+
+    const [beritaData, setBeritaData] = useState([]);
+    const [departmentData, setDepartmentData] = useState([]);
+    const [loading, setLoading] = useState(true);
     useEffect(() => {
         fetch('http://localhost:8080/api/berita') // Pastikan URL endpoint sesuai
         .then(response => response.json())
@@ -122,9 +129,13 @@ const HomePage = (props) => {
                     </Grid>
                 </Grid>
 
+
                 <div style={{ textAlign: 'center', padding: 20 }}>
                     <Button style={{ backgroundColor: '#fbb555', fontWeight: 'bold' }} href="/pengumuman" >{t("Tampilkan Berita")}</Button>
                 </div>
+                {/* <SlideShow_Galeri /> */}
+             <Galeri/>
+
             </div>
             
             <ChatIcon />
