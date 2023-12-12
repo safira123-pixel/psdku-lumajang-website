@@ -69,5 +69,13 @@ const menuList = [
     roles:["ROLE_ADMINISTRATOR"]
   },
   
+  {
+    title: "Galeri Kampus",
+    path: "/galeri-kampus",
+    icon: "picture",
+    roles:["ROLE_ADMINISTRATOR"]
+  },
+  
+  
 ];
 export default menuList;
