@@ -63,7 +63,7 @@ const menuList = [
   },
 
   {
-    title: "Campus Life",
+    title: "Fasilitas Kampus",
     path: "/campus_life",
     icon: "heart",
     roles:["ROLE_ADMINISTRATOR"]

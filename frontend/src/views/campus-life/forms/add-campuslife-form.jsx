@@ -19,7 +19,7 @@ class AddCampusLifeForm extends Component {
     // const { getFieldDecorator } = this.props.form;
     return (
       <Modal
-        title="Tambah Campus Life"
+        title="Tambah Fasilitas Kampus"
         visible={visible}
         onCancel={onCancel}
         onOk={onOk}
@@ -29,11 +29,11 @@ class AddCampusLifeForm extends Component {
           <Form.Item label="Kategori:">
             {getFieldDecorator("name", {
               rules: [
-                { required: true, message: "Silahkan pilih kategori campus life" },
+                { required: true, message: "Silahkan pilih kategori fasilitas kampus" },
               ],
             })(<Select style={{ width: 300 }}>
           
-              <Select.Option value="Unit Aktivitas Mahasiswa">Unit Aktivitas Mahasiswa</Select.Option>
+              <Select.Option value="Unit Kegiatan Mahasiswa">Unit Kegiatan Mahasiswa</Select.Option>
               <Select.Option value="Keamanan">Keamanan</Select.Option>
               <Select.Option value="Kantin">Kantin</Select.Option>
               <Select.Option value="Flora dan Fauna">Flora dan Fauna</Select.Option>
