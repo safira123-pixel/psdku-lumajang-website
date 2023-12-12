@@ -119,15 +119,15 @@ class CampusLife extends Component {
     const title = (
       <span>
         <Button type="primary" onClick={this.handleAddCampusLife}>
-          Tambahkan Campus Life
+          Tambahkan Fasilitas Kampus
         </Button>
       </span>
     );
-    const cardContent = `Di sini, Anda dapat mengelola informasi kehidupan kampus di sistem, seperti menambahkan kehidupan kampus baru, atau mengubah kehidupan kampus yang sudah ada di sistem.`;
+    const cardContent = `Di sini, Anda dapat mengelola informasi fasilitas kampus di sistem, seperti menambahkan fasilitas kampus baru, atau mengubah fasilitas kampus yang sudah ada di sistem.`;
     
     return (
       <div className="app-container">
-        <TypingCard title="Manajemen Campus Life" source={cardContent} />
+        <TypingCard title="Manajemen Fasilitas Kampus" source={cardContent} />
         <br />
         <Card title={title}>
           <Table

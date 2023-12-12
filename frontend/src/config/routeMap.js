@@ -134,6 +134,10 @@ const Kalender = Loadable({
   loader: () => import(/*webpackChunkName:'Kalender'*/ "@/views/kalender"),
   loading: Loading,
 });
+const GaleriKampus = Loadable({
+  loader: () => import(/*webpackChunkName:'GaleriKampus'*/ "@/views/galeri-kampus"),
+  loading: Loading,
+});
 const CampusLife = Loadable({
   loader: () => import(/*webpackChunkName:'CampusLife'*/ "@/views/campus-life"),
   loading: Loading,
@@ -293,6 +297,8 @@ export default [
   { path: "/organisasi", component: Organisasi, roles: ["ROLE_ADMINISTRATOR"] },
   { path: "/kalender", component: Kalender, roles: ["ROLE_ADMINISTRATOR"] },
   { path: "/campus_life", component: CampusLife, roles: ["ROLE_ADMINISTRATOR"] },
+  { path: "/galeri-kampus", component: GaleriKampus, roles: ["ROLE_ADMINISTRATOR"] },
+
   {
     path: "/study-program",
     component: StudyProgram,

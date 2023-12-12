@@ -1,9 +1,8 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import axios from 'axios';
+import { Modal, Form, Upload, Icon } from 'antd';
 
-import { Form, Input, Modal, Select, Upload, Icon } from "antd";
-const { TextArea } = Input;
-class AddPendaftaranForm extends Component {
+class AddGaleriKampusForm extends Component {
   state = {
     selectedFile: null,
   };
@@ -24,13 +23,14 @@ class AddPendaftaranForm extends Component {
       method: 'POST',
     };
   
-    return axios('api/pendaftaran', options);
+    return axios('api/galeri-kampus', options);
 
   };
 
   render() {
     const { visible, onCancel, onOk, form, confirmLoading } = this.props;
     const { getFieldDecorator } = form;
+
     const formItemLayout = {
       labelCol: {
         xs: { span: 24 },
@@ -41,38 +41,34 @@ class AddPendaftaranForm extends Component {
         sm: { span: 16 },
       },
     };
+
     return (
       <Modal
-        title="Tambah Jalur Pendaftaran"
+        title="Tambah Gambar Galeri Kampus"
         visible={visible}
         onCancel={onCancel}
         onOk={onOk}
         confirmLoading={confirmLoading}
       >
         <Form {...formItemLayout}>
-          <Form.Item label="Jalur:">
-            {getFieldDecorator("name", {
-              rules: [
-                { required: true, message: "Silahkan isikan jalur pendaftaran" },
-              ],
-            })(<Select style={{ width: 250 }}>
-              <Select.Option value="Seleksi Nasional Berdasarkan Prestasi (SNBP)">Jalur SNBP</Select.Option>
-              <Select.Option value="Seleksi Nasional Berdasarkan Tes (SNBT)">Jalur SNBT</Select.Option>
-              <Select.Option value="Seleksi Mandiri">Jalur Mandiri Gelombang 1</Select.Option>
-              <Select.Option value="Seleksi Mandiri">Jalur Mandiri Gelombang 2</Select.Option>
-              <Select.Option value="Seleksi Mandiri">Jalur Mandiri Gelombang 3</Select.Option>
-            </Select>)}
-          </Form.Item>
-          <Form.Item label="Deskripsi:">
-            {getFieldDecorator("description", {
-              rules: [
-                {
-                  required: true,
-                  message: "Silahkan isikan deskripsi jalur pendaftaran",
-                },
-              ],
-            })(<TextArea rows={4} placeholder="Deskripsi Jalur" />)}
-          </Form.Item>
+          {/* <Form.Item label="File">
+            <Upload
+              name="file"
+              beforeUpload={() => false}
+              maxCount={1}
+              customRequest={({ file }) => {
+                this.setState({
+                  selectedFile: file,
+                });
+              }}
+            >
+              <p className="ant-upload-drag-icon">
+                <Icon type="inbox" />
+              </p>
+              <p className="ant-upload-text">Klik atau Seret file ke sini</p>
+              <p className="ant-upload-hint">support semua file</p>
+            </Upload>
+          </Form.Item> */}
           <Form.Item label="File" name="file">
             {getFieldDecorator("file")(
               <Upload.Dragger
@@ -97,4 +93,5 @@ class AddPendaftaranForm extends Component {
   }
 }
 
-export default Form.create({ name: "AddPendaftaranForm" })(AddPendaftaranForm);
+export default Form.create({ name: "AddGaleriKampusForm" })(AddGaleriKampusForm);
+// })(<Button type="primary" onClick={this.showSelectImageDialog}>Select image...</Button>

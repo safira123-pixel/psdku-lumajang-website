@@ -36,14 +36,14 @@ class EditCampusLifeForm extends Component {
     };
     return (
       <Modal
-        title="Edit Campus Life"
+        title="Edit Fasilitas Kampus"
         visible={visible}
         onCancel={onCancel}
         onOk={onOk}
         confirmLoading={confirmLoading}
       >
         <Form {...formItemLayout}>
-          <Form.Item label="ID Campus Life:">
+          <Form.Item label="ID Fasilitas Kampus:">
             {getFieldDecorator("id", {
               initialValue: id,
             })(<Input disabled />)}
@@ -51,10 +51,10 @@ class EditCampusLifeForm extends Component {
           <Form.Item label="Kategori:">
             {getFieldDecorator("name", {
               rules: [
-                { required: true, message: "Silahkan pilih kategori campus life" },
+                { required: true, message: "Silahkan pilih kategori fasilitas kampus" },
               ],
             })(<Select style={{ width: 300 }}>
-              <Select.Option value="Unit Aktivitas Mahasiswa">Unit Aktivitas Mahasiswa</Select.Option>
+              <Select.Option value="Unit Kegiatan Mahasiswa">Unit Kegiatan Mahasiswa</Select.Option>
               <Select.Option value="Keamanan">Keamanan</Select.Option>
               <Select.Option value="Kantin">Kantin</Select.Option>
               <Select.Option value="Flora dan Fauna">Flora dan Fauna</Select.Option>

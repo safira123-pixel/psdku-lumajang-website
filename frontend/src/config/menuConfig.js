@@ -63,11 +63,19 @@ const menuList = [
   },
 
   {
-    title: "Campus Life",
+    title: "Fasilitas Kampus",
     path: "/campus_life",
     icon: "heart",
     roles:["ROLE_ADMINISTRATOR"]
   },
+  
+  {
+    title: "Galeri Kampus",
+    path: "/galeri-kampus",
+    icon: "picture",
+    roles:["ROLE_ADMINISTRATOR"]
+  },
+  
   
 ];
 export default menuList;
