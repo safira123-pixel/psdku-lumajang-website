@@ -73,6 +73,11 @@ const akuntansi = (props) => {
                                  content2={item[3].kompetensi}
                                  title3={t('Peluang Kerja')}  
                                  content3={item[3].peluang}
+                                 instagramLink={(
+                                    <a href="https://www.instagram.com/hmapolinema_psdkulmj/" target="_blank" rel="noopener noreferrer">
+                                      <img src="././assets/images/logo_ig.png" width="40" alt="Icon" />
+                                    </a>
+                                  )}
                             />
                         ))}
                     </Grid>
