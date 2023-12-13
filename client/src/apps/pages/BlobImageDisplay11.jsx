@@ -11,8 +11,10 @@ export function BlobImageDisplay({ blobs }) {
     }
   }, [blobs]);
 
+ 
+
   return (
-    <div style={{ display: 'flex',  marginLeft: '400px'}}>
+    <div style={{ display: 'flex',  marginLeft: '400px', width: '400%'}}>
       {blobUrls.length > 0 ? (
         <ImageGallery
           items={blobUrls.map((url) => ({
@@ -21,9 +23,12 @@ export function BlobImageDisplay({ blobs }) {
             originalHeight: 500,
             originalWidth: 40,
             thumbnailHeight: 150,
-            thumbnailWidth: 225,
+            thumbnailWidth: 225, 
           }))}
-
+          showThumbnails={false}
+          slideInterval={1500}
+          autoPlay={true}
+          infinite={true}
         />
       ) : (
         <p>No images to display</p>

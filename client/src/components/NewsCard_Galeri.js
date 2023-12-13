@@ -14,10 +14,11 @@ const styles = theme => ({
         width: '130%',
         display: "flex",
         flexWrap: "wrap",
+        backgroundColor: 'rgba(0, 0, 0, 0.5)', // Ubah angka 0.8 sesuai tingkat transparansi yang diinginkan
         // marginLeft: "5px",
         // marginBottom: "20px",
-        marginLeft: "20px",
-        marginRight: "20px",
+        marginLeft: "30px",
+        marginRight: "10",
         marginBottom: "20px",
         marginTop:"20px", 
         textAlign:"center",
@@ -78,15 +79,29 @@ const NewsCard_Galeri = (props) => {
         profileImg1,
         profileImg2,
         profileImg3,
+        profileImg4,
+        profileImg5,
+        profileImg6,
+        profileImg7,
+        profileImg8,
+        profileImg9,
+        profileImg10,
+        profileImg11,
+        profileImg12,
+        profileImg13,
+        profileImg14,
+        profileName
        
     } = props
     return (
         <Card className={classes.card}>
-             
+               <CardContent>
+                <Typography variant="display2" style={{ color: '#ffff', textAlign: "center", marginLeft: '650px', marginBottom:"0px" }} gutterBottom>
+                   {profileName}
+                </Typography>
+            </CardContent>
             <CardContent>
-               
-            <BlobImageDisplay blobs={[profileImg1, profileImg2, profileImg3]}/>
-            
+            <BlobImageDisplay blobs={[profileImg1, profileImg2, profileImg3, profileImg4, profileImg5, profileImg6, profileImg7, profileImg8, profileImg9, profileImg10, profileImg11, profileImg12, profileImg13, profileImg14]}/>
             </CardContent>
         </Card>
 

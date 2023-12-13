@@ -24,7 +24,7 @@ const galeri = (props) => {
     const { t } = useTranslation();
 
     useEffect(() => {
-        fetch('http://localhost:8080/api/department') // Pastikan URL endpoint sesuai
+        fetch('http://localhost:8080/api/galeri-kampus') // Pastikan URL endpoint sesuai
         .then(response => response.json())
         .then(data => {
             setData([data.content]);
@@ -34,17 +34,28 @@ const galeri = (props) => {
             console.error(error);
         });
     }, []);
-    
+
     return (
       <Grid item className={classes.gridItemFix} xs={12} sm={4} lg={9}>
                         {data.map((item, index) => (
                             <NewsCard_Galeri
                                  key={index}
-                                 profileName={t('TI')}           
+                                 profileName={t('GALERI')}           
                                 //  profileImg={item[3].data}
-                                 profileImg1={item[9].data}
-                                 profileImg2={item[10].data}
-                                 profileImg3={item[11].data}
+                                 profileImg1={item[0].data}
+                                 profileImg2={item[1].data}
+                                 profileImg3={item[2].data}
+                                 profileImg4={item[0].data}
+                                 profileImg5={item[0].data}
+                                 profileImg6={item[0].data}
+                                 profileImg7={item[0].data}
+                                 profileImg8={item[0].data}
+                                 profileImg9={item[0].data}
+                                 profileImg10={item[0].data}
+                                 profileImg11={item[0].data}
+                                 profileImg12={item[0].data}
+                                 profileImg13={item[0].data}
+                                 profileImg14={item[0].data}
                                 
                             />
                         ))}
@@ -138,7 +149,7 @@ const styles = theme => ({
     },
     innerContainer: {
         width: '70%',
-        margin: '0 auto'
+        margin: '0 auto',
     },
     sectionText: {
         fontSize: '28px',
