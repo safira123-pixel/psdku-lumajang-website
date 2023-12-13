@@ -4,6 +4,8 @@ import { Helmet } from 'react-helmet';
 import AppBar from './AppBar'
 import Drawer from './Drawer'
 import Footer from './Footer'
+import { Desktop, Tablet, Mobile } from './Responsive'
+
 
 const styles = theme => ({
   layout: {
@@ -60,6 +62,8 @@ class Layout extends Component {
   render() {
     const { classes, title } = this.props
     return (
+      <>
+      <Desktop>
       <div className={classes.layout}>
         <Helmet>
           <title>{`${title ? `${title} | ` : ''
@@ -88,6 +92,68 @@ class Layout extends Component {
 
         <Footer />
       </div>
+      </Desktop>
+      <Tablet>
+      <div className={classes.layout}>
+        <Helmet>
+          <title>{`${title ? `${title} | ` : ''
+            }PSDKU POLINEMA KAMPUS LUMAJANG`}</title>
+        </Helmet>
+        <Drawer
+          open={this.state.drawer}
+          toggleDrawer={this.toggleDrawer}
+          drawerItems={this.state.drawerItems}
+          expandItem={this.expandItem}
+          drawerSubItems={this.state.drawerSubItems}
+          expandSubItem={this.expandSubItem}
+        />
+        <AppBar toggleDrawer={this.toggleDrawer} />
+        {this.state.isIE ? (
+          <main className={classes.main}>
+            {' '}
+            <h1>
+              Internet Explorer is not supported. We recommend using the latest
+              version of <a href="https://www.google.com/chrome/">Chrome</a> or <a href="https://www.mozilla.org/en-US/firefox/new/">Firefox</a>.
+            </h1>
+          </main>
+        ) : (
+          <main className={classes.main}>{this.props.children}</main>
+        )}
+
+        <Footer />
+      </div>
+      </Tablet>
+    <Mobile>
+    <div className={classes.layout}>
+        <Helmet>
+          <title>{`${title ? `${title} | ` : ''
+            }PSDKU POLINEMA KAMPUS LUMAJANG`}</title>
+        </Helmet>
+        <Drawer
+          open={this.state.drawer}
+          toggleDrawer={this.toggleDrawer}
+          drawerItems={this.state.drawerItems}
+          expandItem={this.expandItem}
+          drawerSubItems={this.state.drawerSubItems}
+          expandSubItem={this.expandSubItem}
+        />
+        <AppBar toggleDrawer={this.toggleDrawer} />
+        {this.state.isIE ? (
+          <main className={classes.main}>
+            {' '}
+            <h1>
+              Internet Explorer is not supported. We recommend using the latest
+              version of <a href="https://www.google.com/chrome/">Chrome</a> or <a href="https://www.mozilla.org/en-US/firefox/new/">Firefox</a>.
+            </h1>
+          </main>
+        ) : (
+          <main className={classes.main}>{this.props.children}</main>
+        )}
+
+        <Footer />
+      </div>
+    </Mobile>
+      </>
     )
   }
 }

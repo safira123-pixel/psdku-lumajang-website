@@ -7,6 +7,7 @@ import Typography from '@material-ui/core/Typography'
 import { Link } from 'react-router-dom'
 import React, { Component, Fragment } from 'react'
 import { BlobImageDisplay } from "../apps/pages/BlobImageDisplay9";
+import { Desktop, Tablet, Mobile } from './Responsive';
 
 
 const styles = theme => ({
@@ -68,6 +69,7 @@ const styles = theme => ({
         left: '70%',
         marginTop: '15px',
         transform: 'translateX(-50%)',
+       
     }
 })
 
@@ -88,42 +90,120 @@ const NewsCard = (props) => {
         instagramLink,
     } = props
     return (
-        <Card className={classes.card}>
-             <CardContent>
-             <div className={classes.instagramLinkContainer}>
-                                {instagramLink}
-                            </div>
-                <Typography variant="display2" style={{ color: '#051d47', textAlign: "left", marginLeft: '0px', borderBottom: "2px solid #eee", paddingBottom: "7px" }} gutterBottom>
-                   {profileName}
-                </Typography>
-                </CardContent>
-             
-            <CardContent>
-                <Typography variant="title" style={{ color: '#051d47', textAlign: "left", marginLeft: '0px', borderBottom: "1px solid #eee", paddingBottom: "7px"}} >
-                   {title1}
-                </Typography>
-                <Typography component="h2" className={classes.description}>
-                    {content1}
-                </Typography>
-                <Typography variant="title" style={{ color: '#051d47', textAlign: "left", marginLeft: '0px', borderBottom: "1px solid #eee", paddingBottom: "7px" }} >
-                   {title2}
-                </Typography>
-                <Typography component="p" className={classes.description}>
-                    {content2}
-                </Typography>
-                <Typography variant="title" style={{ color: '#051d47', textAlign: "left", marginLeft: '0px', borderBottom: "1px solid #eee", paddingBottom: "7px" }} >
-                   {title3}
-                </Typography>
-                <Typography component="p" className={classes.description}>
-                    {content3}
-                </Typography>
-                <Card className={classes.cardImage}>
-            {/* <BlobImageDisplay blob={profileImg}/> */}
-            <BlobImageDisplay blobs={[profileImg1, profileImg2, profileImg3]} />
-            
-                </Card>
-            </CardContent>
+        <>
+         <Desktop>
+
+<Card className={classes.card}>
+     <CardContent>
+     <div className={classes.instagramLinkContainer}>
+                        {instagramLink}
+                    </div>
+        <Typography variant="display2" style={{ color: '#051d47', textAlign: "left", marginLeft: '0px', borderBottom: "2px solid #eee", paddingBottom: "7px" }} gutterBottom>
+           {profileName}
+        </Typography>
+        </CardContent>
+     
+    <CardContent>
+        <Typography variant="title" style={{ color: '#051d47', textAlign: "left", marginLeft: '0px', borderBottom: "1px solid #eee", paddingBottom: "7px"}} >
+           {title1}
+        </Typography>
+        <Typography component="h2" className={classes.description}>
+            {content1}
+        </Typography>
+        <Typography variant="title" style={{ color: '#051d47', textAlign: "left", marginLeft: '0px', borderBottom: "1px solid #eee", paddingBottom: "7px" }} >
+           {title2}
+        </Typography>
+        <Typography component="p" className={classes.description}>
+            {content2}
+        </Typography>
+        <Typography variant="title" style={{ color: '#051d47', textAlign: "left", marginLeft: '0px', borderBottom: "1px solid #eee", paddingBottom: "7px" }} >
+           {title3}
+        </Typography>
+        <Typography component="p" className={classes.description}>
+            {content3}
+        </Typography>
+        <Card className={classes.cardImage}>
+    {/* <BlobImageDisplay blob={profileImg}/> */}
+    <BlobImageDisplay blobs={[profileImg1, profileImg2, profileImg3]} />
+    
         </Card>
+    </CardContent>
+</Card>
+</Desktop>
+<Tablet>
+<CardContent>
+     <div className={classes.instagramLinkContainer}>
+                        {instagramLink}
+                    </div>
+        <Typography variant="display2" style={{ color: '#051d47', textAlign: "left", marginLeft: '0px', borderBottom: "2px solid #eee", paddingBottom: "7px" }} gutterBottom>
+           {profileName}
+        </Typography>
+        </CardContent>
+     
+    <CardContent>
+        <Typography variant="title" style={{ color: '#051d47', textAlign: "left", marginLeft: '0px', borderBottom: "1px solid #eee", paddingBottom: "7px"}} >
+           {title1}
+        </Typography>
+        <Typography component="h2" className={classes.description}>
+            {content1}
+        </Typography>
+        <Typography variant="title" style={{ color: '#051d47', textAlign: "left", marginLeft: '0px', borderBottom: "1px solid #eee", paddingBottom: "7px" }} >
+           {title2}
+        </Typography>
+        <Typography component="p" className={classes.description}>
+            {content2}
+        </Typography>
+        <Typography variant="title" style={{ color: '#051d47', textAlign: "left", marginLeft: '0px', borderBottom: "1px solid #eee", paddingBottom: "7px" }} >
+           {title3}
+        </Typography>
+        <Typography component="p" className={classes.description}>
+            {content3}
+        </Typography>
+        <Card className={classes.cardImage}>
+    {/* <BlobImageDisplay blob={profileImg}/> */}
+    <BlobImageDisplay blobs={[profileImg1, profileImg2, profileImg3]} />
+    
+        </Card>
+    </CardContent>
+</Tablet>
+<Mobile>
+<CardContent>
+     <div className={classes.instagramLinkContainer}>
+                        {instagramLink}
+                    </div>
+        <Typography variant="display2" style={{ color: '#051d47', textAlign: "left", marginLeft: '0px', borderBottom: "2px solid #eee", paddingBottom: "7px" }} gutterBottom>
+           {profileName}
+        </Typography>
+        </CardContent>
+     
+    <CardContent>
+        <Typography variant="title" style={{ color: '#051d47', textAlign: "left", marginLeft: '0px', borderBottom: "1px solid #eee", paddingBottom: "7px"}} >
+           {title1}
+        </Typography>
+        <Typography component="h2" className={classes.description}>
+            {content1}
+        </Typography>
+        <Typography variant="title" style={{ color: '#051d47', textAlign: "left", marginLeft: '0px', borderBottom: "1px solid #eee", paddingBottom: "7px" }} >
+           {title2}
+        </Typography>
+        <Typography component="p" className={classes.description}>
+            {content2}
+        </Typography>
+        <Typography variant="title" style={{ color: '#051d47', textAlign: "left", marginLeft: '0px', borderBottom: "1px solid #eee", paddingBottom: "7px" }} >
+           {title3}
+        </Typography>
+        <Typography component="p" className={classes.description}>
+            {content3}
+        </Typography>
+        <Card className={classes.cardImage}>
+    {/* <BlobImageDisplay blob={profileImg}/> */}
+    <BlobImageDisplay blobs={[profileImg1, profileImg2, profileImg3]} />
+    
+        </Card>
+    </CardContent>
+</Mobile>
+        </>
+       
     )
 }
 

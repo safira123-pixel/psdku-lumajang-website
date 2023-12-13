@@ -18,6 +18,7 @@ import GoogleTranslate from "./GoogleTranslate";
 import AppBarMenuItem from './AppBarMenuItem'
 import IconId from '../components/Flag/IconId'
 import IconEn from "../components/Flag/IconEn"
+import { Desktop, Tablet, Mobile } from './Responsive'
 
 class ButtonAppBar extends Component {
 
@@ -57,6 +58,8 @@ class ButtonAppBar extends Component {
     }
 
     return (
+      <>
+      <Desktop>
       <div className={classes.root}>
         <AppBar className={classes.appBar} position="static">
           <Toolbar className={classes.toolbar}>
@@ -211,6 +214,320 @@ class ButtonAppBar extends Component {
           </Toolbar>
         </AppBar >
       </div >
+      </Desktop>
+      <Tablet>
+      <div className={classes.root}>
+        <AppBar className={classes.appBar} position="static">
+          <Toolbar className={classes.toolbar}>
+            <div className={classes.col1}>
+              <IconButton
+                className={classes.menuButton}
+                aria-label="Menu"
+                title="Menu"
+                onClick={toggleDrawer}
+              >
+                <MenuIcon />
+              </IconButton>
+              <Typography
+                variant="title"
+                component="span"
+                className={classes.flex}
+              >
+                <Link to="/">
+                  <a>
+                    <Hidden mdUp>
+                      <img
+                        className={classes.mobileHeaderImage}
+                        src="./assets/images/logo-polinema.png"
+                        alt="Logo Polinema"
+                      />
+                    </Hidden>
+                    <Hidden smDown>
+                      <img
+                        className={classes.headerImage}
+                        src="./assets/images/logo-polinema.png"
+                        alt="Logo Polinema"
+                      />
+                    </Hidden>
+                    <Grid>
+                </Grid>
+                  </a>
+                </Link>
+              </Typography>
+              {/* <Hidden mdUp>
+              <Typography
+               variant="display1"
+               style={{ textAlign: 'left', fontSize: '200%', marginTop: "20px" }}
+              >
+                <Link to="/" style={{ textDecoration: 'none', color: '#051d47'}}>PSDKU</Link>
+              </Typography>
+              <Typography
+               variant="display1"
+               style={{ textAlign: 'left',marginLeft:'10px', fontSize: '200%', marginTop: "20px" }}
+              >
+               <Link to="/" style={{ textDecoration: 'none',color: '#e77e23'}}>KAMPUS LUMAJANG</Link>
+              </Typography>
+              </Hidden>
+              <Hidden smDown>
+              <Typography
+               variant="display1"
+               style={{ textAlign: 'left', fontSize: '200%', marginTop: "20px" }}
+              >
+                <Link to="/" style={{ textDecoration: 'none', color: '#051d47'}}>POLITEKNIK NEGERI MALANG</Link>
+              </Typography>
+              <Typography
+               variant="display1"
+               style={{ textAlign: 'left',marginLeft:'10px', fontSize: '200%', marginTop: "20px" }}
+              >
+               <Link to="/" style={{ textDecoration: 'none',color: '#e77e23'}}>KAMPUS LUMAJANG</Link>
+              </Typography>
+              </Hidden> */}
+=            </div>
+
+            <Grid container className={`${classes.col2} ${classes.mobileGridContainer}`}
+            >
+              {/* <Grid item xs={12} className={classes.telContainer}>
+                <a href="tel:18007836220" className={classes.telLink}>
+                  1.800.783.6220
+                </a>
+              </Grid> */}
+              <Hidden smDown>
+                <Grid item xs={12} style={{ paddingTop: 0 }}>
+                  <ul className={classes.menuList}>
+                  <img
+                        className={classes.mobileHeaderImage}
+                        src="./assets/images/mbkm.PNG"
+                        alt="Logo MBKM"
+                      />
+
+                    <AppBarMenuItem
+                      toggleDrawer={toggleDrawer}
+                      linkId="home"
+                      content={t('beranda.label')}
+                    />
+                    {/* <AppBarMenuItem
+                      toggleDrawer={toggleDrawer}
+                      linkId="about"
+                      content={t('tentang.label')}
+                    /> */}
+                    {/* <li style={{ marginRight: 20 }}>
+                      <div className={classes.language}>
+                        <div onClick={() => changeLanguage('ina')} style={{ height: "20px", width: "20px", marginLeft: 2, cursor: 'pointer' }}>
+                          <IconId />
+                        </div>
+                        <div onClick={() => changeLanguage('en')} style={{ height: "20px", width: "20px", marginLeft: 15, cursor: 'pointer' }}>
+                          <IconEn />
+                        </div>
+                      </div>
+                    </li> */}
+                    
+                    <GoogleTranslate />
+
+                    {/* <SvgIcon
+                      viewBox="0 0 24 24"
+                      className={classes.searchSVG}
+                      onClick={this.onSearchClick}
+                    >
+                      <title>Search Franciscan</title>
+                      <path
+                        xmlns="http://www.w3.org/2000/svg"
+                        d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+                      />
+                      <path d="M0 0h24v24H0z" fill="none" />
+                    </SvgIcon> */}
+
+                    <Input
+                      className={
+                        isSearchOpen ? classes.searchOpen : classes.searchClosed
+                      }
+                      placeholder="Search"
+                      classes={{ underline: classes.searchInput }}
+                      inputRef={inp => {
+                        this.searchInput = inp
+                      }}
+                      value={search}
+                      onChange={this.onSeachChange}
+                      onKeyPress={e => e.key === 'Enter' && this.handleSearch()}
+                      endAdornment={
+                        <InputAdornment
+                          style={isSearchOpen ? {} : { display: 'none' }}
+                          position="end"
+                        >
+                          <IconButton
+                            aria-label="Close search input"
+                            onClick={this.closeInput}
+                          >
+                            <Close />
+                          </IconButton>
+                        </InputAdornment>
+                      }
+                    />
+                  </ul>
+
+                </Grid>
+              </Hidden>
+            </Grid>
+          </Toolbar>
+        </AppBar >
+      </div >
+      </Tablet>
+      <Mobile>
+      <div className={classes.root}>
+        <AppBar className={classes.appBar} position="static">
+          <Toolbar className={classes.toolbar}>
+            <div className={classes.col1}>
+              <IconButton
+                className={classes.menuButton}
+                aria-label="Menu"
+                title="Menu"
+                onClick={toggleDrawer}
+              >
+                <MenuIcon />
+              </IconButton>
+              <Typography
+                variant="title"
+                component="span"
+                className={classes.flex}
+              >
+                <Link to="/">
+                  <a>
+                    <Hidden mdUp>
+                      <img
+                        className={classes.mobileHeaderImage}
+                        src="./assets/images/logo-polinema.png"
+                        alt="Logo Polinema"
+                      />
+                    </Hidden>
+                    <Hidden smDown>
+                      <img
+                        className={classes.headerImage}
+                        src="./assets/images/logo-polinema.png"
+                        alt="Logo Polinema"
+                      />
+                    </Hidden>
+                    <Grid>
+                </Grid>
+                  </a>
+                </Link>
+              </Typography>
+              {/* <Hidden mdUp>
+              <Typography
+               variant="display1"
+               style={{ textAlign: 'left', fontSize: '200%', marginTop: "20px" }}
+              >
+                <Link to="/" style={{ textDecoration: 'none', color: '#051d47'}}>PSDKU</Link>
+              </Typography>
+              <Typography
+               variant="display1"
+               style={{ textAlign: 'left',marginLeft:'10px', fontSize: '200%', marginTop: "20px" }}
+              >
+               <Link to="/" style={{ textDecoration: 'none',color: '#e77e23'}}>KAMPUS LUMAJANG</Link>
+              </Typography>
+              </Hidden>
+              <Hidden smDown>
+              <Typography
+               variant="display1"
+               style={{ textAlign: 'left', fontSize: '200%', marginTop: "20px" }}
+              >
+                <Link to="/" style={{ textDecoration: 'none', color: '#051d47'}}>POLITEKNIK NEGERI MALANG</Link>
+              </Typography>
+              <Typography
+               variant="display1"
+               style={{ textAlign: 'left',marginLeft:'10px', fontSize: '200%', marginTop: "20px" }}
+              >
+               <Link to="/" style={{ textDecoration: 'none',color: '#e77e23'}}>KAMPUS LUMAJANG</Link>
+              </Typography>
+              </Hidden> */}
+=            </div>
+
+            <Grid container className={`${classes.col2} ${classes.mobileGridContainer}`}
+            >
+              {/* <Grid item xs={12} className={classes.telContainer}>
+                <a href="tel:18007836220" className={classes.telLink}>
+                  1.800.783.6220
+                </a>
+              </Grid> */}
+              <Hidden smDown>
+                <Grid item xs={12} style={{ paddingTop: 0 }}>
+                  <ul className={classes.menuList}>
+                  <img
+                        className={classes.mobileHeaderImage}
+                        src="./assets/images/mbkm.PNG"
+                        alt="Logo MBKM"
+                      />
+
+                    <AppBarMenuItem
+                      toggleDrawer={toggleDrawer}
+                      linkId="home"
+                      content={t('beranda.label')}
+                    />
+                    {/* <AppBarMenuItem
+                      toggleDrawer={toggleDrawer}
+                      linkId="about"
+                      content={t('tentang.label')}
+                    /> */}
+                    {/* <li style={{ marginRight: 20 }}>
+                      <div className={classes.language}>
+                        <div onClick={() => changeLanguage('ina')} style={{ height: "20px", width: "20px", marginLeft: 2, cursor: 'pointer' }}>
+                          <IconId />
+                        </div>
+                        <div onClick={() => changeLanguage('en')} style={{ height: "20px", width: "20px", marginLeft: 15, cursor: 'pointer' }}>
+                          <IconEn />
+                        </div>
+                      </div>
+                    </li> */}
+                    
+                    <GoogleTranslate />
+
+                    {/* <SvgIcon
+                      viewBox="0 0 24 24"
+                      className={classes.searchSVG}
+                      onClick={this.onSearchClick}
+                    >
+                      <title>Search Franciscan</title>
+                      <path
+                        xmlns="http://www.w3.org/2000/svg"
+                        d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+                      />
+                      <path d="M0 0h24v24H0z" fill="none" />
+                    </SvgIcon> */}
+
+                    <Input
+                      className={
+                        isSearchOpen ? classes.searchOpen : classes.searchClosed
+                      }
+                      placeholder="Search"
+                      classes={{ underline: classes.searchInput }}
+                      inputRef={inp => {
+                        this.searchInput = inp
+                      }}
+                      value={search}
+                      onChange={this.onSeachChange}
+                      onKeyPress={e => e.key === 'Enter' && this.handleSearch()}
+                      endAdornment={
+                        <InputAdornment
+                          style={isSearchOpen ? {} : { display: 'none' }}
+                          position="end"
+                        >
+                          <IconButton
+                            aria-label="Close search input"
+                            onClick={this.closeInput}
+                          >
+                            <Close />
+                          </IconButton>
+                        </InputAdornment>
+                      }
+                    />
+                  </ul>
+
+                </Grid>
+              </Hidden>
+            </Grid>
+          </Toolbar>
+        </AppBar >
+      </div >
+      </Mobile>
+      </>
     )
   }
 }

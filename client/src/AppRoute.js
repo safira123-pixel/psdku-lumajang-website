@@ -16,7 +16,7 @@ import item_pengumuman6 from './apps/pages/item_pengumuman6'
 import item_pengumuman7 from './apps/pages/item_pengumuman7'
 import item_pengumuman8 from './apps/pages/item_pengumuman8'
 import item_pengumuman9 from './apps/pages/item_pengumuman9'
-import galeri from './apps/galeri'
+import galeri from './apps/pages/galeri'
 
 
 const AppRoute = () => {

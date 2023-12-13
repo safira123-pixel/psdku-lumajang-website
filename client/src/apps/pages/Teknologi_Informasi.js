@@ -17,6 +17,7 @@ import Breadcrumb from 'react-bootstrap/Breadcrumb';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ChatIcon from '../../components/ChatIcon';
 import ClipLoader from "react-spinners/ClipLoader";
+import { Desktop, Tablet, Mobile } from '../../components/Responsive';
 
 
 const teknologi_informasi = (props) => {
