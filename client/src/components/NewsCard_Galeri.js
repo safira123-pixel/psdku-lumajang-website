@@ -6,20 +6,22 @@ import { withStyles } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
 import { Link } from 'react-router-dom'
 import React, { Component, Fragment } from 'react'
-import { BlobImageDisplay } from "../apps/pages/BlobImageDisplay9";
+import { BlobImageDisplay } from "../apps/pages/BlobImageDisplay11";
 
 
 const styles = theme => ({
     card: {
-        width: '97%',
+        width: '130%',
         display: "flex",
         flexWrap: "wrap",
+        backgroundColor: 'rgba(0, 0, 0, 0.5)', // Ubah angka 0.8 sesuai tingkat transparansi yang diinginkan
         // marginLeft: "5px",
         // marginBottom: "20px",
-        marginLeft: "20px",
-        marginRight: "20px",
+        marginLeft: "30px",
+        marginRight: "10",
         marginBottom: "20px",
         marginTop:"20px", 
+        textAlign:"center",
         [theme.breakpoints.down('sm')]: {
             maxWidth: '100%'
         } 
@@ -77,29 +79,29 @@ const NewsCard_Galeri = (props) => {
         profileImg1,
         profileImg2,
         profileImg3,
+        profileImg4,
+        profileImg5,
+        profileImg6,
+        profileImg7,
+        profileImg8,
+        profileImg9,
+        profileImg10,
+        profileImg11,
+        profileImg12,
+        profileImg13,
+        profileImg14,
+        profileName
        
     } = props
-
-    useEffect(() => {
-        fetch('http://localhost:8080/api/department') // Pastikan URL endpoint sesuai
-        .then(response => response.json())
-        .then(data => {
-            setData([data.content]);
-            setLoading(false); // Set loading to false when data is loaded
-            console.log(data.content);
-        })
-        .catch(error => {
-            console.error(error);
-            setLoading(false);
-        });
-    }, []);
     return (
         <Card className={classes.card}>
-             
+               <CardContent>
+                <Typography variant="display2" style={{ color: '#ffff', textAlign: "center", marginLeft: '650px', marginBottom:"0px" }} gutterBottom>
+                   {profileName}
+                </Typography>
+            </CardContent>
             <CardContent>
-               
-            <BlobImageDisplay blobs={[profileImg1, profileImg2, profileImg3]} />
-            
+            <BlobImageDisplay blobs={[profileImg1, profileImg2, profileImg3, profileImg4, profileImg5, profileImg6, profileImg7, profileImg8, profileImg9, profileImg10, profileImg11, profileImg12, profileImg13, profileImg14]}/>
             </CardContent>
         </Card>
 
