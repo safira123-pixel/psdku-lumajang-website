@@ -6,6 +6,7 @@ import { withStyles } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
 import { Link } from 'react-router-dom'
 import React, { Component, Fragment } from 'react'
+import Mapping from '../apps/pages/mapping'
 
 const styles = theme => ({
     card: {
@@ -76,18 +77,12 @@ const NewsCard = (props) => {
     return (
         <Card className={classes.card}>
              <CardContent>
-                <Typography variant="display2" style={{ color: '#051d47', textAlign: "left", marginLeft: '0px', borderBottom: "2px solid #eee", paddingBottom: "7px" }} gutterBottom>
+                <Typography variant="display2" style={{ color: '#051d47', textAlign: "left", marginLeft: '0px', marginRight: '400px', borderBottom: "2px solid #eee", paddingBottom: "7px" }} gutterBottom>
                    {profileName}
                 </Typography>
                 </CardContent>
-                <CardContent>
-                <img
-                src={profileImg}
-                style={{ width: '75%'}}
-                className={classes.cardImage}
-                />
-                </CardContent>
-            <CardContent>
+                <Mapping/>
+            <CardContent style={{marginTop:"150px"}}>
                 <Typography component="h2" className={classes.description}>
                     {content1}
                 </Typography>
