@@ -7,7 +7,8 @@ import Layout from '../../components/Layout'
 import TextSection from '../../components/TextSection'
 import withRoot from '../../components/withRoot'
 import SlideShow from '../../components/SlideShow'
-import NewsCard from '../../components/NewsCard_Pendaftaran2'
+// import NewsCard from '../../components/NewsCard_Pendaftaran2'
+import NewsCard from '../../components/NewsCard_KhususMandiri'
 import NewsCard2 from '../../components/NewsCard_NavBar'
 import NewsCard1 from '../../components/NewsCard_NavBarKalender'
 import NewsCard3 from '../../components/NewsCard_MenuNav'
@@ -68,6 +69,17 @@ const mandiri = (props) => {
                                    profileImg1={item[2].data}
                                    profileImg2={item[1].data}
                                    content1={item[3].description}
+
+                                   // Tabel Khusus Jalur Mandiri
+                                   profileName1={t('Jalur Mandiri')}
+                                   name={t('Jalur Seleksi')}
+                                   image={t('Gambar')}
+                                   profileImg3={item[2].data}
+                                   profileImg4={item[1].data}
+                                   content3={item[3].description}
+                                   content4={item[3].description}
+
+
                               />
                           ))}
                       </Grid>

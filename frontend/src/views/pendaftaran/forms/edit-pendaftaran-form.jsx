@@ -55,6 +55,8 @@ class EditPendaftaranForm extends Component {
             })(<Select style={{ width: 250 }}>
               <Select.Option value="Seleksi Nasional Berdasarkan Prestasi (SNBP)">Jalur SNBP</Select.Option>
               <Select.Option value="Seleksi Nasional Berdasarkan Tes (SNBT)">Jalur SNBT</Select.Option>
+              <Select.Option value="Seleksi Mandiri">Jalur Mandiri Khusus</Select.Option>
+              <Select.Option value="Seleksi Mandiri">Jalur Mandiri Prestasi</Select.Option>
               <Select.Option value="Seleksi Mandiri">Jalur Mandiri Gelombang 1</Select.Option>
               <Select.Option value="Seleksi Mandiri">Jalur Mandiri Gelombang 2</Select.Option>
               <Select.Option value="Seleksi Mandiri">Jalur Mandiri Gelombang 3</Select.Option>
