@@ -66,9 +66,9 @@ const mandiri = (props) => {
                               <NewsCard
                                    key={index}
                                    profileName={t('Mandiri')}           
-                                   profileImg1={item[2].data}
-                                   profileImg2={item[1].data}
-                                   content1={item[3].description}
+                                   profileImg1={item[7].data}
+                                   profileImg2={item[8].data}
+                                   content1={item[9].description}
                                    profileLink=" https://spmb.polinema.ac.id/info/"
                                    linkName={' https://spmb.polinema.ac.id/info/'} 
 
@@ -76,10 +76,16 @@ const mandiri = (props) => {
                                    profileName1={t('Jalur Mandiri')}
                                    name={t('Jalur Seleksi')}
                                    image={t('Gambar')}
-                                   profileImg3={item[2].data}
+
+                                   profileImg3={item[0].data}
                                    profileImg4={item[1].data}
-                                   content3={item[3].description}
-                                   content4={item[3].description}
+                                   content3={item[0].description}
+                                   content4={item[1].description}
+
+                                   profileImg5={item[2].data}
+                                   profileImg6={item[3].data}
+                                   content5={item[2].description}
+                                   content6={item[3].description}
 
                               />
                           ))}

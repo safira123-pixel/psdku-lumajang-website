@@ -14,7 +14,7 @@ export function BlobImageDisplay({ blobs }) {
  
 
   return (
-    <div style={{ display: 'flex',  marginLeft: '400px', width: '400%'}}>
+    <div style={{ display: 'flex',  marginLeft: '330px', width: '400%'}}>
       {blobUrls.length > 0 ? (
         <ImageGallery
           items={blobUrls.map((url) => ({

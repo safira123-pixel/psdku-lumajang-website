@@ -90,11 +90,14 @@ const NewsCard = (props) => {
         profileImg3,
         profileImg4,
         profileImg5,
+        profileImg6,
         profileName,
         content1,
         content2,
         content3,
         content4,
+        content5,
+        content6,
         title1,
         title2,
         title3,
@@ -148,7 +151,7 @@ const NewsCard = (props) => {
                     <tr>
                         <td className={classes.td}>  
                             <Typography component="h2" className={classes.content}>
-                                {content1}
+                                {content4}
                             </Typography>
                         </td>
                         <td className={classes.td}>
@@ -162,12 +165,38 @@ const NewsCard = (props) => {
                     <tr>
                         <td className={classes.td}>  
                             <Typography component="h2" className={classes.content}>
-                                {content1}
+                                {content4}
                             </Typography>
                         </td>
                         <td className={classes.td}>
                             <CardContent>
                                 <BlobImageDisplayMandiri blob={profileImg4}/>
+                            </CardContent>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td className={classes.td}>  
+                            <Typography component="h2" className={classes.content}>
+                                {content5}
+                            </Typography>
+                        </td>
+                        <td className={classes.td}>
+                            <CardContent>
+                                <BlobImageDisplayMandiri blob={profileImg5}/>
+                            </CardContent>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td className={classes.td}>  
+                            <Typography component="h2" className={classes.content}>
+                                {content6}
+                            </Typography>
+                        </td>
+                        <td className={classes.td}>
+                            <CardContent>
+                                <BlobImageDisplayMandiri blob={profileImg6}/>
                             </CardContent>
                         </td>
                     </tr>
@@ -178,10 +207,10 @@ const NewsCard = (props) => {
             </Accordion.Item>
             </Accordion>
                 <Card className={classes.cardImage}>
-            <BlobImageDisplay blob={profileImg1}/>
+            <BlobImageDisplayMandiri blob={profileImg1}/>
                 </Card>
                 <Card className={classes.cardImage}>
-            <BlobImageDisplay blob={profileImg2}/>
+            <BlobImageDisplayMandiri blob={profileImg2}/>
                 </Card>
             
         </Card>

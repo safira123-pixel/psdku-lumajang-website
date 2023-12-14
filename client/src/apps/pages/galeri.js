@@ -45,17 +45,17 @@ const galeri = (props) => {
                                  profileImg1={item[0].data}
                                  profileImg2={item[1].data}
                                  profileImg3={item[2].data}
-                                 profileImg4={item[0].data}
-                                 profileImg5={item[0].data}
-                                 profileImg6={item[0].data}
-                                 profileImg7={item[0].data}
-                                 profileImg8={item[0].data}
-                                 profileImg9={item[0].data}
-                                 profileImg10={item[0].data}
-                                 profileImg11={item[0].data}
-                                 profileImg12={item[0].data}
-                                 profileImg13={item[0].data}
-                                 profileImg14={item[0].data}
+                                 profileImg4={item[3].data}
+                                 profileImg5={item[4].data}
+                                 profileImg6={item[5].data}
+                                 profileImg7={item[6].data}
+                                 profileImg8={item[7].data}
+                                 profileImg9={item[8].data}
+                                 profileImg10={item[9].data}
+                                 profileImg11={item[10].data}
+                                 profileImg12={item[11].data}
+                                 profileImg13={item[12].data}
+                                 profileImg14={item[13].data}
                                 
                             />
                         ))}

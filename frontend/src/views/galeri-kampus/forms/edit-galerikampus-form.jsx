@@ -38,34 +38,20 @@ class EditGaleriKampusForm extends Component {
     };
     return (
       <Modal
-        title="Edit Gambar Galeri Kampus"
+        title="Edit Gambar"
         visible={visible}
         onCancel={onCancel}
         onOk={onOk}
         confirmLoading={confirmLoading}
       >
+        
         <Form {...formItemLayout}>
-          <Form.Item label="ID Gambar:">
+        <Form.Item label="ID Gambar:">
             {getFieldDecorator("id", {
               initialValue: id,
             })(<Input disabled />)}
           </Form.Item>
-          {/* <Form.Item label="File">
-            {getFieldDecorator("data")(
-              <Upload
-                name="data"
-                beforeUpload={() => false}
-                fileList={this.state.fileList} // Menghubungkan fileList dengan state
-                onChange={this.handleChange} // Menggunakan handleChange untuk mengelola perubahan file
-              >
-                <p className="ant-upload-drag-icon">
-                  <Icon type="inbox" />
-                </p>
-                <p className="ant-upload-text">Klik atau Seret file ke sini</p>
-                <p className="ant-upload-hint">support semua file</p>
-              </Upload>
-            )}
-          </Form.Item> */}
+  
           <Form.Item label="File" name="file">
             {getFieldDecorator("file")(
               <Upload.Dragger
