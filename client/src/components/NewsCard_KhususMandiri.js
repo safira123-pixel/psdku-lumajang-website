@@ -102,9 +102,7 @@ const NewsCard = (props) => {
                 <Typography component="h2" className={classes.description}>
                     {content2}
                 </Typography>
-                    <a href={profileLink3} target= "_blank">
-                            {linkName3}
-                    </a>
+          
             </CardContent>
              <Accordion style={{ width:"90%", marginLeft:"20px", marginBottom:"20px"}}>
                 
