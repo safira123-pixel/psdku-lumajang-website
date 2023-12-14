@@ -61,7 +61,25 @@ const styles = theme => ({
         marginBottom: 10,
         color: '#52535A',
         textAlign: 'justify'
-    }
+    },
+    table: {
+        border: '1px solid black',
+        width: '800px',
+        height: '200px',
+        textAlign: 'center',
+
+    },
+     
+    th: {
+        borderBottom: '1px solid black',
+        border: '1px solid black'
+
+    },
+     
+    td: {
+        textAlign: 'center',
+        border: '1px solid black'
+    },
 })
 
 const NewsCard = (props) => {
@@ -86,6 +104,8 @@ const NewsCard = (props) => {
         profileName1,
         image,
         nomor1,
+        profileLink,
+        linkName
 
     } = props
     return (
@@ -102,8 +122,12 @@ const NewsCard = (props) => {
                 <Typography component="h2" className={classes.description}>
                     {content2}
                 </Typography>
-          
+                 <a href={profileLink} target= "_blank">
+                            {linkName}
+                    </a>
             </CardContent>
+
+
              <Accordion style={{ width:"90%", marginLeft:"20px", marginBottom:"20px"}}>
                 
             <Accordion.Item eventKey="0">
@@ -114,6 +138,7 @@ const NewsCard = (props) => {
             </Accordion.Header>
                 <Accordion.Body>
                     <CardContent>
+
                 <table className={classes.table}>
                     <tr>
                         <th className={classes.th}>{name}</th>
@@ -128,18 +153,12 @@ const NewsCard = (props) => {
                         </td>
                         <td className={classes.td}>
                             <CardContent>
-                                {/* <img
-                                    src={profileImg1}
-                                    style={{ width: '50%'}}
-                                    className={classes.cardImage}
-                                /> */}
-                                {/* <Card className={classes.cardImage}> */}
-            <BlobImageDisplayMandiri blob={profileImg3}/>
-                {/* </Card> */}
+                                    <BlobImageDisplayMandiri blob={profileImg3}/>
                             </CardContent>
                         </td>
             
                     </tr>
+
                     <tr>
                         <td className={classes.td}>  
                             <Typography component="h2" className={classes.content}>
@@ -148,17 +167,9 @@ const NewsCard = (props) => {
                         </td>
                         <td className={classes.td}>
                             <CardContent>
-                                {/* <img
-                                    src={profileImg1}
-                                    style={{ width: '50%'}}
-                                    className={classes.cardImage}
-                                /> */}
-                                {/* <Card className={classes.cardImage}> */}
-            <BlobImageDisplayMandiri blob={profileImg4}/>
-                {/* </Card> */}
+                                <BlobImageDisplayMandiri blob={profileImg4}/>
                             </CardContent>
                         </td>
-            
                     </tr>
                    
                 </table>

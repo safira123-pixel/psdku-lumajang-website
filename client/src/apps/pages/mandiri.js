@@ -69,6 +69,8 @@ const mandiri = (props) => {
                                    profileImg1={item[2].data}
                                    profileImg2={item[1].data}
                                    content1={item[3].description}
+                                   profileLink=" https://spmb.polinema.ac.id/info/"
+                                   linkName={' https://spmb.polinema.ac.id/info/'} 
 
                                    // Tabel Khusus Jalur Mandiri
                                    profileName1={t('Jalur Mandiri')}
@@ -78,7 +80,6 @@ const mandiri = (props) => {
                                    profileImg4={item[1].data}
                                    content3={item[3].description}
                                    content4={item[3].description}
-
 
                               />
                           ))}
