@@ -27,7 +27,7 @@ const styles = theme => ({
     },
     cardImage: {
         display: "flex",
-        marginLeft:"230px",
+        marginLeft:"350px",
         marginBottom:"20px",
         flexWrap: "wrap",
         marginTop:"10px",

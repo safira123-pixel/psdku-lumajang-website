@@ -20,18 +20,18 @@ const styles = theme => ({
         flexWrap: "wrap",
         marginRight: "20px",
         marginBottom: "20px",
-        marginTop:"20px",
-        [theme.breakpoints.down('sm')]: {
-            maxWidth: '100%'
-        } 
+        marginTop:"20px"
+        // [theme.breakpoints.down('sm')]: {
+        //     maxWidth: '100%'
+        // } 
     },
     cardImage: {
         width: '100%',
-        display: "flex",
-        flexWrap: "wrap",
-        [theme.breakpoints.down('sm')]: {
-            maxWidth: '100%'
-        } 
+        // display: "flex",
+        // flexWrap: "wrap",
+        // [theme.breakpoints.down('sm')]: {
+        //     maxWidth: '100%'
+        // } 
     },
     media: {
         minHeight: '280px',
