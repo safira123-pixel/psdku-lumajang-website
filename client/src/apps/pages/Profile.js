@@ -42,10 +42,6 @@ const Profile = (props) => {
         });
     }, []);
 
-    //background: 'linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%)'
-    // const getDescriptionTranslation = (descriptionKey) => {
-    //     return t(descriptionKey); // Menggunakan t() dari useTranslation untuk menerjemahkan deskripsi
-    //   };
     const [showPopup, setShowPopup] = useState(false);
 
     useEffect(() => {
@@ -340,6 +336,7 @@ const styles = theme => ({
         alignItems: "center",
         height: "100vh",
       },
+      
 })
 
 export default withRoot(withStyles(styles)(withTranslation()(Profile)))
