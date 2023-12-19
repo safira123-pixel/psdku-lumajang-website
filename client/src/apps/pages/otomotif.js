@@ -142,16 +142,14 @@ const otomotif = (props) => {
                             <Grid>                    
                             <NewsCard3
                                     profileName= "MENU NAVIGASI"
-                                    linkName1={t('Profil Lumajang')}
-                                    profileLink1="/profil_lumajang"
-                                    linkName2={t('Budaya Lumajang')}
-                                    profileLink2="/budaya_lumajang"
-                                    linkName3={t('Pariwisata Lumajang')}
-                                    profileLink3="/pariwisata_lumajang"
-                                    linkName4={t('Kuliner Lumajang')}
-                                    profileLink4="/kuliner_lumajang"
-                                    linkName5={t('Transportasi Lumajang')}
-                                    profileLink5="/transportasi_lumajang"
+                                    linkName1={t('D-IV Teknologi Rekayasa Otomotif')}
+                                    profileLink1="/otomotif"
+                                    linkName2={t('D-III Teknologi Sipil')}
+                                    profileLink2="/teknologi_sipil"
+                                    linkName3={t('D-III Akuntansi')}
+                                    profileLink3="/akuntansi"
+                                    linkName4={t('D-III Teknologi Informasi')}
+                                    profileLink4="/teknologi_informasi"                        
                                 />
                             </Grid>
                     </Grid>
