@@ -7,19 +7,27 @@ import Layout from '../../components/Layout'
 import TextSection from '../../components/TextSection'
 import withRoot from '../../components/withRoot'
 import SlideShow from '../../components/SlideShow'
+import SlideShow_Galeri from '../../components/SlideShow_Galeri'
 import NewsCard from '../../components/NewsCard_Home'
 import { withTranslation } from 'react-i18next'
 import { Button } from '@material-ui/core'
 import { useTranslation } from 'react-i18next'
 import MarqueeText from '../../components/MarqueeText'
 import ChatIcon from '../../components/ChatIcon'
+import NewsCard_Galeri from '../../components/NewsCard_Galeri'
+import Galeri from './galeri'
 import { useEffect, useState } from 'react'
+import { isMobile } from 'react-device-detect';
 
 
 const HomePage = (props) => {
     const [data, setData] = useState([]);
     const { classes} = props
     const { t } = useTranslation();
+
+    const [beritaData, setBeritaData] = useState([]);
+    const [departmentData, setDepartmentData] = useState([]);
+    const [loading, setLoading] = useState(true);
     useEffect(() => {
         fetch('http://localhost:8080/api/berita') // Pastikan URL endpoint sesuai
         .then(response => response.json())
@@ -31,8 +39,30 @@ const HomePage = (props) => {
             console.error(error);
         });
     }, []);
+
+    const [showPopup, setShowPopup] = useState(false);
+
+    useEffect(() => {
+      if (isMobile) {
+        setShowPopup(true);
+      }
+    }, []);
+  
+    const hidePopup = () => {
+      setShowPopup(false);
+    };
     return (
         <Layout title="Home" >
+            {showPopup && (
+        <div className={classes.popup}>
+          <p>
+          Mohon maaf, kami sarankan untuk membuka situs ini pada Desktop atau Laptop agar mendapatkan pengalaman yang lebih baik. Jika membuka pada Smartphone atau Mobile, Anda dapat mencoba mengklik tanda titik tiga di pojok kanan atas browser untuk mengakses Situs Desktop (Desktop Site). 😊  
+          </p>
+          <button className={classes.closeButton} onClick={hidePopup}>
+            Close
+          </button>
+        </div>
+      )}
             <MarqueeText/>
             <SlideShow />
             <TextSection
@@ -122,9 +152,13 @@ const HomePage = (props) => {
                     </Grid>
                 </Grid>
 
+
                 <div style={{ textAlign: 'center', padding: 20 }}>
                     <Button style={{ backgroundColor: '#fbb555', fontWeight: 'bold' }} href="/pengumuman" >{t("Tampilkan Berita")}</Button>
                 </div>
+                {/* <SlideShow_Galeri /> */}
+             <Galeri/>
+
             </div>
             
             <ChatIcon />
@@ -234,7 +268,27 @@ const styles = theme => ({
         backgroundColor: 'transparent',
         border: '2px #051d47 solid',
         boxShadow: 'none'
-    }
+    },
+    popup: {
+        position: 'fixed',
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        backgroundColor: '#fff',
+        padding: '20px',
+        boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.2)',
+        zIndex: '999',
+        textAlign: 'center',
+      },
+      closeButton: {
+        backgroundColor: '#051d47',
+        color: '#fff',
+        border: 'none',
+        padding: '10px 20px',
+        cursor: 'pointer',
+        borderRadius: '5px',
+        marginTop: '15px',
+      },
 })
 
 export default withRoot(withStyles(styles)(withTranslation()(HomePage)))

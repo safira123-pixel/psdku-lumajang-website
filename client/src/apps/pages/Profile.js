@@ -17,6 +17,7 @@ import Breadcrumb from 'react-bootstrap/Breadcrumb';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ChatIcon from '../../components/ChatIcon';
 import ClipLoader from "react-spinners/ClipLoader";
+import { isMobile } from 'react-device-detect';
 
 
 const Profile = (props) => {
@@ -41,13 +42,30 @@ const Profile = (props) => {
         });
     }, []);
 
-    //background: 'linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%)'
-    // const getDescriptionTranslation = (descriptionKey) => {
-    //     return t(descriptionKey); // Menggunakan t() dari useTranslation untuk menerjemahkan deskripsi
-    //   };
+    const [showPopup, setShowPopup] = useState(false);
 
+    useEffect(() => {
+      if (isMobile) {
+        setShowPopup(true);
+      }
+    }, []);
+  
+    const hidePopup = () => {
+      setShowPopup(false);
+    };
+  
     return (
         <div>
+            {showPopup && (
+        <div className={classes.popup}>
+          <p>
+          Mohon maaf, kami sarankan untuk membuka situs ini pada Desktop atau Laptop agar mendapatkan pengalaman yang lebih baik. Jika membuka pada Smartphone atau Mobile, Anda dapat mencoba mengklik tanda titik tiga di pojok kanan atas browser untuk mengakses Situs Desktop (Desktop Site). 😊  
+          </p>
+          <button className={classes.closeButton} onClick={hidePopup}>
+            Close
+          </button>
+        </div>
+      )}
         {loading ? (
           <div className={classes.spinnerContainer}>
             <ClipLoader color="#051d47" loading={loading} size={50} />
@@ -164,6 +182,26 @@ const styles = theme => ({
         marginLeft: "20px",
         display:"flex"
     },
+    popup: {
+        position: 'fixed',
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        backgroundColor: '#fff',
+        padding: '20px',
+        boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.2)',
+        zIndex: '999',
+        textAlign: 'center',
+      },
+      closeButton: {
+        backgroundColor: '#051d47',
+        color: '#fff',
+        border: 'none',
+        padding: '10px 20px',
+        cursor: 'pointer',
+        borderRadius: '5px',
+        marginTop: '15px',
+      },
     card: {
         width: '97%',
         display: "flex",
@@ -298,6 +336,7 @@ const styles = theme => ({
         alignItems: "center",
         height: "100vh",
       },
+      
 })
 
 export default withRoot(withStyles(styles)(withTranslation()(Profile)))

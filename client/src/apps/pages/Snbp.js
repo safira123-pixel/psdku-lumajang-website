@@ -17,6 +17,8 @@ import Breadcrumb from 'react-bootstrap/Breadcrumb';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ChatIcon from '../../components/ChatIcon';
 import ClipLoader from "react-spinners/ClipLoader";
+import { isMobile } from 'react-device-detect';
+
 
 const snbp = (props) => {
     const [loading, setLoading] = useState(true);
@@ -40,7 +42,30 @@ const snbp = (props) => {
         });
     }, []);
 
+    const [showPopup, setShowPopup] = useState(false);
+
+    useEffect(() => {
+      if (isMobile) {
+        setShowPopup(true);
+      }
+    }, []);
+  
+    const hidePopup = () => {
+      setShowPopup(false);
+    };
+
     return (<div>
+   {showPopup && (
+        <div className={classes.popup}>
+          <p>
+          Mohon maaf, kami sarankan untuk membuka situs ini pada Desktop atau Laptop agar mendapatkan pengalaman yang lebih baik. Jika membuka pada Smartphone atau Mobile, Anda dapat mencoba mengklik tanda titik tiga di pojok kanan atas browser untuk mengakses Situs Desktop (Desktop Site). 😊  
+          </p>
+          <button className={classes.closeButton} onClick={hidePopup}>
+            Close
+          </button>
+        </div>
+      )}
+
         {loading ? (
           <div className={classes.spinnerContainer}>
             <ClipLoader color="#051d47" loading={loading} size={50} />
@@ -64,9 +89,9 @@ const snbp = (props) => {
                               <NewsCard
                                    key={index}
                                    profileName={t('SNBP')} 
-                                   profileImg1={item[5].data}         
-                                   profileImg2={item[0].data}         
-                                   content1={item[5].description}
+                                   profileImg1={item[11].data}         
+                                   profileImg2={item[6].data}         
+                                   content1={item[11].description}
                                    content2={t('Untuk informasi selengkapnya dapat mengunjungi halaman berikut : ')}
                                    profileLink3="https://snpmb.bppp.kemdikbud.go.id/"
                                    linkName3={'https://snpmb.bppp.kemdikbud.go.id/'} 
@@ -261,7 +286,27 @@ const styles = theme => ({
         backgroundColor: 'transparent',
         border: '2px #051d47 solid',
         boxShadow: 'none'
-    }
+    },
+    popup: {
+        position: 'fixed',
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        backgroundColor: '#fff',
+        padding: '20px',
+        boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.2)',
+        zIndex: '999',
+        textAlign: 'center',
+      },
+      closeButton: {
+        backgroundColor: '#051d47',
+        color: '#fff',
+        border: 'none',
+        padding: '10px 20px',
+        cursor: 'pointer',
+        borderRadius: '5px',
+        marginTop: '15px',
+      },
 })
 
 export default withRoot(withStyles(styles)(withTranslation()(snbp)))

@@ -6,16 +6,22 @@ import { withStyles } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
 import { Link } from 'react-router-dom'
 import React, { Component, Fragment } from 'react'
-import Mapping from '../apps/pages/mapping'
+import { BlobImageDisplay } from "../apps/pages/BlobImageDisplay11";
+
 
 const styles = theme => ({
     card: {
-        width: '97%',
+        width: '130%',
         display: "flex",
         flexWrap: "wrap",
-        marginLeft: "5px",
+        backgroundColor: 'rgba(0, 0, 0, 0.5)', // Ubah angka 0.8 sesuai tingkat transparansi yang diinginkan
+        // marginLeft: "5px",
+        // marginBottom: "20px",
+        marginLeft: "30px",
+        marginRight: "10",
         marginBottom: "20px",
-        marginTop:"20px",
+        marginTop:"20px", 
+        textAlign:"center",
         [theme.breakpoints.down('sm')]: {
             maxWidth: '100%'
         } 
@@ -24,7 +30,7 @@ const styles = theme => ({
         width: '60%',
         display: "flex",
         flexWrap: "wrap",
-        marginLeft: "40px",
+        marginLeft: "200px",
         marginBottom: "20px",
         marginTop:"20px",
         border: `solid 3px #eeeeee`,
@@ -57,48 +63,50 @@ const styles = theme => ({
         marginBottom: 10,
         color: '#52535A',
         textAlign: 'justify'
+    },
+    instagramLinkContainer: {
+        position: 'absolute',
+        // top: 0,
+        left: '70%',
+        marginTop: '15px',
+        transform: 'translateX(-50%)',
     }
 })
 
-const NewsCard = (props) => {
+const NewsCard_Galeri = (props) => {
     const {
         classes,
-        profileImg,
-        profileName,
-        content1,
-        content2,
-        content3,
-        title1,
-        title2,
-        title3,
-        profileLink3,
-        linkName3
+        profileImg1,
+        profileImg2,
+        profileImg3,
+        profileImg4,
+        profileImg5,
+        profileImg6,
+        profileImg7,
+        profileImg8,
+        profileImg9,
+        profileImg10,
+        profileImg11,
+        profileImg12,
+        profileImg13,
+        profileImg14,
+        profileName
+       
     } = props
     return (
         <Card className={classes.card}>
-             <CardContent>
-                <Typography variant="display2" style={{ color: '#051d47', textAlign: "left", marginLeft: '0px', marginRight: '400px', borderBottom: "2px solid #eee", paddingBottom: "7px" }} gutterBottom>
+               <CardContent>
+                <Typography variant="display2" style={{ color: '#ffff', textAlign: "center", marginLeft: '650px', marginBottom:"0px" }} gutterBottom>
                    {profileName}
-                </Typography>
-                </CardContent>
-                <Mapping/>
-            <CardContent style={{marginTop:"150px"}}>
-                <Typography component="h2" className={classes.description}>
-                    {content1}
                 </Typography>
             </CardContent>
             <CardContent>
-                <Typography component="h2" className={classes.description1}>
-                    {content2}
-                </Typography>
-                <Typography component="p" className={classes.description}>
-                    <a href={profileLink3} target= "_blank">                    
-                        {linkName3}
-                    </a>
-                </Typography>
+            <BlobImageDisplay blobs={[profileImg1, profileImg2, profileImg3, profileImg4, profileImg5, profileImg6, profileImg7, profileImg8, profileImg9, profileImg10, profileImg11, profileImg12, profileImg13, profileImg14]}/>
             </CardContent>
         </Card>
+
+        
     )
 }
 
-export default withStyles(styles)(NewsCard)
+export default withStyles(styles)(NewsCard_Galeri)

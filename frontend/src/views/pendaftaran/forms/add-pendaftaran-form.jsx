@@ -58,9 +58,13 @@ class AddPendaftaranForm extends Component {
             })(<Select style={{ width: 250 }}>
               <Select.Option value="Seleksi Nasional Berdasarkan Prestasi (SNBP)">Jalur SNBP</Select.Option>
               <Select.Option value="Seleksi Nasional Berdasarkan Tes (SNBT)">Jalur SNBT</Select.Option>
-              <Select.Option value="Seleksi Mandiri">Jalur Mandiri Gelombang 1</Select.Option>
-              <Select.Option value="Seleksi Mandiri">Jalur Mandiri Gelombang 2</Select.Option>
-              <Select.Option value="Seleksi Mandiri">Jalur Mandiri Gelombang 3</Select.Option>
+              <Select.Option value="Jalur Mandiri Khusus">Jalur Mandiri Khusus</Select.Option>
+              <Select.Option value="Jalur Mandiri Khusus Tahap 2">Jalur Mandiri Khusus Tahap 2</Select.Option>
+              <Select.Option value="Jalur Mandiri Prestasi">Jalur Mandiri Prestasi</Select.Option>
+              <Select.Option value="Jalur Mandiri Gelombang 1">Jalur Mandiri Gelombang 1</Select.Option>
+              <Select.Option value="Jalur Mandiri Gelombang 2">Jalur Mandiri Gelombang 2</Select.Option>
+              <Select.Option value="Jalur Mandiri Gelombang 3">Jalur Mandiri Gelombang 3</Select.Option>
+              <Select.Option value="Jalur Mandiri Kampus Lumajang">Jalur Mandiri Kampus Lumajang</Select.Option>
             </Select>)}
           </Form.Item>
           <Form.Item label="Deskripsi:">

@@ -197,7 +197,7 @@ class GaleriKampus extends Component {
           visible={this.state.editGaleriKampusModalVisible}
           confirmLoading={this.state.editGaleriKampusModalLoading}
           onCancel={this.handleCancel}
-          onOk={this.handleEditGaleriKampusrOk}
+          onOk={this.handleEditGaleriKampusOk}
         />
         <AddGaleriKampusForm
           wrappedComponentRef={(formRef) =>

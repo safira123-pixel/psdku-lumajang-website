@@ -17,6 +17,7 @@ import Breadcrumb from 'react-bootstrap/Breadcrumb';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ChatIcon from '../../components/ChatIcon';
 import ClipLoader from "react-spinners/ClipLoader";
+import { isMobile } from 'react-device-detect';
 
 
 
@@ -43,9 +44,32 @@ const otomotif = (props) => {
         });
     }, []);
 
+    const [showPopup, setShowPopup] = useState(false);
+
+    useEffect(() => {
+      if (isMobile) {
+        setShowPopup(true);
+      }
+    }, []);
+  
+    const hidePopup = () => {
+      setShowPopup(false);
+    };
+  
+
 //backgroundImage: 'url("/assets/images/background.jpeg")', backgroundRepeat: 'repeat', backgroundSize: 400
     return (
         <div>
+            {showPopup && (
+        <div className={classes.popup}>
+          <p>
+          Mohon maaf, kami sarankan untuk membuka situs ini pada Desktop atau Laptop agar mendapatkan pengalaman yang lebih baik. Jika membuka pada Smartphone atau Mobile, Anda dapat mencoba mengklik tanda titik tiga di pojok kanan atas browser untuk mengakses Situs Desktop (Desktop Site). 😊  
+          </p>
+          <button className={classes.closeButton} onClick={hidePopup}>
+            Close
+          </button>
+        </div>
+      )}
         {loading ? (
           <div className={classes.spinnerContainer}>
             <ClipLoader color="#051d47" loading={loading} size={50} />
@@ -118,16 +142,14 @@ const otomotif = (props) => {
                             <Grid>                    
                             <NewsCard3
                                     profileName= "MENU NAVIGASI"
-                                    linkName1={t('Profil Lumajang')}
-                                    profileLink1="/profil_lumajang"
-                                    linkName2={t('Budaya Lumajang')}
-                                    profileLink2="/budaya_lumajang"
-                                    linkName3={t('Pariwisata Lumajang')}
-                                    profileLink3="/pariwisata_lumajang"
-                                    linkName4={t('Kuliner Lumajang')}
-                                    profileLink4="/kuliner_lumajang"
-                                    linkName5={t('Transportasi Lumajang')}
-                                    profileLink5="/transportasi_lumajang"
+                                    linkName1={t('D-IV Teknologi Rekayasa Otomotif')}
+                                    profileLink1="/otomotif"
+                                    linkName2={t('D-III Teknologi Sipil')}
+                                    profileLink2="/teknologi_sipil"
+                                    linkName3={t('D-III Akuntansi')}
+                                    profileLink3="/akuntansi"
+                                    linkName4={t('D-III Teknologi Informasi')}
+                                    profileLink4="/teknologi_informasi"                        
                                 />
                             </Grid>
                     </Grid>
@@ -144,6 +166,26 @@ const styles = theme => ({
     container: {
         marginLeft: "20px"
     },
+    popup: {
+        position: 'fixed',
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        backgroundColor: '#fff',
+        padding: '20px',
+        boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.2)',
+        zIndex: '999',
+        textAlign: 'center',
+      },
+      closeButton: {
+        backgroundColor: '#051d47',
+        color: '#fff',
+        border: 'none',
+        padding: '10px 20px',
+        cursor: 'pointer',
+        borderRadius: '5px',
+        marginTop: '15px',
+      },
     card: {
         width: '97%',
         display: "flex",
