@@ -143,7 +143,7 @@ const akuntansi = (props) => {
                                     profileLink3="/akuntansi"
                                     linkName4={t('D-III Teknologi Informasi')}
                                     profileLink4="/teknologi_informasi"                        
-                                />
+                                /> 
                             </Grid>
                     </Grid>
                 </Grid>
