@@ -61,52 +61,82 @@ import 'leaflet/dist/leaflet.css'; // Ensure Leaflet CSS is imported
             </Marker>
             <Marker position={position1} icon={customIcon}>
               <Popup>
-               Air Terjun Tumpak Sewu
+                <div>
+                  <strong>Air Terjun Tumpak Sewu</strong> <br />
+                    <a href="https://maps.app.goo.gl/ENUtYdXveZRH5itFA" target="_blank">Informasi lebih lanjut</a>
+                </div>
               </Popup>
             </Marker>
             <Marker position={position2} icon={customIcon}>
               <Popup>
-                Pemandian Selokambang
+              <div>
+                  <strong>Pemandian Selokambang</strong> <br />
+                    <a href="https://maps.app.goo.gl/jQEeWwt2gDGZ79tF6" target="_blank">Informasi lebih lanjut</a>
+                </div>
               </Popup>
             </Marker>
             <Marker position={position3} icon={customIcon}>
               <Popup>
-                Ranu Klakah
+              <div>
+                  <strong>Ranu Klakah</strong> <br />
+                    <a href="https://maps.app.goo.gl/ab294eSoRyAokULt7" target="_blank">Informasi lebih lanjut</a>
+                </div>
               </Popup>
             </Marker>
             <Marker position={position4} icon={customIcon}>
               <Popup>
-                Kebun Teh Kertowono
+              <div>
+                  <strong>Kebun Teh Kertowono</strong> <br />
+                    <a href="https://maps.app.goo.gl/xDAwTsNWFhsYewMt9" target="_blank">Informasi lebih lanjut</a>
+                </div>
               </Popup>
             </Marker>
             <Marker position={position5} icon={customIcon}>
               <Popup>
-                Pantai Watu Pecak
+              <div>
+                  <strong>Pantai Watu Pecak</strong> <br />
+                    <a href="https://maps.app.goo.gl/yfPJTQdbGZrzSLVx8" target="_blank">Informasi lebih lanjut</a>
+                </div>
               </Popup>
             </Marker>
             <Marker position={position6} icon={customIcon}>
               <Popup>
-              PSDKU Pollinema Lumajang                
+              <div>
+                  <strong>PSDKU Pollinema Lumajang</strong> <br />
+                    <a href="https://maps.app.goo.gl/YFBK8vBaBvQDf3F88" target="_blank">Informasi lebih lanjut</a>
+                </div>
               </Popup>
             </Marker>
             <Marker position={position7} icon={customIcon}>
               <Popup>
-              Hutan Bambu                
+              <div>
+                  <strong>Hutan Bambu</strong> <br />
+                    <a href="https://maps.app.goo.gl/Gd29j6ssTnArqjFX7" target="_blank">Informasi lebih lanjut</a>
+                </div>
               </Popup>
             </Marker>
             <Marker position={position8} icon={customIcon}>
               <Popup>
-              Gunung Semeru                
+              <div>
+                  <strong>Gunung Semeru</strong> <br />
+                    <a href="https://maps.app.goo.gl/xk48y7qEBFDrdS9X6" target="_blank">Informasi lebih lanjut</a>
+                </div>
               </Popup>
             </Marker>
             <Marker position={position9} icon={customIcon}>
               <Popup>
-              Tumpak Selo        
+              <div>
+                  <strong>Tumpak Selo</strong> <br />
+                    <a href="https://maps.app.goo.gl/m4BWRUnHrHrj3cWr7" target="_blank">Informasi lebih lanjut</a>
+                </div>
               </Popup>
             </Marker>
             <Marker position={position10} icon={customIcon}>
               <Popup>
-              Pantai Dampar        
+              <div>
+                  <strong>Pantai Dampar</strong> <br />
+                    <a href="https://maps.app.goo.gl/TKZHuRBjguf7E6BF8" target="_blank">Informasi lebih lanjut</a>
+                </div>
               </Popup>
             </Marker>
           </MapContainer>
