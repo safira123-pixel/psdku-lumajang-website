@@ -151,7 +151,7 @@ const TemporaryDrawer = props => {
                 expandSubItem={props.expandSubItem}
                 expandItem={props.expandItem}
                 itemId="campus-life"
-                primaryText={t("Kehidupan Kampus")}
+                primaryText={t("Fasilitas Kampus")}
                 submenuItems={psdkuMenu}
                 isSubOpen={props.drawerSubItems}
                 isOpen={props.drawerItems['campus-life']}
