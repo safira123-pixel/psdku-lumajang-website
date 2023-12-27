@@ -9,6 +9,7 @@ import React, { Component, Fragment } from 'react'
 import Accordion from 'react-bootstrap/Accordion'
 import AccordionItem from 'react-bootstrap/AccordionItem'
 // import { BlobImageDisplay } from "../apps/pages/BlobImageDisplay7";
+import Mapping from '../apps/pages/mapping_kuliner'
 
 
 const styles = theme => ({
@@ -19,6 +20,7 @@ const styles = theme => ({
         marginLeft: "5px",
         marginBottom: "20px",
         marginTop:"20px",
+        paddingBottom: "20px",
         [theme.breakpoints.down('sm')]: {
             maxWidth: '100%'
         } 
@@ -343,8 +345,11 @@ const NewsCard = (props) => {
                     </CardContent>
                 </Accordion.Body>
             </Accordion.Item>
-
             </Accordion>
+            <Mapping/>
+            <Typography style={{ width: "90%", marginLeft: "200px", marginBottom: "150px" }}></Typography>
+
+
         </Card>
     )
 }

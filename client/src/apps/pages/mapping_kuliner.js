@@ -8,7 +8,7 @@ import TextSection from '../../components/TextSection'
 import withRoot from '../../components/withRoot'
 import SlideShow from '../../components/SlideShow'
 import SlideShow_Galeri from '../../components/SlideShow_Galeri'
-import NewsCard from '../../components/NewsCard_Home'
+import NewsCard from '../../components/NewsCardKuliner'
 import { withTranslation } from 'react-i18next'
 import { Button } from '@material-ui/core'
 import { useTranslation } from 'react-i18next'
@@ -20,18 +20,18 @@ import { MapContainer, TileLayer, Marker, Popup  } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'; // Ensure Leaflet CSS is imported
 
 
-  const mapping = (props) => {
-    const position = [ -8.1353247, 113.2243037];
-    const position1 = [ -8.2303629,112.8985706]; 
-    const position2 = [ -8.1306872,113.1097889]; 
-    const position3 = [ -7.985833,113.2613669]; 
-    const position4 = [ -8.0229414,113.1292554]; 
-    const position5 = [ -8.2856868,113.1437174]; 
-    const position6 = [ -8.1397059,113.2401982]; 
-    const position7 = [ -8.1393543,113.0133882]; 
-    const position8 = [ -8.1077154,112.8854984]; 
-    const position9 = [ -8.1295528,113.1910556]; 
-    const position10 = [ -8.2894666,112.7842961]; 
+  const mapping_kuliner = (props) => {
+    const position = [ -8.1353247, 113.2243037 ];
+    const position1 = [ -8.1067921,113.2295052 ]; 
+    const position2 = [ -8.1466615,113.2256947 ]; 
+    const position3 = [ -8.1363078,113.2164703 ]; 
+    const position4 = [ -8.1558526,113.2490225 ]; 
+    const position5 = [ -8.1325002,113.2096281 ]; 
+    const position6 = [ -8.1328252,113.2195445 ]; 
+    const position7 = [ -8.1415097,113.2313963 ]; 
+    const position8 = [ -8.1353217,113.2105678 ]; 
+    const position9 = [ -8.0977757,113.2291756 ]; 
+    const position10 = [ -8.1342707,113.2157278 ]; 
 
 
   const { classes} = props
@@ -61,82 +61,79 @@ import 'leaflet/dist/leaflet.css'; // Ensure Leaflet CSS is imported
             </Marker>
             <Marker position={position1} icon={customIcon}>
               <Popup>
-                <div>
-                  <strong>Air Terjun Tumpak Sewu</strong> <br />
-                    <a href="https://maps.app.goo.gl/ENUtYdXveZRH5itFA" target="_blank">Informasi lebih lanjut</a>
+              <div>
+                  <strong>Wakul Bu Tjipto</strong> <br />
+                    <a href="https://maps.app.goo.gl/MA1FdJEZnxqz7vdw8" target="_blank">Informasi lebih lanjut</a>
                 </div>
               </Popup>
             </Marker>
             <Marker position={position2} icon={customIcon}>
               <Popup>
               <div>
-                  <strong>Pemandian Selokambang</strong> <br />
-                    <a href="https://maps.app.goo.gl/jQEeWwt2gDGZ79tF6" target="_blank">Informasi lebih lanjut</a>
-                </div>
-              </Popup>
+                  <strong>Rumah Makan Istana Kuliner</strong> <br />
+                    <a href="https://maps.app.goo.gl/sFdss5DU3BMMayp3A" target="_blank">Informasi lebih lanjut</a>
+                </div>              
+                </Popup>
             </Marker>
             <Marker position={position3} icon={customIcon}>
               <Popup>
               <div>
-                  <strong>Ranu Klakah</strong> <br />
-                    <a href="https://maps.app.goo.gl/ab294eSoRyAokULt7" target="_blank">Informasi lebih lanjut</a>
+                  <strong>Mie Semeru</strong> <br />
+                    <a href="https://maps.app.goo.gl/DSqpgT21gBG6SuV39" target="_blank">Informasi lebih lanjut</a>
                 </div>
               </Popup>
             </Marker>
             <Marker position={position4} icon={customIcon}>
               <Popup>
               <div>
-                  <strong>Kebun Teh Kertowono</strong> <br />
-                    <a href="https://maps.app.goo.gl/xDAwTsNWFhsYewMt9" target="_blank">Informasi lebih lanjut</a>
-                </div>
+                  <strong>Warung Pondok Bunga</strong> <br />
+                    <a href="https://maps.app.goo.gl/uzrHKgGRFHxVGCXs8" target="_blank">Informasi lebih lanjut</a>
+                </div> 
               </Popup>
             </Marker>
             <Marker position={position5} icon={customIcon}>
               <Popup>
               <div>
-                  <strong>Pantai Watu Pecak</strong> <br />
-                    <a href="https://maps.app.goo.gl/yfPJTQdbGZrzSLVx8" target="_blank">Informasi lebih lanjut</a>
-                </div>
-              </Popup>
+                  <strong>Warung Bromo Asri Lumajang</strong> <br />
+                    <a href="https://maps.app.goo.gl/9oGNPfBUbdGbLYeK6" target="_blank">Informasi lebih lanjut</a>
+                </div>              </Popup>
             </Marker>
             <Marker position={position6} icon={customIcon}>
               <Popup>
               <div>
-                  <strong>PSDKU Pollinema Lumajang</strong> <br />
-                    <a href="https://maps.app.goo.gl/YFBK8vBaBvQDf3F88" target="_blank">Informasi lebih lanjut</a>
-                </div>
-              </Popup>
+                  <strong>RM. Kemayoran</strong> <br />
+                    <a href="https://maps.app.goo.gl/sdrvyjaHowmSPQC17" target="_blank">Informasi lebih lanjut</a>
+                </div>               </Popup>
             </Marker>
             <Marker position={position7} icon={customIcon}>
               <Popup>
               <div>
-                  <strong>Hutan Bambu</strong> <br />
-                    <a href="https://maps.app.goo.gl/Gd29j6ssTnArqjFX7" target="_blank">Informasi lebih lanjut</a>
-                </div>
+                  <strong>Mie Nyonyor lumajang</strong> <br />
+                    <a href="https://maps.app.goo.gl/UqFMUAJaLQ6ZCwwQA" target="_blank">Informasi lebih lanjut</a>
+                </div>                 
               </Popup>
             </Marker>
             <Marker position={position8} icon={customIcon}>
               <Popup>
               <div>
-                  <strong>Gunung Semeru</strong> <br />
-                    <a href="https://maps.app.goo.gl/xk48y7qEBFDrdS9X6" target="_blank">Informasi lebih lanjut</a>
-                </div>
-              </Popup>
+                  <strong>Warung Pedas Rowobujel</strong> <br />
+                    <a href="https://maps.app.goo.gl/KiRSQQWGs3oWrSo29" target="_blank">Informasi lebih lanjut</a>
+                </div>              </Popup>
             </Marker>
             <Marker position={position9} icon={customIcon}>
               <Popup>
               <div>
-                  <strong>Tumpak Selo</strong> <br />
-                    <a href="https://maps.app.goo.gl/m4BWRUnHrHrj3cWr7" target="_blank">Informasi lebih lanjut</a>
-                </div>
+                  <strong>Warung Apung Pondok Asri</strong> <br />
+                    <a href="https://maps.app.goo.gl/Hm83RBmJEZAyH5dK8" target="_blank">Informasi lebih lanjut</a>
+                </div>           
               </Popup>
             </Marker>
             <Marker position={position10} icon={customIcon}>
               <Popup>
               <div>
-                  <strong>Pantai Dampar</strong> <br />
-                    <a href="https://maps.app.goo.gl/TKZHuRBjguf7E6BF8" target="_blank">Informasi lebih lanjut</a>
-                </div>
+                  <strong>SOTO DOK LUMAJANG</strong> <br />
+                    <a href="https://maps.app.goo.gl/dssGhuYK7bTJkiAZ6" target="_blank">Informasi lebih lanjut</a>
+                </div>          
               </Popup>
             </Marker>
           </MapContainer>
@@ -249,4 +246,4 @@ const styles = theme => ({
       boxShadow: 'none'
   }
 })
-export default withRoot(withStyles(styles)(withTranslation()(mapping)))
+export default withRoot(withStyles(styles)(withTranslation()(mapping_kuliner)))
