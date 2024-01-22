@@ -43,9 +43,9 @@
     "xlsx": "^0.16.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts --max-old-space-size=4096 build ",
-    "test": "react-scripts test",
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired --max-old-space-size=4096 build ",
+    "test": "react-app-rewired test",
     "eject": "react-scripts eject",
     "commit": "git cz"
   },
