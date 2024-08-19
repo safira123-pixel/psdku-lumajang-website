@@ -7,7 +7,7 @@ import Layout from "../../components/Layout";
 import TextSection from "../../components/TextSection";
 import withRoot from "../../components/withRoot";
 import SlideShow from "../../components/SlideShow";
-import NewsCard from "../../components/NewsCard_Gambar";
+import NewsCard from "../../components/NewsCard_Jurusan";
 import NewsCard2 from "../../components/NewsCard_NavBar";
 import NewsCard1 from "../../components/NewsCard_NavBarKalender";
 import NewsCard3 from "../../components/NewsCard_MenuNav";
@@ -20,14 +20,15 @@ import ClipLoader from "react-spinners/ClipLoader";
 import { isMobile } from "react-device-detect";
 import { config } from "../../config/globalConfig";
 
-const kalender_akademik = (props) => {
+const teknologi_informasi = (props) => {
   const [loading, setLoading] = useState(true);
+
   const [data, setData] = useState([]);
   const { classes } = props;
   const { t } = useTranslation();
 
   useEffect(() => {
-    fetch(config.apiUrl + "/api/kalender") // Pastikan URL endpoint sesuai
+    fetch(config.apiUrl + "/api/department") // Pastikan URL endpoint sesuai
       .then((response) => response.json())
       .then((data) => {
         setData([data.content]);
@@ -88,13 +89,13 @@ const kalender_akademik = (props) => {
                     {" "}
                     {t("beranda.label")}
                   </Breadcrumb.Item>
-                  <Breadcrumb.Item href="/kalender_akademik">
+                  <Breadcrumb.Item href="/teknologi_informasi">
                     {" "}
                     {t("Program Studi")}
                   </Breadcrumb.Item>
-                  <Breadcrumb.Item active href="/kalender_akademik">
+                  <Breadcrumb.Item active href="/teknologi_informasi">
                     {" "}
-                    {t("Kalender")}
+                    {t("TI")}
                   </Breadcrumb.Item>
                 </Breadcrumb>
               </div>
@@ -104,10 +105,30 @@ const kalender_akademik = (props) => {
                 {data.map((item, index) => (
                   <NewsCard
                     key={index}
-                    profileName={t("Kalender")}
-                    profileImg={item[0].data}
-                    profileLink="https://www.polinema.ac.id/wp-content/uploads/2023/08/KALENDER-AKADEMIK-TA-2023-2024.pdf"
-                    linkName={t("DOWNLOAD KALENDER AKADEMIK 2023/2024")}
+                    profileName={t("TI")}
+                    //  profileImg={item[3].data}
+                    profileImg1={item[9].data}
+                    profileImg2={item[10].data}
+                    profileImg3={item[11].data}
+                    title1={t("Deskripsi")}
+                    content1={item[9].description}
+                    title2={t("Kompetensi Lulusan")}
+                    content2={item[9].kompetensi}
+                    title3={t("Peluang Kerja")}
+                    content3={item[9].peluang}
+                    instagramLink={
+                      <a
+                        href="https://www.instagram.com/hmti.psdku_lumajang/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <img
+                          src="././assets/images/logo_ig.png"
+                          width="40"
+                          alt="Icon"
+                        />
+                      </a>
+                    }
                   />
                 ))}
               </Grid>
@@ -149,8 +170,14 @@ const kalender_akademik = (props) => {
                 <Grid>
                   <NewsCard3
                     profileName="MENU NAVIGASI"
-                    linkName1={t("Kalender Akademik")}
-                    profileLink1="/kalender_akademik"
+                    linkName1={t("D-IV Teknologi Rekayasa Otomotif")}
+                    profileLink1="/otomotif"
+                    linkName2={t("D-III Teknologi Sipil")}
+                    profileLink2="/teknologi_sipil"
+                    linkName3={t("D-III Akuntansi")}
+                    profileLink3="/akuntansi"
+                    linkName4={t("D-III Teknologi Informasi")}
+                    profileLink4="/teknologi_informasi"
                   />
                 </Grid>
               </Grid>
@@ -323,5 +350,5 @@ const styles = (theme) => ({
 });
 
 export default withRoot(
-  withStyles(styles)(withTranslation()(kalender_akademik))
+  withStyles(styles)(withTranslation()(teknologi_informasi))
 );

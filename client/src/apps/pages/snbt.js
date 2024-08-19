@@ -7,7 +7,7 @@ import Layout from "../../components/Layout";
 import TextSection from "../../components/TextSection";
 import withRoot from "../../components/withRoot";
 import SlideShow from "../../components/SlideShow";
-import NewsCard from "../../components/NewsCard_Gambar";
+import NewsCard from "../../components/NewsCard_Pendaftaran2";
 import NewsCard2 from "../../components/NewsCard_NavBar";
 import NewsCard1 from "../../components/NewsCard_NavBarKalender";
 import NewsCard3 from "../../components/NewsCard_MenuNav";
@@ -20,14 +20,15 @@ import ClipLoader from "react-spinners/ClipLoader";
 import { isMobile } from "react-device-detect";
 import { config } from "../../config/globalConfig";
 
-const kalender_akademik = (props) => {
+const snbt = (props) => {
   const [loading, setLoading] = useState(true);
+
   const [data, setData] = useState([]);
   const { classes } = props;
   const { t } = useTranslation();
 
   useEffect(() => {
-    fetch(config.apiUrl + "/api/kalender") // Pastikan URL endpoint sesuai
+    fetch(config.apiUrl + "/api/pendaftaran") // Pastikan URL endpoint sesuai
       .then((response) => response.json())
       .then((data) => {
         setData([data.content]);
@@ -36,7 +37,7 @@ const kalender_akademik = (props) => {
       })
       .catch((error) => {
         console.error(error);
-        setLoading(false);
+        setLoading(false); // Set loading to false when data is loaded
       });
   }, []);
 
@@ -68,11 +69,13 @@ const kalender_akademik = (props) => {
           </button>
         </div>
       )}
+
       {loading ? (
         <div className={classes.spinnerContainer}>
           <ClipLoader color="#051d47" loading={loading} size={50} />
         </div>
       ) : (
+        // Your existing JSX code for the "kantin" page
         <div
           style={{
             backgroundImage: 'url("/assets/images/bg_polinema1.png")',
@@ -88,13 +91,13 @@ const kalender_akademik = (props) => {
                     {" "}
                     {t("beranda.label")}
                   </Breadcrumb.Item>
-                  <Breadcrumb.Item href="/kalender_akademik">
+                  <Breadcrumb.Item href="/snbt">
                     {" "}
-                    {t("Program Studi")}
+                    {t("Info Penerimaan Mahasiswa Baru")}
                   </Breadcrumb.Item>
-                  <Breadcrumb.Item active href="/kalender_akademik">
+                  <Breadcrumb.Item active href="/snbt">
                     {" "}
-                    {t("Kalender")}
+                    {t("SNBT")}
                   </Breadcrumb.Item>
                 </Breadcrumb>
               </div>
@@ -104,10 +107,15 @@ const kalender_akademik = (props) => {
                 {data.map((item, index) => (
                   <NewsCard
                     key={index}
-                    profileName={t("Kalender")}
-                    profileImg={item[0].data}
-                    profileLink="https://www.polinema.ac.id/wp-content/uploads/2023/08/KALENDER-AKADEMIK-TA-2023-2024.pdf"
-                    linkName={t("DOWNLOAD KALENDER AKADEMIK 2023/2024")}
+                    profileName={t("SNBT")}
+                    profileImg1={item[10].data}
+                    profileImg2={item[9].data}
+                    content1={item[10].description}
+                    content2={t(
+                      "Untuk informasi selengkapnya dapat menuju halaman berikut : "
+                    )}
+                    profileLink3="https://snpmb.bppp.kemdikbud.go.id/"
+                    linkName3={"https://snpmb.bppp.kemdikbud.go.id/"}
                   />
                 ))}
               </Grid>
@@ -149,8 +157,12 @@ const kalender_akademik = (props) => {
                 <Grid>
                   <NewsCard3
                     profileName="MENU NAVIGASI"
-                    linkName1={t("Kalender Akademik")}
-                    profileLink1="/kalender_akademik"
+                    linkName1={t("Jalur SNBP")}
+                    profileLink1="/snbp"
+                    linkName2={t("Jalur SNBT")}
+                    profileLink2="/snbt"
+                    linkName3={t("Jalur Mandiri")}
+                    profileLink3="/mandiri"
                   />
                 </Grid>
               </Grid>
@@ -166,6 +178,12 @@ const kalender_akademik = (props) => {
 const styles = (theme) => ({
   container: {
     marginLeft: "20px",
+  },
+  spinnerContainer: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    height: "100vh",
   },
   card: {
     width: "97%",
@@ -282,23 +300,17 @@ const styles = (theme) => ({
     justifyContent: "center",
     marginTop: "16px",
   },
+  spinnerContainer: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    height: "100vh",
+  },
   invertedBtn: {
     color: "#051d47",
     backgroundColor: "transparent",
     border: "2px #051d47 solid",
     boxShadow: "none",
-  },
-  spinnerContainer: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    height: "100vh",
-  },
-  spinnerContainer: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    height: "100vh",
   },
   popup: {
     position: "fixed",
@@ -322,6 +334,4 @@ const styles = (theme) => ({
   },
 });
 
-export default withRoot(
-  withStyles(styles)(withTranslation()(kalender_akademik))
-);
+export default withRoot(withStyles(styles)(withTranslation()(snbt)));

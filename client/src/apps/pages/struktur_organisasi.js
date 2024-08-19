@@ -7,7 +7,7 @@ import Layout from "../../components/Layout";
 import TextSection from "../../components/TextSection";
 import withRoot from "../../components/withRoot";
 import SlideShow from "../../components/SlideShow";
-import NewsCard from "../../components/NewsCard_Gambar";
+import NewsCard from "../../components/NewsCard_Gambar2";
 import NewsCard2 from "../../components/NewsCard_NavBar";
 import NewsCard1 from "../../components/NewsCard_NavBarKalender";
 import NewsCard3 from "../../components/NewsCard_MenuNav";
@@ -20,14 +20,14 @@ import ClipLoader from "react-spinners/ClipLoader";
 import { isMobile } from "react-device-detect";
 import { config } from "../../config/globalConfig";
 
-const kalender_akademik = (props) => {
+const struktur_organisasi = (props) => {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
   const { classes } = props;
   const { t } = useTranslation();
 
   useEffect(() => {
-    fetch(config.apiUrl + "/api/kalender") // Pastikan URL endpoint sesuai
+    fetch(config.apiUrl + "/api/organisasi") // Pastikan URL endpoint sesuai
       .then((response) => response.json())
       .then((data) => {
         setData([data.content]);
@@ -39,7 +39,6 @@ const kalender_akademik = (props) => {
         setLoading(false);
       });
   }, []);
-
   const [showPopup, setShowPopup] = useState(false);
 
   useEffect(() => {
@@ -51,7 +50,6 @@ const kalender_akademik = (props) => {
   const hidePopup = () => {
     setShowPopup(false);
   };
-
   return (
     <div>
       {showPopup && (
@@ -88,13 +86,13 @@ const kalender_akademik = (props) => {
                     {" "}
                     {t("beranda.label")}
                   </Breadcrumb.Item>
-                  <Breadcrumb.Item href="/kalender_akademik">
+                  <Breadcrumb.Item href="/struktur_organisasi">
                     {" "}
                     {t("Program Studi")}
                   </Breadcrumb.Item>
-                  <Breadcrumb.Item active href="/kalender_akademik">
+                  <Breadcrumb.Item active href="/struktur_organisasi">
                     {" "}
-                    {t("Kalender")}
+                    {t("Organisasi")}
                   </Breadcrumb.Item>
                 </Breadcrumb>
               </div>
@@ -104,10 +102,8 @@ const kalender_akademik = (props) => {
                 {data.map((item, index) => (
                   <NewsCard
                     key={index}
-                    profileName={t("Kalender")}
+                    profileName={t("Organisasi")}
                     profileImg={item[0].data}
-                    profileLink="https://www.polinema.ac.id/wp-content/uploads/2023/08/KALENDER-AKADEMIK-TA-2023-2024.pdf"
-                    linkName={t("DOWNLOAD KALENDER AKADEMIK 2023/2024")}
                   />
                 ))}
               </Grid>
@@ -149,8 +145,14 @@ const kalender_akademik = (props) => {
                 <Grid>
                   <NewsCard3
                     profileName="MENU NAVIGASI"
-                    linkName1={t("Kalender Akademik")}
-                    profileLink1="/kalender_akademik"
+                    linkName1={t("Profil Kampus")}
+                    profileLink1="/profile"
+                    linkName2={t("Selayang Pandang")}
+                    profileLink2="/selayang_pandang"
+                    linkName3={t("Visi dan Misi")}
+                    profileLink3="/visi_misi"
+                    linkName4={t("Struktur Organisasi")}
+                    profileLink4="/struktur_organisasi"
                   />
                 </Grid>
               </Grid>
@@ -166,6 +168,26 @@ const kalender_akademik = (props) => {
 const styles = (theme) => ({
   container: {
     marginLeft: "20px",
+  },
+  popup: {
+    position: "fixed",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    backgroundColor: "#fff",
+    padding: "20px",
+    boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.2)",
+    zIndex: "999",
+    textAlign: "center",
+  },
+  closeButton: {
+    backgroundColor: "#051d47",
+    color: "#fff",
+    border: "none",
+    padding: "10px 20px",
+    cursor: "pointer",
+    borderRadius: "5px",
+    marginTop: "15px",
   },
   card: {
     width: "97%",
@@ -300,28 +322,8 @@ const styles = (theme) => ({
     alignItems: "center",
     height: "100vh",
   },
-  popup: {
-    position: "fixed",
-    top: "50%",
-    left: "50%",
-    transform: "translate(-50%, -50%)",
-    backgroundColor: "#fff",
-    padding: "20px",
-    boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.2)",
-    zIndex: "999",
-    textAlign: "center",
-  },
-  closeButton: {
-    backgroundColor: "#051d47",
-    color: "#fff",
-    border: "none",
-    padding: "10px 20px",
-    cursor: "pointer",
-    borderRadius: "5px",
-    marginTop: "15px",
-  },
 });
 
 export default withRoot(
-  withStyles(styles)(withTranslation()(kalender_akademik))
+  withStyles(styles)(withTranslation()(struktur_organisasi))
 );
