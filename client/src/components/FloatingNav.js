@@ -1,64 +1,23 @@
-import { withStyles } from '@material-ui/core/styles'
-import React, { Component } from 'react'
-import { getJSON } from '../utils/fetch'
-const uuidv1 = require('uuid/v1')
+import React from 'react';
+import { Link } from 'react-router-dom';
+import '../FloatingNav.css';
 
-class FloatingNav extends Component {
-  state = {
-    data: null,
-    loading: true
-  }
-  componentDidMount() {
-    const apiUrl = 'https://wp.franciscan.university/wp-json/wp/v2/'
-    const params = `menu?slug=${this.props.menuSlug}`
-    getJSON(apiUrl + params).then(data =>
-      this.setState({ data: data, loading: false })
-    )
-  }
-  render() {
-    const { classes } = this.props
-    const { data, loading } = this.state
-    return (
-      <div className={classes.container}>
-        <ul className={classes.nav}>
-          {!loading &&
-            data.length > 0 &&
-            data[0].acf.links.map(item => (
-              <a href={item.link_path} key={uuidv1()}>
-                <li className={classes.navItem}>{item.link_name}</li>
-              </a>
-            ))}
-        </ul>
-      </div>
-    )
-  }
-}
+const FloatingNav = () => {
+  return (
+    <div className="floating-nav">
+      <ul>
+        
+        <li><Link to="/profile"><i className="fas fa-home"></i><strong><span>Profil</span></strong></Link></li>
+        <li><Link to="/kalender_akademik"><i className="fas fa-search"></i><strong><span>Kalender Akademik</span></strong></Link></li>
+        <li><Link to="/teknologi_informasi"><i className="fas fa-bell"></i><strong><span>Program Studi</span></strong></Link></li>
+        <li><Link to="/snbp"><i className="fas fa-user"></i><strong><span>Info PMB</span></strong></Link></li>
+        <li><Link to="/kegiatan_mahasiswa"><i className="fas fa-user"></i><strong><span>Kegiatan Mahasiswa</span></strong></Link></li>
+        <li><Link to="/perpustakaan_polinema"><i className="fas fa-user"></i><strong><span>Fasilitas Kampus</span></strong></Link></li>
+        <li><Link to="/profil_lumajang"><i className="fas fa-city"></i><strong><span>Kehidupan Lumajang</span></strong></Link></li>
 
-const styles = theme => ({
-  container: {
-    position: 'sticky',
-    top: '50px',
-    float: 'right',
-    maxWidth: '19%',
-    [theme.breakpoints.down('md')]: {
-      position: 'relative',
-      float: 'left',
-      marginRight: 0,
-      top: 0,
-      maxWidth: '100%'
-    }
-  },
-  nav: {
-    listStyle: 'none',
-    margin: 0,
-    padding: 0
-  },
-  navItem: {
-    marginBottom: '4px',
-    padding: '4px',
-    cursor: 'pointer',
-    color: 'hsla(47, 39%, 34%, 1)'
-  }
-})
+      </ul>
+    </div>
+  );
+};
 
-export default withStyles(styles)(FloatingNav)
+export default FloatingNav;

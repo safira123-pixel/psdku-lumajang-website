@@ -17,6 +17,7 @@ import Breadcrumb from 'react-bootstrap/Breadcrumb';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ChatIcon from '../../components/ChatIcon';
 import ClipLoader from "react-spinners/ClipLoader";
+import FloatingNav from '../../components/FloatingNav';
 
 
 const item_kegiatan9 = (props) => {
@@ -113,6 +114,7 @@ const item_kegiatan9 = (props) => {
                 </Grid>
         </Layout>
         <ChatIcon/>
+        <FloatingNav/>
         </div>
         )}
         </div>

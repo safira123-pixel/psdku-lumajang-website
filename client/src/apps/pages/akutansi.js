@@ -18,6 +18,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import ChatIcon from '../../components/ChatIcon';
 import ClipLoader from "react-spinners/ClipLoader";
 import { isMobile } from 'react-device-detect';
+import FloatingNav from '../../components/FloatingNav';
 
 
 const akuntansi = (props) => {
@@ -149,6 +150,7 @@ const akuntansi = (props) => {
                 </Grid>
         </Layout>
         <ChatIcon/>
+        <FloatingNav/>
         </div>
         )}
         </div>

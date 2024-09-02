@@ -18,6 +18,8 @@ import NewsCard_Galeri from '../../components/NewsCard_Galeri'
 import Galeri from './galeri'
 import { useEffect, useState } from 'react'
 import { isMobile } from 'react-device-detect';
+import FloatingNav from '../../components/FloatingNav';
+
 
 
 const HomePage = (props) => {
@@ -63,6 +65,7 @@ const HomePage = (props) => {
           </button>
         </div>
       )}
+
             <MarqueeText/>
             <SlideShow />
             <TextSection
@@ -74,8 +77,8 @@ const HomePage = (props) => {
                 darkBg={true}
                 
             />
-            {/* <NewsCardCounter profileName={t('Pengunjung')}  /> */}
 
+            {/* <NewsCardCounter profileName={t('Pengunjung')}  /> */}
             <div style={{backgroundImage: 'url("/assets/images/bg_polinema2.png")', backgroundRepeat: 'repeat', backgroundSize: 500}}>
             <Grid container className={classes.contentContainer}>
                 <Grid item className={classes.gridItemFix} xs={12}>
@@ -162,7 +165,10 @@ const HomePage = (props) => {
             </div>
             
             <ChatIcon />
+            <FloatingNav />
+
         </Layout >
+        
     )
 }
 

@@ -18,6 +18,8 @@ import NewsCard_Galeri from '../../components/NewsCard_Galeri'
 import { useEffect, useState } from 'react'
 import { MapContainer, TileLayer, Marker, Popup  } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'; // Ensure Leaflet CSS is imported
+import FloatingNav from '../../components/FloatingNav';
+
 
 
   const mapping = (props) => {

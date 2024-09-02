@@ -20,6 +20,7 @@ import { MapContainer, TileLayer, Marker, Popup  } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'; // Ensure Leaflet CSS is imported
 
 
+
   const mapping_kuliner = (props) => {
     const position = [ -8.1353247, 113.2243037 ];
     const position1 = [ -8.1067921,113.2295052 ]; 

@@ -15,6 +15,7 @@ import { Button } from '@material-ui/core'
 import Breadcrumb from 'react-bootstrap/Breadcrumb';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ChatIcon from '../../components/ChatIcon';
+import FloatingNav from '../../components/FloatingNav';
 
 
 const fasilitas_bangunan = (props) => {
@@ -82,6 +83,7 @@ const fasilitas_bangunan = (props) => {
                 </Grid>
         </Layout>
         <ChatIcon/>
+        <FloatingNav/>
         </div>
     )
 }
